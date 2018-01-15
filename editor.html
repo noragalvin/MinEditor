@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" type="text/css" href="editor.css">
+
+
+
+  <script type="text/javascript">
+
+    var oDoc;
+    var oCode;
+
+    //khởi đầu
+
+    function initDoc() {
+      oDoc = document.getElementById("editor-doc");
+      initCode();
+    }
+
+    function initCode() {
+      oCode = document.getElementById("editor-code");
+      setCodeMode(true);
+    }
+    
+    function validateMode() {
+      if (!document.compForm.switchMode.checked) { return true ; }
+      alert("Uncheck \"Show HTML\".");
+      oDoc.focus();
+      return false;
+    }
+
+    //chuyển đổi
+
+    function setCodeMode() {
+      var oContent;
+      //console.log(oDoc);
+        oContent = document.createTextNode(oDoc.innerHTML);
+        //console.log(oContent);
+        oCode.innerHTML = "";
+        var oPre = document.createElement("pre");
+        //console.log(oPre);
+        oCode.contentEditable = false;
+        oPre.id = "sourceText";
+        oPre.contentEditable = true;
+        oPre.appendChild(oContent);
+        oCode.appendChild(oPre);
+        oCode.focus();
+    }
+
+     function setDocMode() {
+        if (document.all) {
+          //console.log(1);
+          oDoc.innerHTML = oDoc.innerText;
+        } else {
+          //console.log(1);
+          //console.log(oDoc.innerHTML);
+          oContent = document.createRange();
+          //console.log(oDoc.firstChild);
+          oContent.selectNodeContents(oCode.firstChild);
+          //console.log(oContent.toString());
+          oDoc.innerHTML = oContent.toString();
+        }
+        oDoc.contentEditable = true;
+      }
+
+  </script>
+
+</head>
+<body onload = "initDoc()" class='container-fluid'>
+  <form class='col-md-6' name="compForm" method="post" action="sample.php" onsubmit="if(validateMode()){this.myDoc.value=oDoc.innerHTML;return true;}return false;">
+  <!--<a href="#" data-command='undo'><i class='fa fa-undo'></i></a>
+  <a href="#" data-command='redo'><i class='fa fa-repeat'></i></a>
+  <i class='fa fa-font' style='color:#C96;'></i>
+  <i class='fa fa-font' style='background:#C96;'></i>
+  <a href="#" data-command='bold' onclick="formatDoc('bold')"><i class='fa fa-bold'></i></a>
+  <a href="#" data-command='italic'><i class='fa fa-italic'></i></a>
+  <a href="#" data-command='underline'><i class='fa fa-underline'></i></a>
+  <a href="#" data-command='strikeThrough'><i class='fa fa-strikethrough'></i></a>
+  <a href="#" data-command='justifyLeft'><i class='fa fa-align-left'></i></a>
+  <a href="#" data-command='justifyCenter'><i class='fa fa-align-center'></i></a>
+  <a href="#" data-command='justifyRight'><i class='fa fa-align-right'></i></a>
+  <a href="#" data-command='justifyFull'><i class='fa fa-align-justify'></i></a>
+  <a href="#" data-command='indent'><i class='fa fa-indent'></i></a>
+  <a href="#" data-command='outdent'><i class='fa fa-outdent'></i></a>
+  <a href="#" data-command='insertUnorderedList'><i class='fa fa-list-ul'></i></a>
+  <a href="#" data-command='insertOrderedList'><i class='fa fa-list-ol'></i></a>
+  <a href="#" data-command='h1'>H1</a>
+  <a href="#" data-command='h2'>H2</a>
+  <a href="#" data-command='createlink'><i class='fa fa-link'></i></a>
+  <a href="#" data-command='unlink'><i class='fa fa-unlink'></i></a>
+  <a href="#" data-command='insertimage'><i class='fa fa-image'></i></a>
+  <a href="#" data-command='p'>P</a>
+  <a href="#" data-command='subscript'><i class='fa fa-subscript'></i></a>
+  <a href="#" data-command='superscript'><i class='fa fa-superscript'></i></a>-->
+  <div id='editor-doc' contenteditable onkeyup="setCodeMode();">
+    <p> coicoichip </p>
+  </div>
+</form>
+<form class='col-md-6' name="compForm" method="post" action="sample.php" onsubmit="if(validateMode()){this.myDoc.value=oDoc.innerHTML;return true;}return false;">
+  <!--<a href="#" data-command='undo'><i class='fa fa-undo'></i></a>
+  <a href="#" data-command='redo'><i class='fa fa-repeat'></i></a>
+  <i class='fa fa-font' style='color:#C96;'></i>
+  <i class='fa fa-font' style='background:#C96;'></i>
+  <a href="#" data-command='bold' onclick="formatDoc('bold')"><i class='fa fa-bold'></i></a>
+  <a href="#" data-command='italic'><i class='fa fa-italic'></i></a>
+  <a href="#" data-command='underline'><i class='fa fa-underline'></i></a>
+  <a href="#" data-command='strikeThrough'><i class='fa fa-strikethrough'></i></a>
+  <a href="#" data-command='justifyLeft'><i class='fa fa-align-left'></i></a>
+  <a href="#" data-command='justifyCenter'><i class='fa fa-align-center'></i></a>
+  <a href="#" data-command='justifyRight'><i class='fa fa-align-right'></i></a>
+  <a href="#" data-command='justifyFull'><i class='fa fa-align-justify'></i></a>
+  <a href="#" data-command='indent'><i class='fa fa-indent'></i></a>
+  <a href="#" data-command='outdent'><i class='fa fa-outdent'></i></a>
+  <a href="#" data-command='insertUnorderedList'><i class='fa fa-list-ul'></i></a>
+  <a href="#" data-command='insertOrderedList'><i class='fa fa-list-ol'></i></a>
+  <a href="#" data-command='h1'>H1</a>
+  <a href="#" data-command='h2'>H2</a>
+  <a href="#" data-command='createlink'><i class='fa fa-link'></i></a>
+  <a href="#" data-command='unlink'><i class='fa fa-unlink'></i></a>
+  <a href="#" data-command='insertimage'><i class='fa fa-image'></i></a>
+  <a href="#" data-command='p'>P</a>
+  <a href="#" data-command='subscript'><i class='fa fa-subscript'></i></a>
+  <a href="#" data-command='superscript'><i class='fa fa-superscript'></i></a>-->
+  <div id='editor-code' contenteditable onkeyup="setDocMode()">
+  </div>
+</form>
+</body>
+</html>
+
+
+
