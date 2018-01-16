@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <link rel="stylesheet" type="text/css" href="editor.css">
+  <script src="js/jquery.min.js"></script>
 
 
 
@@ -92,9 +93,16 @@
         oDoc.focus();
         setCodeMode();
       } else {
-        document.execCommand(sCmd, false, sValue);
-        oDoc.focus();
-        setCodeMode();
+        if (document.queryCommandSupported(sCmd) == false) {
+          alert('The command ' + sCmd + ' is not support your browser');
+          // console.log('hello');
+        } else {
+          document.execCommand(sCmd, false, sValue);
+          // console.log('hello22');
+          // console.log(document.queryCommandSupported(sCmd));
+          oDoc.focus();
+          setCodeMode();
+        }
       }
     }
 
@@ -106,7 +114,14 @@
         oDoc.innerHTML + "<\/body><\/html>");
       oPrntWin.document.close();
     }
-    
+
+
+    //press key to change
+    // $(document).bind('keypress', function (e) {
+    //   if(event.which === 65 && event.shiftKey){
+    //     alert('you press shift a');
+    //   }
+    // });
   </script>
 
 </head>
