@@ -15,11 +15,13 @@
 
     var oDoc;
     var oCode;
+    var sDefTxt;
 
     //khởi đầu
 
     function initDoc() {
       oDoc = document.getElementById("editor-doc");
+      sDefTxt = oDoc.innerHTML;
       initCode();
     }
 
@@ -35,12 +37,12 @@
       return false;
     }
 
-    //chuyển đổi
+    //chuyển đổi text vs code
 
     function setCodeMode() {
       var oContent;
       //console.log(oDoc);
-        oContent = document.createTextNode(oDoc.innerHTML);
+      oContent = document.createTextNode(oDoc.innerHTML);
         //console.log(oContent);
         oCode.innerHTML = "";
         var oPre = document.createElement("pre");
@@ -51,9 +53,9 @@
         oPre.appendChild(oContent);
         oCode.appendChild(oPre);
         oCode.focus();
-    }
+      }
 
-     function setDocMode() {
+      function setDocMode() {
         if (document.all) {
           //console.log(1);
           oDoc.innerHTML = oDoc.innerText;
@@ -69,25 +71,43 @@
         oDoc.contentEditable = true;
       }
 
-  </script>
+      // forn chữ
 
-</head>
-<body onload = "initDoc()" class='container-fluid'>
-  <form class='col-md-6' name="compForm" method="post" action="sample.php" onsubmit="if(validateMode()){this.myDoc.value=oDoc.innerHTML;return true;}return false;">
-  <!--<a href="#" data-command='undo'><i class='fa fa-undo'></i></a>
-  <a href="#" data-command='redo'><i class='fa fa-repeat'></i></a>
+      function formatDoc(sCmd, sValue) {
+        console.log("1");
+        document.execCommand(sCmd, false, sValue); oDoc.focus(); setCodeMode();
+      }
+
+      function printDoc() {
+        var oPrntWin = window.open("","_blank","width=450,height=470,left=400,top=100,menubar=yes,toolbar=no,location=no,scrollbars=yes");
+        oPrntWin.document.open();
+        oPrntWin.document.write("<!doctype html><html><head><title>Print<\/title><\/head><body onload=\"print();\">" + oDoc.innerHTML + "<\/body><\/html>");
+        oPrntWin.document.close();
+      }
+    </script>
+
+  </head>
+  <body onload = "initDoc()" class='container-fluid'>
+    <form class='col-md-6' name="compForm" method="post" action="sample.php" onsubmit="if(validateMode()){this.myDoc.value=oDoc.innerHTML;return true;}return false;">
+      <div id = "toodBar">
+        <img class="intLink" title="Clean" onclick="if(confirm('Are you sure?')){oDoc.innerHTML=sDefTxt};" src="data:image/gif;base64,R0lGODlhFgAWAIQbAD04KTRLYzFRjlldZl9vj1dusY14WYODhpWIbbSVFY6O7IOXw5qbms+wUbCztca0ccS4kdDQjdTLtMrL1O3YitHa7OPcsd/f4PfvrvDv8Pv5xv///////////////////yH5BAEKAB8ALAAAAAAWABYAAAV84CeOZGmeaKqubMteyzK547QoBcFWTm/jgsHq4rhMLoxFIehQQSAWR+Z4IAyaJ0kEgtFoLIzLwRE4oCQWrxoTOTAIhMCZ0tVgMBQKZHAYyFEWEV14eQ8IflhnEHmFDQkAiSkQCI2PDC4QBg+OAJc0ewadNCOgo6anqKkoIQA7" />
+        <img class="intLink" title="Print" onclick="printDoc();" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAABGdBTUEAALGPC/xhBQAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9oEBxcZFmGboiwAAAAIdEVYdENvbW1lbnQA9syWvwAAAuFJREFUOMvtlUtsjFEUx//n3nn0YdpBh1abRpt4LFqtqkc3jRKkNEIsiIRIBBEhJJpKlIVo4m1RRMKKjQiRMJRUqUdKPT71qpIpiRKPaqdF55tv5vvusZjQTjOlseUkd3Xu/3dPzusC/22wtu2wRn+jG5So/OCDh8ycMJDflehMlkJkVK7KUYN+ufzA/RttH76zaVocDptRxzQtNi3mRWuPc+6cKtlXZ/sddP2uu9uXlmYXZ6Qm8v4Tz8lhF1H+zDQXt7S8oLMXtbF4e8QaFHjj3kbP2MzkktHpiTjp9VH6iHiA+whtAsX5brpwueMGdONdf/2A4M7ukDs1JW662+XkqTkeUoqjKtOjm2h53YFL15pSJ04Zc94wdtibr26fXlC2mzRvBccEbz2kiRFD414tKMlEZbVGT33+qCoHgha81SWYsew0r1uzfNylmtpx80pngQQ91LwVk2JGvGnfvZG6YcYRAT16GFtW5kKKfo1EQLtfh5Q2etT0BIWF+aitq4fDbk+ImYo1OxvGF03waFJQvBCkvDffRyEtxQiFFYgAZTHS0zwAGD7fG5TNnYNTp8/FzvGwJOfmgG7GOx0SAKKgQgDMgKBI0NJGMEImpGDk5+WACEwEd0ywblhGUZ4Hw5OdUekRBLT7DTgdEgxACsIznx8zpmWh7k4rkpJcuHDxCul6MDsmmBXDlWCH2+XozSgBnzsNCEE4euYV4pwCpsWYPW0UHDYBKSWu1NYjENDReqtKjwn2+zvtTc1vMSTB/mvev/WEYSlASsLimcOhOBJxw+N3aP/SjefNL5GePZmpu4kG7OPr1+tOfPyUu3BecWYKcwQcDFmwFKAUo90fhKDInBCAmvqnyMgqUEagQwCoHBDc1rjv9pIlD8IbVkz6qYViIBQGTJPx4k0XpIgEZoRN1Da0cij4VfR0ta3WvBXH/rjdCufv6R2zPgPH/e4pxSBCpeatqPrjNiso203/5s/zA171Mv8+w1LOAAAAAElFTkSuQmCC">
+        <a href="#" data-command='undo' onclick="formatDoc('undo')"><i class='fa fa-undo'></i></a>
+        <a href="#" data-command='redo' onclick="formatDoc('redo')"><i class='fa fa-repeat'></i></a>
+  <!--
   <i class='fa fa-font' style='color:#C96;'></i>
-  <i class='fa fa-font' style='background:#C96;'></i>
+  <i class='fa fa-font' style='background:#C96;'></i>-->
   <a href="#" data-command='bold' onclick="formatDoc('bold')"><i class='fa fa-bold'></i></a>
-  <a href="#" data-command='italic'><i class='fa fa-italic'></i></a>
-  <a href="#" data-command='underline'><i class='fa fa-underline'></i></a>
-  <a href="#" data-command='strikeThrough'><i class='fa fa-strikethrough'></i></a>
-  <a href="#" data-command='justifyLeft'><i class='fa fa-align-left'></i></a>
-  <a href="#" data-command='justifyCenter'><i class='fa fa-align-center'></i></a>
-  <a href="#" data-command='justifyRight'><i class='fa fa-align-right'></i></a>
-  <a href="#" data-command='justifyFull'><i class='fa fa-align-justify'></i></a>
-  <a href="#" data-command='indent'><i class='fa fa-indent'></i></a>
-  <a href="#" data-command='outdent'><i class='fa fa-outdent'></i></a>
+  <a href="#" data-command='italic' onclick="formatDoc('italic')"><i class='fa fa-italic'></i></a>
+  <a href="#" data-command='underline' onclick="formatDoc('underline')"><i class='fa fa-underline'></i></a>
+  <!--<a href="#" data-command='strikeThrough' ><i class='fa fa-strikethrough'></i></a>-->
+  <a href="#" data-command='justifyLeft' onclick="formatDoc('justifyleft')"><i class='fa fa-align-left'></i></a>
+  <a href="#" data-command='justifyCenter' onclick="formatDoc('justifycenter')"><i class='fa fa-align-center'></i></a>
+  <a href="#" data-command='justifyRight' onclick="formatDoc('justifyright')"><i class='fa fa-align-right'></i></a>
+  <!--<a href="#" data-command='justifyFull'><i class='fa fa-align-justify'></i></a>-->
+  <a href="#" data-command='indent'><i class='fa fa-indent' onclick="formatDoc('indent')"></i></a>
+  <a href="#" data-command='outdent'><i class='fa fa-outdent' onclick="formatDoc('outdent')"></i></a>
+  <!--
   <a href="#" data-command='insertUnorderedList'><i class='fa fa-list-ul'></i></a>
   <a href="#" data-command='insertOrderedList'><i class='fa fa-list-ol'></i></a>
   <a href="#" data-command='h1'>H1</a>
@@ -97,36 +117,17 @@
   <a href="#" data-command='insertimage'><i class='fa fa-image'></i></a>
   <a href="#" data-command='p'>P</a>
   <a href="#" data-command='subscript'><i class='fa fa-subscript'></i></a>
-  <a href="#" data-command='superscript'><i class='fa fa-superscript'></i></a>-->
-  <div id='editor-doc' contenteditable onkeyup="setCodeMode();">
-    <p> coicoichip </p>
-  </div>
+  <a href="#" data-command='superscript'><i class='fa fa-superscript'></i></a>
+-->
+<a href="#" data-command='copy'><i class = 'fa fa-files-o' onclick = "formatDoc('copy')"></i></a>
+<a href="#" data-command='cut'><i class = 'fa fa-scissors' onclick = "formatDoc('cut')"></i></a>
+<a href="#" data-command='paste'><i class = 'fa fa-clipboard' onclick = "formatDoc('paste')"></i></a>
+</div>
+<div id='editor-doc' contenteditable onkeyup="setCodeMode();">
+  <p> coicoichip </p>
+</div>
 </form>
 <form class='col-md-6' name="compForm" method="post" action="sample.php" onsubmit="if(validateMode()){this.myDoc.value=oDoc.innerHTML;return true;}return false;">
-  <!--<a href="#" data-command='undo'><i class='fa fa-undo'></i></a>
-  <a href="#" data-command='redo'><i class='fa fa-repeat'></i></a>
-  <i class='fa fa-font' style='color:#C96;'></i>
-  <i class='fa fa-font' style='background:#C96;'></i>
-  <a href="#" data-command='bold' onclick="formatDoc('bold')"><i class='fa fa-bold'></i></a>
-  <a href="#" data-command='italic'><i class='fa fa-italic'></i></a>
-  <a href="#" data-command='underline'><i class='fa fa-underline'></i></a>
-  <a href="#" data-command='strikeThrough'><i class='fa fa-strikethrough'></i></a>
-  <a href="#" data-command='justifyLeft'><i class='fa fa-align-left'></i></a>
-  <a href="#" data-command='justifyCenter'><i class='fa fa-align-center'></i></a>
-  <a href="#" data-command='justifyRight'><i class='fa fa-align-right'></i></a>
-  <a href="#" data-command='justifyFull'><i class='fa fa-align-justify'></i></a>
-  <a href="#" data-command='indent'><i class='fa fa-indent'></i></a>
-  <a href="#" data-command='outdent'><i class='fa fa-outdent'></i></a>
-  <a href="#" data-command='insertUnorderedList'><i class='fa fa-list-ul'></i></a>
-  <a href="#" data-command='insertOrderedList'><i class='fa fa-list-ol'></i></a>
-  <a href="#" data-command='h1'>H1</a>
-  <a href="#" data-command='h2'>H2</a>
-  <a href="#" data-command='createlink'><i class='fa fa-link'></i></a>
-  <a href="#" data-command='unlink'><i class='fa fa-unlink'></i></a>
-  <a href="#" data-command='insertimage'><i class='fa fa-image'></i></a>
-  <a href="#" data-command='p'>P</a>
-  <a href="#" data-command='subscript'><i class='fa fa-subscript'></i></a>
-  <a href="#" data-command='superscript'><i class='fa fa-superscript'></i></a>-->
   <div id='editor-code' contenteditable onkeyup="setDocMode()">
   </div>
 </form>
