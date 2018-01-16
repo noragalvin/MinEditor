@@ -106,6 +106,7 @@
         oDoc.innerHTML + "<\/body><\/html>");
       oPrntWin.document.close();
     }
+    
   </script>
 
 </head>
@@ -132,6 +133,8 @@
       <a href="#" onclick="formatDoc('h5')">h5</a>
       <a href="#" onclick="formatDoc('h6')">h6</a>
       <a href="#" onclick="formatDoc('p')">p</a>
+      <a href="#" onclick="formatDoc('subscript')"><i class="fa fa-subscript" aria-hidden="true"></i></a>
+      <a href="#" onclick="formatDoc('superscript')"><i class="fa fa-superscript" aria-hidden="true"></i></a>
       <a href="#" data-command='bold' onclick="formatDoc('bold')">
         <i class='fa fa-bold'></i>
       </a>
@@ -206,6 +209,8 @@
         <i class='fa fa-clipboard' onclick="formatDoc('paste')"></i>
       </a>
     </div>
+
+    
     <div id='editor-doc' contenteditable onkeyup="setCodeMode();">
       <p> coicoichip </p>
     </div>
