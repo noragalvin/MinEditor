@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+
+	<meta charset = "utf-8">
+
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<style type="text/css">
+	#nut{
+        width: 65px;
+        height: 32px;
+        text-align: center;
+        margin-left: 3px;
+        background-color:#ECECEC;
+        font-size: 15px;
+        color: black;
+    }
+    #nut:hover{
+        background-color: white;
+        border-width: 1px;
+        border-color: black;
+    }
+#menubar1, #menubar2{
+	display: block;
+	border: 2px solid #b5b5b5;
+}
+.menubar-item{
+    border-color: transparent;
+    background: transparent;
+    filter: none;
+    margin: 2px 0 2px 2px;
+    position: relative;
+    display: inline-block;
+}
+.menubar1-item-btn{
+
+}
+.menubar1-item-btn-txt{
+
+}
+.menubar2-btn{
+	padding: 4px 8px;
+    font-size: 14px;
+    line-height: 20px;
+    cursor: pointer;
+    color: #333;
+    text-align: center;
+    overflow: visible;
+    -webkit-appearance: none;
+}
+.btn-grp{
+	border: 2px solid #efefef;
+	display: inline-block;
+}
+.btn-grp-first{
+	margin-left: 0;
+}
+.btn-grp-last{
+
+}
+.twin-btn-1{
+    line-height: 20px;
+    padding: 4px 4px;
+
+}
+.twin-btn-2{
+    line-height: 20px;
+    padding: 8px 4px 9.5px 4px;
+     vertical-align: top;
+}
+.twin-btn-father{
+    font-size: 0;
+}
+#contentArea{
+	display: block;
+	border: 2px solid #b5b5b5;
+	background: #fff;
+	height:650px;
+}
+.mce-container{
+	margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: top;
+    background: transparent;
+    text-decoration: none;
+    color: #333;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    text-shadow: none;
+    float: none;
+    position: static;
+    width: auto;
+    height: auto;
+    white-space: nowrap;
+    cursor: inherit;
+    -webkit-tap-highlight-color: transparent;
+    line-height: normal;
+    font-weight: normal;
+    text-align: left;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    direction: ltr;
+    max-width: none;
+}
+.button.a:hover{
+
+}
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); background: none;}
+.material-icons.md-dark { background-color: #BBB;  }
+
+</style>
+<body>
+	<p>deadline</p>
+	<div id="mainBody">
+		<!thanh menu co drop down>
+		<div id="menubar1" class="mce-container">
+			<div style="display: block; white-space: normal;background-color: #ECECEC;">
+				<div class="menubar-item">
+					<div id="nut" class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" style="font-size:16px;color: black;">
+          File
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+    </div>
+				</div>
+				<div class="menubar-item">
+					<div id="nut" class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" style="font-size:16px;color: black;">
+          File
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+    </div>
+				</div>
+    <div class="menubar-item">
+					<div id="nut" class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" style="font-size:16px;color: black;">
+          File
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+    </div>
+				</div>
+				<div class="menubar-item">
+					<div id="nut" class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" style="font-size:16px;color: black;">
+          File
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+    </div>
+				</div>
+				<div class="menubar-item">
+					<div id="nut" class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" style="font-size:16px;color: black;">
+          File
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+    </div>
+				</div>
+				<div class="menubar-item">
+					<div id="nut" class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" style="font-size:16px;color: black;">
+          File
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+    </div>
+				</div>
+
+
+				<!het thnah menu cp drop down>
+
+		<!-- <div id="menubar2" class="mce-container">
+			<div style="display: block; white-space: normal;">
+				<div>
+					<div class="btn-grp">
+						<div id="btn-1" class="btn-grp-first menubar-item">
+							<button class="menubar2-btn">
+								<i class="	glyphicon glyphicon-asterisk"></i>
+							</button>
+						</div>
+						<div id="btn-2" class="btn-grp-last menubar-item">
+							<button class="menubar2-btn">
+								<i class="	glyphicon glyphicon-asterisk"></i>
+							</button>
+						</div>
+
+						<div class="btn-grp">
+						<div id="btn-1" class="btn-grp-first menubar-item">
+							<button class="menubar2-btn">
+								<i class="	glyphicon glyphicon-asterisk"></i>
+							</button>
+						</div>
+						<div id="btn-2" class="btn-grp-last menubar-item">
+							<button class="menubar2-btn">
+								<i class="	glyphicon glyphicon-asterisk"></i>
+							</button>
+						</div>
+					</div>
+
+					<div class="btn-grp">
+						<div id="btn-1" class="btn-grp-first menubar-item">
+							<button class="menubar2-btn">
+								<i class="	glyphicon glyphicon-asterisk"></i>
+							</button>
+						</div>
+						<div id="btn-2" class="btn-grp-last menubar-item">
+							<button class="menubar2-btn">
+								<i class="	glyphicon glyphicon-asterisk"></i>
+							</button>
+						</div>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div> -->
+
+    
+		<div id="menubar2" class="mce-container" >
+			<div style="display: block; white-space: normal;">
+				<div>
+					<div class="btn-grp">
+						<div id="btn-1" class="btn-grp-first menubar-item">
+							<button class="menubar2-btn ">
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Undo">
+								<i class="material-icons">undo</i> </a>
+								
+							</button>
+							<!--undo disabled-->
+							<!-- <button class="menubar2-btn">
+								<i class="material-icons md-dark md-inactive">undo</i>
+							</button> -->
+						</div>
+						<div id="btn-2" class="btn-grp-last menubar-item">
+							<button class="menubar2-btn ">
+							<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Redo">
+								<i class="material-icons">redo</i> </a>
+							
+							<!--redo disabled-->
+							<!-- <button class="menubar2-btn">
+								<i class="material-icons md-dark md-inactive">redo</i>
+							</button> -->
+						</div>
+					</div>
+
+					<div class="btn-grp">
+						<div id="btn-3" class="btn-grp-first menubar-item">
+							<button class="menubar2-btn">
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Source code">
+								<i class="material-icons">code</i> </a>
+								
+							</button>
+						</div>
+					</div>
+
+					<div class="btn-grp">
+						<div id="btn-4" class="btn-grp-last menubar-item">
+							<button class="menubar2-btn">
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Clear formatting">
+								<i class="material-icons">format_clear</i> </a>	
+							</button>
+						</div>
+					</div>
+					
+					<div class="btn-grp">
+						<div id="btn-5" class="btn-grp-last menubar-item">
+							<button class="menubar2-btn">
+								<span>Format</span>
+								<i class="glyphicon glyphicon-triangle-bottom"></i>
+							</button>
+						</div>
+					</div>
+
+					<div class="btn-grp">
+						<div id="btn-6" class="btn-grp-first menubar-item">
+							<button class="menubar2-btn">
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Bold">
+								<i class="material-icons">format_bold</i> </a>
+							</button>
+						</div>
+						<div id="btn-7" class="btn-grp-first menubar-item">
+							<button class="menubar2-btn">
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Italic">
+								<i class="material-icons">format_italic</i> </a>
+							</button>
+						</div>
+						<div id="btn-8" class="btn-grp-first menubar-item">
+							<button class="menubar2-btn">
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Underline">
+								<i class="material-icons">format_underlined</i></a>
+							</button>
+						</div>
+					</div>
+
+					<div class="btn-grp">
+						<div id="btn-9" class="btn-grp-first menubar-item">
+							<button class="menubar2-btn">
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Align left">
+								<i class="glyphicon glyphicon-align-left"></i></a>
+							</button>
+						</div>
+						<div id="btn-10" class="btn-grp-first menubar-item">
+							<button class="menubar2-btn">
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Align center">
+								<i class="glyphicon glyphicon-align-center"></i></a>
+							</button>
+						</div>
+						<div id="btn-11" class="btn-grp-first menubar-item">
+							<button class="menubar2-btn">
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Align right">
+								<i class="glyphicon glyphicon-align-right"></i></a>
+							</button>
+						</div>
+						<div id="btn-12" class="btn-grp-first menubar-item">
+							<button class="menubar2-btn">
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Justify">
+								<i class="glyphicon glyphicon-align-justify"></i></a>	
+							</button>
+						</div>
+					</div>
+
+					<div class="btn-grp">
+						<div id="btn-13" class="btn-grp-first menubar-item twin-btn-father">
+							<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Bullet list">
+							<button class="menubar2-btn twin-btn-1">
+								<i class="material-icons">format_list_bulleted</i>	
+							</button>
+							<button class="menubar2-btn twin-btn-2">
+								<i class="glyphicon glyphicon-triangle-bottom"></i>
+							</button>
+						</a>
+						</div>
+						<div id="btn-14" class="btn-grp-first menubar-item twin-btn-father">
+							<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Numbered list">
+							<button class="menubar2-btn twin-btn-1">
+								<i class="material-icons">format_list_numbered</i>	
+							</button>
+							<button class="menubar2-btn twin-btn-2">
+								<i class="glyphicon glyphicon-triangle-bottom"></i>
+							</button>
+						</a>
+						</div>
+						<div id="btn-15" class="btn-grp-first menubar-item">
+							<button class="menubar2-btn">
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Decrease indent">
+								<i class="material-icons">format_indent_decrease</i></a>	
+							</button>
+						</div>
+						<div id="btn-16" class="btn-grp-first menubar-item">
+							<button class="menubar2-btn">
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Increase indent">
+								<i class="material-icons">format_indent_increase</i></a>	
+							</button>
+						</div>
+					</div>
+					<div class="btn-grp">
+						<div id="btn-19" class="btn-grp-first menubar-item">
+							<button class="menubar2-btn">
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Insert/edit link">
+								<i class="material-icons">insert_link</i></a>
+							</button>
+						</div>
+						<div id="btn-20" class="btn-grp-first menubar-item">
+							<button class="menubar2-btn">
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Insert/edit image">
+								<i class="material-icons">image</i></a>
+							</button>
+						</div>
+						<div id="btn-21" class="btn-grp-first menubar-item">
+							<button class="menubar2-btn">
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Insert/edit media">
+								<i class="glyphicon glyphicon-film"></i></a>
+							</button>
+						</div>
+					</div>
+
+					<div class="btn-grp">
+						<div id="btn-22" class="btn-grp-first menubar-item twin-btn-father">
+							<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Text color">
+							<button class="menubar2-btn twin-btn-1">
+								<i class="material-icons">text_format</i>
+							</button>
+							<button class="menubar2-btn twin-btn-2">
+								<i class="glyphicon glyphicon-triangle-bottom"></i>
+							</button>
+						</a>
+						</div>
+						<div id="btn-23" class="btn-grp-first menubar-item twin-btn-father">
+							<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Background color">
+							<button class="menubar2-btn twin-btn-1">
+								<i class="material-icons md-dark ">text_format</i>
+							</button>
+							<button class="menubar2-btn twin-btn-2">
+								<i class="glyphicon glyphicon-triangle-bottom "></i>
+							</button>
+						</a>
+						</div>
+						<div id="btn-24" class="btn-grp-first menubar-item">
+							<button class="menubar2-btn">
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Emoticon">
+								<i class="material-icons">insert_emoticon</i></a>
+							</button>
+						</div>
+					</div>
+					
+			</div>
+		</div>
+
+		<div id="contentArea" class="mce-container" contenteditable="true" style="font-size: 0">
+			<div style="background: red; width: 20px;height: 20px; display: inline-block;"></div>
+			<div style="background: blue; width: 20px;height: 20px; display: inline-block;"></div>
+		</div>
+	</div>
+	<div id="btn-1" class="btn-grp-first menubar-item">
+							<button class="menubar2-btn ">
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="top" title="Undsdf
+								 dfgfdgo">
+								<i class="material-icons">undo</i> </a>
+								
+							</button>
+							<!--undo disabled-->
+							<!-- <button class="menubar2-btn">
+								<i class="material-icons md-dark md-inactive">undo</i>
+							</button> -->
+						</div>
+</body>
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+</html>
