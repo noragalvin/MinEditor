@@ -74,6 +74,29 @@
             }
             oDoc.contentEditable = true;*/
         }
+<<<<<<< HEAD
+      }
+    }
+
+
+    function printDoc() {
+      var oPrntWin = window.open("", "_blank",
+        "width=450,height=470,left=400,top=100,menubar=yes,toolbar=no,location=no,scrollbars=yes");
+      oPrntWin.document.open();
+      oPrntWin.document.write("<!doctype html><html><head><title>Print<\/title><\/head><body onload=\"print();\">" +
+        oDoc.innerHTML + "<\/body><\/html>");
+      oPrntWin.document.close();
+    }
+
+
+    //press key to change
+    // $(document).bind('keypress', function (e) {
+    //   if(event.which === 65 && event.shiftKey){
+    //     alert('you press shift a');
+    //   }
+    // });
+  </script>
+=======
 
         // forn chữ
 
@@ -141,6 +164,7 @@
         // });
 
     </script>
+>>>>>>> 4ad96cc9220fc1f29569341c0b108ad67c1de992
 
 </head>
 
@@ -302,6 +326,27 @@
     </div>
 </form>
 </body>
+<<<<<<< HEAD
+<script>
+  var editor = document.getElementById('editor-doc');
+  editor.addEventListener("paste", function (e) {
+    e.preventDefault();
+
+    if (e.clipboardData) {
+      content = (e.originalEvent || e).clipboardData.getData('text/plain');
+      console.log(content);
+      document.execCommand('insertText', false, content);
+      oDoc.focus();
+      setCodeMode();
+    } else if (window.clipboardData) {
+      content = window.clipboardData.getData('Text');
+      console.log(content);
+      document.selection.createRange().pasteHTML(content);
+      oDoc.focus();
+      setCodeMode();
+    }
+  });
+=======
 <script type="text/javascript">
 
     var ed = document.querySelector("#editor-doc");
@@ -313,6 +358,7 @@
         document.execCommand("insertHTML", false, text);
     });
 
+>>>>>>> 4ad96cc9220fc1f29569341c0b108ad67c1de992
 </script>
 
 </html>
