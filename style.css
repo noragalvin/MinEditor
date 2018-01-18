@@ -1,10 +1,17 @@
 #nut{
-		width: 80px;
-		height: 36px;
-		text-align: center;
-		margin-left: 5px;
-
-	}
+        width: 65px;
+        height: 32px;
+        text-align: center;
+        margin-left: 3px;
+        background-color:#ECECEC;
+        font-size: 15px;
+        color: black;
+    }
+    #nut:hover{
+        background-color: white;
+        border-width: 1px;
+        border-color: black;
+    }
 #menubar1, #menubar2{
 	display: block;
 	border: 2px solid #b5b5b5;
