@@ -50,6 +50,19 @@
 .btn-grp-last{
 
 }
+.twin-btn-1{
+    line-height: 20px;
+    padding: 4px 4px;
+
+}
+.twin-btn-2{
+    line-height: 20px;
+    padding: 8px 4px 9.5px 4px;
+     vertical-align: top;
+}
+.twin-btn-father{
+    font-size: 0;
+}
 #contentArea{
 	display: block;
 	border: 2px solid #b5b5b5;
@@ -84,3 +97,5 @@
     direction: ltr;
     max-width: none;
 }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); background: none;}
+.material-icons.md-dark { background-color: #BBB;  }
