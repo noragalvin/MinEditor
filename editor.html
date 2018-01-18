@@ -106,6 +106,7 @@
       }
     }
 
+
     function printDoc() {
       var oPrntWin = window.open("", "_blank",
         "width=450,height=470,left=400,top=100,menubar=yes,toolbar=no,location=no,scrollbars=yes");
@@ -277,5 +278,25 @@
     </div>
   </form>
 </body>
+<script>
+  var editor = document.getElementById('editor-doc');
+  editor.addEventListener("paste", function (e) {
+    e.preventDefault();
+
+    if (e.clipboardData) {
+      content = (e.originalEvent || e).clipboardData.getData('text/plain');
+      console.log(content);
+      document.execCommand('insertText', false, content);
+      oDoc.focus();
+      setCodeMode();
+    } else if (window.clipboardData) {
+      content = window.clipboardData.getData('Text');
+      console.log(content);
+      document.selection.createRange().pasteHTML(content);
+      oDoc.focus();
+      setCodeMode();
+    }
+  });
+</script>
 
 </html>
