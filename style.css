@@ -15,6 +15,7 @@
 #menubar1, #menubar2{
 	display: block;
 	border: 2px solid #b5b5b5;
+    background-color: #f0f0f0;
 }
 .menubar-item{
     border-color: transparent;
@@ -23,6 +24,10 @@
     display: inline-block;
     margin: 2px 0 2px 2px;
     position: relative;
+    border: 1px solid #b1b1b1;
+}
+.material-icons{
+    font-size: 16px !important;
 }
 .menubar1-item-btn{
 
@@ -52,16 +57,18 @@
 }
 .twin-btn-1{
     line-height: 20px;
-    padding: 4px 4px;
+    padding: 8px 8px;
+    vertical-align: top;
 
 }
 .twin-btn-2{
     line-height: 20px;
-    padding: 8px 4px 9.5px 4px;
+    padding: 8px 4px 8px 4px;
      vertical-align: top;
 }
 .twin-btn-father{
     font-size: 0;
+    vertical-align: top;
 }
 #contentArea{
 	display: block;
@@ -97,5 +104,24 @@
     direction: ltr;
     max-width: none;
 }
+
 .material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); background: none;}
 .material-icons.md-dark { background-color: #BBB;  }
+i{
+    font-family: 'tinymce',Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    font-size: 16px;
+    line-height: 16px;
+    speak: none;
+    vertical-align: text-top;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    background: transparent center center;
+    background-size: cover;
+    width: 16px;
+    height: 16px;
+    color: #333;
+}
