@@ -111,23 +111,23 @@
         <!-- het thnah menu cp drop down -->
         <div class="row" style="border-top:3px solid #000;">
             <div class="tools">
-                <div class="tool-icon" title="Bold (Ctrl+B)">
-                    <a href="#" data-command='bold' onclick="formatDoc('bold')">
+                <div class="tool-icon" title="Bold (Ctrl+B)" onclick="formatDoc('bold')">
+                    <a href="#" data-command='bold'>
                         <i class='fa fa-bold'></i>
                     </a>
                 </div>
-                <div class="tool-icon" title="Italic (Ctrl+I)">
-                    <a href="#" data-command='italic' onclick="formatDoc('italic')">
+                <div class="tool-icon" title="Italic (Ctrl+I)" onclick="formatDoc('italic')">
+                    <a href="#" data-command='italic'>
                         <i class='fa fa-italic'></i>
                     </a>
                 </div>
-                <div class="tool-icon" title="Underline (Ctrl+U)">
-                    <a href="#" data-command='underline' onclick="formatDoc('underline')">
+                <div class="tool-icon" title="Underline (Ctrl+U)" onclick="formatDoc('underline')">
+                    <a href="#" data-command='underline'>
                         <i class='fa fa-underline'></i>
                     </a>
                 </div>
-                <div class="tool-icon" title="StrikeThrough (Ctrl+S)">
-                    <a href="#" onclick="formatDoc('strikeThrough')">
+                <div class="tool-icon" title="StrikeThrough (Ctrl+S)" onclick="formatDoc('strikeThrough')">
+                    <a href="#">
                         <i class="fa fa-strikethrough"></i>
                     </a>
                 </div>
@@ -266,46 +266,46 @@
                         </ul>
                     </div>
                 </div>
-                <div class="tool-icon" title="Ordered List">
+                <div class="tool-icon" title="Ordered List" onclick="formatDoc('insertUnorderedList')">
                     <a href="#">
-                        <i class='fa fa-list-ul' onclick="formatDoc('insertUnorderedList')"></i>
+                        <i class='fa fa-list-ul'></i>
                     </a>
                 </div>
-                <div class="tool-icon" title="Unordered List">
+                <div class="tool-icon" title="Unordered List" onclick="formatDoc('insertOrderedList')">
                     <a href="#">
-                        <i class='fa fa-list-ol' onclick="formatDoc('insertOrderedList')"></i>
+                        <i class='fa fa-list-ol'></i>
                     </a>
                 </div>
-                <div class="tool-icon" title="Decrease Indent (Ctrl+[)">
+                <div class="tool-icon" title="Decrease Indent (Ctrl+[)" onclick="formatDoc('outdent')">
                     <a href="#" data-command='outdent'>
-                        <i class='fa fa-outdent' onclick="formatDoc('outdent')"></i>
+                        <i class='fa fa-outdent'></i>
                     </a>
                 </div>
-                <div class="tool-icon" title="Increase Indent (Ctrl+])">
+                <div class="tool-icon" title="Increase Indent (Ctrl+])" onclick="formatDoc('indent')">
                     <a href="#" data-command='indent'>
-                        <i class='fa fa-indent' onclick="formatDoc('indent')"></i>
+                        <i class='fa fa-indent'></i>
                     </a>
                 </div>
             </div>
             <div class="tools">
-                <div class="tool-icon" title="Insert Link (Ctrl+K)">
+                <div class="tool-icon" title="Insert Link (Ctrl+K)" onclick="formatDoc('createLink')">
                     <a href="#">
-                        <i class="fa fa-link" aria-hidden="true" onclick="formatDoc('createLink')"></i>
+                        <i class="fa fa-link" aria-hidden="true"></i>
                     </a>
                 </div>
-                <div class="tool-icon" title="Insert Image (Ctrl+P)">
+                <div class="tool-icon" title="Insert Image (Ctrl+P)" onclick="formatDoc('insertimage')">
                      <a href="#">
-                        <i class="fa fa-picture-o" aria-hidden="true" onclick="formatDoc('insertimage')"></i>
+                        <i class="fa fa-picture-o" aria-hidden="true"></i>
                     </a>
                 </div>
-                <div class="tool-icon" title="Insert Video">
+                <div class="tool-icon" title="Insert Video" onclick="formatDoc('insertHTML')">
                      <a href="#">
-                        <i class="fa fa-video-camera" aria-hidden="true" onclick="formatDoc('insertHTML')"></i>
+                        <i class="fa fa-video-camera" aria-hidden="true"></i>
                     </a>
                 </div>
-                <div class="tool-icon" title="Insert Table">
+                <div class="tool-icon" title="Insert Table" onclick="formatDoc('')">
                     <a href="#">
-                        <i class="fa fa-table" aria-hidden="true" onclick="formatDoc('')"></i>
+                        <i class="fa fa-table" aria-hidden="true"></i>
                     </a>
                 </div>
 
@@ -313,13 +313,13 @@
         </div>
         <div class="row" style="border-top:1px solid #ebebeb;">
             <div class="tools">
-                <div class="tool-icon" title="Undo (Ctrl+Z)">
-                    <a href="#" data-command='undo' onclick="formatDoc('undo')">
+                <div class="tool-icon" title="Undo (Ctrl+Z)" onclick="formatDoc('undo')">
+                    <a href="#" data-command='undo'>
                         <i class='fa fa-undo'></i>
                     </a>
                 </div>
-                <div class="tool-icon" title="Redo (Ctrl+Shift+Z)">
-                    <a href="#" data-command='redo' onclick="formatDoc('redo')">
+                <div class="tool-icon" title="Redo (Ctrl+Shift+Z)" onclick="formatDoc('redo')">
+                    <a href="#" data-command='redo'>
                         <i class='fa fa-repeat'></i>
                     </a>
                 </div>
@@ -334,18 +334,18 @@
                     <span style="text-align: center;font-weight: bold">Ω</span>
                 </div>
             </div>
-            <div class="tool-icon" title="Emoticons">
-                <a href="#" data-command='redo' onclick="formatDoc('redo')">
+            <div class="tool-icon" title="Emoticons" onclick="formatDoc('redo')">
+                <a href="#" data-command='redo'>
                     <i class='fa fa-smile-o'></i>
                 </a>
             </div>
-            <div class="tool-icon" title="Insert Horizontal Line">
-                <a href="#" data-command='redo' onclick="insertHr()">
+            <div class="tool-icon" title="Insert Horizontal Line" onclick="insertHr()">
+                <a href="#" data-command='redo'>
                     <i class='fa fa-minus'></i>
                 </a>
             </div>
-            <div class="tool-icon" title="Help (Ctrl+/)">
-                <a href="#" data-command='redo' onclick="formatDoc('redo')">
+            <div class="tool-icon" title="Help (Ctrl+/)" onclick="formatDoc('redo')">
+                <a href="#" data-command='redo'>
                     <i class='fa fa-question'></i>
                 </a>
             </div>
