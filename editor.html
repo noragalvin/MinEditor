@@ -1,320 +1,513 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/normalize.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/style.css" />
+<style type="text/css">
+    .d1{
+        cursor: pointer;
+        height:26.5px;
+        width: 26.5px;
+        margin: 0px;
+        
+    }
+    .d1:hover{
+                cursor: pointer;
 
-<head>
-    <meta charset="utf-8" />
-    <title></title>
+        border:1px solid red;
+    }
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</style>
+<style type="text/css">
+</style>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <link rel="stylesheet" type="text/css" href="editor.css">
-
-    <script>
-        var oDoc;
-        var oCode;
-        var sDefTxt;
-
-        //khởi đầu
-
-        function initDoc() {
-            oDoc = document.getElementById("editor-doc");
-            sDefTxt = oDoc.innerHTML;
-            initCode();
-        }
-
-        function initCode() {
-            oCode = document.getElementById("editor-code");
-            setCodeMode(true);
-        }
-
-        function validateMode() {
-            if (!document.compForm.switchMode.checked) {
-                return true;
-            }
-            alert("Uncheck \"Show HTML\".");
-            oDoc.focus();
-            return false;
-        }
-
-        //chuyển đổi text vs code
-
-        function setCodeMode() {
-            var oContent;
-            //console.log(oDoc);
-            if (oDoc.innerHTML === "<br>" || oDoc.innerHTML === "") oDoc.innerHTML = "<p><br> </p>";
-            console.log(oDoc.innerHTML);
-            oContent = document.createTextNode(oDoc.innerHTML);
-
-            oCode.innerHTML = "";
-            var oPre = document.createElement("pre");
-            //console.log(oPre);
-            oCode.contentEditable = false;
-            oPre.id = "sourceText";
-            oPre.contentEditable = true;
-            oPre.appendChild(oContent);
-            oCode.appendChild(oPre);
-            oCode.focus();
-        }
-
-        function setDocMode() {
-            /*if (document.all) {
-                //console.log(1);
-                oDoc.innerHTML = oDoc.innerText;
-            } else {
-                //console.log(1);
-                //console.log(oDoc.innerHTML);
-                oContent = document.createRange();
-                //console.log(oDoc.firstChild);
-                oContent.selectNodeContents(oCode.firstChild);
-                //console.log(oContent.toString());
-                oDoc.innerHTML = oContent.toString();
-            }
-            oDoc.contentEditable = true;*/
-        }
-
-
-
-        function printDoc() {
-            var oPrntWin = window.open("", "_blank",
-                "width=450,height=470,left=400,top=100,menubar=yes,toolbar=no,location=no,scrollbars=yes");
-            oPrntWin.document.open();
-            oPrntWin.document.write(
-                "<!doctype html><html><head><title>Print<\/title><\/head><body onload=\"print();\">" +
-                oDoc.innerHTML + "<\/body><\/html>");
-            oPrntWin.document.close();
-        }
-
-
-        //press key to change
-        // $(document).bind('keypress', function (e) {
-        //   if(event.which === 65 && event.shiftKey){
-        //     alert('you press shift a');
-        //   }
-
-
-        // forn chữ
-
-        function formatDoc(sCmd, sValue) {
-            // console.log("1");
-            if (sCmd == 'h1' || sCmd == 'h2' || sCmd == 'h3' || sCmd == 'h4' || sCmd == 'h5' || sCmd == 'h6' || sCmd ==
-                'p') {
-                document.execCommand('formatBlock', false, sCmd);
-                oDoc.focus();
-                setCodeMode();
-            } else if (sCmd == 'createLink' || sCmd == 'insertimage') {
-                var url = prompt('Enter the link here: ', 'http:\/\/');
-                console.log(url);
-                if (sCmd === 'insertimagea') {
-                    insertImg(url);
-                } else {
-                    document.execCommand(sCmd, false, url);
-                }
-                oDoc.focus();
-                setCodeMode();
-            } else if (sCmd == 'insertHTML') {
-                url = prompt('Enter embed code: ', 'Embed here');
-                document.execCommand(sCmd, false, url);
-                oDoc.focus();
-                setCodeMode();
-            } else {
-                if (document.queryCommandSupported(sCmd) == false) {
-                    alert('The command ' + sCmd + ' is not support your browser');
-                    // console.log('hello');
-                } else {
-                    document.execCommand(sCmd, false, sValue);
-                    // console.log('hello22');
-                    // console.log(document.queryCommandSupported(sCmd));
-                    oDoc.focus();
-                    setCodeMode();
-                }
-            }
-        }
-
-        function insertImg(img) {
-
-            img = "<div><img src='" + img + "'></div>";
-            console.log(img);
-            if (document.all) {
-                var range = document.selection.createRange();
-                range.pasteHTML(img);
-                range.collapse(false);
-                range.select();
-            } else {
-                document.execCommand("insertHTML", false, img);
-            }
-        }
-
-        function printDoc() {
-            var oPrntWin = window.open("", "_blank",
-                "width=450,height=470,left=400,top=100,menubar=yes,toolbar=no,location=no,scrollbars=yes");
-            oPrntWin.document.open();
-            oPrntWin.document.write(
-                "<!doctype html><html><head><title>Print<\/title><\/head><body onload=\"print();\">" +
-                oDoc.innerHTML + "<\/body><\/html>");
-            oPrntWin.document.close();
-        }
-
-
-        //press key to change
-        // $(document).bind('keypress', function (e) {
-        //   if(event.which === 65 && event.shiftKey){
-        //     alert('you press shift a');
-        //   }
-        // });
-    </script>
-</head>
-
-<body onload="initDoc()" class='container-fluid'>
-    <form class='col-md-6' name="compForm" method="post" action="sample.php" onsubmit="if(validateMode()){this.myDoc.value=oDoc.innerHTML;return true;}return false;">
-
-        <div id="toolBar1">
-            <select onchange="formatDoc('formatblock',this[this.selectedIndex].value);this.selectedIndex=0;">
-                <option selected>- formatting -</option>
-                <option value="h1">Title 1 &lt;h1&gt;</option>
-                <option value="h2">Title 2 &lt;h2&gt;</option>
-                <option value="h3">Title 3 &lt;h3&gt;</option>
-                <option value="h4">Title 4 &lt;h4&gt;</option>
-                <option value="h5">Title 5 &lt;h5&gt;</option>
-                <option value="h6">Subtitle &lt;h6&gt;</option>
-                <option value="p">Paragraph &lt;p&gt;</option>
-                <option value="pre">Preformatted &lt;pre&gt;</option>
-            </select>
-            <select onchange="formatDoc('fontname',this[this.selectedIndex].value);this.selectedIndex=0;">
-                <option class="heading" selected>- font -</option>
-                <option>Arial</option>
-                <option>Arial Black</option>
-                <option>Courier New</option>
-                <option>Times New Roman</option>
-            </select>
-            <select onchange="formatDoc('fontsize',this[this.selectedIndex].value);this.selectedIndex=0;">
-                <option class="heading" selected>- size -</option>
-                <option value="1">Very small</option>
-                <option value="2">A bit small</option>
-                <option value="3">Normal</option>
-                <option value="4">Medium-large</option>
-                <option value="5">Big</option>
-                <option value="6">Very big</option>
-                <option value="7">Maximum</option>
-            </select>
-            <select onchange="formatDoc('forecolor',this[this.selectedIndex].value);this.selectedIndex=0;">
-                <option class="heading" selected>- color -</option>
-                <option value="red">Red</option>
-                <option value="blue">Blue</option>
-                <option value="green">Green</option>
-                <option value="black">Black</option>
-            </select>
-            <select onchange="formatDoc('backcolor',this[this.selectedIndex].value);this.selectedIndex=0;">
-                <option class="heading" selected>- background -</option>
-                <option value="red">Red</option>
-                <option value="green">Green</option>
-                <option value="black">Black</option>
-            </select>
+<body>
+    <div class="container">
+        <!-- thanh menu co drop down -->
+        <div class="row">
+            <div id="menubar">
+                    <div class="menubar-item">
+                        <div class=" dropdown">
+                            <button class="dropbtn" data-toggle="dropdown" onclick="abc()">File &nbsp;
+                                <span class="caret"></span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="#">New Document</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menubar-item">
+                        <div class="dropdown">
+                            <button class="dropbtn" data-toggle="dropdown" onclick="abc()">Edit &nbsp;
+                                <span class="caret"></span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="#" onclick="formatDoc('undo')">Undo</a>
+                                <a href="#" onclick="formatDoc('redo')">Redo</a>
+                                <hr>
+                                <a href="#" onclick="formatDoc('cut')">Cut</a>
+                                <a href="#" onclick="formatDoc('copy')">Copy</a>
+                                <a href="#" onclick="formatDoc('paste')">Paste</a>
+                                <hr>
+                                <a href="#" onclick="selectAll()">Select All</a>
+                                <hr>
+                                <a href="#">Find And Replace</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menubar-item">
+                        <div class="dropdown">
+                            <button class="dropbtn" data-toggle="dropdown" onclick="abc()">Insert &nbsp;
+                                <span class="caret"></span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="#">Media</a>
+                                <a href="#">Image</a>
+                                <a href="#">Link</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#">Special Character</a>
+                                <a href="#">Horizontal Line</a>
+                                <a href="#">Anchor</a>
+                                <a href="#">Nonbreaking Space</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menubar-item">
+                        <div class="dropdown">
+                            <button class="dropbtn" data-toggle="dropdown" onclick="abc()">View &nbsp;
+                                <span class="caret"></span>
+                            </button>
+                            <div class="dropdown-menu">
+                                 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menubar-item">
+                        <div class="dropdown">
+                            <button class="dropbtn" data-toggle="dropdown" onclick="abc()">Format &nbsp;
+                                <span class="caret"></span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="#">Action</a>
+                                <a href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#">Something else here</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menubar-item">
+                        <div class="dropdown">
+                            <button class="dropbtn" data-toggle="dropdown" onclick="abc()">Table &nbsp;
+                                <span class="caret"></span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="#">Action</a>
+                                <a href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#">Something else here</a>
+                            </div>
+                        </div>
+                    </div>
+            </div>
         </div>
-        <div id="toodBar">
-            <img class="intLink" title="Clean" onclick="if(confirm('Are you sure?')){oDoc.innerHTML=sDefTxt};" src="data:image/gif;base64,R0lGODlhFgAWAIQbAD04KTRLYzFRjlldZl9vj1dusY14WYODhpWIbbSVFY6O7IOXw5qbms+wUbCztca0ccS4kdDQjdTLtMrL1O3YitHa7OPcsd/f4PfvrvDv8Pv5xv///////////////////yH5BAEKAB8ALAAAAAAWABYAAAV84CeOZGmeaKqubMteyzK547QoBcFWTm/jgsHq4rhMLoxFIehQQSAWR+Z4IAyaJ0kEgtFoLIzLwRE4oCQWrxoTOTAIhMCZ0tVgMBQKZHAYyFEWEV14eQ8IflhnEHmFDQkAiSkQCI2PDC4QBg+OAJc0ewadNCOgo6anqKkoIQA7"
-            />
-            <img class="intLink" title="Print" onclick="printDoc();" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAABGdBTUEAALGPC/xhBQAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9oEBxcZFmGboiwAAAAIdEVYdENvbW1lbnQA9syWvwAAAuFJREFUOMvtlUtsjFEUx//n3nn0YdpBh1abRpt4LFqtqkc3jRKkNEIsiIRIBBEhJJpKlIVo4m1RRMKKjQiRMJRUqUdKPT71qpIpiRKPaqdF55tv5vvusZjQTjOlseUkd3Xu/3dPzusC/22wtu2wRn+jG5So/OCDh8ycMJDflehMlkJkVK7KUYN+ufzA/RttH76zaVocDptRxzQtNi3mRWuPc+6cKtlXZ/sddP2uu9uXlmYXZ6Qm8v4Tz8lhF1H+zDQXt7S8oLMXtbF4e8QaFHjj3kbP2MzkktHpiTjp9VH6iHiA+whtAsX5brpwueMGdONdf/2A4M7ukDs1JW662+XkqTkeUoqjKtOjm2h53YFL15pSJ04Zc94wdtibr26fXlC2mzRvBccEbz2kiRFD414tKMlEZbVGT33+qCoHgha81SWYsew0r1uzfNylmtpx80pngQQ91LwVk2JGvGnfvZG6YcYRAT16GFtW5kKKfo1EQLtfh5Q2etT0BIWF+aitq4fDbk+ImYo1OxvGF03waFJQvBCkvDffRyEtxQiFFYgAZTHS0zwAGD7fG5TNnYNTp8/FzvGwJOfmgG7GOx0SAKKgQgDMgKBI0NJGMEImpGDk5+WACEwEd0ywblhGUZ4Hw5OdUekRBLT7DTgdEgxACsIznx8zpmWh7k4rkpJcuHDxCul6MDsmmBXDlWCH2+XozSgBnzsNCEE4euYV4pwCpsWYPW0UHDYBKSWu1NYjENDReqtKjwn2+zvtTc1vMSTB/mvev/WEYSlASsLimcOhOBJxw+N3aP/SjefNL5GePZmpu4kG7OPr1+tOfPyUu3BecWYKcwQcDFmwFKAUo90fhKDInBCAmvqnyMgqUEagQwCoHBDc1rjv9pIlD8IbVkz6qYViIBQGTJPx4k0XpIgEZoRN1Da0cij4VfR0ta3WvBXH/rjdCufv6R2zPgPH/e4pxSBCpeatqPrjNiso203/5s/zA171Mv8+w1LOAAAAAElFTkSuQmCC">
-            <a href="#" data-command='undo' onclick="formatDoc('undo')">
-                <i class='fa fa-undo'></i>
-            </a>
-            <a href="#" data-command='redo' onclick="formatDoc('redo')">
-                <i class='fa fa-repeat'></i>
-            </a>
+        <!-- het thnah menu cp drop down -->
+        <div class="row" style="border-top:3px solid #000;">
+            <div class="tools">
+                <div class="tool-icon" title="Bold (Ctrl+B)">
+                    <a href="#" data-command='bold' onclick="formatDoc('bold')">
+                        <i class='fa fa-bold'></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Italic (Ctrl+I)">
+                    <a href="#" data-command='italic' onclick="formatDoc('italic')">
+                        <i class='fa fa-italic'></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Underline (Ctrl+U)">
+                    <a href="#" data-command='underline' onclick="formatDoc('underline')">
+                        <i class='fa fa-underline'></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="StrikeThrough (Ctrl+S)">
+                    <a href="#" onclick="formatDoc('strikeThrough')">
+                        <i class="fa fa-strikethrough"></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Font Family">
+                    <div class="dropdown dropdown-fix">
+                        <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                            <i class="fa fa-font"><span class="caret"></span></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">HTML</a>
+                            </li>
+                            <li>
+                                <a href="#">CSS</a>
+                            </li>
+                            <li>
+                                <a href="#">JavaScript</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tool-icon" title="Font Size">
+                    <div class="dropdown dropdown-fix">
+                        <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                            <i class="fa fa-text-height"><span class="caret"></span></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">HTML</a>
+                            </li>
+                            <li>
+                                <a href="#">CSS</a>
+                            </li>
+                            <li>
+                                <a href="#">JavaScript</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+              <div class="menubar-item">
+                        <div class="dropdown">
+                            <button class="dropbtn" data-toggle="dropdown" onclick="abc()"> <i class="fa fa-tint"></i>
+                                <span class="caret"></span>
+                            </button>
+                            <div class="dropdown-menu">
+                                 <div class="mausac">
+  <ul class="nav nav-tabs">
+    <li style="width: 50%;text-align: center;"><a data-toggle="tab" href="#menu1">Text</a></li>
+    <li style="width: 50%;text-indent: center;"><a data-toggle="tab" href="#menu2">Background</a></li>
+  </ul>
 
-            <a href="#" onclick="formatDoc('subscript')">
-                <i class="fa fa-subscript" aria-hidden="true"></i>
-            </a>
-            <a href="#" onclick="formatDoc('superscript')">
-                <i class="fa fa-superscript" aria-hidden="true"></i>
-            </a>
-            <a href="#" data-command='bold' onclick="formatDoc('bold')">
-                <i class='fa fa-bold'></i>
-            </a>
-            <a href="#" data-command='italic' onclick="formatDoc('italic')">
-                <i class='fa fa-italic'></i>
-            </a>
-            <a href="#" data-command='underline' onclick="formatDoc('underline')">
-                <i class='fa fa-underline'></i>
-            </a>
-            <a href="#" onclick="formatDoc('strikeThrough')">
-                <i class="fa fa-strikethrough"></i>
-            </a>
-            <a href="#" onclick="formatDoc('removeFormat')">
-                <i class="fa fa-eraser"></i>
-            </a>
-            <a href="#" data-command='justifyLeft' onclick="formatDoc('justifyleft')">
-                <i class='fa fa-align-left'></i>
-            </a>
-            <a href="#" data-command='justifyCenter' onclick="formatDoc('justifycenter')">
-                <i class='fa fa-align-center'></i>
-            </a>
-            <a href="#" data-command='justifyRight' onclick="formatDoc('justifyright')">
-                <i class='fa fa-align-right'></i>
-            </a>
-            <a href="#">
-                <i class="fa fa-align-justify" aria-hidden="true" onclick="formatDoc('justifyFull')"></i>
-            </a>
+  <div class="tab-content">
+        <div id="menu1" class="tab-pane fade">
+      <table class="one">
+                                         <tr>
+                                            <td><div class="d1" style="background-color: #000000" title="Black"></div></td>
+                                            <td><div class="d1" style="background-color: #993300" title="Burnt orange"></div></td>
+                                            <td><div class="d1" style="background-color: #333300" title="Dark oliver"></div></td>
+                                            <td><div class="d1" style="background-color: #003300" title="Dark green"></div></td>
+                                            <td><div class="d1" style="background-color: #003366" title="Dark azure"></div></td>
+                                            <td><div class="d1" style="background-color: #000080" title="Navy Blue"></div></td>
+                                            <td><div class="d1" style="background-color: #333399" title="Indigo"></div></td>
+                                            <td><div class="d1" style="background-color: #333333" title="Very dark gray"></div></td>
+                                         </tr>
+                                            <tr>
+                                            <td><div class="d1" style="background-color: #800000" title="Maroon"></div></td>
+                                            <td><div class="d1" style="background-color: #FF6600" title="Orange"></div></td>
+                                            <td><div class="d1" style="background-color: #808000" title="Olive"></div></td>
+                                            <td><div class="d1" style="background-color: #008000" title="Green"></div></td>
+                                            <td><div class="d1" style="background-color: #008080" title="Teal"></div></td>
+                                            <td><div class="d1" style="background-color: #0000FF" title="Blue"></div></td>
+                                            <td><div class="d1" style="background-color: #666699" title="Grayish blue"></div></td>
+                                            <td><div class="d1" style="background-color: #808080" title="Gray"></div></td>
+                                         </tr>
+                                         <tr>
+                                            <td><div class="d1" style="background-color: #FF0000" title="Red"></div></td>
+                                            <td><div class="d1" style="background-color: #FF9900" title="Amber"></div></td>
+                                            <td><div class="d1" style="background-color: #99CC00" title="Yellow green"></div></td>
+                                            <td><div class="d1" style="background-color: #339966" title="Sea green"></div></td>
+                                            <td><div class="d1" style="background-color: #33CCCC" title="Turquoise"></div></td>
+                                            <td><div class="d1" style="background-color: #3366FF" title="Royal blue"></div></td>
+                                            <td><div class="d1" style="background-color: #800080" title="Purple"></div></td>
+                                            <td><div class="d1" style="background-color: #999999" title="Medium gray"></div></td>
+                                         </tr>
+                                         <tr>
+                                            <td><div class="d1" style="background-color: #FF00FF" title="Magenta"></div></td>
+                                            <td><div class="d1" style="background-color: #FFCC00" title="Gold"></div></td>
+                                            <td><div class="d1" style="background-color: #FFFF00" title="Yellow"></div></td>
+                                            <td><div class="d1" style="background-color: #00FF00" title="Lime"></div></td>
+                                            <td><div class="d1" style="background-color: #00FFFF" title="Aqua"></div></td>
+                                            <td><div class="d1" style="background-color: #00CCFF" title="Sky blue"></div></td>
+                                            <td><div class="d1" style="background-color: #993366" title="Red violet"></div></td>
+                                            <td><div class="d1" style="background-color: #FFFFFF" title="White"></div></td>
+                                         </tr>
+                                         <tr>
+                                            <td><div class="d1" style="background-color: #FF99CC" title="Pink"></div></td>
+                                            <td><div class="d1" style="background-color: #FFCC99" title="Peach"></div></td>
+                                            <td><div class="d1" style="background-color: #FFFF99" title="Light yellow"></div></td>
+                                            <td><div class="d1" style="background-color: #CCFFCC" title="Pale green"></div></td>
+                                            <td><div class="d1" style="background-color: #CCFFFF" title="Pale cyan"></div></td>
+                                            <td><div class="d1" style="background-color: #99CCFF" title="Light sky blue"></div></td>
+                                            <td><div class="d1" style="background-color: #CC99FF" title="Plum"></div></td>
+                                            <td><div class="d1" style="background-color: transparent" title="No color"></div></td>
+                                         </tr>
+                                    </table>
 
-            <a href="#" data-command='indent'>
-                <i class='fa fa-indent' onclick="formatDoc('indent')"></i>
-            </a>
-            <a href="#" data-command='outdent'>
-                <i class='fa fa-outdent' onclick="formatDoc('outdent')"></i>
-            </a>
-            <a href="#">
-                <i class='fa fa-list-ol' onclick="formatDoc('insertOrderedList')"></i>
-            </a>
-            <a href="#">
-                <i class='fa fa-list-ul' onclick="formatDoc('insertUnorderedList')"></i>
-            </a>
-            <a href="#">
-                <i class="fa fa-link" aria-hidden="true" onclick="formatDoc('createLink')"></i>
-            </a>
-            <a href="#">
-                <i class='fa fa-unlink' onclick="formatDoc('unlink')"></i>
-            </a>
-            <a href="#">
-                <i class="fa fa-picture-o" aria-hidden="true" onclick="formatDoc('insertimage')"></i>
-            </a>
-            <a href="#">
-                <i class="fa fa-video-camera" aria-hidden="true" onclick="formatDoc('insertHTML')"></i>
-            </a>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+ <table class="one">
+                                         <tr>
+                                            <td><div class="d1" style="background-color: #000000" title="Black"></div></td>
+                                            <td><div class="d1" style="background-color: #993300" title="Burnt orange"></div></td>
+                                            <td><div class="d1" style="background-color: #333300" title="Dark oliver"></div></td>
+                                            <td><div class="d1" style="background-color: #003300" title="Dark green"></div></td>
+                                            <td><div class="d1" style="background-color: #003366" title="Dark azure"></div></td>
+                                            <td><div class="d1" style="background-color: #000080" title="Navy Blue"></div></td>
+                                            <td><div class="d1" style="background-color: #333399" title="Indigo"></div></td>
+                                            <td><div class="d1" style="background-color: #333333" title="Very dark gray"></div></td>
+                                         </tr>
+                                            <tr>
+                                            <td><div class="d1" style="background-color: #800000" title="Maroon"></div></td>
+                                            <td><div class="d1" style="background-color: #FF6600" title="Orange"></div></td>
+                                            <td><div class="d1" style="background-color: #808000" title="Olive"></div></td>
+                                            <td><div class="d1" style="background-color: #008000" title="Green"></div></td>
+                                            <td><div class="d1" style="background-color: #008080" title="Teal"></div></td>
+                                            <td><div class="d1" style="background-color: #0000FF" title="Blue"></div></td>
+                                            <td><div class="d1" style="background-color: #666699" title="Grayish blue"></div></td>
+                                            <td><div class="d1" style="background-color: #808080" title="Gray"></div></td>
+                                         </tr>
+                                         <tr>
+                                            <td><div class="d1" style="background-color: #FF0000" title="Red"></div></td>
+                                            <td><div class="d1" style="background-color: #FF9900" title="Amber"></div></td>
+                                            <td><div class="d1" style="background-color: #99CC00" title="Yellow green"></div></td>
+                                            <td><div class="d1" style="background-color: #339966" title="Sea green"></div></td>
+                                            <td><div class="d1" style="background-color: #33CCCC" title="Turquoise"></div></td>
+                                            <td><div class="d1" style="background-color: #3366FF" title="Royal blue"></div></td>
+                                            <td><div class="d1" style="background-color: #800080" title="Purple"></div></td>
+                                            <td><div class="d1" style="background-color: #999999" title="Medium gray"></div></td>
+                                         </tr>
+                                         <tr>
+                                            <td><div class="d1" style="background-color: #FF00FF" title="Magenta"></div></td>
+                                            <td><div class="d1" style="background-color: #FFCC00" title="Gold"></div></td>
+                                            <td><div class="d1" style="background-color: #FFFF00" title="Yellow"></div></td>
+                                            <td><div class="d1" style="background-color: #00FF00" title="Lime"></div></td>
+                                            <td><div class="d1" style="background-color: #00FFFF" title="Aqua"></div></td>
+                                            <td><div class="d1" style="background-color: #00CCFF" title="Sky blue"></div></td>
+                                            <td><div class="d1" style="background-color: #993366" title="Red violet"></div></td>
+                                            <td><div class="d1" style="background-color: #FFFFFF" title="White"></div></td>
+                                         </tr>
+                                         <tr>
+                                            <td><div class="d1" style="background-color: #FF99CC" title="Pink"></div></td>
+                                            <td><div class="d1" style="background-color: #FFCC99" title="Peach"></div></td>
+                                            <td><div class="d1" style="background-color: #FFFF99" title="Light yellow"></div></td>
+                                            <td><div class="d1" style="background-color: #CCFFCC" title="Pale green"></div></td>
+                                            <td><div class="d1" style="background-color: #CCFFFF" title="Pale cyan"></div></td>
+                                            <td><div class="d1" style="background-color: #99CCFF" title="Light sky blue"></div></td>
+                                            <td><div class="d1" style="background-color: #CC99FF" title="Plum"></div></td>
+                                            <td><div class="d1" style="background-color: transparent" title="No color"></div></td>
+                                         </tr>
+                                    </table>
+    </div>
+  </div>
+</div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="tool-icon" title="Clear Formatting">
+                    <a href="#" onclick="formatDoc('removeFormat')">
+                        <i class="fa fa-eraser"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="tools">
+                <div class="tool-icon" title="Paragraph Format">
+                    <div class="dropdown dropdown-fix">
+                        <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                            <i class="fa fa-paragraph"><span class="caret"></span></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">HTML</a>
+                            </li>
+                            <li>
+                                <a href="#">CSS</a>
+                            </li>
+                            <li>
+                                <a href="#">JavaScript</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tool-icon" title="Paragraph Style">
+                    <div class="dropdown dropdown-fix">
+                        <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                            <i class="fa fa-magic"><span class="caret"></span></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">HTML</a>
+                            </li>
+                            <li>
+                                <a href="#">CSS</a>
+                            </li>
+                            <li>
+                                <a href="#">JavaScript</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tool-icon" title="Quote">
+                    <div class="dropdown dropdown-fix">
+                        <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                            <i class="fa fa-quote-left"><span class="caret"></span></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">HTML</a>
+                            </li>
+                            <li>
+                                <a href="#">CSS</a>
+                            </li>
+                            <li>
+                                <a href="#">JavaScript</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tool-icon" title="Align">
+                    <div class="dropdown dropdown-fix">
+                        <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                            <i class="fa fa-align-center"><span class="caret"></span></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">HTML</a>
+                            </li>
+                            <li>
+                                <a href="#">CSS</a>
+                            </li>
+                            <li>
+                                <a href="#">JavaScript</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tool-icon" title="Ordered List">
+                    <a href="#">
+                        <i class='fa fa-list-ul' onclick="formatDoc('insertUnorderedList')"></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Unordered List">
+                    <a href="#">
+                        <i class='fa fa-list-ol' onclick="formatDoc('insertOrderedList')"></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Decrease Indent (Ctrl+[)">
+                    <a href="#" data-command='outdent'>
+                        <i class='fa fa-outdent' onclick="formatDoc('outdent')"></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Increase Indent (Ctrl+])">
+                    <a href="#" data-command='indent'>
+                        <i class='fa fa-indent' onclick="formatDoc('indent')"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="tools">
+                <div class="tool-icon" title="Insert Link (Ctrl+K)">
+                    <a href="#">
+                        <i class="fa fa-link" aria-hidden="true" onclick="formatDoc('createLink')"></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Insert Image (Ctrl+P)">
+                     <a href="#">
+                        <i class="fa fa-picture-o" aria-hidden="true" onclick="formatDoc('insertimage')"></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Insert Video">
+                     <a href="#">
+                        <i class="fa fa-video-camera" aria-hidden="true" onclick="formatDoc('insertHTML')"></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Insert Table">
+                    <a href="#">
+                        <i class="fa fa-table" aria-hidden="true" onclick="formatDoc('')"></i>
+                    </a>
+                </div>
 
-            <a href="#" data-command='copy'>
-                <i class='fa fa-files-o' onclick="formatDoc('copy')"></i>
-            </a>
-            <a href="#" data-command='cut'>
-                <i class='fa fa-scissors' onclick="formatDoc('cut')"></i>
-            </a>
-            <a href="#" data-command='paste'>
-                <i class='fa fa-clipboard' onclick="formatDoc('paste')"></i>
-            </a>
+            </div>
         </div>
-
-
-        <div id='editor-doc' style="overflow:auto;" contenteditable onkeyup="setCodeMode();">
-            <p>
-                <br>
-            </p>
+        <div class="row" style="border-top:1px solid #ebebeb;">
+            <div class="tools">
+                <div class="tool-icon" title="Undo (Ctrl+Z)">
+                    <a href="#" data-command='undo' onclick="formatDoc('undo')">
+                        <i class='fa fa-undo'></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Redo (Ctrl+Shift+Z)">
+                    <a href="#" data-command='redo' onclick="formatDoc('redo')">
+                        <i class='fa fa-repeat'></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Code View">
+                    <a href="#" data-command='code' onclick="formatDoc('show code de sau')">
+                        <i class='fa fa-code'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="tools">
+                <div class="tool-icon" title="Special Characters">
+                    <span style="text-align: center;font-weight: bold">Ω</span>
+                </div>
+            </div>
+            <div class="tool-icon" title="Emoticons">
+                <a href="#" data-command='redo' onclick="formatDoc('redo')">
+                    <i class='fa fa-smile-o'></i>
+                </a>
+            </div>
+            <div class="tool-icon" title="Insert Horizontal Line">
+                <a href="#" data-command='redo' onclick="insertHr()">
+                    <i class='fa fa-minus'></i>
+                </a>
+            </div>
+            <div class="tool-icon" title="Help (Ctrl+/)">
+                <a href="#" data-command='redo' onclick="formatDoc('redo')">
+                    <i class='fa fa-question'></i>
+                </a>
+            </div>
         </div>
-    </form>
-    <form class='col-md-6' name="compForm" method="post" action="sample.php" onsubmit="if(validateMode()){this.myDoc.value=oDoc.innerHTML;return true;}return false;">
-        <div id='editor-code' contenteditable onkeyup="setDocMode()">
+        <div class="row">
+            <div id="editor-doc" style="overflow:auto;" contenteditable>
+                <p>
+                    aaaaaaa
+                </p>
+            </div>
         </div>
-    </form>
+    </div>
 </body>
-
+    <script type="text/javascript" src="js/script.js"></script>
+</html>
 <script type="text/javascript">
-    var ed = document.querySelector("#editor-doc");
-    ed.addEventListener("paste", function (e) {
-        console.log(1);
-        e.preventDefault();
-        var text = e.clipboardData.getData("text/plain");
-        console.log(text);
-        document.execCommand("insertHTML", false, text);
-    });
+var i = 0;
+
+function abc() {
+    if (i == 0) {
+        i = 1;
+        $('.dropbtn').removeAttr('data-toggle');
+        $('.dropdown-menu').addClass('abcd');
+    } else {
+        i = 0;
+
+        $('.dropdown-menu').removeClass('abcd');
+    }
+}
+
+function xyz() {
+    i = 0;
+
+    $('.dropdown-menu').removeClass('abcd');
+};
+</script>
+<script>
+$(function() {
+    $('[data-toggle="tooltip"]').tooltip()
+})
 </script>
 
 </html>
+<style>
+    .mausac{
+        width: 210px;;
+        height: auto;
+    }
+</style>
