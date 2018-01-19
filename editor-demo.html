@@ -16,8 +16,8 @@
 <style type="text/css">
     .d1{
         cursor: pointer;
-        height:26.5px;
-        width: 26.5px;
+        height:26px;
+        width: 26px;
         margin: 0px;
         
     }
@@ -239,118 +239,58 @@
                             <div class="dropdown-menu">
                                  <div class="mausac">
   <ul class="nav nav-tabs">
-    <li style="width: 50%;text-align: center;"><a data-toggle="tab" href="#menu1">Text</a></li>
-    <li style="width: 50%;text-indent: center;"><a data-toggle="tab" href="#menu2">Background</a></li>
+    <li style="width: 50%;text-align: center;"><a data-toggle="tab" href="#text-color">Text</a></li>
+    <li style="width: 50%;text-indent: center;"><a data-toggle="tab" href="#bg-color">Background</a></li>
   </ul>
 
   <div class="tab-content">
-        <div id="menu1" class="tab-pane fade">
+        <div id="text-color" class="tab-pane fade">
       <table class="one">
                                          <tr>
-                                            <td><div class="d1" style="background-color: #000000" title="Black"></div></td>
-                                            <td><div class="d1" style="background-color: #993300" title="Burnt orange"></div></td>
-                                            <td><div class="d1" style="background-color: #333300" title="Dark oliver"></div></td>
-                                            <td><div class="d1" style="background-color: #003300" title="Dark green"></div></td>
-                                            <td><div class="d1" style="background-color: #003366" title="Dark azure"></div></td>
-                                            <td><div class="d1" style="background-color: #000080" title="Navy Blue"></div></td>
-                                            <td><div class="d1" style="background-color: #333399" title="Indigo"></div></td>
-                                            <td><div class="d1" style="background-color: #333333" title="Very dark gray"></div></td>
+                                            <td><a href="#" onclick="formatDoc('forecolor','black')" class="d1" style="background-color: #000000" title="Black"></a></td>
+
                                          </tr>
                                             <tr>
-                                            <td><div class="d1" style="background-color: #800000" title="Maroon"></div></td>
-                                            <td><div class="d1" style="background-color: #FF6600" title="Orange"></div></td>
-                                            <td><div class="d1" style="background-color: #808000" title="Olive"></div></td>
-                                            <td><div class="d1" style="background-color: #008000" title="Green"></div></td>
-                                            <td><div class="d1" style="background-color: #008080" title="Teal"></div></td>
-                                            <td><div class="d1" style="background-color: #0000FF" title="Blue"></div></td>
-                                            <td><div class="d1" style="background-color: #666699" title="Grayish blue"></div></td>
-                                            <td><div class="d1" style="background-color: #808080" title="Gray"></div></td>
+                                            <td><a href="#" onclick="formatDoc('forecolor','red')" class="d1" style="background-color: red" title="Red"></a></td>
+
                                          </tr>
                                          <tr>
-                                            <td><div class="d1" style="background-color: #FF0000" title="Red"></div></td>
-                                            <td><div class="d1" style="background-color: #FF9900" title="Amber"></div></td>
-                                            <td><div class="d1" style="background-color: #99CC00" title="Yellow green"></div></td>
-                                            <td><div class="d1" style="background-color: #339966" title="Sea green"></div></td>
-                                            <td><div class="d1" style="background-color: #33CCCC" title="Turquoise"></div></td>
-                                            <td><div class="d1" style="background-color: #3366FF" title="Royal blue"></div></td>
-                                            <td><div class="d1" style="background-color: #800080" title="Purple"></div></td>
-                                            <td><div class="d1" style="background-color: #999999" title="Medium gray"></div></td>
+                                            <td><a href="#" onclick="formatDoc('forecolor','yellow')" class="d1" style="background-color: yellow" title="yellow"></a></td>
+
                                          </tr>
                                          <tr>
-                                            <td><div class="d1" style="background-color: #FF00FF" title="Magenta"></div></td>
-                                            <td><div class="d1" style="background-color: #FFCC00" title="Gold"></div></td>
-                                            <td><div class="d1" style="background-color: #FFFF00" title="Yellow"></div></td>
-                                            <td><div class="d1" style="background-color: #00FF00" title="Lime"></div></td>
-                                            <td><div class="d1" style="background-color: #00FFFF" title="Aqua"></div></td>
-                                            <td><div class="d1" style="background-color: #00CCFF" title="Sky blue"></div></td>
-                                            <td><div class="d1" style="background-color: #993366" title="Red violet"></div></td>
-                                            <td><div class="d1" style="background-color: #FFFFFF" title="White"></div></td>
+                                            <td><a href="#" onclick="formatDoc('forecolor','green')" class="d1" style="background-color: green" title="green"></a></td>
+
                                          </tr>
                                          <tr>
-                                            <td><div class="d1" style="background-color: #FF99CC" title="Pink"></div></td>
-                                            <td><div class="d1" style="background-color: #FFCC99" title="Peach"></div></td>
-                                            <td><div class="d1" style="background-color: #FFFF99" title="Light yellow"></div></td>
-                                            <td><div class="d1" style="background-color: #CCFFCC" title="Pale green"></div></td>
-                                            <td><div class="d1" style="background-color: #CCFFFF" title="Pale cyan"></div></td>
-                                            <td><div class="d1" style="background-color: #99CCFF" title="Light sky blue"></div></td>
-                                            <td><div class="d1" style="background-color: #CC99FF" title="Plum"></div></td>
-                                            <td><div class="d1" style="background-color: transparent" title="No color"></div></td>
+                                            <td><a href="#" onclick="formatDoc('forecolor','white')" class="d1" style="background-color: white" title="white"></a></td>
+
                                          </tr>
                                     </table>
 
     </div>
-    <div id="menu2" class="tab-pane fade">
+    <div id="bg-color" class="tab-pane fade">
  <table class="one">
-                                         <tr>
-                                            <td><div class="d1" style="background-color: #000000" title="Black"></div></td>
-                                            <td><div class="d1" style="background-color: #993300" title="Burnt orange"></div></td>
-                                            <td><div class="d1" style="background-color: #333300" title="Dark oliver"></div></td>
-                                            <td><div class="d1" style="background-color: #003300" title="Dark green"></div></td>
-                                            <td><div class="d1" style="background-color: #003366" title="Dark azure"></div></td>
-                                            <td><div class="d1" style="background-color: #000080" title="Navy Blue"></div></td>
-                                            <td><div class="d1" style="background-color: #333399" title="Indigo"></div></td>
-                                            <td><div class="d1" style="background-color: #333333" title="Very dark gray"></div></td>
-                                         </tr>
-                                            <tr>
-                                            <td><div class="d1" style="background-color: #800000" title="Maroon"></div></td>
-                                            <td><div class="d1" style="background-color: #FF6600" title="Orange"></div></td>
-                                            <td><div class="d1" style="background-color: #808000" title="Olive"></div></td>
-                                            <td><div class="d1" style="background-color: #008000" title="Green"></div></td>
-                                            <td><div class="d1" style="background-color: #008080" title="Teal"></div></td>
-                                            <td><div class="d1" style="background-color: #0000FF" title="Blue"></div></td>
-                                            <td><div class="d1" style="background-color: #666699" title="Grayish blue"></div></td>
-                                            <td><div class="d1" style="background-color: #808080" title="Gray"></div></td>
-                                         </tr>
-                                         <tr>
-                                            <td><div class="d1" style="background-color: #FF0000" title="Red"></div></td>
-                                            <td><div class="d1" style="background-color: #FF9900" title="Amber"></div></td>
-                                            <td><div class="d1" style="background-color: #99CC00" title="Yellow green"></div></td>
-                                            <td><div class="d1" style="background-color: #339966" title="Sea green"></div></td>
-                                            <td><div class="d1" style="background-color: #33CCCC" title="Turquoise"></div></td>
-                                            <td><div class="d1" style="background-color: #3366FF" title="Royal blue"></div></td>
-                                            <td><div class="d1" style="background-color: #800080" title="Purple"></div></td>
-                                            <td><div class="d1" style="background-color: #999999" title="Medium gray"></div></td>
-                                         </tr>
-                                         <tr>
-                                            <td><div class="d1" style="background-color: #FF00FF" title="Magenta"></div></td>
-                                            <td><div class="d1" style="background-color: #FFCC00" title="Gold"></div></td>
-                                            <td><div class="d1" style="background-color: #FFFF00" title="Yellow"></div></td>
-                                            <td><div class="d1" style="background-color: #00FF00" title="Lime"></div></td>
-                                            <td><div class="d1" style="background-color: #00FFFF" title="Aqua"></div></td>
-                                            <td><div class="d1" style="background-color: #00CCFF" title="Sky blue"></div></td>
-                                            <td><div class="d1" style="background-color: #993366" title="Red violet"></div></td>
-                                            <td><div class="d1" style="background-color: #FFFFFF" title="White"></div></td>
-                                         </tr>
-                                         <tr>
-                                            <td><div class="d1" style="background-color: #FF99CC" title="Pink"></div></td>
-                                            <td><div class="d1" style="background-color: #FFCC99" title="Peach"></div></td>
-                                            <td><div class="d1" style="background-color: #FFFF99" title="Light yellow"></div></td>
-                                            <td><div class="d1" style="background-color: #CCFFCC" title="Pale green"></div></td>
-                                            <td><div class="d1" style="background-color: #CCFFFF" title="Pale cyan"></div></td>
-                                            <td><div class="d1" style="background-color: #99CCFF" title="Light sky blue"></div></td>
-                                            <td><div class="d1" style="background-color: #CC99FF" title="Plum"></div></td>
-                                            <td><div class="d1" style="background-color: transparent" title="No color"></div></td>
-                                         </tr>
+    <tr>
+        <td><a href="#" onclick="formatDoc('backcolor','black')" class="d1" style="background-color: #000000" title="Black"></a></td>
+
+     </tr>
+        <tr>
+        <td><a href="#" onclick="formatDoc('backcolor','red')" class="d1" style="background-color: red" title="Red"></a></td>
+
+     </tr>
+     <tr>
+        <td><a href="#" onclick="formatDoc('backcolor','yellow')" class="d1" style="background-color: yellow" title="yellow"></a></td>
+
+     </tr>
+     <tr>
+        <td><a href="#" onclick="formatDoc('backcolor','green')" class="d1" style="background-color: green" title="green"></a></td>
+
+     </tr>
+     <tr>
+        <td><a href="#" onclick="formatDoc('backcolor','white')" class="d1" style="background-color: white" title="white"></a></td>
+
+     </tr>
                                     </table>
     </div>
   </div>
@@ -437,15 +377,16 @@
                             <i class="fa fa-align-center"><span class="caret"></span></i>
                         </button>
                         <ul class="dropdown-menu">
-                            <li class="active">
+                            <li onclick="formatDoc('justifyLeft')">
                                <a href="#"  title="Align left" ><i class="fa fa-align-left" aria-hidden="true"></i></a>
-                            <li>
+                            </li>
+                            <li onclick="formatDoc('justifyCenter')">
                                 <a href="#" title="Align center" ><i class="fa fa-align-center" aria-hidden="true"></i></a>
                             </li>
-                            <li>
+                            <li onclick="formatDoc('justifyRight')">
                                 <a href="#" title="Align right" ><i class="fa fa-align-right" aria-hidden="true"></i></a>
                             </li>
-                            <li>
+                            <li onclick="formatDoc('justifyFull')">
                             	<a href="#" title="Align justify"><i class="fa fa-align-justify" aria-hidden="true"></i></a>
                             </li>
                         </ul>
@@ -586,34 +527,18 @@
                             <i class="fa fa-align-center"><span class="caret"></span></i>
                         </button>
                         <ul class="dropdown-menu">
-                            <li>
-<<<<<<< HEAD
+                            <li onclick="formatDoc('justifyLeft')">
                                 <a href="#"  title="Align left" ><i class="fa fa-align-left" aria-hidden="true"></i></a>
-
-                            </li>
-                            <li>
-                                <a href="#" title="Align center" ><i class="fa fa-align-center" aria-hidden="true"></i></a>
-
-                            </li>
-                            <li>
-                                <a href="#" title="Align right" ><i class="fa fa-align-right" aria-hidden="true"></i></a>
-
-                            </li>
-                            <li>
-                                <a href="#" title="Align justify"><i class="fa fa-align-justify" aria-hidden="true"></i></a>
-
-=======
-                               <a href="#"  title="Align left" ><i class="fa fa-align-left" aria-hidden="true"></i></a>
-                            <li>
-                                <a href="#" title="Align center" ><i class="fa fa-align-center" aria-hidden="true"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" title="Align right" ><i class="fa fa-align-right" aria-hidden="true"></i></a>
-                            </li>
-                            <li>
-                            	<a href="#" title="Align justify"><i class="fa fa-align-justify" aria-hidden="true"></i></a>
->>>>>>> 23bf7e014592cdad1626cffd3e77d4bb73c820bd
-                            </li>
+                             </li>
+                             <li onclick="formatDoc('justifyCenter')">
+                                 <a href="#" title="Align center" ><i class="fa fa-align-center" aria-hidden="true"></i></a>
+                             </li>
+                             <li onclick="formatDoc('justifyRight')">
+                                 <a href="#" title="Align right" ><i class="fa fa-align-right" aria-hidden="true"></i></a>
+                             </li>
+                             <li onclick="formatDoc('justifyFull')">
+                                 <a href="#" title="Align justify"><i class="fa fa-align-justify" aria-hidden="true"></i></a>
+                             </li>
                         </ul>
                 </div>
                 <div class="tool-icon" title="Undo (Ctrl+Z)">
