@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<head>
+</head>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/script.js"></script>
+
+<body>
+    <div class="bg"></div>
+
+    <div id="mainBody" style="padding: 150px">
+
+        <!thanh menu co drop down>
+        <div id="menubar1" class="mce-container">
+            <div style="display: block; white-space: normal;background-color: #ECECEC;">
+
+
+                <div class="menubar-item">
+                    <div class=" dropdown">
+                        <button class="dropbtn" data-toggle="dropdown" onclick="abc()">File &nbsp;
+                            <span class="caret"></span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="#">New Document</a>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="menubar-item">
+                    <div class=" dropdown">
+                        <button class="dropbtn" data-toggle="dropdown" onclick="abc()">Edit &nbsp;
+                            <span class="caret"></span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="#">Undo</a>
+                            <a href="#">Redo</a>
+                            <a href="#">Cut</a>
+                            <a href="#">Copy</a>
+                            <a href="#">Paste</a>
+                            <a href="#">Selec All</a>
+                            <hr>
+                            <a href="#">Find And Replace</a>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="menubar-item">
+                    <div class=" dropdown">
+                        <button class="dropbtn" data-toggle="dropdown" onclick="abc()">Insert &nbsp;
+                            <span class="caret"></span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="#">Media</a>
+                            <a href="#">Image</a>
+                            <a href="#">Link</a>
+                            <a href="#">Special Character</a>
+                            <a href="#">Horizontal Line</a>
+                            <a href="#">Anchor</a>
+                            <a href="#">Nonbreaking Space</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="menubar-item">
+                    <div class=" dropdown">
+                        <button class="dropbtn" data-toggle="dropdown" onclick="abc()">View &nbsp;
+                            <span class="caret"></span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="#">Show Invisible Characters</a>
+                            <a href="#">Show Blocks</a>
+                            <a href="#">Visual Aids</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="menubar-item">
+                    <div class=" dropdown">
+                        <button class="dropbtn" data-toggle="dropdown" onclick="abc()">Format &nbsp;
+                            <span class="caret"></span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="#">Bold</a>
+                            <a href="#">Italic</a>
+                            <a href="#">Underline</a>
+                            <a href="#">Strikethrough</a>
+                            <a href="#">Superscript</a>
+                            <a href="#">Subscript</a>
+                            <a href="#">Format</a>
+                            <a href="#">Clear Formating</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="menubar-item">
+                    <div class=" dropdown">
+                        <button class="dropbtn" data-toggle="dropdown" onclick="abc()">Tool &nbsp;
+                            <span class="caret"></span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="#">Preview</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!het thnah menu cp drop down>
+
+        <div id="menubar2" class="mce-container">
+            <div style="display: block; white-space: normal;">
+                <div>
+                    <div class="btn-grp">
+                        <a href="#" data-command='undo' onclick="formatDoc('undo')">
+                            <i class='fa fa-lg fa-undo'></i>
+                        </a>
+                        <a href="#" data-command='redo' onclick="formatDoc('redo')">
+                            <i class='fa fa-lg fa-repeat'></i>
+                        </a>
+                        <!--
+                            <i class='fa fa-lg fa-font' style='color:#C96;'></i>
+                            <i class='fa fa-lg fa-font' style='background:#C96;'></i>-->
+
+                        <a href="#" onclick="formatDoc('subscript')">
+                            <i class="fa fa-lg fa-subscript" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" onclick="formatDoc('superscript')">
+                            <i class="fa fa-lg fa-superscript" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" data-command='bold' onclick="formatDoc('bold')">
+                            <i class='fa fa-lg fa-bold'></i>
+                        </a>
+                        <a href="#" data-command='italic' onclick="formatDoc('italic')">
+                            <i class='fa fa-lg fa-italic'></i>
+                        </a>
+                        <a href="#" data-command='underline' onclick="formatDoc('underline')">
+                            <i class='fa fa-lg fa-underline'></i>
+                        </a>
+                        <a href="#" onclick="formatDoc('strikeThrough')">
+                            <i class="fa fa-lg fa-strikethrough"></i>
+                        </a>
+                        <a href="#" onclick="formatDoc('removeFormat')">
+                            <i class="fa fa-lg fa-eraser"></i>
+                        </a>
+                        <!--<a href="#" data-command='strikeThrough' ><i class='fa fa-lg fa-strikethrough'></i></a>-->
+                        <a href="#" data-command='justifyLeft' onclick="formatDoc('justifyleft')">
+                            <i class='fa fa-lg fa-align-left'></i>
+                        </a>
+                        <a href="#" data-command='justifyCenter' onclick="formatDoc('justifycenter')">
+                            <i class='fa fa-lg fa-align-center'></i>
+                        </a>
+                        <a href="#" data-command='justifyRight' onclick="formatDoc('justifyright')">
+                            <i class='fa fa-lg fa-align-right'></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-lg fa-align-justify" aria-hidden="true" onclick="formatDoc('justifyFull')"></i>
+                        </a>
+
+                        <!--<a href="#" data-command='justifyFull'><i class='fa fa-lg fa-align-justify'></i></a>-->
+                        <a href="#" data-command='indent'>
+                            <i class='fa fa-lg fa-indent' onclick="formatDoc('indent')"></i>
+                        </a>
+                        <a href="#" data-command='outdent'>
+                            <i class='fa fa-lg fa-outdent' onclick="formatDoc('outdent')"></i>
+                        </a>
+                        <a href="#">
+                            <i class='fa fa-lg fa-list-ol' onclick="formatDoc('insertOrderedList')"></i>
+                        </a>
+                        <a href="#">
+                            <i class='fa fa-lg fa-list-ul' onclick="formatDoc('insertUnorderedList')"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-lg fa-link" aria-hidden="true" onclick="formatDoc('createLink')"></i>
+                        </a>
+                        <a href="#">
+                            <i class='fa fa-lg fa-unlink' onclick="formatDoc('unlink')"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-lg fa-picture-o" aria-hidden="true" onclick="formatDoc('insertimage')"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-lg fa-video-camera" aria-hidden="true" onclick="formatDoc('insertHTML')"></i>
+                        </a>
+
+                        <a href="#" data-command='copy'>
+                            <i class='fa fa-lg fa-files-o' onclick="formatDoc('copy')"></i>
+                        </a>
+                        <a href="#" data-command='cut'>
+                            <i class='fa fa-lg fa-scissors' onclick="formatDoc('cut')"></i>
+                        </a>
+                        <a href="#" data-command='paste'>
+                            <i class='fa fa-lg fa-clipboard' onclick="formatDoc('paste')"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id='editor-doc' style="overflow:auto;" contenteditable>
+            <p>
+                Hello World
+            </p>
+        </div>
+    
+
+</body>
+
+</html>
+<script type="text/javascript">
+    var i = 0;
+
+    function abc() {
+        if (i == 0) {
+            i = 1;
+            $('.dropbtn').removeAttr('data-toggle');
+            $('.dropdown-menu').addClass('abcd');
+        } else {
+            i = 0;
+
+            $('.dropdown-menu').removeClass('abcd');
+        }
+    }
+
+    function xyz() {
+        i = 0;
+
+        $('.dropdown-menu').removeClass('abcd');
+    };
+
+    $(document).ready(function () {
+        $(window).bind("scroll", function () {
+            parallax();
+        });
+    });
+
+    function parallax() {
+        var scrollPos = $(window).scrollTop(),
+            speed = 0.1;
+        $(".bg").css("top", (0 - (scrollPos * speed)) + 'px');
+    }
+</script>

@@ -1,0 +1,127 @@
+#nut{
+        width: 65px;
+        height: 32px;
+        text-align: center;
+        margin-left: 3px;
+        background-color:#ECECEC;
+        font-size: 15px;
+        color: black;
+    }
+    #nut:hover{
+        background-color: white;
+        border-width: 1px;
+        border-color: black;
+    }
+#menubar1, #menubar2{
+	display: block;
+	border: 2px solid #b5b5b5;
+    background-color: #f0f0f0;
+}
+.menubar-item{
+    border-color: transparent;
+    background: transparent;
+    filter: none;
+    display: inline-block;
+    margin: 2px 0 2px 2px;
+    position: relative;
+    border: 1px solid #b1b1b1;
+}
+.material-icons{
+    font-size: 16px !important;
+}
+.menubar1-item-btn{
+
+}
+.menubar1-item-btn-txt{
+
+}
+.menubar2-btn{
+	padding: 4px 8px;
+    font-size: 14px;
+    line-height: 20px;
+    cursor: pointer;
+    color: #333;
+    text-align: center;
+    overflow: visible;
+    -webkit-appearance: none;
+}
+.btn-grp{
+	border: 2px solid #efefef;
+	display: inline-block;
+}
+.btn-grp-first{
+	margin-left: 0;
+}
+.btn-grp-last{
+
+}
+.twin-btn-1{
+    line-height: 20px;
+    padding: 8px 8px;
+    vertical-align: top;
+
+}
+.twin-btn-2{
+    line-height: 20px;
+    padding: 8px 4px 8px 4px;
+     vertical-align: top;
+}
+.twin-btn-father{
+    font-size: 0;
+    vertical-align: top;
+}
+#contentArea{
+	display: block;
+	border: 2px solid #b5b5b5;
+	background: #fff;
+	height:650px;
+}
+.mce-container{
+	margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: top;
+    background: transparent;
+    text-decoration: none;
+    color: #333;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    text-shadow: none;
+    float: none;
+    position: static;
+    width: auto;
+    height: auto;
+    white-space: nowrap;
+    cursor: inherit;
+    -webkit-tap-highlight-color: transparent;
+    line-height: normal;
+    font-weight: normal;
+    text-align: left;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    direction: ltr;
+    max-width: none;
+}
+
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); background: none;}
+.material-icons.md-dark { background-color: #BBB;  }
+i{
+    font-family: 'tinymce',Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    font-size: 16px;
+    line-height: 16px;
+    speak: none;
+    vertical-align: text-top;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    background: transparent center center;
+    background-size: cover;
+    width: 16px;
+    height: 16px;
+    color: #333;
+}
