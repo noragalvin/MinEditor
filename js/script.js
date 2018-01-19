@@ -14,6 +14,11 @@ function formatDoc(sCmd, sValue) {
             document.execCommand(sCmd, false, url);
         }
 
+    } else if(sCmd === 'backcolor' || sCmd === 'forecolor'){
+        console.log(1);
+        console.log(sCmd);
+        console.log(sValue);
+        document.execCommand(sCmd,true, sValue);
     } else if (sCmd == 'insertHTML') {
         // <iframe width="auto" height="auto" frameborder="0" allowfullscreen src="https://www.nhaccuatui.com/vh/auto/GbCeos9ACoGf0"></iframe>
         // if else insert video
