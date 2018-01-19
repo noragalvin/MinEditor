@@ -7,6 +7,14 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://use.fontawesome.com/2dcf396e96.js"></script>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
  
 
@@ -119,7 +127,38 @@ border: 1px solid transparent;}
 	border: 1px solid silver;
     background-color: white;
 }
+.dropdown1{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
 
+.dropdown-content {
+	margin-top: -110px;
+	margin-left: 160px;
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown1:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown1:hover .dropbtn {
+    background-color: #3e8e41;
 </style>
 <body style="background-image: url('1.jpg');">
 
@@ -134,7 +173,7 @@ border: 1px solid transparent;}
 					<div  class=" dropdown">
         <button class="dropbtn"  data-toggle="dropdown" onclick="abc()">File &nbsp;<span class="caret"></span></button>
         <div class="dropdown-menu" >
-          <a  href="#">New Document</a>
+          <a  href="#"><i class="fa fa-file-text" aria-hidden="true"></i>&nbsp;&nbsp;New Document</a>
           
         </div>
     </div>
@@ -146,16 +185,14 @@ border: 1px solid transparent;}
 					<div  class=" dropdown">
         <button class="dropbtn"  data-toggle="dropdown" onclick="abc()">Edit &nbsp;<span class="caret"></span></button>
         <div class="dropdown-menu" >
-          <a  href="#">Undo</a>
-          <a  href="#">Redo</a>
+          <a  href="#"><i class="fa fa-undo" aria-hidden="true"></i>&nbsp;&nbsp;Undo</a>
+          <a  href="#"><i class="fa fa-repeat" aria-hidden="true"></i>&nbsp;&nbsp;Redo</a>
+          <a  href="#"><i class="glyphicon glyphicon-scissors"></i>&nbsp;&nbsp;Cut</a>
+          <a  href="#"><i class="fa fa-files-o" aria-hidden="true"></i>&nbsp;&nbsp;Copy</a>
+          <a  href="#"><i class="fa fa-clipboard" aria-hidden="true"></i>&nbsp;&nbsp;Paste</a>
+          <a  href="#"><i class="fa fa-y-combinator" aria-hidden="true"></i>&nbsp;&nbsp;Select All</a>
           <hr>
-          <a  href="#">Cut</a>
-          <a  href="#">Copy</a>
-          <a  href="#">Paste</a>
-          <hr>
-          <a  href="#">Selec All</a>
-          <hr>
-          <a  href="#">Find And Replace</a>
+          <a  href="#"><i class="fa fa-search" aria-hidden="true"></i>&nbsp;&nbsp;Find And Replace</a>
 
         </div>
     </div>
@@ -166,14 +203,19 @@ border: 1px solid transparent;}
 					<div  class=" dropdown">
         <button class="dropbtn"  data-toggle="dropdown" onclick="abc()">Insert &nbsp;<span class="caret"></span></button>
         <div class="dropdown-menu" >
-          <a  href="#">Media</a>
-          <a  href="#">Image</a>
-          <a  href="#">Link</a>
-          <div class="dropdown-divider"></div>
-          <a  href="#">Special Character</a>
-          <a  href="#">Horizontal Line</a>
-           <a  href="#">Anchor</a>
-            <a  href="#">Nonbreaking Space</a>
+          <a  href="#"><i class="glyphicon glyphicon-film"></i>&nbsp;&nbsp;Media</a>
+          <a  href="#"><i class="glyphicon glyphicon-picture"></i>&nbsp;&nbsp;Image</a>
+          <a  href="#"><i class="glyphicon glyphicon-paperclip"></i>&nbsp;&nbsp;Link</a>
+          <a  href="#"><i class="fa fa-quora" aria-hidden="true"></i>&nbsp;&nbsp;Special Character</a>
+           <a  href="#"><i class="fa fa-bookmark-o" aria-hidden="true"></i>&nbsp;&nbsp;Anchor</a>
+          <div class="dropdown1">
+  <a><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp;Date-Time</a>
+  <div class="dropdown-content">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div>
+</div>
         </div>
     </div>
 				</div>
@@ -183,10 +225,9 @@ border: 1px solid transparent;}
 					<div  class=" dropdown">
         <button class="dropbtn"  data-toggle="dropdown" onclick="abc()">View &nbsp;<span class="caret"></span></button>
         <div class="dropdown-menu" >
-          <a  href="#">Action</a>
-          <a  href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a  href="#">Something else here</a>
+          <a  href="#">Show Invisible Characters</a>
+          <a  href="#">Show Blocks</a>
+          <a  href="#">Visual Aids</a>
         </div>
     </div>
 				</div>
@@ -197,10 +238,23 @@ border: 1px solid transparent;}
 					<div  class=" dropdown">
         <button class="dropbtn"  data-toggle="dropdown" onclick="abc()">Format &nbsp;<span class="caret"></span></button>
         <div class="dropdown-menu" >
-          <a  href="#">Action</a>
-          <a  href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a  href="#">Something else here</a>
+      <a  href="#"><i class="fa fa-bold" aria-hidden="true"></i>&nbsp;&nbsp;Bold</a>
+      <a  href="#"><i class="fa fa-italic" aria-hidden="true"></i>&nbsp;&nbsp;Italic</a>
+          <a  href="#"><i class="fa fa-underline" aria-hidden="true"></i>&nbsp;&nbsp;Underline</a>
+          <a  href="#"><i class="fa fa-strikethrough" aria-hidden="true"></i>&nbsp;&nbsp;Strikethrough</a>
+          <a  href="#"><i class="fa fa-superscript" aria-hidden="true"></i>&nbsp;&nbsp;Superscript</a>
+          <a  href="#"><i class="fa fa-subscript" aria-hidden="true"></i>&nbsp;&nbsp;Subscript</a>
+          <div class="dropdown1">
+          <a  href="#"><i class="fa fa-windows" aria-hidden="true"></i>&nbsp;&nbsp;Format</a>
+
+  <div class="dropdown-content">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div>
+</div>
+          <a  href="#"><i class="fa fa-retweet" aria-hidden="true"></i></i>&nbsp;&nbsp;Clear Formating</a>
+           <a  href="#"><i class="fa fa-eraser" aria-hidden="true"></i>&nbsp;&nbsp;Clear </a>
         </div>
     </div>
 				</div>
@@ -209,12 +263,9 @@ border: 1px solid transparent;}
 
 <div class="menubar-item">
 					<div  class=" dropdown">
-        <button class="dropbtn"  data-toggle="dropdown" onclick="abc()">Table &nbsp;<span class="caret"></span></button>
+        <button class="dropbtn"  data-toggle="dropdown" onclick="abc()">Tool &nbsp;<span class="caret"></span></button>
         <div class="dropdown-menu" >
-          <a  href="#">Action</a>
-          <a  href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a  href="#">Something else here</a>
+          <a  href="#"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;&nbsp;Preview</a>
         </div>
     </div>
 				</div>
