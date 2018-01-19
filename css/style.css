@@ -78,10 +78,15 @@
     top: 94.1%;
     padding: 0px;
     background-color: #f9f9f9;
-    min-width: 70px;
+    min-width: 170px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
+
+.dropdown-menu a:hover{
+    background: #ececec;
+}
+
 #heading a:hover{
     background-color: #aeb0b2;
 }
@@ -152,4 +157,8 @@ hr{
     #row-hide {
         display: none;
     }
+}
+
+.dropbtn:focus{
+    outline: 0 !important;
 }

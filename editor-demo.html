@@ -14,123 +14,120 @@
 <head>
 </head>
 <style type="text/css">
-    .d1{
-        cursor: pointer;
-        height:26px;
-        width: 26px;
-        margin: 0px;
-        
-    }
-    .d1:hover{
-                cursor: pointer;
+.d1 {
+    cursor: pointer;
+    height: 26px;
+    width: 26px;
+    margin: 0px;
+}
 
-        border:1px solid red;
-    }
-     .mausac{
-        width: 210px;;
-        height: auto;
-    }
+.d1:hover {
+    cursor: pointer;
 
+    border: 1px solid red;
+}
+
+.mausac {
+    width: 210px;
+    ;
+    height: auto;
+}
 </style>
-
 
 <body>
     <div class="container">
         <!-- thanh menu co drop down -->
         <div class="row">
-
-
-<!..........................................................>
-            <div id="menubar" >
-                    <div class="menubar-item">
-                        <div class=" dropdown">
-                            <button class="dropbtn" data-toggle="dropdown" onclick="abc()">File &nbsp;
-                                <span class="caret"></span>
-                            </button>
-                            <div class="dropdown-menu">
-                                <a href="#"><i class="fa fa-file-text" aria-hidden="true"></i>&nbsp;&nbsp;New Document</a>
-                            </div>
+            <!-- <!..........................................................> -->
+            <div id="menubar">
+                <div class="menubar-item">
+                    <div class=" dropdown">
+                        <button class="dropbtn" data-toggle="dropdown" onclick="abc()">File &nbsp;
+                            <span class="caret"></span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="#"><i class="fa fa-file-text" aria-hidden="true"></i>&nbsp;&nbsp;New Document</a>
                         </div>
                     </div>
-                    <div class="menubar-item">
-                        <div class="dropdown">
-                            <button class="dropbtn" data-toggle="dropdown" onclick="abc()">Edit &nbsp;
-                                <span class="caret"></span>
-                            </button>
-                            <div class="dropdown-menu">
-                                <a href="#" onclick="formatDoc('undo')"><i class="fa fa-undo" aria-hidden="true"></i>&nbsp;&nbsp;Undo</a>
-                                <a href="#" onclick="formatDoc('redo')"><i class="fa fa-repeat" aria-hidden="true"></i>&nbsp;&nbsp;Redo</a>
-                                <hr>
-                                <a href="#" onclick="formatDoc('cut')"><i class="glyphicon glyphicon-scissors"></i>&nbsp;&nbsp;Cut</a>
-                                <a href="#" onclick="formatDoc('copy')">Copy</a>
-                                <a href="#" onclick="formatDoc('paste')">Paste</a>
-                                <hr>
-                                <a href="#" onclick="selectAll()">Select All</a>
-                                <hr>
-                                <a href="#">Find And Replace</a>
-                            </div>
+                </div>
+                <div class="menubar-item">
+                    <div class="dropdown">
+                        <button class="dropbtn" data-toggle="dropdown" onclick="abc()">Edit &nbsp;
+                            <span class="caret"></span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="#" onclick="formatDoc('undo')"><i class="fa fa-undo" aria-hidden="true"></i>&nbsp;&nbsp;Undo</a>
+                            <a href="#" onclick="formatDoc('redo')"><i class="fa fa-repeat" aria-hidden="true"></i>&nbsp;&nbsp;Redo</a>
+                            <hr>
+                            <a href="#" onclick="formatDoc('cut')"><i class="glyphicon glyphicon-scissors"></i>&nbsp;&nbsp;Cut</a>
+                            <a href="#" onclick="formatDoc('copy')">Copy</a>
+                            <a href="#" onclick="formatDoc('paste')">Paste</a>
+                            <hr>
+                            <a href="#" onclick="selectAll()">Select All</a>
+                            <hr>
+                            <a href="#">Find And Replace</a>
                         </div>
                     </div>
-                    <div class="menubar-item">
-                        <div class="dropdown">
-                            <button class="dropbtn" data-toggle="dropdown" onclick="abc()">Insert &nbsp;
-                                <span class="caret"></span>
-                            </button>
-                            <div class="dropdown-menu">
-                                <a href="#">Media</a>
-                                <a href="#">Image</a>
-                                <a href="#">Link</a>
-                                <div class="dropdown-divider"></div>
-                                <a href="#">Special Character</a>
-                                <a href="#">Horizontal Line</a>
-                                <a href="#">Anchor</a>
-                                <a href="#">Nonbreaking Space</a>
-                            </div>
+                </div>
+                <div class="menubar-item">
+                    <div class="dropdown">
+                        <button class="dropbtn" data-toggle="dropdown" onclick="abc()">Insert &nbsp;
+                            <span class="caret"></span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="#">Media</a>
+                            <a href="#">Image</a>
+                            <a href="#">Link</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#">Special Character</a>
+                            <a href="#">Horizontal Line</a>
+                            <a href="#">Anchor</a>
+                            <a href="#">Nonbreaking Space</a>
                         </div>
                     </div>
-                    <div class="menubar-item">
-                        <div class="dropdown">
-                            <button class="dropbtn" data-toggle="dropdown" onclick="abc()">View &nbsp;
-                                <span class="caret"></span>
-                            </button>
-                            <div class="dropdown-menu">
-                                <a href="#">Action</a>
-                                <a href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a href="#">Something else here</a>
-                            </div>
+                </div>
+                <div class="menubar-item">
+                    <div class="dropdown">
+                        <button class="dropbtn" data-toggle="dropdown" onclick="abc()">View &nbsp;
+                            <span class="caret"></span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="#">Action</a>
+                            <a href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#">Something else here</a>
                         </div>
                     </div>
-                    <div class="menubar-item">
-                        <div class="dropdown">
-                            <button class="dropbtn" data-toggle="dropdown" onclick="abc()">Format &nbsp;
-                                <span class="caret"></span>
-                            </button>
-                            <div class="dropdown-menu">
-                                <a href="#">Action</a>
-                                <a href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a href="#">Something else here</a>
-                            </div>
+                </div>
+                <div class="menubar-item">
+                    <div class="dropdown">
+                        <button class="dropbtn" data-toggle="dropdown" onclick="abc()">Format &nbsp;
+                            <span class="caret"></span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="#">Action</a>
+                            <a href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#">Something else here</a>
                         </div>
                     </div>
-                    <div class="menubar-item">
-                        <div class="dropdown">
-                            <button class="dropbtn" data-toggle="dropdown" onclick="abc()">Table &nbsp;
-                                <span class="caret"></span>
-                            </button>
-                            <div class="dropdown-menu">
-                                <a href="#">Action</a>
-                                <a href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a href="#">Something else here</a>
-                            </div>
+                </div>
+                <div class="menubar-item">
+                    <div class="dropdown">
+                        <button class="dropbtn" data-toggle="dropdown" onclick="abc()">Table &nbsp;
+                            <span class="caret"></span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="#">Action</a>
+                            <a href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#">Something else here</a>
                         </div>
                     </div>
+                </div>
             </div>
         </div>
         <!-- het thnah menu cp drop down -->
-
         <div class="row" id="row-show" style="border-top:3px solid #000;">
             <div class="tools">
                 <div class="tool-icon" title="Bold (Ctrl+B)" onclick="formatDoc('bold')">
@@ -159,145 +156,106 @@
                             <i class="fa fa-font"><span class="caret"></span></i>
                         </button>
                         <ul class="dropdown-menu">
-                            <li class="active">
+                            <li onclick="formatDoc('fontname','Arial')">
                                 <a href="#" style="font-family: Arial">Arial</a>
                             </li>
-                            <li>
-                                <a href="#" style="font-family: Georgia">Georgia</a>
+                            <li onclick="formatDoc('fontname','Arial Black')">
+                                <a href="#" style="font-family: Georgia">Arial Black</a>
                             </li>
-                            <li>
-                                <a href="#" style="font-family: Impact">Impact</a>
+                            <li onclick="formatDoc('fontname','Courier New')">
+                                <a href="#" style="font-family: Impact">Courier New</a>
                             </li>
-                            <li>
-                                <a href="#" style="font-family: Tahoma">Tahoma</a>
-                            </li>
-                            <li>
+                            <li onclick="formatDoc('fontname','Time New Roman')">
                                 <a href="#" style="font-family: Time New Roman">Time New Roman</a>
                             </li>
-                            <li>
-                                <a href="#" style="font-family: Verdana">Verdana</a>
-                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="tool-icon" title="Font Size">
                     <div class="dropdown dropdown-fix">
-                        <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown" >
+                        <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
                             <i class="fa fa-text-height"><span class="caret"></span></i>
                         </button>
                         <ul class="dropdown-menu" style="overflow-y: auto; height:200px;">
-                            <li>
-                                <a href="#">8</a>
+                            <li onclick="formatDoc('fontsize','1')">
+                                <a href="#">1</a>
                             </li>
-                            <li>
-                                <a href="#">9</a>
+                            <li onclick="formatDoc('fontsize','2')">
+                                <a href="#">2</a>
                             </li>
-                            <li>
-                                <a href="#">10</a>
+                            <li onclick="formatDoc('fontsize','3')">
+                                <a href="#">3</a>
                             </li>
-                            <li>
-                                <a href="#">11</a>
+                            <li onclick="formatDoc('fontsize','4')">
+                                <a href="#">4</a>
                             </li>
-                            <li>
-                                <a href="#">12</a>
+                            <li onclick="formatDoc('fontsize','5')">
+                                <a href="#">5</a>
                             </li>
-                            <li>
-                                <a href="#">14</a>
+                            <li onclick="formatDoc('fontsize','6')">
+                                <a href="#">6</a>
                             </li>
-                            <li>
-                                <a href="#">18</a>
-                            </li>
-                            <li>
-                                <a href="#">24</a>
-                            </li>
-                            <li>
-                                <a href="#">30</a>
-                            </li>
-                            <li>
-                                <a href="#">36</a>
-                            </li>
-                            <li>
-                                <a href="#">48</a>
-                            </li>
-                            <li>
-                                <a href="#">60</a>
-                            </li>
-                            <li>
-                                <a href="#">72</a>
-                            </li>
-                            <li>
-                                <a href="#">96</a>
+                            <li onclick="formatDoc('fontsize','7')">
+                                <a href="#">7</a>
                             </li>
                         </ul>
                     </div>
                 </div>
-               <div class="menubar-item">
-                        <div class="dropdown">
-                            <button class="dropbtn" data-toggle="dropdown" onclick="abc()"> <i class="fa fa-tint"></i>
-                                <span class="caret"></span>
-                            </button>
-                            <div class="dropdown-menu">
-                                 <div class="mausac">
-  <ul class="nav nav-tabs">
-    <li style="width: 50%;text-align: center;"><a data-toggle="tab" href="#text-color">Text</a></li>
-    <li style="width: 50%;text-indent: center;"><a data-toggle="tab" href="#bg-color">Background</a></li>
-  </ul>
-
-  <div class="tab-content">
-        <div id="text-color" class="tab-pane fade">
-      <table class="one">
-                                         <tr>
-                                            <td><a href="#" onclick="formatDoc('forecolor','black')" class="d1" style="background-color: #000000" title="Black"></a></td>
-
-                                         </tr>
+                <div class="menubar-item">
+                    <div class="dropdown">
+                        <button class="dropbtn" data-toggle="dropdown" onclick="abc()"> <i class="fa fa-tint"></i>
+                            <span class="caret"></span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <div class="mausac">
+                                <ul class="nav nav-tabs">
+                                    <li style="width: 50%;text-align: center;"><a data-toggle="tab" href="#text-color">Text</a></li>
+                                    <li style="width: 50%;text-indent: center;"><a data-toggle="tab" href="#bg-color">Background</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div id="text-color" class="tab-pane fade">
+                                        <table class="one">
                                             <tr>
-                                            <td><a href="#" onclick="formatDoc('forecolor','red')" class="d1" style="background-color: red" title="Red"></a></td>
-
-                                         </tr>
-                                         <tr>
-                                            <td><a href="#" onclick="formatDoc('forecolor','yellow')" class="d1" style="background-color: yellow" title="yellow"></a></td>
-
-                                         </tr>
-                                         <tr>
-                                            <td><a href="#" onclick="formatDoc('forecolor','green')" class="d1" style="background-color: green" title="green"></a></td>
-
-                                         </tr>
-                                         <tr>
-                                            <td><a href="#" onclick="formatDoc('forecolor','white')" class="d1" style="background-color: white" title="white"></a></td>
-
-                                         </tr>
-                                    </table>
-
-    </div>
-    <div id="bg-color" class="tab-pane fade">
- <table class="one">
-    <tr>
-        <td><a href="#" onclick="formatDoc('backcolor','black')" class="d1" style="background-color: #000000" title="Black"></a></td>
-
-     </tr>
-        <tr>
-        <td><a href="#" onclick="formatDoc('backcolor','red')" class="d1" style="background-color: red" title="Red"></a></td>
-
-     </tr>
-     <tr>
-        <td><a href="#" onclick="formatDoc('backcolor','yellow')" class="d1" style="background-color: yellow" title="yellow"></a></td>
-
-     </tr>
-     <tr>
-        <td><a href="#" onclick="formatDoc('backcolor','green')" class="d1" style="background-color: green" title="green"></a></td>
-
-     </tr>
-     <tr>
-        <td><a href="#" onclick="formatDoc('backcolor','white')" class="d1" style="background-color: white" title="white"></a></td>
-
-     </tr>
-                                    </table>
-    </div>
-  </div>
-</div>
+                                                <td><a href="#" onclick="formatDoc('forecolor','black')" class="d1" style="background-color: #000000" title="Black"></a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="#" onclick="formatDoc('forecolor','red')" class="d1" style="background-color: red" title="Red"></a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="#" onclick="formatDoc('forecolor','yellow')" class="d1" style="background-color: yellow" title="yellow"></a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="#" onclick="formatDoc('forecolor','green')" class="d1" style="background-color: green" title="green"></a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="#" onclick="formatDoc('forecolor','white')" class="d1" style="background-color: white" title="white"></a></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div id="bg-color" class="tab-pane fade">
+                                        <table class="one">
+                                            <tr>
+                                                <td><a href="#" onclick="formatDoc('backcolor','black')" class="d1" style="background-color: #000000" title="Black"></a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="#" onclick="formatDoc('backcolor','red')" class="d1" style="background-color: red" title="Red"></a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="#" onclick="formatDoc('backcolor','yellow')" class="d1" style="background-color: yellow" title="yellow"></a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="#" onclick="formatDoc('backcolor','green')" class="d1" style="background-color: green" title="green"></a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="#" onclick="formatDoc('backcolor','white')" class="d1" style="background-color: white" title="white"></a></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                </div>
                 <div class="tool-icon" title="Clear Formatting">
                     <a href="#" onclick="formatDoc('removeFormat')">
                         <i class="fa fa-eraser"></i>
@@ -311,8 +269,10 @@
                             <i class="fa fa-paragraph"><span class="caret"></span></i>
                         </button>
                         <ul class="dropdown-menu" id="heading">
-                            <li onclick="formatDoc('p')" class="active" >
-                                <a href="#" title="Paragraph"><p>Normal</p></a>
+                            <li onclick="formatDoc('p')">
+                                <a href="#" title="Paragraph">
+                                    <p>Normal</p>
+                                </a>
                             </li>
                             <li onclick="formatDoc('h1')">
                                 <a href="#" title="Heading 1"><h1>Heading 1</h1></a>
@@ -321,16 +281,16 @@
                                 <a href="#" title="Heading 2"><h2>Heading 2</h2></a>
                             </li>
                             <li onclick="formatDoc('h3')">
-                            	<a href="#" title="Heading 3"><h3>Heading 3</h3></a>
+                                <a href="#" title="Heading 3"><h3>Heading 3</h3></a>
                             </li>
                             <li onclick="formatDoc('h4')">
-                            	<a href="#" title="Heading 4"><h4>Heading 4</h4></a>
+                                <a href="#" title="Heading 4"><h4>Heading 4</h4></a>
                             </li>
                             <li onclick="formatDoc('h5')">
-                            	<a href="" title="Heading 5"><h5>Heading 5</h5></a>
+                                <a href="" title="Heading 5"><h5>Heading 5</h5></a>
                             </li>
                             <li onclick="formatDoc('h6')">
-                            	<a href="" title="Heading 6"><h6>Heading 6</h6></a>
+                                <a href="" title="Heading 6"><h6>Heading 6</h6></a>
                             </li>
                         </ul>
                     </div>
@@ -350,7 +310,7 @@
                             <li>
                                 <a href="#">Spaced</a>
                             </li>
-                             <li>
+                            <li>
                                 <a href="#">Uppercase</a>
                             </li>
                         </ul>
@@ -378,16 +338,16 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li onclick="formatDoc('justifyLeft')">
-                               <a href="#"  title="Align left" ><i class="fa fa-align-left" aria-hidden="true"></i></a>
+                                <a href="#" title="Align left"><i class="fa fa-align-left" aria-hidden="true"></i></a>
                             </li>
                             <li onclick="formatDoc('justifyCenter')">
-                                <a href="#" title="Align center" ><i class="fa fa-align-center" aria-hidden="true"></i></a>
+                                <a href="#" title="Align center"><i class="fa fa-align-center" aria-hidden="true"></i></a>
                             </li>
                             <li onclick="formatDoc('justifyRight')">
-                                <a href="#" title="Align right" ><i class="fa fa-align-right" aria-hidden="true"></i></a>
+                                <a href="#" title="Align right"><i class="fa fa-align-right" aria-hidden="true"></i></a>
                             </li>
                             <li onclick="formatDoc('justifyFull')">
-                            	<a href="#" title="Align justify"><i class="fa fa-align-justify" aria-hidden="true"></i></a>
+                                <a href="#" title="Align justify"><i class="fa fa-align-justify" aria-hidden="true"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -420,12 +380,12 @@
                     </a>
                 </div>
                 <div class="tool-icon" title="Insert Image (Ctrl+P)" onclick="formatDoc('insertimage')">
-                     <a href="#">
+                    <a href="#">
                         <i class="fa fa-picture-o" aria-hidden="true"></i>
                     </a>
                 </div>
                 <div class="tool-icon" title="Insert Video" onclick="formatDoc('insertHTML')">
-                     <a href="#">
+                    <a href="#">
                         <i class="fa fa-video-camera" aria-hidden="true"></i>
                     </a>
                 </div>
@@ -436,8 +396,6 @@
                 </div>
             </div>
         </div>
-
-
         <div class="row" id="row-show" style="border-top:1px solid #ebebeb;">
             <div class="tools">
                 <div class="tool-icon" title="Undo (Ctrl+Z)" onclick="formatDoc('undo')">
@@ -477,12 +435,10 @@
                 </a>
             </div>
         </div>
-	
-
-<!--show khi phong to-->
+        <!--show khi phong to-->
         <div class="row" id="row-hide" style="border-top:3px solid #000;">
             <div class="tools">
-           		<div class="tool-icon" title="Bold (Ctrl+B)">
+                <div class="tool-icon" title="Bold (Ctrl+B)">
                     <a href="#" data-command='bold' onclick="formatDoc('bold')">
                         <i class='fa fa-bold'></i>
                     </a>
@@ -498,13 +454,13 @@
                     </a>
                 </div>
                 <div class="tool-icon" title="Insert Image (Ctrl+P)">
-                     <a href="#">
+                    <a href="#">
                         <i class="fa fa-picture-o" aria-hidden="true" onclick="formatDoc('insertimage')"></i>
                     </a>
                 </div>
             </div>
             <div class="tools">
-            	<div class="tool-icon" title="Paragraph Format">
+                <div class="tool-icon" title="Paragraph Format">
                     <div class="dropdown dropdown-fix">
                         <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
                             <i class="fa fa-paragraph"><span class="caret"></span></i>
@@ -523,23 +479,23 @@
                     </div>
                 </div>
                 <div class="dropdown dropdown-fix" id="align">
-                        <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
-                            <i class="fa fa-align-center"><span class="caret"></span></i>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li onclick="formatDoc('justifyLeft')">
-                                <a href="#"  title="Align left" ><i class="fa fa-align-left" aria-hidden="true"></i></a>
-                             </li>
-                             <li onclick="formatDoc('justifyCenter')">
-                                 <a href="#" title="Align center" ><i class="fa fa-align-center" aria-hidden="true"></i></a>
-                             </li>
-                             <li onclick="formatDoc('justifyRight')">
-                                 <a href="#" title="Align right" ><i class="fa fa-align-right" aria-hidden="true"></i></a>
-                             </li>
-                             <li onclick="formatDoc('justifyFull')">
-                                 <a href="#" title="Align justify"><i class="fa fa-align-justify" aria-hidden="true"></i></a>
-                             </li>
-                        </ul>
+                    <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                        <i class="fa fa-align-center"><span class="caret"></span></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li onclick="formatDoc('justifyLeft')">
+                            <a href="#" title="Align left"><i class="fa fa-align-left" aria-hidden="true"></i></a>
+                        </li>
+                        <li onclick="formatDoc('justifyCenter')">
+                            <a href="#" title="Align center"><i class="fa fa-align-center" aria-hidden="true"></i></a>
+                        </li>
+                        <li onclick="formatDoc('justifyRight')">
+                            <a href="#" title="Align right"><i class="fa fa-align-right" aria-hidden="true"></i></a>
+                        </li>
+                        <li onclick="formatDoc('justifyFull')">
+                            <a href="#" title="Align justify"><i class="fa fa-align-justify" aria-hidden="true"></i></a>
+                        </li>
+                    </ul>
                 </div>
                 <div class="tool-icon" title="Undo (Ctrl+Z)">
                     <a href="#" data-command='undo' onclick="formatDoc('undo')">
@@ -552,9 +508,7 @@
                     </a>
                 </div>
             </div>
-
         </div>
-
         <!--contentArea-->
         <div class="row">
             <div id="editor-doc" style="overflow:auto;" contenteditable>
@@ -565,7 +519,8 @@
         </div>
     </div>
 </body>
-    <script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+
 </html>
 <script type="text/javascript">
 var i = 0;
@@ -587,6 +542,13 @@ function xyz() {
 
     $('.dropdown-menu').removeClass('abcd');
 };
+
+$(document).ready(function() {
+    $('#editor-doc').click(function(e) {
+        e.preventDefault();
+        xyz();
+    });
+});
 </script>
 <script>
 $(function() {

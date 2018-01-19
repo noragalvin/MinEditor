@@ -15,9 +15,9 @@ function formatDoc(sCmd, sValue) {
         }
 
     } else if(sCmd === 'backcolor' || sCmd === 'forecolor'){
-        console.log(1);
-        console.log(sCmd);
-        console.log(sValue);
+        // console.log(1);
+        // console.log(sCmd);
+        // console.log(sValue);
         document.execCommand(sCmd,true, sValue);
     } else if (sCmd == 'insertHTML') {
         // <iframe width="auto" height="auto" frameborder="0" allowfullscreen src="https://www.nhaccuatui.com/vh/auto/GbCeos9ACoGf0"></iframe>
@@ -50,6 +50,21 @@ function insertImg(img) {
         document.execCommand("insertHTML", false, img);
     }
 }
+
+//Insert Video
+// function insertVid() {
+//     sVideo = prompt('Enter embed code: ', 'Embed here');
+//     sVideo = "<iframe width='500' height='500' src='" + sVideo + "' frameborder='0' allow='encrypted-media' allowfullscreen></iframe>";
+//     console.log(sVideo);
+//     if (document.all) {
+//         var range = document.selection.createRange();
+//         range.pasteHTML(sVideo);
+//         range.collapse(false);
+//         range.select();
+//     } else {
+//         document.execCommand("insertHTML", false, sVideo);
+//     }
+// }
 
 //Paste as plain text
 window.onload = function () {
