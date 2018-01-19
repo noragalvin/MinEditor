@@ -109,7 +109,8 @@
             </div>
         </div>
         <!-- het thnah menu cp drop down -->
-        <div class="row" style="border-top:3px solid #000;">
+
+        <div class="row" id="row-show" style="border-top:3px solid #000;">
             <div class="tools">
                 <div class="tool-icon" title="Bold (Ctrl+B)" onclick="formatDoc('bold')">
                     <a href="#" data-command='bold'>
@@ -197,15 +198,27 @@
                         <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
                             <i class="fa fa-paragraph"><span class="caret"></span></i>
                         </button>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu" id="heading">
                             <li>
-                                <a href="#">HTML</a>
+                                <a href="#" title="Normal">Normal</a>
                             </li>
                             <li>
-                                <a href="#">CSS</a>
+                                <a href="#" title="Heading 1"><h1>Heading 1</h1></a>
                             </li>
                             <li>
-                                <a href="#">JavaScript</a>
+                                <a href="#" title="Heading 2"><h2>Heading 2</h2></a>
+                            </li>
+                            <li>
+                            	<a href="#" title="Heading 3"><h3>Heading 3</h3></a>
+                            </li>
+                            <li>
+                            	<a href="#" title="Heading 4"><h4>Heading 4</h4></a>
+                            </li>
+                            <li>
+                            	<a href="" title="Heading 5"><h5>Heading 5</h5></a>
+                            </li>
+                            <li>
+                            	<a href="" title="Heading 6"><h6>Heading 6</h6></a>
                             </li>
                         </ul>
                     </div>
@@ -308,10 +321,11 @@
                         <i class="fa fa-table" aria-hidden="true"></i>
                     </a>
                 </div>
-
             </div>
         </div>
-        <div class="row" style="border-top:1px solid #ebebeb;">
+
+
+        <div class="row" id="row-show" style="border-top:1px solid #ebebeb;">
             <div class="tools">
                 <div class="tool-icon" title="Undo (Ctrl+Z)" onclick="formatDoc('undo')">
                     <a href="#" data-command='undo'>
@@ -350,6 +364,84 @@
                 </a>
             </div>
         </div>
+	
+
+<!--show khi phong to-->
+        <div class="row" id="row-hide" style="border-top:3px solid #000;">
+            <div class="tools">
+           		<div class="tool-icon" title="Bold (Ctrl+B)">
+                    <a href="#" data-command='bold' onclick="formatDoc('bold')">
+                        <i class='fa fa-bold'></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Italic (Ctrl+I)">
+                    <a href="#" data-command='italic' onclick="formatDoc('italic')">
+                        <i class='fa fa-italic'></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Underline (Ctrl+U)">
+                    <a href="#" data-command='underline' onclick="formatDoc('underline')">
+                        <i class='fa fa-underline'></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Insert Image (Ctrl+P)">
+                     <a href="#">
+                        <i class="fa fa-picture-o" aria-hidden="true" onclick="formatDoc('insertimage')"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="tools">
+            	<div class="tool-icon" title="Paragraph Format">
+                    <div class="dropdown dropdown-fix">
+                        <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                            <i class="fa fa-paragraph"><span class="caret"></span></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">HTML</a>
+                            </li>
+                            <li>
+                                <a href="#">CSS</a>
+                            </li>
+                            <li>
+                                <a href="#">JavaScript</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tool-icon" title="Align">
+                    <div class="dropdown dropdown-fix">
+                        <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                            <i class="fa fa-align-center"><span class="caret"></span></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">HTML</a>
+                            </li>
+                            <li>
+                                <a href="#">CSS</a>
+                            </li>
+                            <li>
+                                <a href="#">JavaScript</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tool-icon" title="Undo (Ctrl+Z)">
+                    <a href="#" data-command='undo' onclick="formatDoc('undo')">
+                        <i class='fa fa-undo'></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Redo (Ctrl+Shift+Z)">
+                    <a href="#" data-command='redo' onclick="formatDoc('redo')">
+                        <i class='fa fa-repeat'></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!--contentArea-->
         <div class="row">
             <div id="editor-doc" style="overflow:auto;" contenteditable>
                 <p>
