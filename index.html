@@ -32,6 +32,7 @@
 </head>
 <style type="text/css">
 
+<<<<<<< HEAD
 h1,h2,h3,h4,p,pre{margin: 0px}
 .bg {
         background: url('1.jpg') top left repeat;
@@ -55,6 +56,13 @@ h1,h2,h3,h4,p,pre{margin: 0px}
 
 }
 .menubar-item-s{
+=======
+#menubar1, #menubar2{
+	display: block;
+	border: 2px solid #b5b5b5;
+}
+.menubar-item{
+>>>>>>> 32d90ebb1e98263a705f45cec4f3e138fbaaf627
     border-color: transparent;
     background: transparent;
     filter: none;
@@ -72,6 +80,13 @@ h1,h2,h3,h4,p,pre{margin: 0px}
     text-align: center;
     overflow: visible;
     -webkit-appearance: none;
+<<<<<<< HEAD
+=======
+    border: none;
+}
+.menubar2-btn:hover{
+	background-color: #D7D7D7;
+>>>>>>> 32d90ebb1e98263a705f45cec4f3e138fbaaf627
 }
 .btn-grp{
 	border: 2px solid #efefef;
@@ -80,11 +95,16 @@ h1,h2,h3,h4,p,pre{margin: 0px}
 
 #contentArea{
 	display: block;
+<<<<<<< HEAD
 border: 2px solid silver;
 
 
 	background: #fff;
 	opacity: 0.8;
+=======
+	border: 2px solid #b5b5b5;
+	background: #fff;
+>>>>>>> 32d90ebb1e98263a705f45cec4f3e138fbaaf627
 	height:650px;
 }
 
@@ -167,6 +187,7 @@ border: 1px solid transparent;}
 
 .dropdown1:hover .dropbtn {
     background-color: #3e8e41;
+<<<<<<< HEAD
 
 </style>
 <body style="background-image: url('1.jpg');">
@@ -175,6 +196,25 @@ border: 1px solid transparent;}
 	<div id="mainBody" style="padding: 180px">
 	<div style="border: 10px solid silver ">
 
+=======
+}
+.td{
+        margin: 5px;
+        width: 20px;
+        height: 20px;
+    }
+    .tb{
+    	margin-left: -75px;
+    }
+</style>
+<body style="background-image: url('bg.jpg');">
+<div class="container">
+	<div class="row">
+		<div class="col-xs-2"></div>
+		<div class="col=xs-8" style="border: 30px #ececec solid;">
+	<div id="mainBody">
+	
+>>>>>>> 32d90ebb1e98263a705f45cec4f3e138fbaaf627
 <!thanh menu co drop down>
 		<div id="menubar1" class="mce-container">
 			<div style="display: block; white-space: normal;background-color: #ECECEC;">
@@ -324,13 +364,15 @@ border: 1px solid transparent;}
 			</div>
 		</div> -->
 
-				<div id="menubar2" class="mce-container">
+		<div id="menubar2" class="mce-container">
 			<div style="display: block; white-space: normal;">
 				<div>
 					<div class="btn-grp">
 						<div id="btn-1" class="btn-grp-first menubar-item">
-							<button class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Numbered list">
-								<i class="material-icons">undo</i>	
+							<button class="menubar2-btn">
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Undo">
+								<i class="material-icons">undo</i>
+								</a>
 							</button>
 							<!--undo disabled-->
 							<!-- <button class="menubar2-btn">
@@ -339,7 +381,9 @@ border: 1px solid transparent;}
 						</div>
 						<div id="btn-2" class="btn-grp-last menubar-item">
 							<button class="menubar2-btn">
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Redo">
 								<i class="material-icons">redo</i>
+								</a>
 							</button>
 							<!--redo disabled-->
 							<!-- <button class="menubar2-btn">
@@ -349,17 +393,21 @@ border: 1px solid transparent;}
 					</div>
 
 					<div class="btn-grp">
-						<div id="btn-3" class="btn-grp-last menubar-item">
+						<div id="btn-3" class="btn-grp-first menubar-item">
 							<button class="menubar2-btn">
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Source code">
 								<i class="material-icons">code</i>
+								</a>
 							</button>
 						</div>
 					</div>
 
 					<div class="btn-grp">
 						<div id="btn-4" class="btn-grp-last menubar-item">
-							<button class="menubar2-btn">								
-								<i class="material-icons">format_clear</i>			
+							<button class="menubar2-btn">
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Clear formatting">
+								<i class="material-icons">format_clear</i>
+								</a>
 							</button>
 						</div>
 					</div>
@@ -375,73 +423,89 @@ border: 1px solid transparent;}
 
 					<div class="btn-grp">
 						<div id="btn-6" class="btn-grp-first menubar-item">
-							<button class="menubar2-btn">								
+							<button class="menubar2-btn">
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Bold">
 								<i class="material-icons">format_bold</i>
+								</a>
 							</button>
 						</div>
 						<div id="btn-7" class="btn-grp-first menubar-item">
-							<button class="menubar2-btn">								
+							<button class="menubar2-btn">
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Italic">
 								<i class="material-icons">format_italic</i>
+								</a>
 							</button>
 						</div>
-						<div id="btn-8" class="btn-grp-last menubar-item">
-							<button class="menubar2-btn">								
-								<i class="material-icons">format_underlined</i>
+						<div id="btn-8" class="btn-grp-first menubar-item">
+							<button class="menubar2-btn">
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Underline">
+								<i class="material-icons">format_underlined</i></a>
 							</button>
 						</div>
 					</div>
 
 					<div class="btn-grp">
 						<div id="btn-9" class="btn-grp-first menubar-item">
-							<button class="menubar2-btn">						
-								<i class="glyphicon glyphicon-align-left"></i>
+							<button class="menubar2-btn">
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Align left">
+								<i class="glyphicon glyphicon-align-left"></i></a>
 							</button>
 						</div>
 						<div id="btn-10" class="btn-grp-first menubar-item">
-							<button class="menubar2-btn">								
-								<i class="glyphicon glyphicon-align-center"></i>
+							<button class="menubar2-btn">
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Align center">
+								<i class="glyphicon glyphicon-align-center"></i></a>
 							</button>
 						</div>
 						<div id="btn-11" class="btn-grp-first menubar-item">
-							<button class="menubar2-btn">								
-								<i class="glyphicon glyphicon-align-right"></i>
+							<button class="menubar2-btn">
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Align right">
+								<i class="glyphicon glyphicon-align-right"></i></a>
 							</button>
 						</div>
-						<div id="btn-12" class="btn-grp-last menubar-item">
-							<button class="menubar2-btn"  data-toggle="tooltip" data-placement="bottom" title="Justify">
-								<i class="glyphicon glyphicon-align-justify"></i>
+						<div id="btn-12" class="btn-grp-first menubar-item">
+							<button class="menubar2-btn">
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Justify">
+								<i class="glyphicon glyphicon-align-justify"></i></a>
 							</button>
 						</div>
 					</div>
 
 					<div class="btn-grp">
-						<div id="btn-13" class="btn-grp-first menubar-item twin-btn-father">							
-							<button class="menubar2-btn twin-btn-1" data-toggle="tooltip" data-placement="bottom" title="Numbered list">
+						<div id="btn-13" class="btn-grp-first menubar-item twin-btn-father">
+							<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Numbered list">
+							<button class="menubar2-btn twin-btn-1">
 								<i class="material-icons">format_list_bulleted</i>	
 							</button>
 							<button class="menubar2-btn twin-btn-2">
-								<i class="glyphicon glyphicon-triangle-bottom" "></i>
+								<i class="glyphicon glyphicon-triangle-bottom"></i>
 							</button>
+							</a>
 						</div>
-						<div id="btn-14" class="btn-grp-last menubar-item twin-btn-father">
+						<div id="btn-14" class="btn-grp-first menubar-item twin-btn-father">
+							<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Numbered list">
 							<button class="menubar2-btn twin-btn-1">
 								<i class="material-icons">format_list_numbered</i>	
 							</button>
 							<button class="menubar2-btn twin-btn-2">
 								<i class="glyphicon glyphicon-triangle-bottom"></i>
 							</button>
+							</a>
 						</div>
 					</div>
 
 					<div class="btn-grp">
 						<div id="btn-15" class="btn-grp-first menubar-item">
 							<button class="menubar2-btn">
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Decrease indent">
 								<i class="material-icons">format_indent_decrease</i>
+								</a>
 							</button>
 						</div>
-						<div id="btn-16" class="btn-grp-last menubar-item">
+						<div id="btn-16" class="menubar-item">
 							<button class="menubar2-btn">
-								<i class="material-icons">format_indent_increase</i>
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Increase indent">
+								<i class="material-icons">format_indent_increase</i></a>
 							</button>
 						</div>
 					</div>
@@ -449,45 +513,137 @@ border: 1px solid transparent;}
 					<div class="btn-grp">
 						<div id="btn-17" class="btn-grp-first menubar-item">
 							<button class="menubar2-btn">
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Insert/edit link">
 								<i class="material-icons">insert_link</i></a>
 							</button>
 						</div>
 						<div id="btn-18" class="btn-grp-first menubar-item">
 							<button class="menubar2-btn">
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Insert/edit image">
 								<i class="material-icons">image</i></a>
 							</button>
 						</div>
-						<div id="btn-19" class="btn-grp-last menubar-item">
+						<div id="btn-19" class="btn-grp-first menubar-item">
 							<button class="menubar2-btn">
+								<a href="" class="menubar2-btn" data-toggle="tooltip" data-placement="bottom" title="Insert/edit media">
 								<i class="glyphicon glyphicon-film"></i></a>
 							</button>
 						</div>
 					</div>
 
 					<div class="btn-grp">
-						<div id="btn-20" class="btn-grp-first menubar-item twin-btn-father">
-							<button class="menubar2-btn twin-btn-1">
-								<i class="material-icons md-light">font_download</i>
-							</button>
-
-							<button class="menubar2-btn twin-btn-2">
-								<i class="glyphicon glyphicon-triangle-bottom"></i>
-							</button>
-						</div>
+                        <div id="btn-20" class="btn-grp-first menubar-item twin-btn-father">
+                            <button class="menubar2-btn twin-btn-1">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="text-decoration: none;">
+                                    <i class="material-icons">text_format</i>
+                                </a>
+                                <table class="dropdown-menu tb">
+                                    <tr>
+                                        <td><div class="td" style="background-color: #000"></div></td>  
+                                        <td><div class="td" style="background-color: #aaa"></div></td> 
+                                        <td><div class="td" style="background-color: #bbb"></div></td> 
+                                        <td><div class="td" style="background-color: #ccc"></div></td> 
+                                        <td><div class="td" style="background-color: #ddd"></div></td> 
+                                        <td><div class="td" style="background-color: #eee"></div></td> 
+                                    </tr>
+                                    <tr>
+                                        <td><div class="td" style="background-color: #000"></div></td>  
+                                        <td><div class="td" style="background-color: #aaa"></div></td> 
+                                        <td><div class="td" style="background-color: #bbb"></div></td> 
+                                        <td><div class="td" style="background-color: #ccc"></div></td> 
+                                        <td><div class="td" style="background-color: #ddd"></div></td> 
+                                        <td><div class="td" style="background-color: #eee"></div></td> 
+                                    </tr>
+                                    <tr>
+                                        <td><div class="td" style="background-color: #000"></div></td>  
+                                        <td><div class="td" style="background-color: #aaa"></div></td> 
+                                        <td><div class="td" style="background-color: #bbb"></div></td> 
+                                        <td><div class="td" style="background-color: #ccc"></div></td> 
+                                        <td><div class="td" style="background-color: #ddd"></div></td> 
+                                        <td><div class="td" style="background-color: #eee"></div></td> 
+                                    </tr>
+                                </table>
+                         
+                              
+                              
+                            </button>  </div>
+                      
 						<div id="btn-21" class="btn-grp-first menubar-item twin-btn-father">
-							<button class="menubar2-btn twin-btn-1">
-								<i class="material-icons md-dark ">text_format</i>
-							</button>
-							<button class="menubar2-btn twin-btn-2">
-								<i class="glyphicon glyphicon-triangle-bottom "></i>
-							</button>
-						</div>
-						<div id="btn-22" class="btn-grp-last menubar-item">
+                            <button class="menubar2-btn twin-btn-1">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="text-decoration: none;">
+                                    <i class="material-icons md-dark">text_format</i>
+                                </a>
+                                <table class="dropdown-menu tb">
+                                    <tr>
+                                        <td><div class="td" style="background-color: #000"></div></td>  
+                                        <td><div class="td" style="background-color: #aaa"></div></td> 
+                                        <td><div class="td" style="background-color: #bbb"></div></td> 
+                                        <td><div class="td" style="background-color: #ccc"></div></td> 
+                                        <td><div class="td" style="background-color: #ddd"></div></td> 
+                                        <td><div class="td" style="background-color: #eee"></div></td> 
+                                    </tr>
+                                    <tr>
+                                        <td><div class="td" style="background-color: #000"></div></td>  
+                                        <td><div class="td" style="background-color: #aaa"></div></td> 
+                                        <td><div class="td" style="background-color: #bbb"></div></td> 
+                                        <td><div class="td" style="background-color: #ccc"></div></td> 
+                                        <td><div class="td" style="background-color: #ddd"></div></td> 
+                                        <td><div class="td" style="background-color: #eee"></div></td> 
+                                    </tr>
+                                    <tr>
+                                        <td><div class="td" style="background-color: #000"></div></td>  
+                                        <td><div class="td" style="background-color: #aaa"></div></td> 
+                                        <td><div class="td" style="background-color: #bbb"></div></td> 
+                                        <td><div class="td" style="background-color: #ccc"></div></td> 
+                                        <td><div class="td" style="background-color: #ddd"></div></td> 
+                                        <td><div class="td" style="background-color: #eee"></div></td> 
+                                    </tr>
+                                </table>
+                         
+                              
+                              
+                            </button>  </div>
+                            <div id="btn-21" class="btn-grp-first menubar-item twin-btn-father">
+                            <button class="menubar2-btn twin-btn-1">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="text-decoration: none;">
+                                    <i class="material-icons">insert_emoticon</i>
+                                </a>
+                                <table class="dropdown-menu tb">
+                                    <tr>
+                                        <td><div class="td" style="background-color: #000"></div></td>  
+                                        <td><div class="td" style="background-color: #aaa"></div></td> 
+                                        <td><div class="td" style="background-color: #bbb"></div></td> 
+                                        <td><div class="td" style="background-color: #ccc"></div></td> 
+                                        <td><div class="td" style="background-color: #ddd"></div></td> 
+                                        <td><div class="td" style="background-color: #eee"></div></td> 
+                                    </tr>
+                                    <tr>
+                                        <td><div class="td" style="background-color: #000"></div></td>  
+                                        <td><div class="td" style="background-color: #aaa"></div></td> 
+                                        <td><div class="td" style="background-color: #bbb"></div></td> 
+                                        <td><div class="td" style="background-color: #ccc"></div></td> 
+                                        <td><div class="td" style="background-color: #ddd"></div></td> 
+                                        <td><div class="td" style="background-color: #eee"></div></td> 
+                                    </tr>
+                                    <tr>
+                                        <td><div class="td" style="background-color: #000"></div></td>  
+                                        <td><div class="td" style="background-color: #aaa"></div></td> 
+                                        <td><div class="td" style="background-color: #bbb"></div></td> 
+                                        <td><div class="td" style="background-color: #ccc"></div></td> 
+                                        <td><div class="td" style="background-color: #ddd"></div></td> 
+                                        <td><div class="td" style="background-color: #eee"></div></td> 
+                                    </tr>
+                                </table>
+                         
+                              
+                              
+                            </button>  </div>
+						<div id="btn-22" class="btn-grp-first menubar-item ">
 							<button class="menubar2-btn">
 								<i class="material-icons">insert_emoticon</i>
 							</button>
 						</div>
-					</div>
+					</div
 					
 			</div>
 		</div>
@@ -502,7 +658,13 @@ border: 1px solid transparent;}
 >>>>>>> 79fa4593b67fceef6ea3e53c36a3330cebc13677
 		</div>
 	</div>
-	
+	</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
 </body>
 <<<<<<< HEAD
 </html>
