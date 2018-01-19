@@ -65,6 +65,43 @@ function insertHr() {
 
 //Select all
 function selectAll() {
-    $('#editor.doc').focus();
-    $('#editor.doc').select();
+    $('#editor-doc').focus();
+    $('#editor-doc').select();
 }
+
+//Show code
+$(document).ready(function () {
+    var flag = 1;
+    var data = document.getElementById('editor-doc');
+    // console.log(data.innerHTML);
+    $('#showCode').click(function (e) {
+        e.preventDefault();
+        if (flag === 1) {
+            document.getElementById('editor-doc').innerText = data.innerHTML.trim();
+            flag = 0;
+        } else {
+            document.getElementById('editor-doc').innerHTML = data.innerText.trim();
+            flag = 1;
+        }
+    });
+});
+
+$(document).ready(function () {
+    function getSelected() {
+        if (window.getSelection) {
+            console.log('selected');
+            return window.getSelection();
+        } else if (document.getSelection) {
+            console.log('selected');
+            return document.getSelection();
+        } else {
+            var selection = document.selection && document.selection.createRange();
+            if (selection.text) {
+                console.log('selected');
+                return selection.text;
+            }
+            return false;
+        }
+        return false;
+    }
+});
