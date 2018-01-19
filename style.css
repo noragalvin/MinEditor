@@ -15,7 +15,7 @@
 #menubar1, #menubar2{
 	display: block;
 	border: 2px solid #b5b5b5;
-    background-color: #f0f0f0;
+    background-color: #fff;
 }
 .menubar-item{
     border-color: transparent;
@@ -24,7 +24,10 @@
     display: inline-block;
     margin: 2px 0 2px 2px;
     position: relative;
-    border: 1px solid #b1b1b1;
+    border: 1px solid white;
+}
+.menubar-item :hover{
+    background: #efefef !important;
 }
 .material-icons{
     font-size: 16px !important;
@@ -44,31 +47,47 @@
     text-align: center;
     overflow: visible;
     -webkit-appearance: none;
+    background: transparent;
+    border: none;
 }
 .btn-grp{
-	border: 2px solid #efefef;
+	border-right: 2px solid #b5b5b5;
 	display: inline-block;
 }
 .btn-grp-first{
 	margin-left: 0;
 }
 .btn-grp-last{
-
+    margin-right: 4px;
 }
 .twin-btn-1{
     line-height: 20px;
-    padding: 8px 8px;
-    vertical-align: top;
-
+    padding: 4px 8px;
+    vertical-align: middle;
+    margin-right: -8px;
+    
 }
 .twin-btn-2{
     line-height: 20px;
-    padding: 8px 4px 8px 4px;
-     vertical-align: top;
+    padding: 4px 0px 4px 0px;
+    vertical-align: middle;
+}
+i.glyphicon-triangle-bottom{
+     font-size:5px !important;
+     padding: 4px 0;
+
+}
+button.twin-btn-2{
+    padding-left:0;
+    padding-right: 0;
 }
 .twin-btn-father{
     font-size: 0;
-    vertical-align: top;
+    vertical-align: middle;
+}
+a{
+    padding:0 !important;
+    text-decoration: none !important;
 }
 #contentArea{
 	display: block;
@@ -125,3 +144,4 @@ i{
     height: 16px;
     color: #333;
 }
+.material-icons.md-18 { font-size: 18px; }
