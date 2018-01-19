@@ -4,8 +4,7 @@ function formatDoc(sCmd, sValue) {
     if (sCmd == 'h1' || sCmd == 'h2' || sCmd == 'h3' || sCmd == 'h4' || sCmd == 'h5' || sCmd == 'h6' || sCmd ==
         'p') {
         document.execCommand('formatBlock', false, sCmd);
-        oDoc.focus();
-        setCodeMode();
+
     } else if (sCmd == 'createLink' || sCmd == 'insertimage') {
         var url = prompt('Enter the link here: ', 'http:\/\/');
         console.log(url);
@@ -14,13 +13,13 @@ function formatDoc(sCmd, sValue) {
         } else {
             document.execCommand(sCmd, false, url);
         }
-        oDoc.focus();
-        setCodeMode();
+
     } else if (sCmd == 'insertHTML') {
+        // <iframe width="auto" height="auto" frameborder="0" allowfullscreen src="https://www.nhaccuatui.com/vh/auto/GbCeos9ACoGf0"></iframe>
+        // if else insert video
         url = prompt('Enter embed code: ', 'Embed here');
         document.execCommand(sCmd, false, url);
-        oDoc.focus();
-        setCodeMode();
+
     } else {
         if (document.queryCommandSupported(sCmd) == false) {
             alert('The command ' + sCmd + ' is not support your browser');
@@ -29,8 +28,6 @@ function formatDoc(sCmd, sValue) {
             document.execCommand(sCmd, false, sValue);
             // console.log('hello22');
             // console.log(document.queryCommandSupported(sCmd));
-            oDoc.focus();
-            setCodeMode();
         }
     }
 }
@@ -53,10 +50,21 @@ function insertImg(img) {
 window.onload = function () {
     var ed = document.querySelector("#editor-doc");
     ed.addEventListener("paste", function (e) {
-        console.log(1);
+        // console.log(1);
         e.preventDefault();
         var text = e.clipboardData.getData("text/plain");
-        console.log(text);
+        // console.log(text);
         document.execCommand("insertHTML", false, text);
     });
+}
+
+//Insert hr tag
+function insertHr() {
+    document.execCommand("insertHTML", false, "<hr/>");
+}
+
+//Select all
+function selectAll() {
+    $('#editor.doc').focus();
+    $('#editor.doc').select();
 }
