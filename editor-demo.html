@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/normalize.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/style.css" />
+
+<head>
+</head>
+<style type="text/css">
+</style>
+
+<body>
+    <div class="container">
+        <!-- thanh menu co drop down -->
+        <div class="row">
+            <div id="menubar">
+                    <div class="menubar-item">
+                        <div class=" dropdown">
+                            <button class="dropbtn" data-toggle="dropdown" onclick="abc()">File &nbsp;
+                                <span class="caret"></span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="#">New Document</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menubar-item">
+                        <div class="dropdown">
+                            <button class="dropbtn" data-toggle="dropdown" onclick="abc()">Edit &nbsp;
+                                <span class="caret"></span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="#" onclick="formatDoc('undo')">Undo</a>
+                                <a href="#" onclick="formatDoc('redo')">Redo</a>
+                                <hr>
+                                <a href="#" onclick="formatDoc('cut')">Cut</a>
+                                <a href="#" onclick="formatDoc('copy')">Copy</a>
+                                <a href="#" onclick="formatDoc('paste')">Paste</a>
+                                <hr>
+                                <a href="#" onclick="selectAll()">Select All</a>
+                                <hr>
+                                <a href="#">Find And Replace</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menubar-item">
+                        <div class="dropdown">
+                            <button class="dropbtn" data-toggle="dropdown" onclick="abc()">Insert &nbsp;
+                                <span class="caret"></span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="#">Media</a>
+                                <a href="#">Image</a>
+                                <a href="#">Link</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#">Special Character</a>
+                                <a href="#">Horizontal Line</a>
+                                <a href="#">Anchor</a>
+                                <a href="#">Nonbreaking Space</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menubar-item">
+                        <div class="dropdown">
+                            <button class="dropbtn" data-toggle="dropdown" onclick="abc()">View &nbsp;
+                                <span class="caret"></span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="#">Action</a>
+                                <a href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#">Something else here</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menubar-item">
+                        <div class="dropdown">
+                            <button class="dropbtn" data-toggle="dropdown" onclick="abc()">Format &nbsp;
+                                <span class="caret"></span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="#">Action</a>
+                                <a href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#">Something else here</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menubar-item">
+                        <div class="dropdown">
+                            <button class="dropbtn" data-toggle="dropdown" onclick="abc()">Table &nbsp;
+                                <span class="caret"></span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="#">Action</a>
+                                <a href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#">Something else here</a>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <!-- het thnah menu cp drop down -->
+        <div class="row" style="border-top:3px solid #000;">
+            <div class="tools">
+                <div class="tool-icon" title="Bold (Ctrl+B)">
+                    <a href="#" data-command='bold' onclick="formatDoc('bold')">
+                        <i class='fa fa-bold'></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Italic (Ctrl+I)">
+                    <a href="#" data-command='italic' onclick="formatDoc('italic')">
+                        <i class='fa fa-italic'></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Underline (Ctrl+U)">
+                    <a href="#" data-command='underline' onclick="formatDoc('underline')">
+                        <i class='fa fa-underline'></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="StrikeThrough (Ctrl+S)">
+                    <a href="#" onclick="formatDoc('strikeThrough')">
+                        <i class="fa fa-strikethrough"></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Font Family">
+                    <div class="dropdown dropdown-fix">
+                        <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                            <i class="fa fa-font"><span class="caret"></span></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">HTML</a>
+                            </li>
+                            <li>
+                                <a href="#">CSS</a>
+                            </li>
+                            <li>
+                                <a href="#">JavaScript</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tool-icon" title="Font Size">
+                    <div class="dropdown dropdown-fix">
+                        <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                            <i class="fa fa-text-height"><span class="caret"></span></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">HTML</a>
+                            </li>
+                            <li>
+                                <a href="#">CSS</a>
+                            </li>
+                            <li>
+                                <a href="#">JavaScript</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tool-icon" title="Color">
+                    <div class="dropdown dropdown-fix">
+                        <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                            <i class="fa fa-tint"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">HTML</a>
+                            </li>
+                            <li>
+                                <a href="#">CSS</a>
+                            </li>
+                            <li>
+                                <a href="#">JavaScript</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tool-icon" title="Clear Formatting">
+                    <a href="#" onclick="formatDoc('removeFormat')">
+                        <i class="fa fa-eraser"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="tools">
+                <div class="tool-icon" title="Paragraph Format">
+                    <div class="dropdown dropdown-fix">
+                        <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                            <i class="fa fa-paragraph"><span class="caret"></span></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">HTML</a>
+                            </li>
+                            <li>
+                                <a href="#">CSS</a>
+                            </li>
+                            <li>
+                                <a href="#">JavaScript</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tool-icon" title="Paragraph Style">
+                    <div class="dropdown dropdown-fix">
+                        <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                            <i class="fa fa-magic"><span class="caret"></span></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">HTML</a>
+                            </li>
+                            <li>
+                                <a href="#">CSS</a>
+                            </li>
+                            <li>
+                                <a href="#">JavaScript</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tool-icon" title="Quote">
+                    <div class="dropdown dropdown-fix">
+                        <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                            <i class="fa fa-quote-left"><span class="caret"></span></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">HTML</a>
+                            </li>
+                            <li>
+                                <a href="#">CSS</a>
+                            </li>
+                            <li>
+                                <a href="#">JavaScript</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tool-icon" title="Align">
+                    <div class="dropdown dropdown-fix">
+                        <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                            <i class="fa fa-align-center"><span class="caret"></span></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">HTML</a>
+                            </li>
+                            <li>
+                                <a href="#">CSS</a>
+                            </li>
+                            <li>
+                                <a href="#">JavaScript</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tool-icon" title="Ordered List">
+                    <a href="#">
+                        <i class='fa fa-list-ul' onclick="formatDoc('insertUnorderedList')"></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Unordered List">
+                    <a href="#">
+                        <i class='fa fa-list-ol' onclick="formatDoc('insertOrderedList')"></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Decrease Indent (Ctrl+[)">
+                    <a href="#" data-command='outdent'>
+                        <i class='fa fa-outdent' onclick="formatDoc('outdent')"></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Increase Indent (Ctrl+])">
+                    <a href="#" data-command='indent'>
+                        <i class='fa fa-indent' onclick="formatDoc('indent')"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="tools">
+                <div class="tool-icon" title="Insert Link (Ctrl+K)">
+                    <a href="#">
+                        <i class="fa fa-link" aria-hidden="true" onclick="formatDoc('createLink')"></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Insert Image (Ctrl+P)">
+                     <a href="#">
+                        <i class="fa fa-picture-o" aria-hidden="true" onclick="formatDoc('insertimage')"></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Insert Video">
+                     <a href="#">
+                        <i class="fa fa-video-camera" aria-hidden="true" onclick="formatDoc('insertHTML')"></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Insert Table">
+                    <a href="#">
+                        <i class="fa fa-table" aria-hidden="true" onclick="formatDoc('')"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        <div class="row" style="border-top:1px solid #ebebeb;">
+            <div class="tools">
+                <div class="tool-icon" title="Undo (Ctrl+Z)">
+                    <a href="#" data-command='undo' onclick="formatDoc('undo')">
+                        <i class='fa fa-undo'></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Redo (Ctrl+Shift+Z)">
+                    <a href="#" data-command='redo' onclick="formatDoc('redo')">
+                        <i class='fa fa-repeat'></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Code View">
+                    <a href="#" data-command='code' onclick="formatDoc('show code de sau')">
+                        <i class='fa fa-code'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="tools">
+                <div class="tool-icon" title="Special Characters">
+                    <span style="text-align: center;font-weight: bold">Ω</span>
+                </div>
+            </div>
+            <div class="tool-icon" title="Emoticons">
+                <a href="#" data-command='redo' onclick="formatDoc('redo')">
+                    <i class='fa fa-smile-o'></i>
+                </a>
+            </div>
+            <div class="tool-icon" title="Insert Horizontal Line">
+                <a href="#" data-command='redo' onclick="insertHr()">
+                    <i class='fa fa-minus'></i>
+                </a>
+            </div>
+            <div class="tool-icon" title="Help (Ctrl+/)">
+                <a href="#" data-command='redo' onclick="formatDoc('redo')">
+                    <i class='fa fa-question'></i>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div id="editor-doc" style="overflow:auto;" contenteditable>
+                <p>
+                    aaaaaaa
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+    <script type="text/javascript" src="js/script.js"></script>
+</html>
+<script type="text/javascript">
+var i = 0;
+
+function abc() {
+    if (i == 0) {
+        i = 1;
+        $('.dropbtn').removeAttr('data-toggle');
+        $('.dropdown-menu').addClass('abcd');
+    } else {
+        i = 0;
+
+        $('.dropdown-menu').removeClass('abcd');
+    }
+}
+
+function xyz() {
+    i = 0;
+
+    $('.dropdown-menu').removeClass('abcd');
+};
+</script>
+<script>
+$(function() {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+
+</html>

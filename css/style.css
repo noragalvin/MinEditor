@@ -1,18 +1,59 @@
-.bg {
-    background: url('1.jpg') top left repeat;
-    position: fixed;
-    height: 2000px;
-    width: 100%;
-    top: 0;
-    z-index: -1;
-    /* Dùng z-index để cho class bg nằm dưới cùng các element khác */
+.container {
+    border: 1px solid #b3b3b3;
 }
 
-#menubar1,
-#menubar2 {
-    display: block;
-    border: 2px solid #b5b5b5;
+.dropdown-fix {
+    display: inline-block;
 }
+
+.tool-icon {
+    width: 38px;
+    height: 38px;
+    display: inline-block;
+    line-height: 38px;
+    text-align: center;
+}
+
+.tool-icon a {
+    color: #222222;
+}
+
+.tool-icon:hover {
+    background: #eeeeee;
+}
+
+.btn-fix {
+    background: #fff;
+    background: transparent;
+    color: #222;
+    border: none;
+}
+
+.tools {
+    display: inline-block;
+    border-right: 1px solid #ebebeb;
+    padding: 0 5px 0 0;
+}
+
+#editor-doc {
+    min-height: 150px;
+    /* border: 1px solid rgb(0, 0, 0); */
+    border-top: 1px solid #ebebeb;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* //////////////// */
 
 .menubar-item {
     border-color: transparent;
@@ -23,28 +64,12 @@
     position: relative;
 }
 
-.menubar2-btn {
-    padding: 4px 8px;
-    font-size: 14px;
-    line-height: 20px;
-    cursor: pointer;
-    color: #333;
-    text-align: center;
-    overflow: visible;
-    -webkit-appearance: none;
-}
 
 .btn-grp {
     border: 2px solid #efefef;
     display: inline-block;
 }
 
-#contentArea {
-    display: block;
-    border: 2px solid #b5b5b5;
-    background: #fff;
-    height: 650px;
-}
 
 
 .dropdown-menu {
@@ -79,8 +104,6 @@
     border: 1px solid transparent;
 }
 
-
-
 .dropdown-cont {
     display: none;
     position: absolute;
@@ -98,7 +121,7 @@
 }
 
 .abcd {
-    display: none
+    display: none;
 }
 
 .dropdown:hover .abcd {
@@ -109,12 +132,8 @@
     border: 1px solid silver;
     background-color: white;
 }
-.btn-grp a{
-    color: #000;
-}
 
-#editor-doc{
-    min-height: 150px;
-    border: 1px solid rgb(185, 185, 185);
-    border-radius: 5px;
+hr{
+    border-top: 1px solid #000;
+    width: 98%;
 }
