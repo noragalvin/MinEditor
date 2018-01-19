@@ -60,3 +60,8 @@ window.onload = function () {
         document.execCommand("insertHTML", false, text);
     });
 }
+
+//Select all
+function selectAll() {
+    document.getElementById("editor-doc").select();
+}
