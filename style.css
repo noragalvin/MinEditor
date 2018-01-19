@@ -29,6 +29,15 @@
 .menubar-item :hover{
     background: #efefef !important;
 }
+.btn-grp-first :hover{
+    background: #efefef !important;
+}
+#btn-13, #btn-14, #btn-20, #btn-21 :hover{
+    background: #efefef !important;
+}
+#btn-14:hover{
+    background: #efefef !important;
+}
 .material-icons{
     font-size: 16px !important;
 }
@@ -49,6 +58,7 @@
     -webkit-appearance: none;
     background: transparent;
     border: none;
+    outline: none;
 }
 .btn-grp{
 	border-right: 2px solid #b5b5b5;
@@ -85,10 +95,7 @@ button.twin-btn-2{
     font-size: 0;
     vertical-align: middle;
 }
-a{
-    padding:0 !important;
-    text-decoration: none !important;
-}
+
 #contentArea{
 	display: block;
 	border: 2px solid #b5b5b5;
