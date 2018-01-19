@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta charset="utf-8">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="css/normalize.css">
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="css/style.css" />
 
 <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 <style type="text/css">
 .d1 {
@@ -460,7 +460,7 @@
                 </div>
             </div>
             <div class="tools" style="border-right: none">
-            	<div class="tool-icon" title="Paragraph Format">
+                <div class="tool-icon" title="Paragraph Format">
                     <div class="dropdown dropdown-fix">
                         <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
                             <i class="fa fa-paragraph"><span class="caret"></span></i>
@@ -554,6 +554,77 @@ $(document).ready(function() {
 $(function() {
     $('[data-toggle="tooltip"]').tooltip()
 })
+</script>
+
+
+<!-- Selection text -->
+<script>
+function getSelected() {
+    if (window.getSelection) {
+        // console.log(window.getSelection());
+        return window.getSelection();
+    } else if (document.getSelection) {
+        // console.log(document.getSelection);
+        return document.getSelection();
+    } else {
+        var selection = document.selection && document.selection.createRange();
+        if (selection.text) {
+            // console.log(selection.text);
+            return selection.text;
+        }
+        return false;
+    }
+    return false;
+}
+
+
+$(document).ready(function() {
+    var selectionImage = "";
+    $('#editor-doc').mouseup(function(e) {
+        var selection = getSelected();
+        // console.log(selection);
+
+        if (selection) {
+
+            selectionImage = $('<button>').attr({
+                type: 'button',
+                title: 'Citar Texto seleccionado',
+                id: 'quote-place'
+
+            }).html("Test Mini Tools Bar").css({
+                "color": "red"
+            }).hide();
+            // console.log(selectionImage);
+            $(document.body).append(selectionImage);
+            // alert(selectionImage);
+            // selectionImage = undefined;
+        }
+        // else{
+        //     $('body').click(function (e) { 
+        //         e.preventDefault();
+        //         $('#quote-place').remove();
+        //         // $('#quote-place').fadeOut();
+        //         // selectionImage = undefined;
+        //     }); 
+        // }
+
+        //Fadeout mini tools bar
+        $("body").click(function() {}).mousedown(function() {
+
+            if (selectionImage) {
+                selectionImage.fadeOut();
+            }
+        });
+
+        selectionImage.css({
+            top: e.pageY - 30,
+            //offsets
+            left: e.pageX - 13 //offsets
+        }).fadeIn();
+
+    });
+
+});
 </script>
 
 </html>

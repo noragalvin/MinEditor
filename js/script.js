@@ -14,11 +14,11 @@ function formatDoc(sCmd, sValue) {
             document.execCommand(sCmd, false, url);
         }
 
-    } else if(sCmd === 'backcolor' || sCmd === 'forecolor'){
+    } else if (sCmd === 'backcolor' || sCmd === 'forecolor') {
         // console.log(1);
         // console.log(sCmd);
         // console.log(sValue);
-        document.execCommand(sCmd,true, sValue);
+        document.execCommand(sCmd, true, sValue);
     } else if (sCmd == 'insertHTML') {
         // <iframe width="auto" height="auto" frameborder="0" allowfullscreen src="https://www.nhaccuatui.com/vh/auto/GbCeos9ACoGf0"></iframe>
         // if else insert video
@@ -67,9 +67,9 @@ function insertImg(img) {
 // }
 
 //Paste as plain text
-window.onload = function () {
+window.onload = function() {
     var ed = document.querySelector("#editor-doc");
-    ed.addEventListener("paste", function (e) {
+    ed.addEventListener("paste", function(e) {
         // console.log(1);
         e.preventDefault();
         var text = e.clipboardData.getData("text/plain");
@@ -90,11 +90,11 @@ function selectAll() {
 }
 
 //Show code
-$(document).ready(function () {
+$(document).ready(function() {
     var flag = 1;
     var data = document.getElementById('editor-doc');
     // console.log(data.innerHTML);
-    $('#showCode').click(function (e) {
+    $('#showCode').click(function(e) {
         e.preventDefault();
         if (flag === 1) {
             document.getElementById('editor-doc').innerText = data.innerHTML.trim();
@@ -106,7 +106,7 @@ $(document).ready(function () {
     });
 });
 
-$(document).ready(function () {
+$(document).ready(function() {
     function getSelected() {
         if (window.getSelection) {
             console.log('selected');
