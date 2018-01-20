@@ -24,7 +24,6 @@ function formatDoc(sCmd, sValue) {
         // if else insert video
         url = prompt('Enter embed code: ', 'Embed here');
         document.execCommand(sCmd, false, url);
-
     } else {
         if (document.queryCommandSupported(sCmd) == false) {
             alert('The command ' + sCmd + ' is not support your browser');
@@ -38,33 +37,96 @@ function formatDoc(sCmd, sValue) {
 }
 
 //Insert Images
+var idImage = 0;
 function insertImg(img) {
-    img = "<div><img src='" + img + "'></div>";
-    console.log(img);
-    if (document.all) {
-        var range = document.selection.createRange();
-        range.pasteHTML(img);
-        range.collapse(false);
-        range.select();
+    var sImg = prompt("Enter url");
+    var widthScreen = document.getElementById('editor-doc').offsetWidth;
+    var widthImg;
+    getMeta(sImg,widthImg,widthScreen);
+    console.log(widthImg);
+    console.log(widthScreen);
+}
+
+function getMeta(url,widthImg,widthScreen){   
+    var img = new Image();
+    img.onload = function(){
+        alert( this.width+' '+ this.height );
+        if(this.width >= widthScreen){
+            widthImg = widthScreen;
+            url = "<div><img id=\"image_" + idImage + " src=\"" + url + "\" width=\"" + widthImg + "\" onclick=\"changeSize('image_" + idImage + "')\"" +  "></div>";
+            idImage++;
+            console.log(url);
+            document.execCommand("insertHTML",false,url);
+        }else{
+            widthImg = this.width;
+            url = "<div><img id=\"image_" + idImage + "\" src=\"" + url + "\" width=\"" + widthImg + "\" onclick=\"changeSize('image_" + idImage + "')\"" +  "></div>";
+            idImage++;
+            console.log(url);
+            document.execCommand("insertHTML",false,url);
+        }
+    };
+    img.src = url;
+}
+
+
+function changeSize(id){
+    //Zoom in
+    // console.log(id);
+    $('#zoom-in').click(function (e) { 
+        e.preventDefault();
+        // console.log(1);
+        var width = $('#'+id).css('width');
+        width = parseInt(width.substr(0,width.length-2));
+        // console.log(width);
+        // console.log(typeof width);
+        width+=20;
+        // console.log(width);
+        $('#'+id).css('width', width + 'px');
+    });
+    //Zoom out
+    $('#zoom-out').click(function (e) { 
+        e.preventDefault();
+        // console.log(1);
+        var width = $('#'+id).css('width');
+        width = parseInt(width.substr(0,width.length-2));
+        // console.log(width);
+        // console.log(typeof width);
+        width-=20;
+        // console.log(width);
+        $('#'+id).css('width', width + 'px');
+    });
+}
+
+//Zoom out
+
+
+
+//Insert Video
+function insertVideo() {
+    sVideo = prompt('Enter embed code: ', 'Embed here');
+    var check = sVideo.substr(1,6);
+    // console.log(sVideo);
+    // console.log(check);
+    if(check === "iframe"){
+        document.execCommand("insertHTML", false, sVideo);
     } else {
-        document.execCommand("insertHTML", false, img);
+        var idVideo = sVideo.substr(32,sVideo.length-1);
+        var width = document.getElementById('editor-doc').offsetWidth;
+        var height = width*56.25/100;
+        console.log(width);
+        console.log(height);
+        // console.log(idVideo);
+        sVideo = "<iframe width=\"" + width + "\" height=\"" + height + "\" src=\"https://www.youtube.com/embed/" + idVideo + "\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>";
+        console.log(sVideo);
+        document.execCommand("insertHTML", false, sVideo);
     }
 }
 
-//Insert Video
-// function insertVid() {
-//     sVideo = prompt('Enter embed code: ', 'Embed here');
-//     sVideo = "<iframe width='500' height='500' src='" + sVideo + "' frameborder='0' allow='encrypted-media' allowfullscreen></iframe>";
-//     console.log(sVideo);
-//     if (document.all) {
-//         var range = document.selection.createRange();
-//         range.pasteHTML(sVideo);
-//         range.collapse(false);
-//         range.select();
-//     } else {
-//         document.execCommand("insertHTML", false, sVideo);
-//     }
-// }
+// https://www.youtube.com/watch?v=ew1TpesH-jw
+// <iframe width="560" height="315" src="https://www.youtube.com/embed/ew1TpesH-jw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+// 56.25
+// height = 56.25% width
+
 
 //Paste as plain text
 window.onload = function() {
@@ -125,3 +187,5 @@ $(document).ready(function() {
         return false;
     }
 });
+
+
