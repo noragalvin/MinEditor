@@ -588,7 +588,7 @@ $(document).ready(function() {
 
             selectionImage = $('<button>').attr({
                 type: 'button',
-                title: 'Citar Texto seleccionado',
+                title: 'Toolbar',
                 id: 'quote-place'
 
             }).html("Test Mini Tools Bar").css({
@@ -599,17 +599,10 @@ $(document).ready(function() {
             // alert(selectionImage);
             // selectionImage = undefined;
         }
-        // else{
-        //     $('body').click(function (e) { 
-        //         e.preventDefault();
-        //         $('#quote-place').remove();
-        //         // $('#quote-place').fadeOut();
-        //         // selectionImage = undefined;
-        //     }); 
-        // }
+
 
         //Fadeout mini tools bar
-        $("body").click(function() {}).mousedown(function() {
+        $("body").mousedown(function() {
 
             if (selectionImage) {
                 selectionImage.fadeOut();
