@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ 
+</head>
+<style type="text/css">
+.tools {
+    display: inline-block;  
+    border: 1px silver solid;   
+}
+
+.dropdown-fix {
+    display: inline-block;
+}
+
+.tool-icon {
+    width: 38px;
+    height: 38px;
+    display: inline-block;
+    line-height: 38px;
+    text-align: center;
+}
+
+.tool-icon a {
+    color: #222222;
+}
+
+.tool-icon:hover {
+    background: #eeeeee;
+}
+
+.dropdown-menu {
+    border-radius: 0px;
+    position: absolute;
+    top: 94.1%;
+    padding: 0px;
+    background-color: #f9f9f9;
+    min-width: 170px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-menu a:hover {
+    background: #ececec;
+}
+
+.dropdown-menu a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.btn-fix {
+    background: #fff;
+    background: transparent;
+    color: #222;
+    border: none;
+}
+
+</style>
+<body>
+     <div class="row" style="border-top:3px solid #000; padding-left: 200px;">
+        <div class="tools">
+            <!--Phan luon luon show ra-->
+            <div class="tool-icon" title="Bold (Ctrl+B)">
+                <a href="#" data-command='bold' onclick="formatDoc('bold')">
+                    <i class='fa fa-bold'></i>
+                </a>
+            </div>
+            <div class="tool-icon" title="Italic (Ctrl+I)">
+                <a href="#" data-command='italic' onclick="formatDoc('italic')">
+                    <i class='fa fa-italic'></i>
+                </a>
+            </div>
+            <div class="tool-icon" title="Underline (Ctrl+U)">
+                <a href="#" data-command='underline' onclick="formatDoc('underline')">
+                    <i class='fa fa-underline'></i>
+                </a>
+            </div>
+            <div class="tool-icon" title="StrikeThrough (Ctrl+S)" onclick="formatDoc('strikeThrough')">
+                <a href="#">
+                    <i class="fa fa-strikethrough"></i>
+                </a>
+            </div>
+            <!--Font chu-->
+            <div class="tool-icon" title="Font Family">
+                <div class="dropdown dropdown-fix">
+                    <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                        <i class="fa fa-font"><span class="caret"></span></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li onclick="formatDoc('fontname','Arial')">
+                            <a href="#" style="font-family: Arial">Arial</a>
+                        </li>
+                        <li onclick="formatDoc('fontname','Arial Black')">
+                            <a href="#" style="font-family: Georgia">Arial Black</a>
+                        </li>
+                        <li onclick="formatDoc('fontname','Courier New')">
+                            <a href="#" style="font-family: Impact">Courier New</a>
+                        </li>
+                        <li onclick="formatDoc('fontname','Time New Roman')">
+                            <a href="#" style="font-family: Time New Roman">Time New Roman</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--mau chu-->
+            <div class="tool-icon" title="ColorMe">
+                <a href="#" data-command='bold' onclick="abc()">
+                    <i class="fa fa-tint"></i>
+                </a>
+            </div>
+            <!--cỡ chữ-->
+             <div class="tool-icon" title="Font Size">
+                <div class="dropdown dropdown-fix">
+                    <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                        <i class="fa fa-text-height"><span class="caret"></span></i>
+                    </button>
+                    <ul class="dropdown-menu" style="overflow-y: auto; height:200px;">
+                        <li onclick="formatDoc('fontsize','1')">
+                            <a href="#">1</a>
+                        </li>
+                        <li onclick="formatDoc('fontsize','2')">
+                            <a href="#">2</a>
+                        </li>
+                        <li onclick="formatDoc('fontsize','3')">
+                            <a href="#">3</a>
+                        </li>
+                        <li onclick="formatDoc('fontsize','4')">
+                            <a href="#">4</a>
+                        </li>
+                        <li onclick="formatDoc('fontsize','5')">
+                            <a href="#">5</a>
+                        </li>
+                        <li onclick="formatDoc('fontsize','6')">
+                            <a href="#">6</a>
+                        </li>
+                        <li onclick="formatDoc('fontsize','7')">
+                            <a href="#">7</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--undo + redo + insertLink-->
+            <div class="tool-icon" title="Undo (Ctrl+Z)" onclick="formatDoc('undo')">
+                <a href="#" data-command='undo'>
+                    <i class='fa fa-undo'></i>
+                </a>
+            </div>
+            <div class="tool-icon" title="Redo (Ctrl+Shift+Z)" onclick="formatDoc('redo')">
+                <a href="#" data-command='redo'>
+                    <i class='fa fa-repeat'></i>
+                </a>
+            </div>
+            <div class="tool-icon" title="Insert Link (Ctrl+K)" onclick="formatDoc('createLink')" id="inrestlink">
+                <a href="#">
+                    <i class="fa fa-link" aria-hidden="true"></i>
+                </a>
+            </div>
+            <!--show more-->
+            <div class="tool-icon" title="Show More" id="show">
+                <a href="#" onclick="showmore()">   
+                    <i class="fa fa-angle-double-down" aria-hidden="true"></i> 
+                </a>
+            </div>
+
+
+            <!--Phan shau khi nhanh show more-->
+            <div id="haidz">            
+                <div class="tool-icon" title="Clear Formatting">
+                    <a href="#" onclick="formatDoc('removeFormat')">
+                        <i class="fa fa-eraser"></i>
+                    </a>
+                </div>
+                <!--H1-H6-->
+                <div class="tool-icon" title="Paragraph Format">
+                    <div class="dropdown dropdown-fix">
+                        <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                            <i class="fa fa-paragraph"><span class="caret"></span></i>
+                        </button>
+                        <ul class="dropdown-menu" id="heading">
+                            <li onclick="formatDoc('p')">
+                                <a href="#" title="Paragraph">
+                                    <p>Normal</p>
+                                </a>
+                            </li>
+                            <li onclick="formatDoc('h1')">
+                                <a href="#" title="Heading 1"><h1>Heading 1</h1></a>
+                            </li>
+                            <li onclick="formatDoc('h2')">
+                                <a href="#" title="Heading 2"><h2>Heading 2</h2></a>
+                            </li>
+                            <li onclick="formatDoc('h3')">
+                                <a href="#" title="Heading 3"><h3>Heading 3</h3></a>
+                            </li>
+                            <li onclick="formatDoc('h4')">
+                                <a href="#" title="Heading 4"><h4>Heading 4</h4></a>
+                            </li>
+                            <li onclick="formatDoc('h5')">
+                                <a href="" title="Heading 5"><h5>Heading 5</h5></a>
+                            </li>
+                            <li onclick="formatDoc('h6')">
+                                <a href="" title="Heading 6"><h6>Heading 6</h6></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tool-icon" title="Paragraph Style">
+                    <div class="dropdown dropdown-fix">
+                        <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                            <i class="fa fa-magic"><span class="caret"></span></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">Gray</a>
+                            </li>
+                            <li>
+                                <a href="#">Bordered</a>
+                            </li>
+                            <li>
+                                <a href="#">Spaced</a>
+                            </li>
+                            <li>
+                                <a href="#">Uppercase</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tool-icon" title="Quote">
+                    <div class="dropdown dropdown-fix">
+                        <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                            <i class="fa fa-quote-left"><span class="caret"></span></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">Increase</a>
+                            </li>
+                            <li>
+                                <a href="#">Decrease</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tool-icon" title="Align">
+                    <div class="dropdown dropdown-fix" id="align">
+                        <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                            <i class="fa fa-align-center"><span class="caret"></span></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li onclick="formatDoc('justifyLeft')">
+                                <a href="#" title="Align left"><i class="fa fa-align-left" aria-hidden="true"></i></a>
+                            </li>
+                            <li onclick="formatDoc('justifyCenter')">
+                                <a href="#" title="Align center"><i class="fa fa-align-center" aria-hidden="true"></i></a>
+                            </li>
+                            <li onclick="formatDoc('justifyRight')">
+                                <a href="#" title="Align right"><i class="fa fa-align-right" aria-hidden="true"></i></a>
+                            </li>
+                            <li onclick="formatDoc('justifyFull')">
+                                <a href="#" title="Align justify"><i class="fa fa-align-justify" aria-hidden="true"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tool-icon" title="Ordered List" onclick="formatDoc('insertUnorderedList')">
+                    <a href="#">
+                        <i class='fa fa-list-ul'></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Unordered List" onclick="formatDoc('insertOrderedList')">
+                    <a href="#">
+                        <i class='fa fa-list-ol'></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Decrease Indent (Ctrl+[)" onclick="formatDoc('outdent')">
+                    <a href="#" data-command='outdent'>
+                        <i class='fa fa-outdent'></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Increase Indent (Ctrl+])" onclick="formatDoc('indent')">
+                    <a href="#" data-command='indent'>
+                        <i class='fa fa-indent'></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Hide">
+                    <a href="#" onclick="showoff()">
+                        <i class="fa fa-angle-double-up" aria-hidden="true"></i> 
+                    </a>
+                </div>           
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    $(function(){
+        $("#haidz").hide();
+        $("#inrestlink").hide();
+    });
+    function showmore(){
+        $("#inrestlink").show();
+        $("#haidz").show();
+        $("#show").hide();
+    };
+    function showoff(){
+        $("#inrestlink").hide();
+        $("#haidz").hide();
+        $("#show").show();
+    };
+</script>
