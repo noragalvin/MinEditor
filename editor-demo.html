@@ -518,6 +518,10 @@
             </div>
         </div>
     </div>
+    <div id="cal1">&nbsp;</div>
+    <div id="cal2">&nbsp;</div>
+    <button style="position:absolute;display:none;" id="demo-btn" type="button" class="btn btn-primary">Demo</button>
+    
 </body>
 <script type="text/javascript" src="js/script.js"></script>
 
@@ -559,66 +563,28 @@ $(function() {
 
 <!-- Selection text -->
 <script>
-function getSelected() {
-    if (window.getSelection) {
-        // console.log(window.getSelection());
-        return window.getSelection();
-    } else if (document.getSelection) {
-        // console.log(document.getSelection);
-        return document.getSelection();
-    } else {
-        var selection = document.selection && document.selection.createRange();
-        if (selection.text) {
-            // console.log(selection.text);
-            return selection.text;
-        }
-        return false;
+var ele = document.getElementById('demo-btn');
+var sel = window.getSelection();
+var rel1= document.createRange();
+rel1.selectNode(document.getElementById('cal1'));
+var rel2= document.createRange();
+rel2.selectNode(document.getElementById('cal2'));
+window.addEventListener('mouseup', function () {
+    if (!sel.isCollapsed) {
+        debugger;
+        var r = sel.getRangeAt(0).getBoundingClientRect();
+        var rb1 = rel1.getBoundingClientRect();
+        var rb2 = rel2.getBoundingClientRect();
+        ele.style.top = (r.bottom - rb2.top)*100/(rb1.top-rb2.top) + 'px'; //this will place ele below the selection
+        ele.style.left = (r.left - rb2.left)*100/(rb1.left-rb2.left) + 'px'; //this will align the right edges together
+
+        //code to set content
+
+        ele.style.display = 'block';
     }
-    return false;
-}
-
-
-$(document).ready(function() {
-    var popup = "";
-    
-    $('#editor-doc').mouseup(function(e) {
-        var selection = getSelected();
-        // console.log(selection);
-        
-        if (selection) {
-
-            popup = $('<button>').attr({
-                type: 'button',
-                title: 'Toolbar',
-                id: 'quote-place'
-
-            }).html("Test Mini Tools Bar").css({
-                "color": "red"
-            }).hide();
-            // console.log(popup);
-            $(document.body).append(popup);
-            // alert(popup);
-            // popup = undefined;
-        }
-
-
-        //Fadeout mini tools bar
-        $("body").mousedown(function() {
-
-            if (popup) {
-                popup.fadeOut();
-            }
-        });
-        
-
-        popup.css({
-            top: e.pageY - 30,
-            //offsets
-            left: e.pageX - 13 //offsets
-        }).fadeIn();
-
-    });
-
+});
+window.addEventListener('mousedown', function () {
+    ele.style.display = 'none';
 });
 </script>
 
