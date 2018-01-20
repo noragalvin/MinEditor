@@ -22,7 +22,7 @@
     background: #eeeeee;
 }
 
-.btn-fix {
+.button-fix {
     background: #fff;
     background: transparent;
     color: #222;
@@ -58,7 +58,7 @@
     position: relative;
 }
 
-.btn-grp {
+.button-grp {
     border: 2px solid #efefef;
     display: inline-block;
 }
@@ -101,27 +101,12 @@
     border: 1px solid transparent;
 }
 
-.dropdown-cont {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
 
-.dropdown-cont a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.abcd {
+.hidden-dropdown-menu {
     display: none;
 }
 
-.dropdown:hover .abcd {
+.dropdown:hover .hidden-dropdown-menu{
     display: block;
 }
 
