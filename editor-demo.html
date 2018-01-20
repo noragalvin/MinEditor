@@ -580,6 +580,7 @@ function getSelected() {
 
 $(document).ready(function() {
     var popup = "";
+    
     $('#editor-doc').mouseup(function(e) {
         var selection = getSelected();
         // console.log(selection);
@@ -608,6 +609,7 @@ $(document).ready(function() {
                 popup.fadeOut();
             }
         });
+        
 
         popup.css({
             top: e.pageY - 30,
