@@ -579,14 +579,14 @@ function getSelected() {
 
 
 $(document).ready(function() {
-    var selectionImage = "";
+    var popup = "";
     $('#editor-doc').mouseup(function(e) {
         var selection = getSelected();
         // console.log(selection);
-
+        
         if (selection) {
 
-            selectionImage = $('<button>').attr({
+            popup = $('<button>').attr({
                 type: 'button',
                 title: 'Toolbar',
                 id: 'quote-place'
@@ -594,22 +594,22 @@ $(document).ready(function() {
             }).html("Test Mini Tools Bar").css({
                 "color": "red"
             }).hide();
-            // console.log(selectionImage);
-            $(document.body).append(selectionImage);
-            // alert(selectionImage);
-            // selectionImage = undefined;
+            // console.log(popup);
+            $(document.body).append(popup);
+            // alert(popup);
+            // popup = undefined;
         }
 
 
         //Fadeout mini tools bar
         $("body").mousedown(function() {
 
-            if (selectionImage) {
-                selectionImage.fadeOut();
+            if (popup) {
+                popup.fadeOut();
             }
         });
 
-        selectionImage.css({
+        popup.css({
             top: e.pageY - 30,
             //offsets
             left: e.pageX - 13 //offsets
