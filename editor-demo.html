@@ -11,27 +11,73 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/style.css" />
 </head>
+<style type="text/css">
+    .d1 {
+        cursor: pointer;
+        height: 26px;
+        width: 26px;
+        margin: 0px;
+    }
+
+    .d1:hover {
+        cursor: pointer;
+
+        border: 1px solid red;
+    }
+
+    .mausac {
+        width: 210px;
+        ;
+        height: auto;
+    }
+</style>
+
+
 
 
 <body>
-<div class="container">
-    <div class="row" id="row-show" style="border-top:3px solid #000;">    
-        <div class="tools">
-            <div class="tool-icon" title="Insert Image (Ctrl+P)" onclick="insertImg()">
-                <a href="#">
-                    <i class="fa fa-picture-o" aria-hidden="true"></i>
+    <div class="container">
+        <div class="row" id="row-show" style="border-top:1px solid #ebebeb;">
+            <div class="tools">
+                <div class="tool-icon" title="Undo (Ctrl+Z)" onclick="formatDoc('undo')">
+                    <a href="#" data-command='undo'>
+                        <i class='fa fa-undo'></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Redo (Ctrl+Shift+Z)" onclick="formatDoc('redo')">
+                    <a href="#" data-command='redo'>
+                        <i class='fa fa-repeat'></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Code View">
+                    <a id="showCode" href="#" data-command='code'>
+                        <i class='fa fa-code'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="tools">
+                <div class="tool-icon" title="Special Characters">
+                    <span style="text-align: center;font-weight: bold">Ω</span>
+                </div>
+            </div>
+            <div class="tool-icon" title="Emoticons" onclick="formatDoc('redo')">
+                <a href="#" data-command='redo'>
+                    <i class='fa fa-smile-o'></i>
                 </a>
             </div>
-            <div class="tool-icon" title="Insert Video" onclick="insertVideo()">
-                <a href="#">
-                    <i class="fa fa-video-camera" aria-hidden="true"></i>
+            <div class="tool-icon" title="Insert Horizontal Line" onclick="insertHr()">
+                <a href="#" data-command='redo'>
+                    <i class='fa fa-minus'></i>
+                </a>
+            </div>
+            <div class="tool-icon" title="Help (Ctrl+/)" onclick="formatDoc('redo')">
+                <a href="#" data-command='redo'>
+                    <i class='fa fa-question'></i>
                 </a>
             </div>
         </div>
-    </div>
-    <div class="row" id="row-show" style="border-top:3px solid #000;">   
         <div class="tools">
             <div id="zoom-in" class="tool-icon" title="Zoom in">
                 <a href="#">
@@ -44,66 +90,541 @@
                 </a>
             </div>
         </div>
-    </div>
-    
-    <!--contentArea-->
-    <div class="row">
-        <div id="editor-doc" style="overflow:auto;" contenteditable>
-            <p>
-                aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-            </p>
+        <!--show khi phong to-->
+        <div class="row" id="row-hide" style="border-top:3px solid #000;">
+            <div class="tools">
+                <div class="tool-icon" title="Bold (Ctrl+B)">
+                    <a href="#" data-command='bold' onclick="formatDoc('bold')">
+                        <i class='fa fa-bold'></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Italic (Ctrl+I)">
+                    <a href="#" data-command='italic' onclick="formatDoc('italic')">
+                        <i class='fa fa-italic'></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Underline (Ctrl+U)">
+                    <a href="#" data-command='underline' onclick="formatDoc('underline')">
+                        <i class='fa fa-underline'></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Insert Image (Ctrl+P)">
+                    <a href="#">
+                        <i class="fa fa-picture-o" aria-hidden="true" onclick="formatDoc('insertimage')"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="tools" style="border-right: none">
+                <div class="tool-icon" title="Paragraph Format">
+                    <div class="dropdown dropdown-fix">
+                        <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                            <i class="fa fa-paragraph">
+                                <span class="caret"></span>
+                            </i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">HTML</a>
+                            </li>
+                            <li>
+                                <a href="#">CSS</a>
+                            </li>
+                            <li>
+                                <a href="#">JavaScript</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dropdown dropdown-fix" id="align">
+                    <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                        <i class="fa fa-align-center">
+                            <span class="caret"></span>
+                        </i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li onclick="formatDoc('justifyLeft')">
+                            <a href="#" title="Align left">
+                                <i class="fa fa-align-left" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li onclick="formatDoc('justifyCenter')">
+                            <a href="#" title="Align center">
+                                <i class="fa fa-align-center" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li onclick="formatDoc('justifyRight')">
+                            <a href="#" title="Align right">
+                                <i class="fa fa-align-right" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li onclick="formatDoc('justifyFull')">
+                            <a href="#" title="Align justify">
+                                <i class="fa fa-align-justify" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tool-icon" title="Undo (Ctrl+Z)">
+                    <a href="#" data-command='undo' onclick="formatDoc('undo')">
+                        <i class='fa fa-undo'></i>
+                    </a>
+                </div>
+                <div class="tool-icon" title="Redo (Ctrl+Shift+Z)">
+                    <a href="#" data-command='redo' onclick="formatDoc('redo')">
+                        <i class='fa fa-repeat'></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!--contentArea-->
+        <div id="heading-editor" class="row">
+            <div id="editor-doc" style="overflow:auto;" contenteditable>
+                <p>
+                    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                </p>
+            </div>
+            <div style="position:absolute;display:none;" id="demo-btn">
+                <div class="tools" style="border:1px solid #000;">
+                    <!--Phan luon luon show ra-->
+                    <div class="tool-icon" title="Bold (Ctrl+B)">
+                        <a href="#" data-command='bold' onclick="formatDoc('bold')">
+                            <i class='fa fa-bold'></i>
+                        </a>
+                    </div>
+                    <div class="tool-icon" title="Italic (Ctrl+I)">
+                        <a href="#" data-command='italic' onclick="formatDoc('italic')">
+                            <i class='fa fa-italic'></i>
+                        </a>
+                    </div>
+                    <div class="tool-icon" title="Underline (Ctrl+U)">
+                        <a href="#" data-command='underline' onclick="formatDoc('underline')">
+                            <i class='fa fa-underline'></i>
+                        </a>
+                    </div>
+                    <div class="tool-icon" title="StrikeThrough (Ctrl+S)" onclick="formatDoc('strikeThrough')">
+                        <a href="#">
+                            <i class="fa fa-strikethrough"></i>
+                        </a>
+                    </div>
+                    <!--Font chu-->
+                    <div class="tool-icon" title="Font Family">
+                        <div class="dropdown dropdown-fix">
+                            <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                                <i class="fa fa-font"><span class="caret"></span></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li onclick="formatDoc('fontname','Arial')">
+                                    <a href="#" style="font-family: Arial">Arial</a>
+                                </li>
+                                <li onclick="formatDoc('fontname','Arial Black')">
+                                    <a href="#" style="font-family: Georgia">Arial Black</a>
+                                </li>
+                                <li onclick="formatDoc('fontname','Courier New')">
+                                    <a href="#" style="font-family: Impact">Courier New</a>
+                                </li>
+                                <li onclick="formatDoc('fontname','Time New Roman')">
+                                    <a href="#" style="font-family: Time New Roman">Time New Roman</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--mau chu-->
+                    <div class="tool-icon" title="ColorMe">
+                        <button class="btn-fix" id="color-btn" type="button" data-toggle="dropdown"><i class="fa fa-tint"><span class="caret"></span></i></button>
+                        <div class="dropdown-color">
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a data-toggle="tab" href="#text-color">Text</a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#bg-color">Background</a>
+                                </li>
+                            </ul>
+                
+                            <div class="tab-content">
+                                <div id="text-color" class="tab-pane fade in active">
+                                    <table>
+                                        <tr>
+                                        <td><a href="#" onclick="formatDoc('forecolor','indigo')" class='color-item' style="background-color: indigo" title="indigo"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','firebrick')" class="color-item" style="background-color:firebrick" title="firebrick"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','maroon')" class='color-item' style="background-color: maroon" title="maroon"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','darkslategray')" class='color-item' style="background-color:darkslategray" title="darkslategray"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','darkgreen')" class='color-item' style="background-color: darkgreen" title="darkgreen"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','mediumblue')" class='color-item' style="background-color: mediumblue" title="mediumblue"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','navy')" class='color-item' style="background-color: navy" title="navy"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','black')" class='color-item' style="background-color: black" title="black"></a></td>
+                                        </tr>
+                                        <tr>
+                                                <td><a href="#" onclick="formatDoc('forecolor','rebeccapurple')" class='color-item' style="background-color: rebeccapurple" title=" rebeccapurple"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','red')" class='color-item' style="background-color: red" title="red"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','chocolate')" class='color-item' style="background-color: chocolate" title="chocolate"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','olive')" class='color-item' style="background-color: olive" title="olive"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','green')" class='color-item' style="background-color: green" title="green"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','teal')" class='color-item' style="background-color: teal" title="teal"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','blue')" class='color-item' style="background-color: blue" title="blue"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','gray')" class='color-item' style="background-color: gray" title="gray"></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#" onclick="formatDoc('forecolor','mediumorchid')" class='color-item' style="background-color: mediumorchid" title="mediumorchid"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','deeppink')" class='color-item' style="background-color: deeppink" title="deeppink"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','darkorange')" class='color-item' style="background-color: darkorange" title=" darkorange"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','greenyellow')" class='color-item' style="background-color: greenyellow" title="greenyellow"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','mediumseagreen')" class='color-item' style="background-color: mediumseagreen" title="mediumseagreen"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','mediumturquoise')" class='color-item' style="background-color: mediumturquoise" title="mediumturquoise"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','royalblue')" class='color-item' style="background-color: royalblue" title="royalblue"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','lightslategrey')" class='color-item' style="background-color: lightslategrey" title="lightslategrey"></a></td>
+                                        </tr>
+                                        <tr>
+                                        <td><a href="#" onclick="formatDoc('forecolor','violet')" class='color-item' style="background-color: violet" title="violet"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','orchid')" class='color-item' style="background-color: orchid" title="orchid"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','gold')" class='color-item' style="background-color: gold" title="gold"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','yellow')" class='color-item' style="background-color: yellow" title="yellow"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','lime')" class='color-item' style="background-color: lime" title="lime"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','aqua')" class='color-item' style="background-color: aqua" title="aqua"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','skyblue')" class='color-item' style="background-color: skyblue " title="skyblue"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','lightgray')" class='color-item' style="background-color: lightgray" title="lightgray"></a></td>
+                                        </tr>
+                                        <tr>
+                                        <td><a href="#" onclick="formatDoc('forecolor','plum')" class='color-item' style="background-color: plum" title="plum"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','pink')" class='color-item' style="background-color: pink" title="pink"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','peachpuff')" class='color-item' style="background-color: peachpuff" title="peachpuff"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','khaki')" class='color-item' style="background-color: khaki" title="khaki"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','palegreen')" class='color-item' style="background-color: palegreen" title="palegreen"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','paleturquoise')" class='color-item' style="background-color: paleturquoise" title="paleturquoise"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','powderblue')" class='color-item' style="background-color: powderblue" title="powderblue"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','white')" class='color-item' style="background-color: white" title="white"></a></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div id="bg-color" class="tab-pane fade">
+                                        <table>
+                                                <tr>
+                                                <td><a href="#" onclick="formatDoc('backcolor','indigo')" class='color-item' style="background-color: indigo " title="indigo"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','firebrick')" class="color-item" style="background-color:firebrick" title="firebrick"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','maroon')" class='color-item' style="background-color: maroon" title="maroon"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','darkslategray')" class='color-item' style="background-color:darkslategray" title="darkslategray"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','darkgreen')" class='color-item' style="background-color: darkgreen" title="darkgreen"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','mediumblue')" class='color-item' style="background-color: mediumblue" title="mediumblue"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','navy')" class='color-item' style="background-color: navy" title="navy"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','black')" class='color-item' style="background-color: black" title="black"></a></td>
+                                                </tr>
+                                                <tr>
+                                                        <td><a href="#" onclick="formatDoc('backcolor','rebeccapurple')" class='color-item' style="background-color: rebeccapurple" title=" rebeccapurple"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','red')" class='color-item' style="background-color: red" title="red"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','chocolate')" class='color-item' style="background-color: chocolate" title="chocolate"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','olive')" class='color-item' style="background-color: olive" title="olive"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','green')" class='color-item' style="background-color: green" title="green"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','teal')" class='color-item' style="background-color: teal" title="teal"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','blue')" class='color-item' style="background-color: blue" title="blue"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','gray')" class='color-item' style="background-color: gray" title="gray"></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="#" onclick="formatDoc('backcolor','mediumorchid')" class='color-item' style="background-color: mediumorchid" title="mediumorchid"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','deeppink')" class='color-item' style="background-color: deeppink" title="deeppink"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','darkorange')" class='color-item' style="background-color: darkorange" title=" darkorange"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','greenyellow')" class='color-item' style="background-color: greenyellow" title="greenyellow"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','mediumseagreen')" class='color-item' style="background-color: mediumseagreen" title="mediumseagreen"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','mediumturquoise')" class='color-item' style="background-color: mediumturquoise" title="mediumturquoise"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','royalblue')" class='color-item' style="background-color: royalblue" title="royalblue"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','lightslategrey')" class='color-item' style="background-color: lightslategrey" title="lightslategrey"></a></td>
+                                                </tr>
+                                                <tr>
+                                                <td><a href="#" onclick="formatDoc('backcolor','violet')" class='color-item' style="background-color: violet" title="violet"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','orchid')" class='color-item' style="background-color: orchid" title="orchid"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','gold')" class='color-item' style="background-color: gold" title="gold"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','yellow')" class='color-item' style="background-color: yellow" title="yellow"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','lime')" class='color-item' style="background-color: lime" title="lime"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','aqua')" class='color-item' style="background-color: aqua" title="aqua"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','skyblue')" class='color-item' style="background-color: skyblue " title="skyblue"></a></td>
+                                                <td><a href="#" onclick="formatDoc('forecolor','lightgray')" class='color-item' style="background-color: lightgray" title="lightgray"></a></td>
+                                                </tr>
+                                                <tr>
+                                                <td><a href="#" onclick="formatDoc('backcolor','plum')" class='color-item' style="background-color: plum" title="plum"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','pink')" class='color-item' style="background-color: pink" title="pink"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','peachpuff')" class='color-item' style="background-color: peachpuff" title="peachpuff"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','khaki')" class='color-item' style="background-color: khaki" title="khaki"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','palegreen')" class='color-item' style="background-color: palegreen" title="palegreen"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','paleturquoise')" class='color-item' style="background-color: paleturquoise" title="paleturquoise"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','powderblue')" class='color-item' style="background-color: powderblue" title="powderblue"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','white')" class='color-item' style="background-color: white" title="white"></a></td>
+                                                </tr>
+                                        </table>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <!--cỡ chữ-->
+                    <div class="tool-icon" title="Font Size">
+                        <div class="dropdown dropdown-fix">
+                            <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                                <i class="fa fa-text-height"><span class="caret"></span></i>
+                            </button>
+                            <ul class="dropdown-menu" style="overflow-y: auto; height:200px;">
+                                <li onclick="formatDoc('fontsize','1')">
+                                    <a href="#">1</a>
+                                </li>
+                                <li onclick="formatDoc('fontsize','2')">
+                                    <a href="#">2</a>
+                                </li>
+                                <li onclick="formatDoc('fontsize','3')">
+                                    <a href="#">3</a>
+                                </li>
+                                <li onclick="formatDoc('fontsize','4')">
+                                    <a href="#">4</a>
+                                </li>
+                                <li onclick="formatDoc('fontsize','5')">
+                                    <a href="#">5</a>
+                                </li>
+                                <li onclick="formatDoc('fontsize','6')">
+                                    <a href="#">6</a>
+                                </li>
+                                <li onclick="formatDoc('fontsize','7')">
+                                    <a href="#">7</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--undo + redo + insertLink-->
+                    <div class="tool-icon" title="Undo (Ctrl+Z)" onclick="formatDoc('undo')">
+                        <a href="#" data-command='undo'>
+                            <i class='fa fa-undo'></i>
+                        </a>
+                    </div>
+                    <div class="tool-icon" title="Redo (Ctrl+Shift+Z)" onclick="formatDoc('redo')">
+                        <a href="#" data-command='redo'>
+                            <i class='fa fa-repeat'></i>
+                        </a>
+                    </div>
+                    <!--show more-->
+                    <div class="tool-icon" title="Show More" id="show" onclick="showmore()">
+                        <a href="#">
+                            <i class="fa fa-angle-double-down" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <!--Phan shau khi nhanh show more-->
+                    <div id="sub-tools">
+                        <div class="tool-icon" title="Clear Formatting">
+                            <a href="#" onclick="formatDoc('removeFormat')">
+                                <i class="fa fa-eraser"></i>
+                            </a>
+                        </div>
+                        <!--H1-H6-->
+                        <div class="tool-icon" title="Paragraph Format">
+                            <div class="dropdown dropdown-fix">
+                                <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                                    <i class="fa fa-paragraph"><span class="caret"></span></i>
+                                </button>
+                                <ul class="dropdown-menu" id="heading">
+                                    <li onclick="formatDoc('p')">
+                                        <a href="#" title="Paragraph">
+                                            <p>Normal</p>
+                                        </a>
+                                    </li>
+                                    <li onclick="formatDoc('h1')">
+                                        <a href="#" title="Heading 1">
+                                            <h1>Heading 1</h1>
+                                        </a>
+                                    </li>
+                                    <li onclick="formatDoc('h2')">
+                                        <a href="#" title="Heading 2">
+                                            <h2>Heading 2</h2>
+                                        </a>
+                                    </li>
+                                    <li onclick="formatDoc('h3')">
+                                        <a href="#" title="Heading 3">
+                                            <h3>Heading 3</h3>
+                                        </a>
+                                    </li>
+                                    <li onclick="formatDoc('h4')">
+                                        <a href="#" title="Heading 4">
+                                            <h4>Heading 4</h4>
+                                        </a>
+                                    </li>
+                                    <li onclick="formatDoc('h5')">
+                                        <a href="" title="Heading 5">
+                                            <h5>Heading 5</h5>
+                                        </a>
+                                    </li>
+                                    <li onclick="formatDoc('h6')">
+                                        <a href="" title="Heading 6">
+                                            <h6>Heading 6</h6>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="tool-icon" title="Paragraph Style">
+                            <div class="dropdown dropdown-fix">
+                                <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                                    <i class="fa fa-magic">
+                                        <span class="caret"></span>
+                                    </i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#">Gray</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Bordered</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Spaced</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Uppercase</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="tool-icon" title="Quote">
+                            <div class="dropdown dropdown-fix">
+                                <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                                    <i class="fa fa-quote-left">
+                                        <span class="caret"></span>
+                                    </i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#">Increase</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Decrease</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="tool-icon" title="Align">
+                            <div class="dropdown dropdown-fix" id="align">
+                                <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                                    <i class="fa fa-align-center"><span class="caret"></span></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li onclick="formatDoc('justifyLeft')">
+                                        <a href="#" title="Align left">
+                                            <i class="fa fa-align-left" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li onclick="formatDoc('justifyCenter')">
+                                        <a href="#" title="Align center">
+                                            <i class="fa fa-align-center" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li onclick="formatDoc('justifyRight')">
+                                        <a href="#" title="Align right">
+                                            <i class="fa fa-align-right" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li onclick="formatDoc('justifyFull')">
+                                        <a href="#" title="Align justify">
+                                            <i class="fa fa-align-justify" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="tool-icon" title="Ordered List" onclick="formatDoc('insertUnorderedList')">
+                            <a href="#">
+                                <i class='fa fa-list-ul'></i>
+                            </a>
+                        </div>
+                        <div class="tool-icon" title="Unordered List" onclick="formatDoc('insertOrderedList')">
+                            <a href="#">
+                                <i class='fa fa-list-ol'></i>
+                            </a>
+                        </div>
+                        <div class="tool-icon" title="Decrease Indent (Ctrl+[)" onclick="formatDoc('outdent')">
+                            <a href="#" data-command='outdent'>
+                                <i class='fa fa-outdent'></i>
+                            </a>
+                        </div>
+                        <div class="tool-icon" title="Increase Indent (Ctrl+])" onclick="formatDoc('indent')">
+                            <a href="#" data-command='indent'>
+                                <i class='fa fa-indent'></i>
+                            </a>
+                        </div>
+                        <div class="tool-icon" title="Hide">
+                            <a href="#" onclick="showoff()">
+                                <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="menubar-item" id="menubar-item" style="display: none;">
+                <div class="tool-icon image1" id="Image" onclick="insertImg()">
+                    <a href="# " style="text-decoration: none;">
+                        <i class="fa fa-camera" aria-hidden="true"></i> Thêm ảnh
+                    </a>
+                </div>
+                <div class="tool-icon Video" id="Video" onclick="insertVideo()">
+                    <a href="#" style="text-decoration: none;">
+                            <i class="fa fa-video-camera" aria-hidden="true"></i> Thêm video
+                    </a>
+                </div>
+                <div class="tool-icon Table" id="Table">
+                    <a href="#" style="text-decoration: none;">
+                            <i class="fa fa-table" aria-hidden="true"></i> Thêm bảng
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
-</div>
     <div id="cal1">&nbsp;</div>
     <div id="cal2">&nbsp;</div>
-    <button style="position:absolute;display:none;" id="demo-btn" type="button" class="btn btn-primary">Demo</button>
-
+    
 </body>
 <script type="text/javascript" src="js/script.js"></script>
 
 </html>
 
-
-
-
-<!-- Selection text -->
 <script>
-
-var ele = document.getElementById('demo-btn');
-var sel = window.getSelection();
-var rel1= document.createRange();
-rel1.selectNode(document.getElementById('cal1'));
-var rel2= document.createRange();
-rel2.selectNode(document.getElementById('cal2'));
-window.addEventListener('mouseup', function () {
-    if (!sel.isCollapsed) {
-        //debugger;
-        var r = sel.getRangeAt(0).getBoundingClientRect();
-        var rb1 = rel1.getBoundingClientRect();
-        var rb2 = rel2.getBoundingClientRect();
-        ele.style.top = (r.bottom - rb2.top)*100/(rb1.top-rb2.top) + 'px'; //this will place ele below the selection
-        ele.style.left = ( (r.left - rb2.left + 10   )*100/(rb1.left-rb2.left) ) + 'px'; //this will align the right edges together
-        //code to set content
-        console.log(r.right);
-        console.log(rb1.top);
-        console.log(rb2.top);
-        console.log(ele.style.top);
-        console.log(ele.style.left);
-
-
-        ele.style.display = 'block';
-    }
-});
-window.addEventListener('mousedown', function () {
-    ele.style.display = 'none';
-});
-$(document).ready(function () {
-        $(window).resize(function () { 
-            ele.style.display = 'none';
-        });
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
     });
+    $('#editor-doc').focusin(function(){
+        $('#menubar-item').slideDown();
+    })
 </script>
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#sub-tools").hide();
+    });
 
+    function showmore(event) {
+        event.stopPropagation();
+        $("#sub-tools").show();
+        $("#show").hide();
+    };
+
+    function showoff(event) {
+        event.stopPropagation();
+        $("#sub-tools").hide();
+        $("#show").show();
+    };
+</script>
+<script>
+    $(document).ready(function () {
+        $('#editor-doc').focus();
+    });
+</script>
+<script type="text/javascript">
+    function TextColor(){
+        $('#TextColor').css('display','block');
+        $('#BackgroundColor').css('display','none');
+    }
+        function BackgroundColor(){
+        $('#BackgroundColor').css('display','block');
+        $('#TextColor').css('display','none');
+    }
+
+</script>
+<script>
+        $('#color-btn').click(function(){
+            $('.dropdown-color').slideToggle();
+        })
+    </script>
 </html>

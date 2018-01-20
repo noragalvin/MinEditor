@@ -27,6 +27,7 @@
 .nav-tabs>li{   border-top: 4px solid black}
 
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover{
+   
     border-bottom: 4px solid transparent; border-top: 0px;
 }
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus{ 
@@ -45,11 +46,13 @@
 
 .color-item:hover {
     cursor: pointer;
+
     border: 1px solid red
 }
 
 .color-box { 
     width: 297px;
+    ;
     height: auto;
 }
 
@@ -233,8 +236,10 @@
                                     <li  class="active" style="width: 50%;text-align: center;font-size: 12px; border: "><a data-toggle="tab" href="#text-color" onclick="TextColor()" style="border-left: 0px; border-right:0px" ><b>Text Color</b></a></li>
                                     <li  style="width: 50%;text-align: center; font-size: 12px"><a data-toggle="tab" href="#bg-color" onclick="BackgroundColor()" style="border-left: 0px; border-right:0px" ><b>Background Color</b></a></li>
                                 </ul>
-                                <div class="tab-content">
-                                    <div id="TextColor" class="tab-pane">
+                                <div class="tab-content"  >
+                                    <div id="TextColor" class="tab-pane"  >
+
+                                        
                                     <table class="one">
                                          <tr>
                                             <td ><a href="#" onclick="formatDoc('forecolor','indigo')" class='color-item' style="background-color: indigo " title="indigo"></a></td>

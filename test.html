@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<style type="text/css">
+    #Image, #Video, #Table {
+        width: 120px;
+        height: 38px;
+        display: inline-block;
+        line-height: 38px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .menubar-item {
+        border-color: transparent;
+        background: transparent;
+        filter: none;
+        display: inline-block;
+        margin: 2px 0 2px 2px;
+        position: relative;
+    }
+
+    #editor-doc:focus {
+        outline: none;
+    }
+</style>
+
+<body>
+
+    <div class="menubar-item" id="menubar-item" style="display: none;">
+        <div class="tool-icon image1" id="Image">
+            <a href="# " style="text-decoration: none;">
+                <i class="fa fa-camera" aria-hidden="true"></i> Thêm ảnh
+            </a>
+
+        </div>
+        <div class="tool-icon Video" id="Video">
+            <a href="#" style="text-decoration: none;">
+                <i class="fa fa-video-camera" aria-hidden="true"></i> Thêm video
+            </a>
+        </div>
+        <div class="tool-icon Table" id="Table">
+            <a href="#" style="text-decoration: none;">
+                <i class="fa fa-table" aria-hidden="true"></i> Thêm bảng
+            </a>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    $('#editor-doc').focusin(function () {
+        $('#menubar-item').slideDown();
+    })
+</script>
+
+</html>

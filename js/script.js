@@ -29,90 +29,93 @@ function formatDoc(sCmd, sValue) {
             alert('The command ' + sCmd + ' is not support your browser');
             // console.log('hello');
         } else {
+            console.log(1);
             document.execCommand(sCmd, false, sValue);
             // console.log('hello22');
             // console.log(document.queryCommandSupported(sCmd));
         }
     }
+    selectingText();
+
 }
 
 //Insert Images
 var idImage = 0;
+
 function insertImg(img) {
     var sImg = prompt("Enter url");
     var widthScreen = document.getElementById('editor-doc').offsetWidth;
     var widthImg;
-    getMeta(sImg,widthImg,widthScreen);
+    getMeta(sImg, widthImg, widthScreen);
     console.log(widthImg);
     console.log(widthScreen);
 }
 
-function getMeta(url,widthImg,widthScreen){   
+function getMeta(url, widthImg, widthScreen) {
     var img = new Image();
-    img.onload = function(){
-        alert( this.width+' '+ this.height );
-        if(this.width >= widthScreen){
+    img.onload = function () {
+        alert(this.width + ' ' + this.height);
+        if (this.width >= widthScreen) {
             widthImg = widthScreen;
-            url = "<div><img id=\"image_" + idImage + " src=\"" + url + "\" width=\"" + widthImg + "\" onclick=\"changeSize('image_" + idImage + "')\"" +  "></div>";
+            url = "<div><img id=\"image_" + idImage + " src=\"" + url + "\" width=\"" + widthImg + "\" onclick=\"changeSize('image_" + idImage + "')\"" + "></div>";
             idImage++;
             console.log(url);
-            document.execCommand("insertHTML",false,url);
-        }else{
+            document.execCommand("insertHTML", false, url);
+        } else {
             widthImg = this.width;
-            url = "<div><img id=\"image_" + idImage + "\" src=\"" + url + "\" width=\"" + widthImg + "\" onclick=\"changeSize('image_" + idImage + "')\"" +  "></div>";
+            url = "<div><img id=\"image_" + idImage + "\" src=\"" + url + "\" width=\"" + widthImg + "\" onclick=\"changeSize('image_" + idImage + "')\"" + "></div>";
             idImage++;
             console.log(url);
-            document.execCommand("insertHTML",false,url);
+            document.execCommand("insertHTML", false, url);
         }
     };
     img.src = url;
 }
 
 
-function changeSize(id){
+function changeSize(id) {
     //Zoom in
     // console.log(id);
-    $('#zoom-in').click(function (e) { 
+    $('#zoom-in').click(function (e) {
         e.preventDefault();
         // console.log(1);
-        var width = $('#'+id).css('width');
-        width = parseInt(width.substr(0,width.length-2));
+        var width = $('#' + id).css('width');
+        width = parseInt(width.substr(0, width.length - 2));
         // console.log(width);
         // console.log(typeof width);
-        width+=20;
+        width += 20;
         // console.log(width);
-        $('#'+id).css('width', width + 'px');
+        $('#' + id).css('width', width + 'px');
     });
     //Zoom out
-    $('#zoom-out').click(function (e) { 
+    $('#zoom-out').click(function (e) {
         e.preventDefault();
         // console.log(1);
-        var width = $('#'+id).css('width');
-        width = parseInt(width.substr(0,width.length-2));
+        var width = $('#' + id).css('width');
+        width = parseInt(width.substr(0, width.length - 2));
         // console.log(width);
         // console.log(typeof width);
-        width-=20;
+        width -= 20;
         // console.log(width);
-        $('#'+id).css('width', width + 'px');
+        $('#' + id).css('width', width + 'px');
     });
 }
 
-//Zoom out
 
 
 
 //Insert Video
 function insertVideo() {
     sVideo = prompt('Enter embed code: ', 'Embed here');
-    var check = sVideo.substr(1,6);
+    var check = sVideo.substr(1, 6);
     // console.log(sVideo);
     // console.log(check);
-    if(check === "iframe"){
+    if (check === "iframe") {
         document.execCommand("insertHTML", false, sVideo);
     } else {
-        var idVideo = sVideo.substr(32,sVideo.length-1);
+        var idVideo = sVideo.substr(32, sVideo.length - 1);
         var width = document.getElementById('editor-doc').offsetWidth;
-        var height = width*56.25/100;
+        var height = width * 56.25 / 100;
         console.log(width);
         console.log(height);
         // console.log(idVideo);
@@ -129,9 +132,9 @@ function insertVideo() {
 
 
 //Paste as plain text
-window.onload = function() {
+window.onload = function () {
     var ed = document.querySelector("#editor-doc");
-    ed.addEventListener("paste", function(e) {
+    ed.addEventListener("paste", function (e) {
         // console.log(1);
         e.preventDefault();
         var text = e.clipboardData.getData("text/plain");
@@ -152,11 +155,11 @@ function selectAll() {
 }
 
 //Show code
-$(document).ready(function() {
+$(document).ready(function () {
     var flag = 1;
     var data = document.getElementById('editor-doc');
     // console.log(data.innerHTML);
-    $('#showCode').click(function(e) {
+    $('#showCode').click(function (e) {
         e.preventDefault();
         if (flag === 1) {
             document.getElementById('editor-doc').innerText = data.innerHTML.trim();
@@ -168,7 +171,7 @@ $(document).ready(function() {
     });
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
     function getSelected() {
         if (window.getSelection) {
             console.log('selected');
@@ -188,4 +191,73 @@ $(document).ready(function() {
     }
 });
 
+//Selection text
+var ele = document.getElementById('demo-btn');
+var sel = window.getSelection();
+var rel1 = document.createRange();
+rel1.selectNode(document.getElementById('cal1'));
+var rel2 = document.createRange();
+rel2.selectNode(document.getElementById('cal2'));
+window.addEventListener('mouseup', function (event) {
+    event.stopPropagation();
+    if (!sel.isCollapsed) {
+        //debugger;
+        var r = sel.getRangeAt(0).getBoundingClientRect();
+        var rb1 = rel1.getBoundingClientRect();
+        var rb2 = rel2.getBoundingClientRect();
+        ele.style.top = (r.bottom - rb2.top) * 100 / (rb1.top - rb2.top) + 'px'; //this will place ele below the selection
+        ele.style.left = ((r.left - rb2.left + 10) * 100 / (rb1.left - rb2.left)) + 'px'; //this will align the right edges together
+        //code to set content
 
+        ele.style.display = 'block';
+    }
+});
+
+// $('#heading-editor').focusout(function(){
+//     ele.style.display = 'none';
+// });
+
+
+
+$(document).ready(function () {
+    $(window).resize(function () {
+        ele.style.display = 'none';
+    });
+});
+
+$('body').mousedown(function () {
+    $('#demo-btn').hover(function () {
+        // over
+        
+    }, function () {
+        $('.dropdown-color').hide();
+        ele.style.display = 'none';
+    }
+);
+});
+
+
+
+
+
+
+function selectingText() {
+    if (!sel.isCollapsed) {
+        //debugger;
+        var r = sel.getRangeAt(0).getBoundingClientRect();
+        var rb1 = rel1.getBoundingClientRect();
+        var rb2 = rel2.getBoundingClientRect();
+        ele.style.top = (r.bottom - rb2.top) * 100 / (rb1.top - rb2.top) + 'px'; //this will place ele below the selection
+        ele.style.left = ((r.left - rb2.left + 10) * 100 / (rb1.left - rb2.left)) + 'px'; //this will align the right edges together
+        //code to set content
+
+        ele.style.display = 'block';
+    }
+}
+
+
+$('body').mousedown(function (e) {
+    if (e.which == 1) {
+        console.log(e.pageX + " / " + e.pageY);
+    }
+});
