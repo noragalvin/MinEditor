@@ -615,6 +615,12 @@ window.addEventListener('mouseup', function () {
 window.addEventListener('mousedown', function () {
     ele.style.display = 'none';
 });
+$(document).ready(function () {
+        $(window).resize(function () { 
+            ele.style.display = 'none';
+        });
+    });
 </script>
+
 
 </html>
