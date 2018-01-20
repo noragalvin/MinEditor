@@ -22,7 +22,7 @@
     background: #eeeeee;
 }
 
-.button-fix {
+.btn-fix {
     background: #fff;
     background: transparent;
     color: #222;
@@ -32,6 +32,7 @@
 .tools {
     display: inline-block;
     border-right: 1px solid #ebebeb;
+    padding: 0 5px 0 0;
 }
 
 #editor-doc {
@@ -57,7 +58,7 @@
     position: relative;
 }
 
-.button-grp {
+.btn-grp {
     border: 2px solid #efefef;
     display: inline-block;
 }
@@ -100,12 +101,27 @@
     border: 1px solid transparent;
 }
 
+.dropdown-cont {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
 
-.hidden-dropdown-menu {
+.dropdown-cont a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.abcd {
     display: none;
 }
 
-.dropdown:hover .hidden-dropdown-menu{
+.dropdown:hover .abcd {
     display: block;
 }
 
@@ -159,4 +175,56 @@ hr {
     left:0px;
     overflow:none;
     z-index:-100;
+}
+
+#Image, #Video, #Table {
+    width: 120px;
+    height: 38px;
+    display: inline-block;
+    line-height: 38px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.menubar-item {
+    border-color: transparent;
+    background: transparent;
+    filter: none;
+    display: inline-block;
+    margin: 2px 0 2px 2px;
+    position: relative;
+}
+
+#editor-doc:focus {
+    outline: none;
+}
+
+.dropdown-color{
+    display: none;
+    position: absolute;
+    background: #fff;
+    z-index: 1;
+}
+
+.color-item {
+    cursor: pointer;
+    height: 36.8px;
+    width: 37.5px;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+   margin-left: -1px;
+}
+
+.color-item:hover {
+    cursor: pointer;
+
+    border: 1px solid red
+}
+
+.color-box { 
+    width: 297px;
+    height: auto;
+   
 }
