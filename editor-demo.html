@@ -14,20 +14,20 @@
     <link rel="stylesheet" href="css/style.css"/>
 </head>
 <style type="text/css">
-    .d1 {
+    .color-item {
         cursor: pointer;
         height: 26px;
         width: 26px;
         margin: 0px;
     }
 
-    .d1:hover {
+    .color-item:hover {
         cursor: pointer;
 
         border: 1px solid red;
     }
 
-    .mausac {
+    .color-box {
         width: 210px;;
         height: auto;
     }
@@ -41,7 +41,7 @@
         <div id="menubar">
             <div class="menubar-item">
                 <div class=" dropdown">
-                    <button class="dropbtn" data-toggle="dropdown" onclick="abc()">File &nbsp;
+                    <button class="dropbtn" data-toggle="dropdown" onclick="hoverdropdown()">File &nbsp;
                         <span class="caret"></span>
                     </button>
                     <div class="dropdown-menu">
@@ -51,7 +51,7 @@
             </div>
             <div class="menubar-item">
                 <div class="dropdown">
-                    <button class="dropbtn" data-toggle="dropdown" onclick="abc()">Edit &nbsp;
+                    <button class="dropbtn" data-toggle="dropdown" onclick="hoverdropdown()">Edit &nbsp;
                         <span class="caret"></span>
                     </button>
                     <div class="dropdown-menu">
@@ -70,7 +70,7 @@
             </div>
             <div class="menubar-item">
                 <div class="dropdown">
-                    <button class="dropbtn" data-toggle="dropdown" onclick="abc()">Insert &nbsp;
+                    <button class="dropbtn" data-toggle="dropdown" onclick="hoverdropdown()">Insert &nbsp;
                         <span class="caret"></span>
                     </button>
                     <div class="dropdown-menu">
@@ -87,7 +87,7 @@
             </div>
             <div class="menubar-item">
                 <div class="dropdown">
-                    <button class="dropbtn" data-toggle="dropdown" onclick="abc()">View &nbsp;
+                    <button class="dropbtn" data-toggle="dropdown" onclick="hoverdropdown()">View &nbsp;
                         <span class="caret"></span>
                     </button>
                     <div class="dropdown-menu">
@@ -100,7 +100,7 @@
             </div>
             <div class="menubar-item">
                 <div class="dropdown">
-                    <button class="dropbtn" data-toggle="dropdown" onclick="abc()">Format &nbsp;
+                    <button class="dropbtn" data-toggle="dropdown" onclick="hoverdropdown()">Format &nbsp;
                         <span class="caret"></span>
                     </button>
                     <div class="dropdown-menu">
@@ -113,7 +113,7 @@
             </div>
             <div class="menubar-item">
                 <div class="dropdown">
-                    <button class="dropbtn" data-toggle="dropdown" onclick="abc()">Table &nbsp;
+                    <button class="dropbtn" data-toggle="dropdown" onclick="hoverdropdown()">Table &nbsp;
                         <span class="caret"></span>
                     </button>
                     <div class="dropdown-menu">
@@ -151,7 +151,7 @@
             </div>
             <div class="tool-icon" title="Font Family">
                 <div class="dropdown dropdown-fix">
-                    <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                    <button class="dropdown-toggle button-fix" type="button" data-toggle="dropdown">
                         <i class="fa fa-font"><span class="caret"></span></i>
                     </button>
                     <ul class="dropdown-menu">
@@ -172,7 +172,7 @@
             </div>
             <div class="tool-icon" title="Font Size">
                 <div class="dropdown dropdown-fix">
-                    <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                    <button class="dropdown-toggle button-fix" type="button" data-toggle="dropdown">
                         <i class="fa fa-text-height"><span class="caret"></span></i>
                     </button>
                     <ul class="dropdown-menu" style="overflow-y: auto; height:200px;">
@@ -202,11 +202,11 @@
             </div>
             <div class="menubar-item">
                 <div class="dropdown">
-                    <button class="dropbtn" data-toggle="dropdown" onclick="abc()"><i class="fa fa-tint"></i>
+                    <button class="dropbtn" data-toggle="dropdown" onclick="hoverdropdown()"><i class="fa fa-tint"></i>
                         <span class="caret"></span>
                     </button>
                     <div class="dropdown-menu">
-                        <div class="mausac">
+                        <div class="color-box">
                             <ul class="nav nav-tabs">
                                 <li style="width: 50%;text-align: center;"><a data-toggle="tab"
                                                                               href="#text-color">Text</a></li>
@@ -217,23 +217,23 @@
                                 <div id="text-color" class="tab-pane fade">
                                     <table class="one">
                                         <tr>
-                                            <td><a href="#" onclick="formatDoc('forecolor','black')" class="d1"
+                                            <td><a href="#" onclick="formatDoc('forecolor','black')" class="color-item"
                                                    style="background-color: #000000" title="Black"></a></td>
                                         </tr>
                                         <tr>
-                                            <td><a href="#" onclick="formatDoc('forecolor','red')" class="d1"
+                                            <td><a href="#" onclick="formatDoc('forecolor','red')" class="color-item"
                                                    style="background-color: red" title="Red"></a></td>
                                         </tr>
                                         <tr>
-                                            <td><a href="#" onclick="formatDoc('forecolor','yellow')" class="d1"
+                                            <td><a href="#" onclick="formatDoc('forecolor','yellow')" class="color-item"
                                                    style="background-color: yellow" title="yellow"></a></td>
                                         </tr>
                                         <tr>
-                                            <td><a href="#" onclick="formatDoc('forecolor','green')" class="d1"
+                                            <td><a href="#" onclick="formatDoc('forecolor','green')" class="color-item"
                                                    style="background-color: green" title="green"></a></td>
                                         </tr>
                                         <tr>
-                                            <td><a href="#" onclick="formatDoc('forecolor','white')" class="d1"
+                                            <td><a href="#" onclick="formatDoc('forecolor','white')" class="color-item"
                                                    style="background-color: white" title="white"></a></td>
                                         </tr>
                                     </table>
@@ -241,23 +241,23 @@
                                 <div id="bg-color" class="tab-pane fade">
                                     <table class="one">
                                         <tr>
-                                            <td><a href="#" onclick="formatDoc('backcolor','black')" class="d1"
+                                            <td><a href="#" onclick="formatDoc('backcolor','black')" class="color-item"
                                                    style="background-color: #000000" title="Black"></a></td>
                                         </tr>
                                         <tr>
-                                            <td><a href="#" onclick="formatDoc('backcolor','red')" class="d1"
+                                            <td><a href="#" onclick="formatDoc('backcolor','red')" class="color-item"
                                                    style="background-color: red" title="Red"></a></td>
                                         </tr>
                                         <tr>
-                                            <td><a href="#" onclick="formatDoc('backcolor','yellow')" class="d1"
+                                            <td><a href="#" onclick="formatDoc('backcolor','yellow')" class="color-item"
                                                    style="background-color: yellow" title="yellow"></a></td>
                                         </tr>
                                         <tr>
-                                            <td><a href="#" onclick="formatDoc('backcolor','green')" class="d1"
+                                            <td><a href="#" onclick="formatDoc('backcolor','green')" class="color-item"
                                                    style="background-color: green" title="green"></a></td>
                                         </tr>
                                         <tr>
-                                            <td><a href="#" onclick="formatDoc('backcolor','white')" class="d1"
+                                            <td><a href="#" onclick="formatDoc('backcolor','white')" class="color-item"
                                                    style="background-color: white" title="white"></a></td>
                                         </tr>
                                     </table>
@@ -276,7 +276,7 @@
         <div class="tools">
             <div class="tool-icon" title="Paragraph Format">
                 <div class="dropdown dropdown-fix">
-                    <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                    <button class="dropdown-toggle button-fix" type="button" data-toggle="dropdown">
                         <i class="fa fa-paragraph"><span class="caret"></span></i>
                     </button>
                     <ul class="dropdown-menu" id="heading">
@@ -308,7 +308,7 @@
             </div>
             <div class="tool-icon" title="Paragraph Style">
                 <div class="dropdown dropdown-fix">
-                    <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                    <button class="dropdown-toggle button-fix" type="button" data-toggle="dropdown">
                         <i class="fa fa-magic"><span class="caret"></span></i>
                     </button>
                     <ul class="dropdown-menu">
@@ -329,7 +329,7 @@
             </div>
             <div class="tool-icon" title="Quote">
                 <div class="dropdown dropdown-fix">
-                    <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                    <button class="dropdown-toggle button-fix" type="button" data-toggle="dropdown">
                         <i class="fa fa-quote-left"><span class="caret"></span></i>
                     </button>
                     <ul class="dropdown-menu">
@@ -344,7 +344,7 @@
             </div>
             <div class="tool-icon" title="Align">
                 <div class="dropdown dropdown-fix" id="align">
-                    <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                    <button class="dropdown-toggle butotn-fix" type="button" data-toggle="dropdown">
                         <i class="fa fa-align-center"><span class="caret"></span></i>
                     </button>
                     <ul class="dropdown-menu">
@@ -485,7 +485,7 @@
         <div class="tools" style="border-right: none">
             <div class="tool-icon" title="Paragraph Format">
                 <div class="dropdown dropdown-fix">
-                    <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                    <button class="dropdown-toggle button-fix" type="button" data-toggle="dropdown">
                         <i class="fa fa-paragraph"><span class="caret"></span></i>
                     </button>
                     <ul class="dropdown-menu">
@@ -502,7 +502,7 @@
                 </div>
             </div>
             <div class="dropdown dropdown-fix" id="align">
-                <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                <button class="dropdown-toggle button-fix" type="button" data-toggle="dropdown">
                     <i class="fa fa-align-center"><span class="caret"></span></i>
                 </button>
                 <ul class="dropdown-menu">
@@ -552,22 +552,22 @@
 <script type="text/javascript">
     var i = 0;
 
-    function abc() {
+    function hoverdropdown() {
         if (i == 0) {
             i = 1;
             $('.dropbtn').removeAttr('data-toggle');
-            $('.dropdown-menu').addClass('abcd');
+            $('.dropdown-menu').addClass('hidden-dropdown-menu');
         } else {
             i = 0;
 
-            $('.dropdown-menu').removeClass('abcd');
+            $('.dropdown-menu').removeClass('hidden-dropdown-menu');
         }
     }
 
     function xyz() {
         i = 0;
 
-        $('.dropdown-menu').removeClass('abcd');
+        $('.dropdown-menu').removeClass('hidden-dropdown-menu');
     };
 
     $(document).ready(function () {
