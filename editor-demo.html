@@ -40,7 +40,6 @@
 <body>
     <div class="container">
         <div class="row" id="row-show" style="border-top:1px solid #ebebeb;">
-            <div class="tools">
                 <div class="tool-icon" title="Undo (Ctrl+Z)" onclick="formatDoc('undo')">
                     <a href="#" data-command='undo'>
                         <i class='fa fa-undo'></i>
@@ -51,17 +50,14 @@
                         <i class='fa fa-repeat'></i>
                     </a>
                 </div>
-                <div class="tool-icon" title="Code View">
-                    <a id="showCode" href="#" data-command='code'>
+                <div class="tool-icon" title="Code View" id="showCode">
+                    <a href="#" data-command='code'>
                         <i class='fa fa-code'></i>
                     </a>
                 </div>
-            </div>
-            <div class="tools">
                 <div class="tool-icon" title="Special Characters">
                     <span style="text-align: center;font-weight: bold">Ω</span>
                 </div>
-            </div>
             <div class="tool-icon" title="Emoticons" onclick="formatDoc('redo')">
                 <a href="#" data-command='redo'>
                     <i class='fa fa-smile-o'></i>
@@ -78,7 +74,6 @@
                 </a>
             </div>
         </div>
-        <div class="tools">
             <div id="zoom-in" class="tool-icon" title="Zoom in">
                 <a href="#">
                     <i class="fa fa-search-plus" aria-hidden="true"></i>
@@ -89,32 +84,29 @@
                     <i class="fa fa-search-minus" aria-hidden="true"></i>
                 </a>
             </div>
-        </div>
         <!--show khi phong to-->
         <div class="row" id="row-hide" style="border-top:3px solid #000;">
-            <div class="tools">
-                <div class="tool-icon" title="Bold (Ctrl+B)">
-                    <a href="#" data-command='bold' onclick="formatDoc('bold')">
+            
+                <div class="tool-icon" title="Bold (Ctrl+B)" onclick="formatDoc('bold')">
+                    <a href="#" data-command='bold'>
                         <i class='fa fa-bold'></i>
                     </a>
                 </div>
-                <div class="tool-icon" title="Italic (Ctrl+I)">
-                    <a href="#" data-command='italic' onclick="formatDoc('italic')">
+                <div class="tool-icon" title="Italic (Ctrl+I)" onclick="formatDoc('italic')">
+                    <a href="#" data-command='italic'>
                         <i class='fa fa-italic'></i>
                     </a>
                 </div>
-                <div class="tool-icon" title="Underline (Ctrl+U)">
-                    <a href="#" data-command='underline' onclick="formatDoc('underline')">
+                <div class="tool-icon" title="Underline (Ctrl+U)" onclick="formatDoc('underline')">
+                    <a href="#" data-command='underline'>
                         <i class='fa fa-underline'></i>
                     </a>
                 </div>
-                <div class="tool-icon" title="Insert Image (Ctrl+P)">
+                <div class="tool-icon" title="Insert Image (Ctrl+P)" onclick="formatDoc('insertimage')">
                     <a href="#">
-                        <i class="fa fa-picture-o" aria-hidden="true" onclick="formatDoc('insertimage')"></i>
+                        <i class="fa fa-picture-o" aria-hidden="true"></i>
                     </a>
                 </div>
-            </div>
-            <div class="tools" style="border-right: none">
                 <div class="tool-icon" title="Paragraph Format">
                     <div class="dropdown dropdown-fix">
                         <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
@@ -164,8 +156,8 @@
                         </li>
                     </ul>
                 </div>
-                <div class="tool-icon" title="Undo (Ctrl+Z)">
-                    <a href="#" data-command='undo' onclick="formatDoc('undo')">
+                <div class="tool-icon" title="Undo (Ctrl+Z)" onclick="formatDoc('undo')">
+                    <a href="#" data-command='undo'>
                         <i class='fa fa-undo'></i>
                     </a>
                 </div>
@@ -174,7 +166,6 @@
                         <i class='fa fa-repeat'></i>
                     </a>
                 </div>
-            </div>
         </div>
         <!--contentArea-->
         <div id="heading-editor" class="row">
@@ -184,28 +175,27 @@
                 </p>
             </div>
             <div style="position:absolute;display:none;" id="demo-btn">
-                <div class="tools" style="border:1px solid #000;">
                     <!--Phan luon luon show ra-->
-                    <div class="tool-icon" title="Bold (Ctrl+B)">
-                        <a href="#" data-command='bold' onclick="formatDoc('bold')">
+                    <button class="tool-icon" title="Bold (Ctrl+B)" onclick="formatDoc('bold')">
+                        <a href="#" data-command='bold'>
                             <i class='fa fa-bold'></i>
                         </a>
-                    </div>
-                    <div class="tool-icon" title="Italic (Ctrl+I)">
-                        <a href="#" data-command='italic' onclick="formatDoc('italic')">
+                    </button>
+                    <button class="tool-icon" title="Italic (Ctrl+I)" onclick="formatDoc('italic')">
+                        <a href="#" data-command='italic'>
                             <i class='fa fa-italic'></i>
                         </a>
-                    </div>
-                    <div class="tool-icon" title="Underline (Ctrl+U)">
-                        <a href="#" data-command='underline' onclick="formatDoc('underline')">
+                    </button>
+                    <button class="tool-icon" title="Underline (Ctrl+U)" onclick="formatDoc('underline')">
+                        <a href="#" data-command='underline'>
                             <i class='fa fa-underline'></i>
                         </a>
-                    </div>
-                    <div class="tool-icon" title="StrikeThrough (Ctrl+S)" onclick="formatDoc('strikeThrough')">
+                    </button>
+                    <button class="tool-icon" title="StrikeThrough (Ctrl+S)" onclick="formatDoc('strikeThrough')">
                         <a href="#">
                             <i class="fa fa-strikethrough"></i>
                         </a>
-                    </div>
+                    </button>
                     <!--Font chu-->
                     <div class="tool-icon" title="Font Family">
                         <div class="dropdown dropdown-fix">
@@ -255,7 +245,7 @@
                                         <td><a href="#" onclick="formatDoc('forecolor','black')" class='color-item' style="background-color: black" title="black"></a></td>
                                         </tr>
                                         <tr>
-                                                <td><a href="#" onclick="formatDoc('forecolor','rebeccapurple')" class='color-item' style="background-color: rebeccapurple" title=" rebeccapurple"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','rebeccapurple')" class='color-item' style="background-color: rebeccapurple" title=" rebeccapurple"></a></td>
                                         <td><a href="#" onclick="formatDoc('forecolor','red')" class='color-item' style="background-color: red" title="red"></a></td>
                                         <td><a href="#" onclick="formatDoc('forecolor','chocolate')" class='color-item' style="background-color: chocolate" title="chocolate"></a></td>
                                         <td><a href="#" onclick="formatDoc('forecolor','olive')" class='color-item' style="background-color: olive" title="olive"></a></td>
@@ -265,7 +255,7 @@
                                         <td><a href="#" onclick="formatDoc('forecolor','gray')" class='color-item' style="background-color: gray" title="gray"></a></td>
                                         </tr>
                                         <tr>
-                                            <td><a href="#" onclick="formatDoc('forecolor','mediumorchid')" class='color-item' style="background-color: mediumorchid" title="mediumorchid"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','mediumorchid')" class='color-item' style="background-color: mediumorchid" title="mediumorchid"></a></td>
                                         <td><a href="#" onclick="formatDoc('forecolor','deeppink')" class='color-item' style="background-color: deeppink" title="deeppink"></a></td>
                                         <td><a href="#" onclick="formatDoc('forecolor','darkorange')" class='color-item' style="background-color: darkorange" title=" darkorange"></a></td>
                                         <td><a href="#" onclick="formatDoc('forecolor','greenyellow')" class='color-item' style="background-color: greenyellow" title="greenyellow"></a></td>
@@ -309,7 +299,7 @@
                                                 <td><a href="#" onclick="formatDoc('backcolor','black')" class='color-item' style="background-color: black" title="black"></a></td>
                                                 </tr>
                                                 <tr>
-                                                        <td><a href="#" onclick="formatDoc('backcolor','rebeccapurple')" class='color-item' style="background-color: rebeccapurple" title=" rebeccapurple"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','rebeccapurple')" class='color-item' style="background-color: rebeccapurple" title=" rebeccapurple"></a></td>
                                                 <td><a href="#" onclick="formatDoc('backcolor','red')" class='color-item' style="background-color: red" title="red"></a></td>
                                                 <td><a href="#" onclick="formatDoc('backcolor','chocolate')" class='color-item' style="background-color: chocolate" title="chocolate"></a></td>
                                                 <td><a href="#" onclick="formatDoc('backcolor','olive')" class='color-item' style="background-color: olive" title="olive"></a></td>
@@ -319,7 +309,7 @@
                                                 <td><a href="#" onclick="formatDoc('backcolor','gray')" class='color-item' style="background-color: gray" title="gray"></a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><a href="#" onclick="formatDoc('backcolor','mediumorchid')" class='color-item' style="background-color: mediumorchid" title="mediumorchid"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','mediumorchid')" class='color-item' style="background-color: mediumorchid" title="mediumorchid"></a></td>
                                                 <td><a href="#" onclick="formatDoc('backcolor','deeppink')" class='color-item' style="background-color: deeppink" title="deeppink"></a></td>
                                                 <td><a href="#" onclick="formatDoc('backcolor','darkorange')" class='color-item' style="background-color: darkorange" title=" darkorange"></a></td>
                                                 <td><a href="#" onclick="formatDoc('backcolor','greenyellow')" class='color-item' style="background-color: greenyellow" title="greenyellow"></a></td>
@@ -386,16 +376,16 @@
                         </div>
                     </div>
                     <!--undo + redo + insertLink-->
-                    <div class="tool-icon" title="Undo (Ctrl+Z)" onclick="formatDoc('undo')">
+                    <button class="tool-icon" title="Undo (Ctrl+Z)" onclick="formatDoc('undo')">
                         <a href="#" data-command='undo'>
                             <i class='fa fa-undo'></i>
                         </a>
-                    </div>
-                    <div class="tool-icon" title="Redo (Ctrl+Shift+Z)" onclick="formatDoc('redo')">
+                    </b>
+                    <button class="tool-icon" title="Redo (Ctrl+Shift+Z)" onclick="formatDoc('redo')">
                         <a href="#" data-command='redo'>
                             <i class='fa fa-repeat'></i>
                         </a>
-                    </div>
+                    </button>
                     <!--show more-->
                     <div class="tool-icon" title="Show More" id="show" onclick="showmore()">
                         <a href="#">
@@ -404,11 +394,11 @@
                     </div>
                     <!--Phan shau khi nhanh show more-->
                     <div id="sub-tools">
-                        <div class="tool-icon" title="Clear Formatting">
-                            <a href="#" onclick="formatDoc('removeFormat')">
+                        <button class="tool-icon" title="Clear Formatting" onclick="formatDoc('removeFormat')">
+                            <a href="#">
                                 <i class="fa fa-eraser"></i>
                             </a>
-                        </div>
+                        </button>
                         <!--H1-H6-->
                         <div class="tool-icon" title="Paragraph Format">
                             <div class="dropdown dropdown-fix">
@@ -457,9 +447,7 @@
                         <div class="tool-icon" title="Paragraph Style">
                             <div class="dropdown dropdown-fix">
                                 <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
-                                    <i class="fa fa-magic">
-                                        <span class="caret"></span>
-                                    </i>
+                                    <i class="fa fa-magic"><span class="caret"></span></i>
                                 </button>
                                 <ul class="dropdown-menu">
                                     <li>
@@ -480,9 +468,7 @@
                         <div class="tool-icon" title="Quote">
                             <div class="dropdown dropdown-fix">
                                 <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
-                                    <i class="fa fa-quote-left">
-                                        <span class="caret"></span>
-                                    </i>
+                                    <i class="fa fa-quote-left"><span class="caret"></span></i>
                                 </button>
                                 <ul class="dropdown-menu">
                                     <li>
@@ -523,33 +509,32 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="tool-icon" title="Ordered List" onclick="formatDoc('insertUnorderedList')">
+                        <button class="tool-icon" title="Ordered List" onclick="formatDoc('insertUnorderedList')">
                             <a href="#">
                                 <i class='fa fa-list-ul'></i>
                             </a>
-                        </div>
-                        <div class="tool-icon" title="Unordered List" onclick="formatDoc('insertOrderedList')">
+                        </button>
+                        <button class="tool-icon" title="Unordered List" onclick="formatDoc('insertOrderedList')">
                             <a href="#">
                                 <i class='fa fa-list-ol'></i>
                             </a>
-                        </div>
-                        <div class="tool-icon" title="Decrease Indent (Ctrl+[)" onclick="formatDoc('outdent')">
+                        </button>
+                        <button class="tool-icon" title="Decrease Indent (Ctrl+[)" onclick="formatDoc('outdent')">
                             <a href="#" data-command='outdent'>
                                 <i class='fa fa-outdent'></i>
                             </a>
-                        </div>
-                        <div class="tool-icon" title="Increase Indent (Ctrl+])" onclick="formatDoc('indent')">
+                        </button>
+                        <button class="tool-icon" title="Increase Indent (Ctrl+])" onclick="formatDoc('indent')">
                             <a href="#" data-command='indent'>
                                 <i class='fa fa-indent'></i>
                             </a>
-                        </div>
-                        <div class="tool-icon" title="Hide">
-                            <a href="#" onclick="showoff()">
+                        </button>
+                        <button class="tool-icon" title="Hide" onclick="showoff()">
+                            <a href="#">
                                 <i class="fa fa-angle-double-up" aria-hidden="true"></i>
                             </a>
-                        </div>
+                        </button>
                     </div>
-                </div>
             </div>
         </div>
         <div class="row">
@@ -595,13 +580,15 @@
     });
 
     function showmore(event) {
-        event.stopPropagation();
+        // event.stopPropagation();
+        console.log(1);
         $("#sub-tools").show();
         $("#show").hide();
     };
 
     function showoff(event) {
-        event.stopPropagation();
+        // event.stopPropagation();
+        console.log(2);
         $("#sub-tools").hide();
         $("#show").show();
     };
