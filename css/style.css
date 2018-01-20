@@ -32,7 +32,6 @@
 .tools {
     display: inline-block;
     border-right: 1px solid #ebebeb;
-    padding: 0 5px 0 0;
 }
 
 #editor-doc {
