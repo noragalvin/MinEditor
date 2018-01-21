@@ -159,7 +159,7 @@ function selectAll() {
         sel.removeAllRanges();
         sel.addRange(range);
     }
-    
+
     var el = document.getElementById("editor-doc");
     selectElementContents(el);
 }
@@ -238,12 +238,11 @@ $(document).ready(function () {
 $('body').mousedown(function () {
     $('#demo-btn').hover(function () {
         // over
-        
+
     }, function () {
         $('.dropdown-color').hide();
         ele.style.display = 'none';
-    }
-);
+    });
 });
 
 
@@ -293,3 +292,53 @@ $.fn.setCursorPosition = function (pos) {
     return this;
 };
 
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+});
+$('#editor-doc').focusin(function () {
+    $('#menubar-item').slideDown();
+})
+
+$(document).ready(function () {
+    $("#sub-tools").hide();
+});
+
+function showmore(event) {
+    // event.stopPropagation();
+    console.log(1);
+    $("#sub-tools").show();
+    $("#show").hide();
+};
+
+function showoff(event) {
+    // event.stopPropagation();
+    console.log(2);
+    $("#sub-tools").hide();
+    $("#show").show();
+};
+
+// $(document).ready(function () {
+//     $('#editor-doc').focus();
+// });
+$(window).on('load', function () {
+    $('#editor-doc').focus();
+});
+
+function TextColor() {
+    $('#TextColor').css('display', 'block');
+    $('#BackgroundColor').css('display', 'none');
+}
+
+function BackgroundColor() {
+    $('#BackgroundColor').css('display', 'block');
+    $('#TextColor').css('display', 'none');
+}
+
+$('#color-btn').click(function () {
+    $('.dropdown-color').toggle();
+})
+$('#fix-color').click(function (e) {
+    e.preventDefault();
+    console.log(1);
+    $('.dropdown-color').hide();
+});
