@@ -372,40 +372,18 @@ content = `
         <div id="shortTools" class="row">
             <div class="tools shortTool" >
              
-              <button type="button" class="btn btn-default tri-btns" data-toggle="modal" data-target="#myModalImg" style="display: flex; outline: none;">
+              <button id="myBtnImg" type="button" class="btn btn-default tri-btns" style="display: flex; outline: none;">
                 <div style="display: flex; align-self: center; padding-bottom: 4px;">
                   <i class="glyphicon glyphicon-camera"></i>
                 </div>
                  <span style="margin-left: 5px"></span>
     
               </button>
-    
-     
-              <div class="modal fade" id="myModalImg" role="dialog">
-                <div class="modal-dialog">
-                
-             
-                  <div class="modal-content">
-                    <div class="modal-header" >
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      <h4 class="modal-title" >Insert Image</h4>
-                    </div>
-                    <div style="display: flex; border: none; margin-left:1px;">
-                      <button type="button" class="btn btn-secondary btn-lg" style="border-radius:0; cursor: default;color:#808287;" disabled="" >Link</button>
-                      <div id="data-img" class="modal-body" contenteditable="" style="overflow:auto; display:flex; flex-grow:1; outline: none">
-                      </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button onclick="insertImg()" type="button" class="close-btn" data-dismiss="modal">DONE</button>
-                    </div>
-                  </div>
-                  
-                </div>
-              </div>
+              
             </div>
             <div class="tools shortTool">
          
-              <button type="button" class="btn btn-default tri-btns" data-toggle="modal" data-target="#myModalVid" style="display: flex; outline: none; ">
+              <button  id="myBtnVid"  type="button" class="btn btn-default tri-btns" style="display: flex; outline: none; ">
                 <div style="display: flex; align-self: center;padding-bottom: 4px;">
                   <i class="glyphicon glyphicon-facetime-video"></i>
                 </div>
@@ -413,32 +391,9 @@ content = `
     
               </button>
     
-             
-              <div class="modal fade" id="myModalVid" role="dialog">
-                <div class="modal-dialog">
-                
-                
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      <h4 class="modal-title">Insert Video</h4>
-                    </div>
-                    <div style="display: flex; border: none; margin-left:1px;">
-                      <button type="button" class="btn btn-secondary btn-lg" style="border-radius:0; cursor: default;color:#808287;" disabled>Link</button>
-                      <div id="data-video" class="modal-body" contenteditable="" style="overflow:auto; display:flex; flex-grow:1; outline: none">
-        
-                    </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button onclick="insertVideo()" type="button" class="close-btn" data-dismiss="modal">DONE</button>
-                    </div>
-                  </div>
-                  
-                </div>
-              </div>
             </div>
             <div class="tools shortTool">
-              <button type="button" class="btn btn-default tri-btns" data-toggle="modal" data-target="#myModalLnk" style="display: flex; outline: none;">
+              <button  id="myBtnLnk"  type="button" class="btn btn-default tri-btns" style="display: flex; outline: none;">
                 <div style="display: flex; align-self: center;padding-bottom: 4px;">
                    <i class="glyphicon glyphicon-link"></i>
                 </div>
@@ -446,26 +401,6 @@ content = `
     
               </button>
     
-              <div class="modal fade" id="myModalLnk" role="dialog">
-                <div class="modal-dialog">
-                
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      <h4 class="modal-title">Insert Link</h4>
-                    </div>
-                    <div style="display: flex; border: none; margin-left:1px;">
-                      <button type="button" class="btn btn-secondary btn-lg" style="border-radius:0; cursor: default;color:#808287;" disabled>Link</button>
-                      <div class="modal-body" contenteditable="" style="overflow:auto; display:flex; flex-grow:1; outline: none">
-                      </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="close-btn" data-dismiss="modal">DONE</button>
-                    </div>
-                  </div>
-                  
-                </div>
-              </div>
             </div>
             <div class="tools shortTool">
                 <button id="showCode" type="button" class="btn btn-default tri-btns" data-toggle="modal" style="display: flex; outline: none;">
@@ -479,6 +414,75 @@ content = `
         </div>
           </div>
     </div>
+    <div id="myModalImg" class="modal">
+    <div class="k-modal-content">
+        <div class="k-modal-header">
+            <h3>Chèn ảnh</h3>
+        </div>
+        <div class="k-modal-body">
+            <div style="border:solid 1px #dfdfdf; padding:10px;">
+                <input type="text" placeholder="URL" style=" outline:none; border:none; width:100%"/>
+            </div>
+        </div>
+        <div class="k-modal-footer">
+            <div style="display:flex;flex-direction:row-reverse">
+                <button class="k-modal-button k-button-green">Modal Footer</button>
+                <button class="k-modal-button k-button-gray">Modal Footer</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div id="myModalVid" class="modal">
+    <div class="k-modal-content">
+        <div class="k-modal-header">
+            <h3>Chèn ảnh</h3>
+        </div>
+        <div class="k-modal-body">
+            <div style="border:solid 1px #dfdfdf; padding:10px;">
+                <input type="text" placeholder="URL" style=" outline:none; border:none; width:100%"/>
+            </div>
+        </div>
+        <div class="k-modal-footer">
+            <div style="display:flex;flex-direction:row-reverse">
+                <button class="k-modal-button k-button-green">Modal Footer</button>
+                <button class="k-modal-button k-button-gray">Modal Footer</button>
+            </div>
+            <div class="tools shortTool">
+                <button id="showCode" type="button" class="btn btn-default tri-btns" data-toggle="modal" style="display: flex; outline: none;">
+                    <div style="display: flex; align-self: center;padding-bottom: 4px;">
+                       <i class="fa fa-code"></i>
+                    </div>
+                     <span style="margin-left: 5px"></span>
+        
+                  </button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div id="myModalLnk" class="modal">
+    <div class="k-modal-content">
+        <div class="k-modal-header">
+            <h3>Chèn ảnh</h3>
+        </div>
+        <div class="k-modal-body">
+            <div style="border:solid 1px #dfdfdf; padding:10px;">
+                <input type="text" placeholder="URL" style=" outline:none; border:none; width:100%"/>
+            </div>
+        </div>
+        <div class="k-modal-footer">
+            <div style="display:flex;flex-direction:row-reverse">
+                <button class="k-modal-button k-button-green">Modal Footer</button>
+                <button class="k-modal-button k-button-gray">Modal Footer</button>
+            </div>
+        </div>
+    </div>
+
+</div>
     <div id="cal1">&nbsp;</div>
     <div id="cal2">&nbsp;</div>
 `;
