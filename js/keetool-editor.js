@@ -1,84 +1,5 @@
 content = `
 <div class="container">
-        <div class="row" id="row-show" style="border-top:1px solid #ebebeb;">
-
-                
-                
-          
-        <div class="row" id="row-hide" style="border-top:3px solid #000;">
-            
-                <div class="tool-icon" title="Bold (Ctrl+B)" onclick="formatDoc('bold')">
-                    <a href="#" data-command='bold'>
-                        <i class='fa fa-bold'></i>
-                    </a>
-                </div>
-                <div class="tool-icon" title="Italic (Ctrl+I)" onclick="formatDoc('italic')">
-                    <a href="#" data-command='italic'>
-                        <i class='fa fa-italic'></i>
-                    </a>
-                </div>
-                <div class="tool-icon" title="Underline (Ctrl+U)" onclick="formatDoc('underline')">
-                    <a href="#" data-command='underline'>
-                        <i class='fa fa-underline'></i>
-                    </a>
-                </div>
-                <div class="tool-icon" title="Insert Image (Ctrl+P)" onclick="formatDoc('insertimage')">
-                    <a href="#">
-                        <i class="fa fa-picture-o" aria-hidden="true"></i>
-                    </a>
-                </div>
-                <div class="tool-icon" title="Paragraph Format">
-                    <div class="dropdown dropdown-fix">
-                        <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
-                            <i class="fa fa-paragraph">
-                                <span class="caret"></span>
-                            </i>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="#">HTML</a>
-                            </li>
-                            <li>
-                                <a href="#">CSS</a>
-                            </li>
-                            <li>
-                                <a href="#">JavaScript</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="dropdown dropdown-fix" id="align">
-                    <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
-                        <i class="fa fa-align-center">
-                            <span class="caret"></span>
-                        </i>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li onclick="formatDoc('justifyLeft')">
-                            <a href="#" title="Align left">
-                                <i class="fa fa-align-left" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li onclick="formatDoc('justifyCenter')">
-                            <a href="#" title="Align center">
-                                <i class="fa fa-align-center" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li onclick="formatDoc('justifyRight')">
-                            <a href="#" title="Align right">
-                                <i class="fa fa-align-right" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li onclick="formatDoc('justifyFull')">
-                            <a href="#" title="Align justify">
-                                <i class="fa fa-align-justify" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-        </div>
-
         <div id="heading-editor" class="row">
             <div id="editor-doc" style="overflow:auto;" contenteditable>
                     
@@ -372,7 +293,7 @@ content = `
         <div id="shortTools" class="row">
             <div class="tools shortTool" >
              
-              <button id="myBtnImg" type="button" class="btn btn-default tri-btns" style="display: flex; outline: none;">
+              <button onclick="insertSpace" id="myBtnImg" type="button" class="btn btn-default tri-btns" style="display: flex; outline: none;">
                 <div style="display: flex; align-self: center; padding-bottom: 4px;">
                   <i class="glyphicon glyphicon-camera"></i>
                 </div>
@@ -393,7 +314,7 @@ content = `
     
             </div>
             <div class="tools shortTool">
-              <button  id="myBtnLnk"  type="button" class="btn btn-default tri-btns" style="display: flex; outline: none;">
+              <button id="myBtnLnk"  type="button" class="btn btn-default tri-btns" style="display: flex; outline: none;">
                 <div style="display: flex; align-self: center;padding-bottom: 4px;">
                    <i class="glyphicon glyphicon-link"></i>
                 </div>
@@ -421,13 +342,13 @@ content = `
         </div>
         <div class="k-modal-body">
             <div style="border:solid 1px #dfdfdf; padding:10px;">
-                <input type="text" placeholder="URL" style=" outline:none; border:none; width:100%"/>
+                <input id="data-img" type="text" placeholder="URL" style=" outline:none; border:none; width:100%"/>
             </div>
         </div>
         <div class="k-modal-footer">
             <div style="display:flex;flex-direction:row-reverse">
-                <button class="k-modal-button k-button-green">Modal Footer</button>
-                <button class="k-modal-button k-button-gray">Modal Footer</button>
+                <button onclick='insertImg()' class="k-modal-button k-button-green">Ok</button>
+                <button class="k-modal-button k-button-gray">Upload</button>
             </div>
         </div>
     </div>
@@ -438,26 +359,16 @@ content = `
 <div id="myModalVid" class="modal">
     <div class="k-modal-content">
         <div class="k-modal-header">
-            <h3>Chèn ảnh</h3>
+            <h3>Chèn Video</h3>
         </div>
         <div class="k-modal-body">
             <div style="border:solid 1px #dfdfdf; padding:10px;">
-                <input type="text" placeholder="URL" style=" outline:none; border:none; width:100%"/>
+                <input id="data-video" type="text" placeholder="URL" style=" outline:none; border:none; width:100%"/>
             </div>
         </div>
         <div class="k-modal-footer">
             <div style="display:flex;flex-direction:row-reverse">
-                <button class="k-modal-button k-button-green">Modal Footer</button>
-                <button class="k-modal-button k-button-gray">Modal Footer</button>
-            </div>
-            <div class="tools shortTool">
-                <button id="showCode" type="button" class="btn btn-default tri-btns" data-toggle="modal" style="display: flex; outline: none;">
-                    <div style="display: flex; align-self: center;padding-bottom: 4px;">
-                       <i class="fa fa-code"></i>
-                    </div>
-                     <span style="margin-left: 5px"></span>
-        
-                  </button>
+                <button onclick="insertVideo()" class="k-modal-button k-button-green">Ok</button>
             </div>
         </div>
     </div>
@@ -476,8 +387,7 @@ content = `
         </div>
         <div class="k-modal-footer">
             <div style="display:flex;flex-direction:row-reverse">
-                <button class="k-modal-button k-button-green">Modal Footer</button>
-                <button class="k-modal-button k-button-gray">Modal Footer</button>
+                <button class="k-modal-button k-button-green">ok</button>
             </div>
         </div>
     </div>
@@ -538,7 +448,7 @@ var idImage = 0;
 
 function insertImg(img) {
     $('#editor-doc').focus();
-    var sImg = document.getElementById('data-img').innerText;
+    var sImg = document.getElementById('data-img').value;
     // sImg = prompt('Link here');
     var widthScreen = document.getElementById('editor-doc').offsetWidth;
     var widthImg;
@@ -550,20 +460,11 @@ function insertImg(img) {
 function getMeta(url, widthImg, widthScreen) {
     var img = new Image();
     img.onload = function () {
-        alert(this.width + ' ' + this.height);
-        if (this.width >= widthScreen) {
-            widthImg = widthScreen;
-            url = "<div><img id=\"image_" + idImage + " src=\"" + url + "\" width=\"" + widthImg + "\" onclick=\"changeSize('image_" + idImage + "')\"" + "></div>";
+        // alert(this.width + ' ' + this.height);
+            url = "<div><img src=\"" + url + "\" width=100% height=auto></div>";
             idImage++;
             console.log(url);
             document.execCommand("insertHTML", false, url);
-        } else {
-            widthImg = this.width;
-            url = "<div><img id=\"image_" + idImage + "\" src=\"" + url + "\" width=\"" + widthImg + "\" onclick=\"changeSize('image_" + idImage + "')\"" + "></div>";
-            idImage++;
-            console.log(url);
-            document.execCommand("insertHTML", false, url);
-        }
     };
     img.src = url;
 }
@@ -598,6 +499,14 @@ function changeSize(id) {
 }
 
 
+//Insert space
+function insertSpace(){
+    console.log(1);
+    $('#editor-doc').focus();
+    var value = "a";
+    document.execCommand('insertHTML', false, value);
+}
+
 
 
 //Insert Video
@@ -612,14 +521,12 @@ function insertVideo() {
         document.execCommand("insertHTML", false, sVideo);
     } else {
         var idVideo = sVideo.substr(32, sVideo.length - 1);
-        var width = document.getElementById('editor-doc').offsetWidth;
-        var height = width * 56.25 / 100;
-        console.log(width);
-        console.log(height);
-        // console.log(idVideo);
-        sVideo = "<iframe width=\"" + width + "\" height=\"" + height + "\" src=\"https://www.youtube.com/embed/" + idVideo + "\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>";
+        
+        stringVideo = "https://www.youtube.com/embed/" + idVideo;
+        sVideo = "<div class=\"embed-container\"><iframe src=\"" + stringVideo + "\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\" __idm_id__=\"189403137\"></iframe></div>"
         console.log(sVideo);
         document.execCommand("insertHTML", false, sVideo);
+
     }
 }
 
@@ -952,4 +859,13 @@ $(document).keyup(function(e) {
             modalImg.style.display = "none";
             modalLnk.style.display = "none";
         }   // esc
+    });
+
+
+    $('.k-button-green').click(function (e) { 
+        e.preventDefault();
+        console.log(2);
+        modalVid.style.display = "none";
+        modalImg.style.display = "none";
+        modalLnk.style.display = "none";
     });
