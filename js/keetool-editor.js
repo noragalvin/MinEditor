@@ -303,6 +303,7 @@ $('#editor-doc').focusin(function () {
 
 $(document).ready(function () {
     $("#sub-tools").hide();
+    $("#talign").hide();
 });
 
 function showmore(event) {
@@ -310,6 +311,7 @@ function showmore(event) {
     console.log(1);
     $("#sub-tools").show();
     $("#show").hide();
+    $("#talign").show();
 };
 
 function showoff(event) {
@@ -317,6 +319,7 @@ function showoff(event) {
     console.log(2);
     $("#sub-tools").hide();
     $("#show").show();
+    $("#talign").hide();
 };
 
 // $(document).ready(function () {
@@ -345,3 +348,31 @@ $('#fix-color').click(function (e) {
     $('.dropdown-color').hide();
 });
 
+
+$(function() {
+
+    var tabKeyPressed = false;
+    
+    $(window).keydown(function(e) {
+       tabKeyPressed = e.keyCode == 9;
+       if (tabKeyPressed) {
+        document.execCommand('indent',false,null);
+          e.preventDefault();
+          return;
+       }
+    });
+    
+    $(window).keyup(function(e) {
+       if (tabKeyPressed && event.shiftKey) {
+        //   $(this).val("TAB"); // Do stuff for TAB
+         alert('tab');
+         
+          e.preventDefault();
+          return;
+       }
+    
+       //Do other stuff when not TAB
+    });
+    
+    })();
+  
