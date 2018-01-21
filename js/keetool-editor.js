@@ -278,7 +278,7 @@ content = `
                             <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown" onclick="fixColor();">
                                 <i class="fa fa-text-height"><span class="caret"></span></i>
                             </button>
-                            <ul class="dropdown-menu" style="overflow-y: auto; height:200px;">
+                            <ul class="dropdown-menu" style="overflow-y: auto; height:200px; min-width:50px;">
                                 <li onclick="formatDoc('fontsize','1')">
                                     <a href="#">1</a>
                                 </li>
@@ -308,7 +308,7 @@ content = `
                                 <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown" onclick="fixColor();">
                                     <i class="fa fa-align-center"><span class="caret"></span></i>
                                 </button>
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu" style="min-width:55px;">
                                     <li onclick="formatDoc('justifyLeft')">
                                         <a href="#" title="Align left">
                                             <i class="fa fa-align-left" aria-hidden="true"></i>
