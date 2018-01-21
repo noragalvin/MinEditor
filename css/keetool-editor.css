@@ -15,20 +15,28 @@
     height: 38px;
     display: inline-block;
     line-height: 38px;
+    /* font-size: 15px; */
     text-align: center;
     cursor: pointer;
     border: none;
     background: #fff;
-    padding: 0;
     margin: 0;
 }
 
 .tool-icon a {
-    color: #222222;
+    color: #c9c9c9;
 }
 
-.tool-icon:hover {
-    background: #eeeeee;
+.tool-icon a:hover{
+    color: #414141;
+}
+
+.tool-icon button{
+    color: #c9c9c9;
+}
+
+.tool-icon button:hover{
+    color: #414141;
 }
 
 .btn-fix {
@@ -238,7 +246,7 @@ hr {
 .color-item:hover {
     width: 19px;
     height: 19px;
-    margin: 1px;
+    margin: 3px;
     cursor: pointer;
     border: none;
 }
@@ -294,8 +302,10 @@ div.shortTool.tools {
 }
 
 #demo-btn {
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 16px 0px;
-    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 7px 0px;
+    background: rgb(255, 255, 255);
     z-index: 2;
 }
 
