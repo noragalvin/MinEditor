@@ -1,9 +1,3 @@
-function onChange(cb){
-    var data = document.getElementById('mini-editor').innerHTML;
-
-    cb(value);
-}
-
 var content = `
 <div class="container">
         <div id="heading-editor" class="row">
@@ -361,7 +355,7 @@ var content = `
             <div style="display:flex;flex-direction:row-reverse">
             
                 <button onclick='insertImg()' class="k-modal-button k-button-green">Ok</button>
-                <input id="myFile" type="file" style="display:none" onchange="myFunction()"/>
+                <input id="myFile" type="file" style="display:none" onchange="uploadImg()"/>
                 <button onclick="document.getElementById('myFile').click()" class="k-modal-button k-button-gray">Upload</button>
             </div>
         </div>
@@ -887,19 +881,20 @@ $(document).keyup(function(e) {
 
 
     //Upload local img
-    function myFunction() {
+    function uploadImg() {
         var formData = new FormData();
-        var file = document.getElementById("myFile").files[0];
+        var file = document.getElementById('myFile').files[0];
         console.log("x", file);
-        formData.append('file', file);
+        formData.append('image', file);
             console.log(formData);
             $.ajax({
                 type: 'POST',
-                url: "http://manageapi.keetool5.xyz/file/upload?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjU1NDksImlzcyI6Imh0dHA6Ly9hcGkua2VldG9vbDUueHl6L2xvZ2luIiwiaWF0IjoxNTE2MzQwNjI4LCJleHAiOjE1MTY5NDU0MjgsIm5iZiI6MTUxNjM0MDYyOCwianRpIjoia253d3VHYVZFc0cyMUFxeCJ9.BGV9jAXuNJrHxjoQ216SbqXtxrmIHzsjkyY9LJNrylY",
+                url: "upload.php",
                 data: formData,
                 cache: false,
                 contentType: false,
                 processData: false,
+                dataType: "text",
                 //progress bar
                 xhr: function () {
                     $('#percent').show();
@@ -920,12 +915,12 @@ $(document).keyup(function(e) {
                     modalImg.style.display = "none";
                     modalLnk.style.display = "none";
                     console.log("success");
-                    console.log(data);
+                    // console.log(data);
                     var i = document.getElementById("editor-doc");
                     $('#editor-doc').focus();
-                    var url = "<div><img src=\"" + data.url + "\" width=100% height=auto></div>";
+                    var url = "<div><img src=\"" + data + "\" width=100% height=auto></div>";
                     console.log(url);
-                    console.log(data.url);
+                    console.log(data);
                     document.execCommand('insertHTML',false,url.trim());
                 },
                 error: function (data) {
