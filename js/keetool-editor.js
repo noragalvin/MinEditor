@@ -29,6 +29,7 @@ function formatDoc(sCmd, sValue) {
             alert('The command ' + sCmd + ' is not support your browser');
             // console.log('hello');
         } else {
+            $('.dropdown-color').css('display', 'none');
             console.log(1);
             document.execCommand(sCmd, false, sValue);
             // console.log('hello22');
@@ -38,6 +39,7 @@ function formatDoc(sCmd, sValue) {
     selectingText();
 
 }
+
 
 //Insert Images
 var idImage = 0;
@@ -308,6 +310,7 @@ $(document).ready(function () {
 
 function showmore(event) {
     // event.stopPropagation();
+    $('.dropdown-color').css('display', 'none');
     console.log(1);
     $("#sub-tools").show();
     $("#show").hide();
@@ -316,6 +319,7 @@ function showmore(event) {
 
 function showoff(event) {
     // event.stopPropagation();
+    $('.dropdown-color').css('display', 'none');
     console.log(2);
     $("#sub-tools").hide();
     $("#show").show();
@@ -342,49 +346,11 @@ function BackgroundColor() {
 $('#color-btn').click(function () {
     $('.dropdown-color').toggle();
 })
-$('#fix-color').click(function (e) {
-    e.preventDefault();
-    console.log(1);
-    $('.dropdown-color').hide();
-});
 
 
-// (function() {
 
-//     var tabKeyPressed = false;
-    
-//     $(window).keydown(function(e) {
-//        tabKeyPressed = e.keyCode == 9;
-//        if (tabKeyPressed) {
-//         document.execCommand('indent',false,null);
-//           e.preventDefault();
-//           return;
-//        }
-//     });
-    
-//     $(window).keyup(function(e) {
-//        if (tabKeyPressed && event.shiftKey) {
-//         //   $(this).val("TAB"); // Do stuff for TAB
-//          alert('tab');
-         
-//           e.preventDefault();
-//           return;
-//        }
-    
-//        //Do other stuff when not TAB
-//     });
-    
-//     })();
 
-// $('#editor-doc').on('keydown', function(e){
-//     if(e.keyCode == 9){
-//         e.preventDefault();
-//         // alert(1);
-//         document.execCommand('insertHTML', false, '&#009');
-//     }
-// }).css('white-space', 'normal');
-  
-
+//Press tab button
 // adapted from http://stackoverflow.com/a/25943182/460084
 function insertTab() {
     if (!window.getSelection) return;
@@ -410,3 +376,8 @@ function insertTab() {
       e.preventDefault()
     }
   });
+
+
+  function fixColor(){
+    $('.dropdown-color').css("display","none");
+}

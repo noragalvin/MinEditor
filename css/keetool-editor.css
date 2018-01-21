@@ -216,7 +216,7 @@ hr {
     display: none;
     position: absolute;
     background: #fff;
-    z-index: 1;
+    z-index: 10000;
     top: 40px;
     left: 85px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 16px 0px;
@@ -296,6 +296,7 @@ div.shortTool.tools {
 #demo-btn {
     box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 16px 0px;
     background: white;
+    z-index: 2;
 }
 
 .modal-arrow {
@@ -313,36 +314,3 @@ div.shortTool.tools {
   }
   
   
-  .nav-tabs{border: 0px;}
-  .nav-tabs>li>a{margin:  0px 0px 5.5px 0px;
-     
-      border-top: 0px solid;
-    
-      border-radius: 0px;
-  }
-  
-  .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover{
-      margin:  0px; border-top: 0px; 
-  }
-  .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus{ 
-      margin:  0px; background-color: azure;
-      color: rgb(0, 152, 247);
-      border-bottom: 4px solid rgb(0, 152, 247);
-   
-  }
-   .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{margin:  0px;
-              border-left: 0px;
-               border-right:0px;
-               border-top:0px;
-               border-radius: 0px;
-           }
-  .nav-tabs>li>a{ border: 0px }
-  .tab-content>.active{padding-left:0.3px;}
-  
-  
-  blockquote{
-    border:none;
-    padding: 0;
-    margin: 0;
-    font-size: 14px;
-  }

@@ -119,7 +119,7 @@
         <!--contentArea-->
         <div id="heading-editor" class="row">
             <div id="editor-doc" style="overflow:auto;" contenteditable>
-                    <!-- <p>aaaa</p> -->
+                    <p>KEETOOL Editor</p>
                     
             </div>
             <div style="position:absolute;display:none;" id="demo-btn">
@@ -147,7 +147,7 @@
                     <!--Font chu-->
                     <div class="tool-icon" title="Font Family">
                         <div class="dropdown dropdown-fix">
-                            <button id="fix-color" class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                            <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown" onclick="fixColor();">
                                 <i class="fa fa-font"><span class="caret"></span></i>
                             </button>
                             <ul class="dropdown-menu">
@@ -168,7 +168,7 @@
                     </div>
                     <div class="tool-icon" title="Paragraph Format">
                         <div class="dropdown dropdown-fix">
-                            <button id="fix-color" class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                            <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown" onclick="fixColor();">
                                 <i class="fa fa-paragraph"><span class="caret"></span></i>
                             </button>
                             <ul class="dropdown-menu" id="heading">
@@ -211,7 +211,7 @@
                         </div>
                     </div>
                     <!--mau chu-->
-                    <div class="tool-icon" title="ColorMe">
+                    <div class="tool-icon" title="Color">
                         <button style="outline:none;" class="btn-fix" id="color-btn" type="button" data-toggle="dropdown"><i class="fa fa-tint"><span class="caret"></span></i></button>
                         <div class="dropdown dropdown-color">
                             <ul class="nav nav-tabs">
@@ -335,7 +335,7 @@
                     <!--cỡ chữ-->
                     <div class="tool-icon" title="Font Size">
                         <div class="dropdown dropdown-fix">
-                            <button id="fix-color" class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                            <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown" onclick="fixColor();">
                                 <i class="fa fa-text-height"><span class="caret"></span></i>
                             </button>
                             <ul class="dropdown-menu" style="overflow-y: auto; height:200px;">
@@ -365,7 +365,7 @@
                     </div>
                     <div class="tool-icon" title="Align" id="talign">
                             <div class="dropdown dropdown-fix" id="align">
-                                <button id="fix-color" class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                                <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown" onclick="fixColor();">
                                     <i class="fa fa-align-center"><span class="caret"></span></i>
                                 </button>
                                 <ul class="dropdown-menu">
@@ -539,8 +539,8 @@
                     </div>
                     <div style="display: flex; border: none; margin-left:1px;">
                       <button type="button" class="btn btn-secondary btn-lg" style="border-radius:0; cursor: default;color:#808287;" disabled>Link</button>
-                      <!-- <div id="data-video" class="modal-body" contenteditable="" style="overflow:auto; display:flex; flex-grow:1; outline: none"> -->
-                    <input id="data-video" class="modal-body" type="text">
+                      <div id="data-video" class="modal-body" contenteditable="" style="overflow:auto; display:flex; flex-grow:1; outline: none">
+                    <!-- <input id="data-video" class="modal-body" type="text"> -->
                     </div>
                     </div>
                     <div class="modal-footer">
@@ -550,7 +550,7 @@
                   
                 </div>
               </div>
-
+            </div>
             <div class="tools shortTool">
               <!-- Trigger the modal with a button -->
               <button type="button" class="btn btn-default tri-btns" data-toggle="modal" data-target="#myModalLnk" style="display: flex; outline: none;">
