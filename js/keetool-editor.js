@@ -349,30 +349,64 @@ $('#fix-color').click(function (e) {
 });
 
 
-$(function() {
+// (function() {
 
-    var tabKeyPressed = false;
+//     var tabKeyPressed = false;
     
-    $(window).keydown(function(e) {
-       tabKeyPressed = e.keyCode == 9;
-       if (tabKeyPressed) {
-        document.execCommand('indent',false,null);
-          e.preventDefault();
-          return;
-       }
-    });
+//     $(window).keydown(function(e) {
+//        tabKeyPressed = e.keyCode == 9;
+//        if (tabKeyPressed) {
+//         document.execCommand('indent',false,null);
+//           e.preventDefault();
+//           return;
+//        }
+//     });
     
-    $(window).keyup(function(e) {
-       if (tabKeyPressed && event.shiftKey) {
-        //   $(this).val("TAB"); // Do stuff for TAB
-         alert('tab');
+//     $(window).keyup(function(e) {
+//        if (tabKeyPressed && event.shiftKey) {
+//         //   $(this).val("TAB"); // Do stuff for TAB
+//          alert('tab');
          
-          e.preventDefault();
-          return;
-       }
+//           e.preventDefault();
+//           return;
+//        }
     
-       //Do other stuff when not TAB
-    });
+//        //Do other stuff when not TAB
+//     });
     
-    })();
+//     })();
+
+// $('#editor-doc').on('keydown', function(e){
+//     if(e.keyCode == 9){
+//         e.preventDefault();
+//         // alert(1);
+//         document.execCommand('insertHTML', false, '&#009');
+//     }
+// }).css('white-space', 'normal');
   
+
+// adapted from http://stackoverflow.com/a/25943182/460084
+function insertTab() {
+    if (!window.getSelection) return;
+    const sel = window.getSelection();
+    if (!sel.rangeCount) return;
+    const range = sel.getRangeAt(0);
+    range.collapse(true);
+    const span = document.createElement('span');
+    span.appendChild(document.createTextNode('\t'));
+    span.style.whiteSpace = 'pre';
+    range.insertNode(span);
+    // Move the caret immediately after the inserted span
+    range.setStartAfter(span);
+    range.collapse(true);
+    sel.removeAllRanges();
+    sel.addRange(range);
+  }
+  
+  $(document).on('keydown', '#editor-doc', function(e) {
+    if (e.keyCode == 9) {
+        // alert(1);
+      insertTab();
+      e.preventDefault()
+    }
+  });
