@@ -68,41 +68,11 @@
 <body>
     <div class="container">
         <div class="row" id="row-show" style="border-top:1px solid #ebebeb;">
-                <div class="tool-icon" title="Undo (Ctrl+Z)" onclick="formatDoc('undo')">
-                    <a href="#" data-command='undo'>
-                        <i class='fa fa-undo'></i>
-                    </a>
-                </div>
-                <div class="tool-icon" title="Redo (Ctrl+Shift+Z)" onclick="formatDoc('redo')">
-                    <a href="#" data-command='redo'>
-                        <i class='fa fa-repeat'></i>
-                    </a>
-                </div>
-                <div class="tool-icon" title="Code View" id="showCode">
-                    <a href="#" data-command='code'>
-                        <i class='fa fa-code'></i>
-                    </a>
-                </div>
-                <div class="tool-icon" title="Special Characters">
-                    <span style="text-align: center;font-weight: bold">Ω</span>
-                </div>
-            <div class="tool-icon" title="Emoticons" onclick="formatDoc('redo')">
-                <a href="#" data-command='redo'>
-                    <i class='fa fa-smile-o'></i>
-                </a>
-            </div>
-            <div class="tool-icon" title="Insert Horizontal Line" onclick="insertHr()">
-                <a href="#" data-command='redo'>
-                    <i class='fa fa-minus'></i>
-                </a>
-            </div>
-            <div class="tool-icon" title="Help (Ctrl+/)" onclick="formatDoc('redo')">
-                <a href="#" data-command='redo'>
-                    <i class='fa fa-question'></i>
-                </a>
-            </div>
-        </div>
-            <div id="zoom-in" class="tool-icon" title="Zoom in">
+
+                
+                
+            
+            <!-- <div id="zoom-in" class="tool-icon" title="Zoom in">
                 <a href="#">
                     <i class="fa fa-search-plus" aria-hidden="true"></i>
                 </a>
@@ -111,7 +81,7 @@
                 <a href="#">
                     <i class="fa fa-search-minus" aria-hidden="true"></i>
                 </a>
-            </div>
+            </div> -->
         <!--show khi phong to-->
         <div class="row" id="row-hide" style="border-top:3px solid #000;">
             
@@ -562,13 +532,13 @@
             </div>
         </div>
         <div id="shortTools" class="row">
-            <div class="tools shortTool col-md-2" >
+            <div class="tools shortTool" >
               <!-- Trigger the modal with a button -->
               <button type="button" class="btn btn-default tri-btns" data-toggle="modal" data-target="#myModalImg" style="display: flex; outline: none;">
                 <div style="display: flex; align-self: center; padding-bottom: 4px;">
                   <i class="glyphicon glyphicon-camera"></i>
                 </div>
-                 <span style="margin-left: 5px">Insert Image</span>
+                 <span style="margin-left: 5px"></span>
     
               </button>
     
@@ -595,13 +565,13 @@
                 </div>
               </div>
             </div>
-            <div class="tools shortTool col-md-2 ">
+            <div class="tools shortTool">
               <!-- Trigger the modal with a button -->
               <button type="button" class="btn btn-default tri-btns" data-toggle="modal" data-target="#myModalVid" style="display: flex; outline: none; ">
                 <div style="display: flex; align-self: center;padding-bottom: 4px;">
                   <i class="glyphicon glyphicon-facetime-video"></i>
                 </div>
-                 <span style="margin-left: 5px">Insert Video</span>
+                 <span style="margin-left: 5px"></span>
     
               </button>
     
@@ -629,13 +599,13 @@
                 </div>
               </div>
 
-            <div class="tools shortTool col-md-2 ">
+            <div class="tools shortTool">
               <!-- Trigger the modal with a button -->
               <button type="button" class="btn btn-default tri-btns" data-toggle="modal" data-target="#myModalLnk" style="display: flex; outline: none;">
                 <div style="display: flex; align-self: center;padding-bottom: 4px;">
                    <i class="glyphicon glyphicon-link"></i>
                 </div>
-                 <span style="margin-left: 5px">Insert Link</span>
+                 <span style="margin-left: 5px"></span>
     
               </button>
     
@@ -661,6 +631,13 @@
                   
                 </div>
               </div>
+            </div>
+            <div class="tools shortTool">
+                <div class="tool-icon" title="Code View" id="showCode">
+                    <a href="#" data-command='code'>
+                        <i class='fa fa-code'></i>
+                    </a>
+                </div>
             </div>
         </div>
           </div>
