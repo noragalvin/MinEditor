@@ -340,4 +340,9 @@ div.shortTool.tools {
   .tab-content>.active{padding-left:0.3px;}
   
   
-  
+  blockquote{
+    border:none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+  }

@@ -345,3 +345,32 @@ $('#fix-color').click(function (e) {
     console.log(1);
     $('.dropdown-color').hide();
 });
+
+
+$(function() {
+
+    var tabKeyPressed = false;
+    
+    $(window).keydown(function(e) {
+       tabKeyPressed = e.keyCode == 9;
+       if (tabKeyPressed) {
+        document.execCommand('indent',false,null);
+          e.preventDefault();
+          return;
+       }
+    });
+    
+    $(window).keyup(function(e) {
+       if (tabKeyPressed && event.shiftKey) {
+        //   $(this).val("TAB"); // Do stuff for TAB
+         alert('tab');
+         
+          e.preventDefault();
+          return;
+       }
+    
+       //Do other stuff when not TAB
+    });
+    
+    })();
+  
