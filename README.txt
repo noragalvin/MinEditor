@@ -1,11 +1,11 @@
 -Import bootstrap 3
-<!-- Latest compiled and minified CSS -->
+    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-<!-- jQuery library -->
+    <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<!-- Latest compiled JavaScript -->
+    <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 -Tạo 1 div có id là mini-editor
