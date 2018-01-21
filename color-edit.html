@@ -13,7 +13,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/style.css" />
 </head>
-
 <style type="text/css">
     .modal-arrow{
   content: "";
@@ -62,6 +61,7 @@
 
 
 </style>
+
 
 
 
@@ -248,11 +248,13 @@
                     </div>
                     <!--mau chu-->
                     <div class="tool-icon" title="ColorMe">
-                        <button style="outline:none;"class="btn-fix" id="color-btn" type="button" data-toggle="dropdown"><i class="fa fa-tint"><span class="caret"></span></i></button>
-                        <div class="dropdown-color">
+                        <button class="btn-fix" id="color-btn" type="button" data-toggle="dropdown"><i class="fa fa-tint"><span class="caret"></span></i></button>
+                        <div class="dropdown-color"><div class="modal-arrow"></div>
                             <ul class="nav nav-tabs">
+   <!!....................................................>                             
                                 <li class="active" style="width: 50%;text-align:center;font-size:13px"><a data-toggle="tab" href="#text-color"><b>Text Color</b></a></li>
                                  <li  style="width: 50%;text-align: center; font-size: 13px"><a data-toggle="tab" href="#bg-color" ><b>Background</b></a></li>
+   <!!....................................................>                              
                             </ul>
                 
                             <div class="tab-content">
@@ -306,7 +308,7 @@
                                         <td><a href="#" onclick="formatDoc('forecolor','palegreen')" class='color-item' style="background-color: palegreen" title="palegreen"></a></td>
                                         <td><a href="#" onclick="formatDoc('forecolor','paleturquoise')" class='color-item' style="background-color: paleturquoise" title="paleturquoise"></a></td>
                                         <td><a href="#" onclick="formatDoc('forecolor','powderblue')" class='color-item' style="background-color: powderblue" title="powderblue"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','white')" class='color-item' style="background-color: white" title="white"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','mintcream')" class='color-item' style="background-color: mintcream" title="white"></a></td>
                                         </tr>
                                     </table>
                                 </div>
@@ -360,7 +362,7 @@
                                                 <td><a href="#" onclick="formatDoc('backcolor','palegreen')" class='color-item' style="background-color: palegreen" title="palegreen"></a></td>
                                                 <td><a href="#" onclick="formatDoc('backcolor','paleturquoise')" class='color-item' style="background-color: paleturquoise" title="paleturquoise"></a></td>
                                                 <td><a href="#" onclick="formatDoc('backcolor','powderblue')" class='color-item' style="background-color: powderblue" title="powderblue"></a></td>
-                                                <td><a href="#" onclick="formatDoc('backcolor','white')" class='color-item' style="background-color: white" title="white"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','mintcream')" class='color-item' style="background-color: mintcream" title="white"></a></td>
                                                 </tr>
                                         </table>
                                 </div>
@@ -561,109 +563,25 @@
                     </div>
             </div>
         </div>
-        <div id="shortTools" class="row">
-            <div class="tools shortTool col-md-2" >
-              <!-- Trigger the modal with a button -->
-              <button type="button" class="btn btn-default tri-btns" data-toggle="modal" data-target="#myModalImg" style="display: flex; outline: none;">
-                <div style="display: flex; align-self: center; padding-bottom: 4px;">
-                  <i class="glyphicon glyphicon-camera"></i>
+        <div class="row">
+            <div class="menubar-item" id="menubar-item" style="display: none;">
+                <div class="tool-icon image1" id="Image" onclick="insertImg()">
+                    <a href="# " style="text-decoration: none;">
+                        <i class="fa fa-camera" aria-hidden="true"></i> Thêm ảnh
+                    </a>
                 </div>
-                 <span style="margin-left: 5px">Insert Image</span>
-    
-              </button>
-    
-              <!-- Modal -->
-              <div class="modal fade" id="myModalImg" role="dialog">
-                <div class="modal-dialog">
-                
-                  <!-- Modal content-->
-                  <div class="modal-content">
-                    <div class="modal-header" >
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      <h4 class="modal-title" >Insert Image</h4>
-                    </div>
-                    <div style="display: flex; border: none; margin-left:1px;">
-                      <button type="button" class="btn btn-secondary btn-lg" style="border-radius:0; cursor: default;color:#808287;" disabled="" >Link</button>
-                      <div id="data-img" class="modal-body" contenteditable="" style="overflow:auto; display:flex; flex-grow:1; outline: none">
-                      </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button onclick="insertImg()" type="button" class="close-btn" data-dismiss="modal">DONE</button>
-                    </div>
-                  </div>
-                  
+                <div class="tool-icon Video" id="Video" onclick="insertVideo()">
+                    <a href="#" style="text-decoration: none;">
+                            <i class="fa fa-video-camera" aria-hidden="true"></i> Thêm video
+                    </a>
                 </div>
-              </div>
-            </div>
-            <div class="tools shortTool col-md-2 ">
-              <!-- Trigger the modal with a button -->
-              <button type="button" class="btn btn-default tri-btns" data-toggle="modal" data-target="#myModalVid" style="display: flex; outline: none; ">
-                <div style="display: flex; align-self: center;padding-bottom: 4px;">
-                  <i class="glyphicon glyphicon-facetime-video"></i>
+                <div class="tool-icon Table" id="Table">
+                    <a href="#" style="text-decoration: none;">
+                            <i class="fa fa-table" aria-hidden="true"></i> Thêm bảng
+                    </a>
                 </div>
-                 <span style="margin-left: 5px">Insert Video</span>
-    
-              </button>
-    
-              <!-- Modal -->
-              <div class="modal fade" id="myModalVid" role="dialog">
-                <div class="modal-dialog">
-                
-                  <!-- Modal content-->
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      <h4 class="modal-title">Insert Video</h4>
-                    </div>
-                    <div style="display: flex; border: none; margin-left:1px;">
-                      <button type="button" class="btn btn-secondary btn-lg" style="border-radius:0; cursor: default;color:#808287;" disabled>Link</button>
-                      <!-- <div id="data-video" class="modal-body" contenteditable="" style="overflow:auto; display:flex; flex-grow:1; outline: none"> -->
-                    <input id="data-video" class="modal-body" type="text">
-                    </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button onclick="insertVideo()" type="button" class="close-btn" data-dismiss="modal">DONE</button>
-                    </div>
-                  </div>
-                  
-                </div>
-              </div>
-
-            <div class="tools shortTool col-md-2 ">
-              <!-- Trigger the modal with a button -->
-              <button type="button" class="btn btn-default tri-btns" data-toggle="modal" data-target="#myModalLnk" style="display: flex; outline: none;">
-                <div style="display: flex; align-self: center;padding-bottom: 4px;">
-                   <i class="glyphicon glyphicon-link"></i>
-                </div>
-                 <span style="margin-left: 5px">Insert Link</span>
-    
-              </button>
-    
-              <!-- Modal -->
-              <div class="modal fade" id="myModalLnk" role="dialog">
-                <div class="modal-dialog">
-                
-                  <!-- Modal content-->
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      <h4 class="modal-title">Insert Link</h4>
-                    </div>
-                    <div style="display: flex; border: none; margin-left:1px;">
-                      <button type="button" class="btn btn-secondary btn-lg" style="border-radius:0; cursor: default;color:#808287;" disabled>Link</button>
-                      <div class="modal-body" contenteditable="" style="overflow:auto; display:flex; flex-grow:1; outline: none">
-                      </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="close-btn" data-dismiss="modal">DONE</button>
-                    </div>
-                  </div>
-                  
-                </div>
-              </div>
             </div>
         </div>
-          </div>
     </div>
     <div id="cal1">&nbsp;</div>
     <div id="cal2">&nbsp;</div>
@@ -702,10 +620,7 @@
     };
 </script>
 <script>
-    // $(document).ready(function () {
-    //     $('#editor-doc').focus();
-    // });
-    $(window).on('load', function () {
+    $(document).ready(function () {
         $('#editor-doc').focus();
     });
 </script>
@@ -723,6 +638,7 @@
 <script>
         $('#color-btn').click(function(){
             $('.dropdown-color').slideToggle();
+          
         })
     </script>
 </html>

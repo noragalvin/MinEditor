@@ -43,7 +43,8 @@ function formatDoc(sCmd, sValue) {
 var idImage = 0;
 
 function insertImg(img) {
-    var sImg = prompt("Enter url");
+    // $('#editor-doc').focus();
+    var sImg = document.getElementById('data-img').innerText;
     var widthScreen = document.getElementById('editor-doc').offsetWidth;
     var widthImg;
     getMeta(sImg, widthImg, widthScreen);
@@ -106,7 +107,8 @@ function changeSize(id) {
 
 //Insert Video
 function insertVideo() {
-    sVideo = prompt('Enter embed code: ', 'Embed here');
+    $('#editor-doc').focus();
+    sVideo = document.getElementById('data-video').value;
     var check = sVideo.substr(1, 6);
     // console.log(sVideo);
     // console.log(check);
@@ -150,8 +152,16 @@ function insertHr() {
 
 //Select all
 function selectAll() {
-    $('#editor-doc').focus();
-    $('#editor-doc').select();
+    function selectElementContents(el) {
+        var range = document.createRange();
+        range.selectNodeContents(el);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+    }
+    
+    var el = document.getElementById("editor-doc");
+    selectElementContents(el);
 }
 
 //Show code
@@ -261,3 +271,25 @@ $('body').mousedown(function (e) {
         console.log(e.pageX + " / " + e.pageY);
     }
 });
+
+
+//Set cursor position
+
+
+
+
+$.fn.setCursorPosition = function (pos) {
+    this.each(function (index, elem) {
+        if (elem.setSelectionRange) {
+            elem.setSelectionRange(pos, pos);
+        } else if (elem.createTextRange) {
+            var range = elem.createTextRange();
+            range.collapse(true);
+            range.moveEnd('character', pos);
+            range.moveStart('character', pos);
+            range.select();
+        }
+    });
+    return this;
+};
+
