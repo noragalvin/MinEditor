@@ -363,6 +363,35 @@
                             </ul>
                         </div>
                     </div>
+                    <div class="tool-icon" title="Align" id="talign">
+                            <div class="dropdown dropdown-fix" id="align">
+                                <button id="fix-color" class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                                    <i class="fa fa-align-center"><span class="caret"></span></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li onclick="formatDoc('justifyLeft')">
+                                        <a href="#" title="Align left">
+                                            <i class="fa fa-align-left" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li onclick="formatDoc('justifyCenter')">
+                                        <a href="#" title="Align center">
+                                            <i class="fa fa-align-center" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li onclick="formatDoc('justifyRight')">
+                                        <a href="#" title="Align right">
+                                            <i class="fa fa-align-right" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li onclick="formatDoc('justifyFull')">
+                                        <a href="#" title="Align justify">
+                                            <i class="fa fa-align-justify" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     <!--undo + redo + insertLink-->
                     <!-- <button class="tool-icon" title="Undo (Ctrl+Z)" onclick="formatDoc('undo')">
                         <a href="#" data-command='undo'>
@@ -425,35 +454,7 @@
                                 </ul>
                             </div>
                         </div> -->
-                        <div class="tool-icon" title="Align">
-                            <div class="dropdown dropdown-fix" id="align">
-                                <button id="fix-color" class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
-                                    <i class="fa fa-align-center"><span class="caret"></span></i>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li onclick="formatDoc('justifyLeft')">
-                                        <a href="#" title="Align left">
-                                            <i class="fa fa-align-left" aria-hidden="true"></i>
-                                        </a>
-                                    </li>
-                                    <li onclick="formatDoc('justifyCenter')">
-                                        <a href="#" title="Align center">
-                                            <i class="fa fa-align-center" aria-hidden="true"></i>
-                                        </a>
-                                    </li>
-                                    <li onclick="formatDoc('justifyRight')">
-                                        <a href="#" title="Align right">
-                                            <i class="fa fa-align-right" aria-hidden="true"></i>
-                                        </a>
-                                    </li>
-                                    <li onclick="formatDoc('justifyFull')">
-                                        <a href="#" title="Align justify">
-                                            <i class="fa fa-align-justify" aria-hidden="true"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                        
                         <button class="tool-icon" title="Ordered List" onclick="formatDoc('insertUnorderedList')">
                             <a href="#">
                                 <i class='fa fa-list-ul'></i>

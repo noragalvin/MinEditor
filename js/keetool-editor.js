@@ -301,6 +301,7 @@ $('#editor-doc').focusin(function () {
 
 $(document).ready(function () {
     $("#sub-tools").hide();
+    $("#talign").hide();
 });
 
 function showmore(event) {
@@ -308,6 +309,7 @@ function showmore(event) {
     console.log(1);
     $("#sub-tools").show();
     $("#show").hide();
+    $("#talign").show();
 };
 
 function showoff(event) {
@@ -315,6 +317,7 @@ function showoff(event) {
     console.log(2);
     $("#sub-tools").hide();
     $("#show").show();
+    $("#talign").hide();
 };
 
 // $(document).ready(function () {
