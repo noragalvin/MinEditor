@@ -37,7 +37,6 @@
   
     border-radius: 0px;
 }
-.nav-tabs>li{   border-top: 4px solid black;}
 
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover{
     margin:  0px; border-top: 0px; 
@@ -154,7 +153,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="tool-icon" title="Undo (Ctrl+Z)" onclick="formatDoc('undo')">
+                <!-- <div class="tool-icon" title="Undo (Ctrl+Z)" onclick="formatDoc('undo')">
                     <a href="#" data-command='undo'>
                         <i class='fa fa-undo'></i>
                     </a>
@@ -163,7 +162,7 @@
                     <a href="#" data-command='redo' onclick="formatDoc('redo')">
                         <i class='fa fa-repeat'></i>
                     </a>
-                </div>
+                </div> -->
         </div>
         <!--contentArea-->
         <div id="heading-editor" class="row">
@@ -174,7 +173,7 @@
             </div>
             <div style="position:absolute;display:none;" id="demo-btn">
                     <!--Phan luon luon show ra-->
-                    <button class="tool-icon" title="Bold (Ctrl+B)" onclick="formatDoc('bold')">
+                    <!-- <button class="tool-icon" title="Bold (Ctrl+B)" onclick="formatDoc('bold')">
                         <a href="#" data-command='bold'>
                             <i class='fa fa-bold'></i>
                         </a>
@@ -193,11 +192,11 @@
                         <a href="#">
                             <i class="fa fa-strikethrough"></i>
                         </a>
-                    </button>
+                    </button> -->
                     <!--Font chu-->
                     <div class="tool-icon" title="Font Family">
                         <div class="dropdown dropdown-fix">
-                            <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                            <button id="fix-color" class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
                                 <i class="fa fa-font"><span class="caret"></span></i>
                             </button>
                             <ul class="dropdown-menu">
@@ -216,10 +215,54 @@
                             </ul>
                         </div>
                     </div>
+                    <div class="tool-icon" title="Paragraph Format">
+                        <div class="dropdown dropdown-fix">
+                            <button id="fix-color" class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                                <i class="fa fa-paragraph"><span class="caret"></span></i>
+                            </button>
+                            <ul class="dropdown-menu" id="heading">
+                                <li onclick="formatDoc('p')">
+                                    <a href="#" title="Paragraph">
+                                        <p>Normal</p>
+                                    </a>
+                                </li>
+                                <li onclick="formatDoc('h1')">
+                                    <a href="#" title="Heading 1">
+                                        <h1>Heading 1</h1>
+                                    </a>
+                                </li>
+                                <li onclick="formatDoc('h2')">
+                                    <a href="#" title="Heading 2">
+                                        <h2>Heading 2</h2>
+                                    </a>
+                                </li>
+                                <li onclick="formatDoc('h3')">
+                                    <a href="#" title="Heading 3">
+                                        <h3>Heading 3</h3>
+                                    </a>
+                                </li>
+                                <li onclick="formatDoc('h4')">
+                                    <a href="#" title="Heading 4">
+                                        <h4>Heading 4</h4>
+                                    </a>
+                                </li>
+                                <li onclick="formatDoc('h5')">
+                                    <a href="" title="Heading 5">
+                                        <h5>Heading 5</h5>
+                                    </a>
+                                </li>
+                                <li onclick="formatDoc('h6')">
+                                    <a href="" title="Heading 6">
+                                        <h6>Heading 6</h6>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                     <!--mau chu-->
                     <div class="tool-icon" title="ColorMe">
-                        <button style="outline:none;"class="btn-fix" id="color-btn" type="button" data-toggle="dropdown"><i class="fa fa-tint"><span class="caret"></span></i></button>
-                        <div class="dropdown-color">
+                        <button style="outline:none;" class="btn-fix" id="color-btn" type="button" data-toggle="dropdown"><i class="fa fa-tint"><span class="caret"></span></i></button>
+                        <div class="dropdown dropdown-color">
                             <ul class="nav nav-tabs">
                                 <li class="active" style="width: 50%;text-align:center;font-size:13px"><a data-toggle="tab" href="#text-color"><b>Text Color</b></a></li>
                                  <li  style="width: 50%;text-align: center; font-size: 13px"><a data-toggle="tab" href="#bg-color" ><b>Background</b></a></li>
@@ -341,7 +384,7 @@
                     <!--cỡ chữ-->
                     <div class="tool-icon" title="Font Size">
                         <div class="dropdown dropdown-fix">
-                            <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                            <button id="fix-color" class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
                                 <i class="fa fa-text-height"><span class="caret"></span></i>
                             </button>
                             <ul class="dropdown-menu" style="overflow-y: auto; height:200px;">
@@ -370,7 +413,7 @@
                         </div>
                     </div>
                     <!--undo + redo + insertLink-->
-                    <button class="tool-icon" title="Undo (Ctrl+Z)" onclick="formatDoc('undo')">
+                    <!-- <button class="tool-icon" title="Undo (Ctrl+Z)" onclick="formatDoc('undo')">
                         <a href="#" data-command='undo'>
                             <i class='fa fa-undo'></i>
                         </a>
@@ -379,66 +422,23 @@
                         <a href="#" data-command='redo'>
                             <i class='fa fa-repeat'></i>
                         </a>
-                    </button>
+                    </button> -->
                     <!--show more-->
                     <div class="tool-icon" title="Show More" id="show" onclick="showmore()">
                         <a href="#">
-                            <i class="fa fa-angle-double-down" aria-hidden="true"></i>
+                            <i class="fa fa-plus" aria-hidden="true"></i>
                         </a>
                     </div>
                     <!--Phan shau khi nhanh show more-->
                     <div id="sub-tools">
-                        <button class="tool-icon" title="Clear Formatting" onclick="formatDoc('removeFormat')">
+                        <!-- <button class="tool-icon" title="Clear Formatting" onclick="formatDoc('removeFormat')">
                             <a href="#">
                                 <i class="fa fa-eraser"></i>
                             </a>
-                        </button>
+                        </button> -->
                         <!--H1-H6-->
-                        <div class="tool-icon" title="Paragraph Format">
-                            <div class="dropdown dropdown-fix">
-                                <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
-                                    <i class="fa fa-paragraph"><span class="caret"></span></i>
-                                </button>
-                                <ul class="dropdown-menu" id="heading">
-                                    <li onclick="formatDoc('p')">
-                                        <a href="#" title="Paragraph">
-                                            <p>Normal</p>
-                                        </a>
-                                    </li>
-                                    <li onclick="formatDoc('h1')">
-                                        <a href="#" title="Heading 1">
-                                            <h1>Heading 1</h1>
-                                        </a>
-                                    </li>
-                                    <li onclick="formatDoc('h2')">
-                                        <a href="#" title="Heading 2">
-                                            <h2>Heading 2</h2>
-                                        </a>
-                                    </li>
-                                    <li onclick="formatDoc('h3')">
-                                        <a href="#" title="Heading 3">
-                                            <h3>Heading 3</h3>
-                                        </a>
-                                    </li>
-                                    <li onclick="formatDoc('h4')">
-                                        <a href="#" title="Heading 4">
-                                            <h4>Heading 4</h4>
-                                        </a>
-                                    </li>
-                                    <li onclick="formatDoc('h5')">
-                                        <a href="" title="Heading 5">
-                                            <h5>Heading 5</h5>
-                                        </a>
-                                    </li>
-                                    <li onclick="formatDoc('h6')">
-                                        <a href="" title="Heading 6">
-                                            <h6>Heading 6</h6>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="tool-icon" title="Paragraph Style">
+                        
+                        <!-- <div class="tool-icon" title="Paragraph Style">
                             <div class="dropdown dropdown-fix">
                                 <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
                                     <i class="fa fa-magic"><span class="caret"></span></i>
@@ -458,8 +458,8 @@
                                     </li>
                                 </ul>
                             </div>
-                        </div>
-                        <div class="tool-icon" title="Quote">
+                        </div> -->
+                        <!-- <div class="tool-icon" title="Quote">
                             <div class="dropdown dropdown-fix">
                                 <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
                                     <i class="fa fa-quote-left"><span class="caret"></span></i>
@@ -473,10 +473,10 @@
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="tool-icon" title="Align">
                             <div class="dropdown dropdown-fix" id="align">
-                                <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
+                                <button id="fix-color" class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
                                     <i class="fa fa-align-center"><span class="caret"></span></i>
                                 </button>
                                 <ul class="dropdown-menu">
@@ -525,7 +525,7 @@
                         </button>
                         <button class="tool-icon" title="Hide" onclick="showoff()">
                             <a href="#">
-                                <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+                                <i class="fa fa-minus" aria-hidden="true"></i>
                             </a>
                         </button>
                     </div>
@@ -633,11 +633,13 @@
               </div>
             </div>
             <div class="tools shortTool">
-                <div class="tool-icon" title="Code View" id="showCode">
-                    <a href="#" data-command='code'>
-                        <i class='fa fa-code'></i>
-                    </a>
-                </div>
+                <button type="button" class="btn btn-default tri-btns" data-toggle="modal" data-target="#myModalLnk" style="display: flex; outline: none;">
+                    <div style="display: flex; align-self: center;padding-bottom: 4px;">
+                       <i class="fa fa-code"></i>
+                    </div>
+                     <span style="margin-left: 5px"></span>
+        
+                  </button>
             </div>
         </div>
           </div>
@@ -699,7 +701,13 @@
 </script>
 <script>
         $('#color-btn').click(function(){
-            $('.dropdown-color').slideToggle();
+            $('.dropdown-color').toggle();
         })
+        $('#fix-color').click(function (e) { 
+            e.preventDefault();
+            console.log(1);
+            $('.dropdown-color').hide();
+        });        
     </script>
 </html>
+
