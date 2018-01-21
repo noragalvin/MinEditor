@@ -49,6 +49,7 @@
     /* border: 1px solid rgb(0, 0, 0); */
     border-top: 1px solid #ebebeb;
     border-radius: 5px;
+    padding: 10px;
 }
 
 .dropdown-menu>.active>a {
@@ -219,7 +220,6 @@ hr {
     top: 40px;
     left: 85px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 16px 0px;
-
 }
 
 .color-item {
@@ -235,7 +235,7 @@ hr {
     margin: 5px;
 }
 
-.color-item:hover{
+.color-item:hover {
     width: 19px;
     height: 19px;
     margin: 1px;
@@ -293,51 +293,22 @@ div.shortTool.tools {
     color: #919191;
 }
 
-#demo-btn{
+#demo-btn {
     box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 16px 0px;
     background: white;
 }
 
-.modal-arrow{
+.modal-arrow {
     content: "";
     position: absolute;
-     bottom: auto;
-       top: -9px;
-      left: 95px;
+    bottom: auto;
+    top: -9px;
+    left: 95px;
     width: 0;
     height: 0;
     border-style: solid;
     border-width: 6px 6px 6px 6px;
-    border-color: transparent  transparent black transparent;
+    border-color: transparent transparent black transparent;
     filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, .5));
-  }
-  
-  
-  .nav-tabs{border: 0px;}
-  .nav-tabs>li>a{margin:  0px 0px 5.5px 0px;
-     
-      border-top: 0px solid;
-    
-      border-radius: 0px;
-  }
-  
-  .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover{
-      margin:  0px; border-top: 0px; 
-  }
-  .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus{ 
-      margin:  0px; background-color: azure;
-      color: rgb(0, 152, 247);
-      border-bottom: 4px solid rgb(0, 152, 247);
-   
-  }
-   .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{margin:  0px;
-              border-left: 0px;
-               border-right:0px;
-               border-top:0px;
-               border-radius: 0px;
-           }
-  .nav-tabs>li>a{ border: 0px }
-  .tab-content>.active{padding-left:0.3px;}
-  
-  
-  
+}
+

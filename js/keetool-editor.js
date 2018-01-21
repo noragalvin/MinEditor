@@ -43,8 +43,9 @@ function formatDoc(sCmd, sValue) {
 var idImage = 0;
 
 function insertImg(img) {
-    // $('#editor-doc').focus();
+    $('#editor-doc').focus();
     var sImg = document.getElementById('data-img').innerText;
+    // sImg = prompt('Link here');
     var widthScreen = document.getElementById('editor-doc').offsetWidth;
     var widthImg;
     getMeta(sImg, widthImg, widthScreen);
@@ -109,6 +110,7 @@ function changeSize(id) {
 function insertVideo() {
     $('#editor-doc').focus();
     sVideo = document.getElementById('data-video').value;
+    // sVideo = prompt('Link here');
     var check = sVideo.substr(1, 6);
     // console.log(sVideo);
     // console.log(check);
@@ -342,3 +344,4 @@ $('#fix-color').click(function (e) {
     console.log(1);
     $('.dropdown-color').hide();
 });
+
