@@ -4,7 +4,7 @@ function init(id){
 
         <div id="heading-editor" class="row">
             <div id="editor-doc" style="overflow:auto;" contenteditable>
-                    Keetool
+                   <p>MinEditor - KEETOOL</p>
             </div>
             <div style="position:absolute;display:none;" id="demo-btn">
                    
