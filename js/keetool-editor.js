@@ -1,166 +1,94 @@
-content = `
-<div class="container">
-        <div class="row" id="row-show" style="border-top:1px solid #ebebeb;">
-
-                
-                
-          
-        <div class="row" id="row-hide" style="border-top:3px solid #000;">
-            
-                <div class="tool-icon" title="Bold (Ctrl+B)" onclick="formatDoc('bold')">
-                    <a href="#" data-command='bold'>
-                        <i class='fa fa-bold'></i>
-                    </a>
-                </div>
-                <div class="tool-icon" title="Italic (Ctrl+I)" onclick="formatDoc('italic')">
-                    <a href="#" data-command='italic'>
-                        <i class='fa fa-italic'></i>
-                    </a>
-                </div>
-                <div class="tool-icon" title="Underline (Ctrl+U)" onclick="formatDoc('underline')">
-                    <a href="#" data-command='underline'>
-                        <i class='fa fa-underline'></i>
-                    </a>
-                </div>
-                <div class="tool-icon" title="Insert Image (Ctrl+P)" onclick="formatDoc('insertimage')">
-                    <a href="#">
-                        <i class="fa fa-picture-o" aria-hidden="true"></i>
-                    </a>
-                </div>
-                <div class="tool-icon" title="Paragraph Format">
-                    <div class="dropdown dropdown-fix">
-                        <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
-                            <i class="fa fa-paragraph">
-                                <span class="caret"></span>
-                            </i>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="#">HTML</a>
-                            </li>
-                            <li>
-                                <a href="#">CSS</a>
-                            </li>
-                            <li>
-                                <a href="#">JavaScript</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="dropdown dropdown-fix" id="align">
-                    <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown">
-                        <i class="fa fa-align-center">
-                            <span class="caret"></span>
-                        </i>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li onclick="formatDoc('justifyLeft')">
-                            <a href="#" title="Align left">
-                                <i class="fa fa-align-left" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li onclick="formatDoc('justifyCenter')">
-                            <a href="#" title="Align center">
-                                <i class="fa fa-align-center" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li onclick="formatDoc('justifyRight')">
-                            <a href="#" title="Align right">
-                                <i class="fa fa-align-right" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li onclick="formatDoc('justifyFull')">
-                            <a href="#" title="Align justify">
-                                <i class="fa fa-align-justify" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-        </div>
+function init(id){
+    content = `
+<div style='margin: 100px 150px 150px 350px'>
 
         <div id="heading-editor" class="row">
             <div id="editor-doc" style="overflow:auto;" contenteditable>
-                    
+                    Keetool
             </div>
             <div style="position:absolute;display:none;" id="demo-btn">
                    
+
                     <div class="tool-icon" title="Font Family">
-                        <div class="dropdown dropdown-fix">
-                            <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown" onclick="fixColor();">
-                                <i class="fa fa-font"><span class="caret"></span></i>
+                        <div        >
+                            <button class="tool-icon" type="button" id='button-font-family' >
+                                <i class="fa fa-font"><span class="k-caret"></span></i>
                             </button>
-                            <ul class="dropdown-menu">
-                                <li onclick="formatDoc('fontname','Arial')">
+                           
+                            <div class="dropdown-font-family">
+                                <div onclick="formatDoc('fontname','Arial')">
                                     <a href="#" style="font-family: Arial">Arial</a>
-                                </li>
-                                <li onclick="formatDoc('fontname','Arial Black')">
+                                </div>
+                                <div onclick="formatDoc('fontname','Arial Black')">
                                     <a href="#" style="font-family: Georgia">Arial Black</a>
-                                </li>
-                                <li onclick="formatDoc('fontname','Courier New')">
+                                </div>
+                                <div onclick="formatDoc('fontname','Courier New')">
                                     <a href="#" style="font-family: Impact">Courier New</a>
-                                </li>
-                                <li onclick="formatDoc('fontname','Time New Roman')">
+                                </div>
+                                <div onclick="formatDoc('fontname','Time New Roman')">
                                     <a href="#" style="font-family: Time New Roman">Time New Roman</a>
-                                </li>
-                            </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
+
+
                     <div class="tool-icon" title="Paragraph Format">
-                        <div class="dropdown dropdown-fix">
-                            <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown" onclick="fixColor();">
-                                <i class="fa fa-paragraph"><span class="caret"></span></i>
+                        <div          >
+                            <button class=" tool-icon" type="button" id='button-paragraph-format'>
+                                <i class="fa fa-paragraph"><span class="k-caret"></span></i>
                             </button>
-                            <ul class="dropdown-menu" id="heading">
-                                <li onclick="formatDoc('p')">
+                            <div class="dropdown-paragraph-format" >
+                                <div onclick="formatDoc('p')">
                                     <a href="#" title="Paragraph">
                                         <p>Normal</p>
                                     </a>
-                                </li>
-                                <li onclick="formatDoc('h1')">
+                                </div>
+                                <div onclick="formatDoc('h1')">
                                     <a href="#" title="Heading 1">
                                         <h1>Heading 1</h1>
                                     </a>
-                                </li>
-                                <li onclick="formatDoc('h2')">
+                                </div>
+                                <div onclick="formatDoc('h2')">
                                     <a href="#" title="Heading 2">
                                         <h2>Heading 2</h2>
                                     </a>
-                                </li>
-                                <li onclick="formatDoc('h3')">
+                                </div>
+                                <div onclick="formatDoc('h3')">
                                     <a href="#" title="Heading 3">
                                         <h3>Heading 3</h3>
                                     </a>
-                                </li>
-                                <li onclick="formatDoc('h4')">
+                                </div>
+                                <div onclick="formatDoc('h4')">
                                     <a href="#" title="Heading 4">
                                         <h4>Heading 4</h4>
                                     </a>
-                                </li>
-                                <li onclick="formatDoc('h5')">
+                                </div>
+                                <div onclick="formatDoc('h5')">
                                     <a href="" title="Heading 5">
                                         <h5>Heading 5</h5>
                                     </a>
-                                </li>
-                                <li onclick="formatDoc('h6')">
+                                </div>
+                                <div onclick="formatDoc('h6')">
                                     <a href="" title="Heading 6">
                                         <h6>Heading 6</h6>
                                     </a>
-                                </li>
-                            </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
         
                     <div class="tool-icon" title="Color">
-                        <button style="outline:none;" class="btn-fix" id="color-btn" type="button" data-toggle="dropdown"><i class="fa fa-tint"><span class="caret"></span></i></button>
-                        <div class="dropdown dropdown-color">
-                            <ul class="nav nav-tabs">
-                                <li class="active" style="width: 50%;text-align:center;font-size:13px"><a data-toggle="tab" href="#text-color"><b>Text Color</b></a></li>
-                                 <li  style="width: 50%;text-align: center; font-size: 13px"><a data-toggle="tab" href="#bg-color" ><b>Background</b></a></li>
-                            </ul>
+                        <button style="outline:none;" class="tool-icon" id="color-btn" type="button" onclick='buttonColor()'><i class="fa fa-tint"><span class="k-caret"></span></i></button>
+                        <div class=" dropdown-color">
+                            <div  style='width:228px'>
+                                <button style="border:none;background:#fff;padding:5px 10px;" id='text' onclick='textColor()'> <a><b>Text Color</b></a></button>
+                                 <button style="border:none;background:#fff;padding:5px 10px;" id='background'  onclick='backgroundColor()' ><a><b>Background</b></a></button>
+                            </div>
                 
-                            <div class="tab-content">
-                                <div id="text-color" class="tab-pane fade in active">
+                        
+                                <div id="text-color" class="       " >
                                     <table>
                                         <tr>
                                         <td><a href="#" onclick="formatDoc('forecolor','indigo')" class='color-item' style="background-color: indigo" title="indigo"></a></td>
@@ -214,7 +142,7 @@ content = `
                                         </tr>
                                     </table>
                                 </div>
-                                <div id="bg-color" class="tab-pane fade">
+                                <div id="bg-color" style="display:none" class="    ">
                                         <table>
                                                 <tr>
                                                 <td><a href="#" onclick="formatDoc('backcolor','indigo')" class='color-item' style="background-color: indigo " title="indigo"></a></td>
@@ -271,100 +199,100 @@ content = `
                             </div>
                         </div>
                         
-                    </div>
+                
                  
                     <div class="tool-icon" title="Font Size">
-                        <div class="dropdown dropdown-fix">
-                            <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown" onclick="fixColor();">
-                                <i class="fa fa-text-height"><span class="caret"></span></i>
+                        <div     >
+                            <button class=" tool-icon" type="button" id='button-font-size'>
+                                <i class="fa fa-text-height"><span class="k-caret"></span></i>
                             </button>
-                            <ul class="dropdown-menu" style="overflow-y: auto; height:200px;">
-                                <li onclick="formatDoc('fontsize','1')">
+                            <div class="dropdown-font-size" style="overflow-y: auto; height:200px;">
+                                <div onclick="formatDoc('fontsize','1')">
                                     <a href="#">1</a>
-                                </li>
-                                <li onclick="formatDoc('fontsize','2')">
+                                </div>
+                                <div onclick="formatDoc('fontsize','2')">
                                     <a href="#">2</a>
-                                </li>
-                                <li onclick="formatDoc('fontsize','3')">
+                                </div>
+                                <div onclick="formatDoc('fontsize','3')">
                                     <a href="#">3</a>
-                                </li>
-                                <li onclick="formatDoc('fontsize','4')">
+                                </div>
+                                <div onclick="formatDoc('fontsize','4')">
                                     <a href="#">4</a>
-                                </li>
-                                <li onclick="formatDoc('fontsize','5')">
+                                </div>
+                                <div onclick="formatDoc('fontsize','5')">
                                     <a href="#">5</a>
-                                </li>
-                                <li onclick="formatDoc('fontsize','6')">
+                                </div>
+                                <div onclick="formatDoc('fontsize','6')">
                                     <a href="#">6</a>
-                                </li>
-                                <li onclick="formatDoc('fontsize','7')">
+                                </div>
+                                <div onclick="formatDoc('fontsize','7')">
                                     <a href="#">7</a>
-                                </li>
-                            </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="tool-icon" title="Align" id="talign">
-                            <div class="dropdown dropdown-fix" id="align">
-                                <button class="dropdown-toggle btn-fix" type="button" data-toggle="dropdown" onclick="fixColor();">
-                                    <i class="fa fa-align-center"><span class="caret"></span></i>
+                            <div >
+                                <button class="tool-icon" type="button"  id='button-align'>
+                                    <i class="fa fa-align-center"><span class="k-caret"></span></i>
                                 </button>
-                                <ul class="dropdown-menu">
-                                    <li onclick="formatDoc('justifyLeft')">
+                                <div class="dropdown-align" >
+                                    <div onclick="formatDoc('justifyLeft')">
                                         <a href="#" title="Align left">
                                             <i class="fa fa-align-left" aria-hidden="true"></i>
                                         </a>
-                                    </li>
-                                    <li onclick="formatDoc('justifyCenter')">
+                                    </div>
+                                    <div onclick="formatDoc('justifyCenter')">
                                         <a href="#" title="Align center">
                                             <i class="fa fa-align-center" aria-hidden="true"></i>
                                         </a>
-                                    </li>
-                                    <li onclick="formatDoc('justifyRight')">
+                                    </div>
+                                    <div onclick="formatDoc('justifyRight')">
                                         <a href="#" title="Align right">
                                             <i class="fa fa-align-right" aria-hidden="true"></i>
                                         </a>
-                                    </li>
-                                    <li onclick="formatDoc('justifyFull')">
+                                    </div>
+                                    <div onclick="formatDoc('justifyFull')">
                                         <a href="#" title="Align justify">
                                             <i class="fa fa-align-justify" aria-hidden="true"></i>
                                         </a>
-                                    </li>
-                                </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                    
                     <div class="tool-icon" title="Show More" id="show" onclick="showmore()">
-                        <a href="#">
+                        
                             <i class="fa fa-plus" aria-hidden="true"></i>
-                        </a>
+                        
                     </div>
                    
                     <div id="sub-tools">
                         
                         <button class="tool-icon" title="Ordered List" onclick="formatDoc('insertUnorderedList')">
-                            <a href="#">
+                            
                                 <i class='fa fa-list-ul'></i>
-                            </a>
+                            
                         </button>
                         <button class="tool-icon" title="Unordered List" onclick="formatDoc('insertOrderedList')">
-                            <a href="#">
+                            
                                 <i class='fa fa-list-ol'></i>
-                            </a>
+                          
                         </button>
                         <button class="tool-icon" title="Decrease Indent (Ctrl+Z)" onclick="formatDoc('outdent')">
-                            <a href="#" data-command='outdent'>
+                            
                                 <i class='fa fa-outdent'></i>
-                            </a>
+                            
                         </button>
                         <button class="tool-icon" title="Increase Indent (Tab)" onclick="formatDoc('indent')">
-                            <a href="#" data-command='indent'>
+                            
                                 <i class='fa fa-indent'></i>
-                            </a>
+                            
                         </button>
                         <button class="tool-icon" title="Hide" onclick="showoff()">
-                            <a href="#">
+                            
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                            </a>
+                           
                         </button>
                     </div>
             </div>
@@ -372,42 +300,34 @@ content = `
         <div id="shortTools" class="row">
             <div class="tools shortTool" >
              
-              <button id="myBtnImg" type="button" class="btn btn-default tri-btns" style="display: flex; outline: none;">
-                <div style="display: flex; align-self: center; padding-bottom: 4px;">
-                  <i class="glyphicon glyphicon-camera"></i>
-                </div>
-                 <span style="margin-left: 5px"></span>
+              <button onclick="insertSpace" id="myBtnImg" type="button" class="editor-button" style="display: flex; outline: none;">
+                <i class="fa fa-address-book" aria-hidden="true"></i>
     
               </button>
               
             </div>
             <div class="tools shortTool">
          
-              <button  id="myBtnVid"  type="button" class="btn btn-default tri-btns" style="display: flex; outline: none; ">
-                <div style="display: flex; align-self: center;padding-bottom: 4px;">
-                  <i class="glyphicon glyphicon-facetime-video"></i>
-                </div>
-                 <span style="margin-left: 5px"></span>
+              <button  id="myBtnVid"  type="button"  class="editor-button" style="display: flex; outline: none; ">
+                    <i class="fa fa-camera" aria-hidden="true"></i>
+
     
               </button>
     
             </div>
             <div class="tools shortTool">
-              <button  id="myBtnLnk"  type="button" class="btn btn-default tri-btns" style="display: flex; outline: none;">
-                <div style="display: flex; align-self: center;padding-bottom: 4px;">
-                   <i class="glyphicon glyphicon-link"></i>
-                </div>
-                 <span style="margin-left: 5px"></span>
+              <button id="myBtnLnk"  type="button"  class="editor-button" style="display: flex; outline: none;">
+                <i class="fa fa-link" aria-hidden="true"></i>
+
     
               </button>
     
             </div>
             <div class="tools shortTool">
-                <button id="showCode" type="button" class="btn btn-default tri-btns" data-toggle="modal" style="display: flex; outline: none;">
-                    <div style="display: flex; align-self: center;padding-bottom: 4px;">
-                       <i class="fa fa-code"></i>
-                    </div>
-                     <span style="margin-left: 5px"></span>
+                <button id="showCode" type="button"  class="editor-button" data-toggle="modal" style="display: flex; outline: none;">
+                   <i class="fa fa-code" aria-hidden="true"></i>
+
+    
         
                   </button>
             </div>
@@ -421,13 +341,14 @@ content = `
         </div>
         <div class="k-modal-body">
             <div style="border:solid 1px #dfdfdf; padding:10px;">
-                <input type="text" placeholder="URL" style=" outline:none; border:none; width:100%"/>
+                <input id="data-img" type="text" placeholder="URL" style=" outline:none; border:none; width:100%"/>
             </div>
         </div>
         <div class="k-modal-footer">
             <div style="display:flex;flex-direction:row-reverse">
-                <button class="k-modal-button k-button-green">Modal Footer</button>
-                <button class="k-modal-button k-button-gray">Modal Footer</button>
+            <button onclick='insertImg()' class="k-modal-button k-button-green">Ok</button>
+            <input id="myFile" type="file" style="display:none" onchange="uploadImg()"/>
+            <button onclick="document.getElementById('myFile').click()" class="k-modal-button k-button-gray">Upload</button>
             </div>
         </div>
     </div>
@@ -438,26 +359,16 @@ content = `
 <div id="myModalVid" class="modal">
     <div class="k-modal-content">
         <div class="k-modal-header">
-            <h3>Chèn ảnh</h3>
+            <h3>Chèn Video</h3>
         </div>
         <div class="k-modal-body">
             <div style="border:solid 1px #dfdfdf; padding:10px;">
-                <input type="text" placeholder="URL" style=" outline:none; border:none; width:100%"/>
+                <input id="data-video" type="text" placeholder="URL" style=" outline:none; border:none; width:100%"/>
             </div>
         </div>
         <div class="k-modal-footer">
             <div style="display:flex;flex-direction:row-reverse">
-                <button class="k-modal-button k-button-green">Modal Footer</button>
-                <button class="k-modal-button k-button-gray">Modal Footer</button>
-            </div>
-            <div class="tools shortTool">
-                <button id="showCode" type="button" class="btn btn-default tri-btns" data-toggle="modal" style="display: flex; outline: none;">
-                    <div style="display: flex; align-self: center;padding-bottom: 4px;">
-                       <i class="fa fa-code"></i>
-                    </div>
-                     <span style="margin-left: 5px"></span>
-        
-                  </button>
+                <button onclick="insertVideo()" class="k-modal-button k-button-green">Ok</button>
             </div>
         </div>
     </div>
@@ -476,8 +387,7 @@ content = `
         </div>
         <div class="k-modal-footer">
             <div style="display:flex;flex-direction:row-reverse">
-                <button class="k-modal-button k-button-green">Modal Footer</button>
-                <button class="k-modal-button k-button-gray">Modal Footer</button>
+                <button class="k-modal-button k-button-green">ok</button>
             </div>
         </div>
     </div>
@@ -486,12 +396,13 @@ content = `
     <div id="cal1">&nbsp;</div>
     <div id="cal2">&nbsp;</div>
 `;
-var editor = document.getElementById('mini-editor');
+var editor = document.getElementById(id);
 editor.innerHTML = content;
 
 
 //Insert function
-function formatDoc(sCmd, sValue) {
+    
+window.formatDoc = function(sCmd, sValue) {
     // console.log("1");
     if (sCmd == 'h1' || sCmd == 'h2' || sCmd == 'h3' || sCmd == 'h4' || sCmd == 'h5' || sCmd == 'h6' || sCmd ==
         'p') {
@@ -521,7 +432,12 @@ function formatDoc(sCmd, sValue) {
             alert('The command ' + sCmd + ' is not support your browser');
             // console.log('hello');
         } else {
+            $('.dropdown-font-family').css('display','none');   
+            $('.dropdown-paragraph-format').css('display','none');
             $('.dropdown-color').css('display', 'none');
+            $('.dropdown-font-size').css('display','none');
+            $('.dropdown-align').css('display', 'none');
+
             console.log(1);
             document.execCommand(sCmd, false, sValue);
             // console.log('hello22');
@@ -536,9 +452,9 @@ function formatDoc(sCmd, sValue) {
 //Insert Images
 var idImage = 0;
 
-function insertImg(img) {
+window.insertImg = function(img) {
     $('#editor-doc').focus();
-    var sImg = document.getElementById('data-img').innerText;
+    var sImg = document.getElementById('data-img').value;
     // sImg = prompt('Link here');
     var widthScreen = document.getElementById('editor-doc').offsetWidth;
     var widthImg;
@@ -550,20 +466,11 @@ function insertImg(img) {
 function getMeta(url, widthImg, widthScreen) {
     var img = new Image();
     img.onload = function () {
-        alert(this.width + ' ' + this.height);
-        if (this.width >= widthScreen) {
-            widthImg = widthScreen;
-            url = "<div><img id=\"image_" + idImage + " src=\"" + url + "\" width=\"" + widthImg + "\" onclick=\"changeSize('image_" + idImage + "')\"" + "></div>";
+        // alert(this.width + ' ' + this.height);
+            url = "<div><img src=\"" + url + "\" width=100% height=auto></div>";
             idImage++;
             console.log(url);
             document.execCommand("insertHTML", false, url);
-        } else {
-            widthImg = this.width;
-            url = "<div><img id=\"image_" + idImage + "\" src=\"" + url + "\" width=\"" + widthImg + "\" onclick=\"changeSize('image_" + idImage + "')\"" + "></div>";
-            idImage++;
-            console.log(url);
-            document.execCommand("insertHTML", false, url);
-        }
     };
     img.src = url;
 }
@@ -598,10 +505,18 @@ function changeSize(id) {
 }
 
 
+//Insert space
+function insertSpace(){
+    console.log(1);
+    $('#editor-doc').focus();
+    var value = "a";
+    document.execCommand('insertHTML', false, value);
+}
+
 
 
 //Insert Video
-function insertVideo() {
+window.insertVideo = function() {
     $('#editor-doc').focus();
     sVideo = document.getElementById('data-video').value;
     // sVideo = prompt('Link here');
@@ -612,14 +527,12 @@ function insertVideo() {
         document.execCommand("insertHTML", false, sVideo);
     } else {
         var idVideo = sVideo.substr(32, sVideo.length - 1);
-        var width = document.getElementById('editor-doc').offsetWidth;
-        var height = width * 56.25 / 100;
-        console.log(width);
-        console.log(height);
-        // console.log(idVideo);
-        sVideo = "<iframe width=\"" + width + "\" height=\"" + height + "\" src=\"https://www.youtube.com/embed/" + idVideo + "\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>";
+        
+        stringVideo = "https://www.youtube.com/embed/" + idVideo;
+        sVideo = "<div class=\"embed-container\"><iframe src=\"" + stringVideo + "\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\" __idm_id__=\"189403137\"></iframe></div>"
         console.log(sVideo);
         document.execCommand("insertHTML", false, sVideo);
+
     }
 }
 
@@ -736,7 +649,12 @@ $('body').mousedown(function () {
         // over
 
     }, function () {
+        $('.dropdown-font-family').hide();
+        $('.dropdown-paragraph-format').hide();
         $('.dropdown-color').hide();
+        $('.dropdown-font-size').hide();
+        $('.dropdown-align').hide();
+
         ele.style.display = 'none';
     });
 });
@@ -800,18 +718,26 @@ $(document).ready(function () {
     $("#talign").hide();
 });
 
-function showmore(event) {
+window.showmore = function(event) {
     // event.stopPropagation();
+    $('.dropdown-font-family').css('display', 'none');
+    $('.dropdown-paragraph-format').css('display', 'none');
     $('.dropdown-color').css('display', 'none');
+    $('.dropdown-font-size').css('display', 'none');
+    $('.dropdown-align').css('display', 'none');
     console.log(1);
     $("#sub-tools").show();
     $("#show").hide();
     $("#talign").show();
 };
 
-function showoff(event) {
+window.showoff = function(event) {
     // event.stopPropagation();
+    $('.dropdown-font-family').css('display', 'none');
+    $('.dropdown-paragraph-format').css('display', 'none');
     $('.dropdown-color').css('display', 'none');
+    $('.dropdown-font-size').css('display', 'none');
+    $('.dropdown-align').css('display', 'none');
     console.log(2);
     $("#sub-tools").hide();
     $("#show").show();
@@ -825,19 +751,51 @@ $(window).on('load', function () {
     $('#editor-doc').focus();
 });
 
-function TextColor() {
-    $('#TextColor').css('display', 'block');
-    $('#BackgroundColor').css('display', 'none');
-}
 
-function BackgroundColor() {
-    $('#BackgroundColor').css('display', 'block');
-    $('#TextColor').css('display', 'none');
-}
+
+$('#button-font-family').click(function () {
+    $('.dropdown-font-family').toggle();
+        $('.dropdown-paragraph-format').hide();
+        $('.dropdown-color').hide();
+        $('.dropdown-font-size').hide();
+        $('.dropdown-align').hide();
+})
+
+$('#button-paragraph-format').click(function () {
+    $('.dropdown-paragraph-format').toggle();
+        $('.dropdown-font-family').hide();
+        $('.dropdown-color').hide();
+        $('.dropdown-font-size').hide();
+        $('.dropdown-align').hide();
+
+})
 
 $('#color-btn').click(function () {
     $('.dropdown-color').toggle();
+        $('.dropdown-font-family').hide();
+        $('.dropdown-paragraph-format').hide();
+        $('.dropdown-font-size').hide();
+        $('.dropdown-align').hide();
 })
+
+
+$('#button-font-size').click(function () {
+    $('.dropdown-font-size').toggle();
+        $('.dropdown-font-family').hide();
+        $('.dropdown-paragraph-format').hide();
+        $('.dropdown-color').hide();
+        $('.dropdown-align').hide();
+})
+
+$('#button-align').click(function () {
+    $('.dropdown-align').toggle();
+        $('.dropdown-font-family').hide();
+        $('.dropdown-paragraph-format').hide();
+        $('.dropdown-color').hide();
+        $('.dropdown-font-size').hide();
+})
+
+
 
 
 
@@ -854,7 +812,7 @@ function insertTab() {
     span.appendChild(document.createTextNode('\t'));
     span.style.whiteSpace = 'pre';
     range.insertNode(span);
-    // Move the caret immediately after the inserted span
+    // Move the k-caret immediately after the inserted span
     range.setStartAfter(span);
     range.collapse(true);
     sel.removeAllRanges();
@@ -870,15 +828,13 @@ function insertTab() {
   });
 
 
-  function fixColor(){
-    $('.dropdown-color').css("display","none");
-}
 
 
 $('#text-color a').click(function (e) { 
     e.preventDefault();
     $('.dropdown-color').hide();
 });
+
 
 
 // $(document).bind('keypress', function (e) {
@@ -953,3 +909,105 @@ $(document).keyup(function(e) {
             modalLnk.style.display = "none";
         }   // esc
     });
+
+
+    $('.k-button-green').click(function (e) { 
+        e.preventDefault();
+        console.log(2);
+        modalVid.style.display = "none";
+        modalImg.style.display = "none";
+        modalLnk.style.display = "none";
+    });
+
+
+
+
+window.backgroundColor = function(){
+    $('#text-color').css('display','none');
+    $('#bg-color').slideDown();
+    // $('#background').css('background-color','#008ae1')
+    $('#text').css('background-color','transparent');
+}
+
+
+window.textColor = function(){
+    $('#text-color').slideDown();
+    $('#bg-color').css('display','none');
+    $('#background').css('background-color','transparent')
+    // $('#text').css('background-color','#008ae1');
+}
+
+
+
+window.buttonColor = function(){
+   $('#font-family').css('display','none');   
+    $('.paragraph-format').css('display','none');
+    $('#font-size').css('display','none');
+    $('#align-paragraph').css('display','none');
+
+ }
+
+
+  
+
+//insert <p></p> if content null
+var editable = document.getElementById('editor-doc');
+editable.addEventListener('input', function() {
+    console.log(1);
+    var data = document.getElementById('editor-doc').innerHTML;
+    if(data == ""){
+        document.getElementById('editor-doc').innerHTML = "<p><br/></p>"
+    }
+});
+
+//Upload local img
+function uploadImg() {
+    var formData = new FormData();
+    var file = document.getElementById('myFile').files[0];
+    console.log("x", file);
+    formData.append('image', file);
+        console.log(formData);
+        $.ajax({
+            type: 'POST',
+            url: "upload.php",
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            dataType: "text",
+            //progress bar
+            xhr: function () {
+                $('#percent').show();
+                var xhr = new window.XMLHttpRequest();
+                xhr.upload.addEventListener("progress", function (evt) {
+                    if (evt.lengthComputable) {
+                        var percentComplete = evt.loaded / evt.total;
+                        percentComplete = parseInt(percentComplete * 100);
+                        $('.myprogress').text(percentComplete + '%');
+                        $('.myprogress').css('width', percentComplete + '%');
+                    }
+                }, false);
+                return xhr;
+            },
+            success: function (data) {
+                $('#percent').hide();
+                modalVid.style.display = "none";
+                modalImg.style.display = "none";
+                modalLnk.style.display = "none";
+                console.log("success");
+                // console.log(data);
+                var i = document.getElementById("editor-doc");
+                $('#editor-doc').focus();
+                var url = "<div><img src=\"" + data + "\" width=100% height=auto></div>";
+                console.log(url);
+                console.log(data);
+                document.execCommand('insertHTML',false,url.trim());
+            },
+            error: function (data) {
+                console.log("error");
+                console.log(data);
+            }
+        });
+
+}
+}
