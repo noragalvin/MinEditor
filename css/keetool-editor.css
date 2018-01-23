@@ -45,7 +45,7 @@
 #editor-doc {
     min-height: 50px;
     /* border: 1px solid rgb(0, 0, 0); */
-    border-top: 1px solid #ebebeb;
+    /* border-top: 1px solid #ebebeb; */
     border-radius: 5px;
     padding: 10px;
 }
@@ -119,13 +119,9 @@ hr {
     width: 98%;
 }
 
-<<<<<<< HEAD
-
-=======
 .dropbtn:focus {
     outline: 0 !important;
 }
->>>>>>> 49fd290c62ede59dbf81fc2e8e1b96c88cf05477
 
 #quote-place {
     position: absolute;
@@ -368,7 +364,6 @@ div.shortTool.tools {
     left: 0;
     width: 100%;
     height: 100%;
-<<<<<<< HEAD
 }
 
 .editor-button{
@@ -504,6 +499,3 @@ p,h1,h2,h3,h4,h5,h6{margin: 0px}
 }
 #text:hover{     }
 #background:hover{   }
-=======
-}
->>>>>>> 49fd290c62ede59dbf81fc2e8e1b96c88cf05477

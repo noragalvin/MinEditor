@@ -706,9 +706,7 @@ $.fn.setCursorPosition = function (pos) {
     return this;
 };
 
-$(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-});
+
 $('#editor-doc').focusin(function () {
     $('#menubar-item').slideDown();
 })
@@ -961,7 +959,7 @@ editable.addEventListener('input', function() {
 });
 
 //Upload local img
-function uploadImg() {
+window.uploadImg = function() {
     var formData = new FormData();
     var file = document.getElementById('myFile').files[0];
     console.log("x", file);
