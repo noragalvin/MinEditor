@@ -2,7 +2,51 @@
     box-sizing: border-box;
 }
 
+p,h1,h2,h3,h4,h5,h6{margin: 0px}
+.k-caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 4px dashed;
+  border-top: 4px solid ;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
 
+#text-color{display: block;}
+#bg-color{display: none}
+
+
+#text{width: 117px;
+  height: 40px; border-bottom: none;
+  border-top: 0.7px solid gray;
+  border-left: 0.7px solid gray;
+  border-right: 0.7px solid gray;
+    text-align:center;
+    font-size:13px;
+    display: inline-block;
+    background-color: white;
+    margin-right: -2px;
+color: black;
+   border-radius: 5px 5px 0px 0px;
+}
+#background{width:117px;
+  height: 40px;
+  border: none; border-bottom: 0.7px solid gray;
+    text-align:center;
+    font-size:13px;
+    display: inline-block;
+    background-color: white;
+  margin-left: -2px;
+  color: gray;
+   border-radius: 5px 5px 0px 0px;
+}
+#text:hover{  cursor: pointer;  background-color:  #dce0e8 ; }
+#background:hover{ cursor: pointer; background-color: #dce0e8  }
+#text:focus{ outline:none;  }
+#background:focus{ outline:none;  }
 
 .tool-icon {
     width: 38px;
@@ -18,7 +62,8 @@
     margin: 0;
 }
 .tool-icon:hover{background-color:  #eff1f4}
-.tool-icon:focus{outline: none; background-color: #dce0e8}
+.tool-icon:focus{outline: none; background-color: #dce0e8;}
+.tool-icon:focus i{color: black}
 .tool-icon i {
     color: #aaaaaa;
 }
@@ -26,7 +71,6 @@
 .tool-icon:hover i{
     color: #414141;
 }
-
 .tool-icon button{
     color: #c9c9c9;
 }
@@ -45,7 +89,7 @@
 #editor-doc {
     min-height: 50px;
     /* border: 1px solid rgb(0, 0, 0); */
-    /* border-top: 1px solid #ebebeb; */
+    border-top: 1px solid #ebebeb;
     border-radius: 5px;
     padding: 10px;
 }
@@ -119,9 +163,7 @@ hr {
     width: 98%;
 }
 
-.dropbtn:focus {
-    outline: 0 !important;
-}
+
 
 #quote-place {
     position: absolute;
@@ -249,7 +291,7 @@ div.shortTool.tools {
     padding: 10px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 7px 0px;
     background: rgb(255, 255, 255);
-    z-index: 2;
+    z-index: 1;
 }  
 
   .modal {
@@ -422,7 +464,7 @@ div.shortTool.tools {
     padding: 0px;
     background-color: #f9f9f9;
     box-shadow:0px 4px 20px 3px rgba(0,0,0,0.15);
-    z-index: 10;
+    z-index: 1;
 }
 
 
@@ -460,42 +502,8 @@ div.shortTool.tools {
     display: none;
     position: absolute;
     background: #fff;
-    z-index: 10000;
+    z-index: 1;
     top: 48px;
     left: 95px;
     box-shadow:0px 2px 20px 3px rgba(0,0,0,0.2);
 }
-
-p,h1,h2,h3,h4,h5,h6{margin: 0px}
-.k-caret {
-  display: inline-block;
-  width: 0;
-  height: 0;
-  margin-left: 2px;
-  vertical-align: middle;
-  border-top: 4px dashed;
-  border-top: 4px solid ;
-  border-right: 4px solid transparent;
-  border-left: 4px solid transparent;
-}
-
-#text-color{display: block;}
-#bg-color{display: none}
-
-
-#text{width: 49.1%;
-    text-align:center;
-    font-size:13px;
-    display: inline-block;
-    background-color: #008ae1;
-   
-}
-#background{width: 49.1%;
-    text-align:center;
-    font-size:13px;
-    display: inline-block;
-    background-color: white;
-  
-}
-#text:hover{     }
-#background:hover{   }

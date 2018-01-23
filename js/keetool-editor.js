@@ -1,6 +1,6 @@
 function init(id){
     content = `
-<div style='margin: 100px 150px 150px 350px'>
+<div style='margin: 100px 150px 150px 350px' onclick='buttonBackground()'>
 
         <div id="heading-editor" class="row">
             <div id="editor-doc" style="overflow:auto;" contenteditable>
@@ -9,21 +9,21 @@ function init(id){
             <div style="position:absolute;display:none;" id="demo-btn">
                    
 
-                    <div class="tool-icon" title="Font Family">
+                     <div class="tool-icon" title="Font Family">
                         <div        >
-                            <button class="tool-icon" type="button" id='button-font-family' >
+                            <button class="tool-icon" type="button" id='button-font-family' onfocusout='buttonBackground()' >
                                 <i class="fa fa-font"><span class="k-caret"></span></i>
                             </button>
                            
                             <div class="dropdown-font-family">
                                 <div onclick="formatDoc('fontname','Arial')">
                                     <a href="#" style="font-family: Arial">Arial</a>
-                                </div>
+                                </div>  
                                 <div onclick="formatDoc('fontname','Arial Black')">
                                     <a href="#" style="font-family: Georgia">Arial Black</a>
-                                </div>
+                                </div> 
                                 <div onclick="formatDoc('fontname','Courier New')">
-                                    <a href="#" style="font-family: Impact">Courier New</a>
+                                    <a href="#" style="font-family: Courier New">Courier New</a>
                                 </div>
                                 <div onclick="formatDoc('fontname','Time New Roman')">
                                     <a href="#" style="font-family: Time New Roman">Time New Roman</a>
@@ -66,12 +66,12 @@ function init(id){
                                     </a>
                                 </div>
                                 <div onclick="formatDoc('h5')">
-                                    <a href="" title="Heading 5">
+                                    <a href="#" title="Heading 5">
                                         <h5>Heading 5</h5>
                                     </a>
                                 </div>
                                 <div onclick="formatDoc('h6')">
-                                    <a href="" title="Heading 6">
+                                    <a href="#" title="Heading 6">
                                         <h6>Heading 6</h6>
                                     </a>
                                 </div>
@@ -80,11 +80,11 @@ function init(id){
                     </div>
         
                     <div class="tool-icon" title="Color">
-                        <button style="outline:none;" class="tool-icon" id="color-btn" type="button" onclick='buttonColor()'><i class="fa fa-tint"><span class="k-caret"></span></i></button>
+                        <button style="outline:none;" class="tool-icon" id="button-color" type="button" onclick='buttonColor()'><i class="fa fa-tint"><span class="k-caret"></span></i></button>
                         <div class=" dropdown-color">
-                            <div  style='width:228px'>
-                                <button style="border:none;background:#fff;padding:5px 10px;" id='text' onclick='textColor()'> <a><b>Text Color</b></a></button>
-                                 <button style="border:none;background:#fff;padding:5px 10px;" id='background'  onclick='backgroundColor()' ><a><b>Background</b></a></button>
+                            <div  style='width:234px'>
+                                <button id='text' onclick='textColor()'> <a><b>Text Color</b></a></button>
+                                 <button id='background'  onclick='backgroundColor()' ><a><b>Background</b></a></button>
                             </div>
                 
                         
@@ -138,11 +138,11 @@ function init(id){
                                         <td><a href="#" onclick="formatDoc('forecolor','palegreen')" class='color-item' style="background-color: palegreen" title="palegreen"></a></td>
                                         <td><a href="#" onclick="formatDoc('forecolor','paleturquoise')" class='color-item' style="background-color: paleturquoise" title="paleturquoise"></a></td>
                                         <td><a href="#" onclick="formatDoc('forecolor','powderblue')" class='color-item' style="background-color: powderblue" title="powderblue"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','white')" class='color-item' style="background-color: white" title="white"></a></td>
+                                        <td><a href="#" onclick="formatDoc('forecolor','white')" class='color-item' style="background-color: #f4f8ff" title="white"></a></td>
                                         </tr>
                                     </table>
                                 </div>
-                                <div id="bg-color" style="display:none" class="    ">
+                                <div id="bg-color" class="    ">
                                         <table>
                                                 <tr>
                                                 <td><a href="#" onclick="formatDoc('backcolor','indigo')" class='color-item' style="background-color: indigo " title="indigo"></a></td>
@@ -192,7 +192,7 @@ function init(id){
                                                 <td><a href="#" onclick="formatDoc('backcolor','palegreen')" class='color-item' style="background-color: palegreen" title="palegreen"></a></td>
                                                 <td><a href="#" onclick="formatDoc('backcolor','paleturquoise')" class='color-item' style="background-color: paleturquoise" title="paleturquoise"></a></td>
                                                 <td><a href="#" onclick="formatDoc('backcolor','powderblue')" class='color-item' style="background-color: powderblue" title="powderblue"></a></td>
-                                                <td><a href="#" onclick="formatDoc('backcolor','white')" class='color-item' style="background-color: white" title="white"></a></td>
+                                                <td><a href="#" onclick="formatDoc('backcolor','white')" class='color-item' style="background-color: #f4f8ff" title="white"></a></td>
                                                 </tr>
                                         </table>
                                 </div>
@@ -239,33 +239,33 @@ function init(id){
                                 <div class="dropdown-align" >
                                     <div onclick="formatDoc('justifyLeft')">
                                         <a href="#" title="Align left">
-                                            <i class="fa fa-align-left" aria-hidden="true"></i>
+                                            <i  style='color:black' class="fa fa-align-left"  aria-hidden="true"></i>
                                         </a>
                                     </div>
                                     <div onclick="formatDoc('justifyCenter')">
                                         <a href="#" title="Align center">
-                                            <i class="fa fa-align-center" aria-hidden="true"></i>
+                                            <i style='color:black' class="fa fa-align-center" aria-hidden="true"></i>
                                         </a>
                                     </div>
                                     <div onclick="formatDoc('justifyRight')">
                                         <a href="#" title="Align right">
-                                            <i class="fa fa-align-right" aria-hidden="true"></i>
+                                            <i style='color:black' class="fa fa-align-right" aria-hidden="true"></i>
                                         </a>
                                     </div>
                                     <div onclick="formatDoc('justifyFull')">
                                         <a href="#" title="Align justify">
-                                            <i class="fa fa-align-justify" aria-hidden="true"></i>
+                                            <i style='color:black' class="fa fa-align-justify" aria-hidden="true"></i>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                    
-                    <div class="tool-icon" title="Show More" id="show" onclick="showmore()">
+                    <button class="tool-icon" title="Show More" id="show" onclick="showmore()">
                         
                             <i class="fa fa-plus" aria-hidden="true"></i>
                         
-                    </div>
+                    </button>
                    
                     <div id="sub-tools">
                         
@@ -301,7 +301,7 @@ function init(id){
             <div class="tools shortTool" >
              
               <button onclick="insertSpace" id="myBtnImg" type="button" class="editor-button" style="display: flex; outline: none;">
-                <i class="fa fa-address-book" aria-hidden="true"></i>
+                <i class="fa fa-camera"  aria-hidden="true"></i>
     
               </button>
               
@@ -309,7 +309,7 @@ function init(id){
             <div class="tools shortTool">
          
               <button  id="myBtnVid"  type="button"  class="editor-button" style="display: flex; outline: none; ">
-                    <i class="fa fa-camera" aria-hidden="true"></i>
+                    <i class="fa fa-video-camera" aria-hidden="true"></i>
 
     
               </button>
@@ -346,9 +346,8 @@ function init(id){
         </div>
         <div class="k-modal-footer">
             <div style="display:flex;flex-direction:row-reverse">
-            <button onclick='insertImg()' class="k-modal-button k-button-green">Ok</button>
-            <input id="myFile" type="file" style="display:none" onchange="uploadImg()"/>
-            <button onclick="document.getElementById('myFile').click()" class="k-modal-button k-button-gray">Upload</button>
+                <button onclick='insertImg()' class="k-modal-button k-button-green">Ok</button>
+                <button class="k-modal-button k-button-gray">Upload</button>
             </div>
         </div>
     </div>
@@ -751,50 +750,6 @@ $(window).on('load', function () {
 
 
 
-$('#button-font-family').click(function () {
-    $('.dropdown-font-family').toggle();
-        $('.dropdown-paragraph-format').hide();
-        $('.dropdown-color').hide();
-        $('.dropdown-font-size').hide();
-        $('.dropdown-align').hide();
-})
-
-$('#button-paragraph-format').click(function () {
-    $('.dropdown-paragraph-format').toggle();
-        $('.dropdown-font-family').hide();
-        $('.dropdown-color').hide();
-        $('.dropdown-font-size').hide();
-        $('.dropdown-align').hide();
-
-})
-
-$('#color-btn').click(function () {
-    $('.dropdown-color').toggle();
-        $('.dropdown-font-family').hide();
-        $('.dropdown-paragraph-format').hide();
-        $('.dropdown-font-size').hide();
-        $('.dropdown-align').hide();
-})
-
-
-$('#button-font-size').click(function () {
-    $('.dropdown-font-size').toggle();
-        $('.dropdown-font-family').hide();
-        $('.dropdown-paragraph-format').hide();
-        $('.dropdown-color').hide();
-        $('.dropdown-align').hide();
-})
-
-$('#button-align').click(function () {
-    $('.dropdown-align').toggle();
-        $('.dropdown-font-family').hide();
-        $('.dropdown-paragraph-format').hide();
-        $('.dropdown-color').hide();
-        $('.dropdown-font-size').hide();
-})
-
-
-
 
 
 
@@ -923,16 +878,16 @@ $(document).keyup(function(e) {
 window.backgroundColor = function(){
     $('#text-color').css('display','none');
     $('#bg-color').slideDown();
-    // $('#background').css('background-color','#008ae1')
-    $('#text').css('background-color','transparent');
+     $('#background').css({'border':'none','border-top':'0.7px solid gray','border-right':'0.7px solid gray','border-left':'0.7px solid gray','color':'black'});
+    $('#text').css({'border':'none','border-bottom':'0.7px solid gray','color':'gray'});
 }
 
 
 window.textColor = function(){
     $('#text-color').slideDown();
     $('#bg-color').css('display','none');
-    $('#background').css('background-color','transparent')
-    // $('#text').css('background-color','#008ae1');
+    $('#text').css({'border':'none','border-top':'0.7px solid gray','border-right':'0.7px solid gray','border-left':'0.7px solid gray','color':'black'});
+    $('#background').css({'border':'none','border-bottom':'0.7px solid gray','color':'gray'});
 }
 
 
@@ -940,10 +895,61 @@ window.textColor = function(){
 window.buttonColor = function(){
    $('#font-family').css('display','none');   
     $('.paragraph-format').css('display','none');
-    $('#font-size').css('display','none');
-    $('#align-paragraph').css('display','none');
 
  }
+
+
+$('#button-font-family').click(function () { 
+    $('.dropdown-font-family').toggle();
+        $('.dropdown-paragraph-format').hide();
+        $('.dropdown-color').hide();
+        $('.dropdown-font-size').hide();
+        $('.dropdown-align').hide();
+})
+
+$('#button-paragraph-format').click(function () {
+    $('.dropdown-paragraph-format').toggle();
+        $('.dropdown-font-family').hide();
+        $('.dropdown-color').hide();
+        $('.dropdown-font-size').hide();
+        $('.dropdown-align').hide();
+
+})
+
+$('#button-color').click(function () {
+    $('.dropdown-color').toggle();
+        $('.dropdown-font-family').hide();
+        $('.dropdown-paragraph-format').hide();
+        $('.dropdown-font-size').hide();
+        $('.dropdown-align').hide();
+})
+
+
+$('#button-font-size').click(function () {
+    $('.dropdown-font-size').toggle();
+        $('.dropdown-font-family').hide();
+        $('.dropdown-paragraph-format').hide();
+        $('.dropdown-color').hide();
+        $('.dropdown-align').hide();
+})
+
+$('#button-align').click(function () {
+    $('.dropdown-align').toggle();
+        $('.dropdown-font-family').hide();
+        $('.dropdown-paragraph-format').hide();
+        $('.dropdown-color').hide();
+        $('.dropdown-font-size').hide();
+})
+
+window.buttonBackground = function (){
+        if($('.dropdown-font-family').css('display')=='block'){$('#button-font-family').css('background-color','#dce0e8')}else{$('#button-font-family').css('background-color','transparent')}
+        if($('.dropdown-paragraph-format').css('display')=='block'){$('#button-paragraph-format').css('background-color','#dce0e8')}else{$('#button-paragraph-format').css('background-color','transparent')}
+        if($('.dropdown-color').css('display')=='block'){$('#button-color').css('background-color','#dce0e8')}else{$('#button-color').css('background-color','transparent')}
+        if($('.dropdown-font-size').css('display')=='block'){$('#button-font-size').css('background-color','#dce0e8')}else{$('#button-font-size').css('background-color','transparent')}
+        if($('.dropdown-align').css('display')=='block'){$('#button-align').css('background-color','#dce0e8')}else{$('#button-align').css('background-color','transparent')}
+
+
+}
 
 
   
