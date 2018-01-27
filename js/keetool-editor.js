@@ -399,8 +399,32 @@ var editor = document.getElementById(id);
 editor.innerHTML = content;
 
 
-//Insert function
-    
+
+//Set cursor at the end
+function setEndOfContenteditable(contentEditableElement)
+{
+    var range,selection;
+    if(document.createRange)//Firefox, Chrome, Opera, Safari, IE 9+
+    {
+        range = document.createRange();//Create a range (a range is a like the selection but invisible)
+        range.selectNodeContents(contentEditableElement);//Select the entire contents of the element with the range
+        range.collapse(false);//collapse the range to the end point. false means collapse to end rather than the start
+        selection = window.getSelection();//get the selection object (allows you to change selection)
+        selection.removeAllRanges();//remove any selections already made
+        selection.addRange(range);//make the range you have just created the visible selection
+    }
+    else if(document.selection)//IE 8 and lower
+    { 
+        range = document.body.createTextRange();//Create a range (a range is a like the selection but invisible)
+        range.moveToElementText(contentEditableElement);//Select the entire contents of the element with the range
+        range.collapse(false);//collapse the range to the end point. false means collapse to end rather than the start
+        range.select();//Select the range (make it the visible selection
+    }
+}
+
+
+
+//Insert function  
 window.formatDoc = function(sCmd, sValue) {
     // console.log("1");
     if (sCmd == 'h1' || sCmd == 'h2' || sCmd == 'h3' || sCmd == 'h4' || sCmd == 'h5' || sCmd == 'h6' || sCmd ==
@@ -452,7 +476,8 @@ window.formatDoc = function(sCmd, sValue) {
 var idImage = 0;
 
 window.insertImg = function(img) {
-    $('#editor-doc').focus();
+    elem = document.getElementById('editor-doc');//This is the element that you want to move the caret to the end of
+    setEndOfContenteditable(elem);
     var sImg = document.getElementById('data-img').value;
     // sImg = prompt('Link here');
     var widthScreen = document.getElementById('editor-doc').offsetWidth;
@@ -507,7 +532,8 @@ function changeSize(id) {
 //Insert space
 function insertSpace(){
     // console.log(1);
-    $('#editor-doc').focus();
+    elem = document.getElementById('editor-doc');//This is the element that you want to move the caret to the end of
+    setEndOfContenteditable(elem);
     var value = "a";
     document.execCommand('insertHTML', false, value);
 }
@@ -516,7 +542,8 @@ function insertSpace(){
 
 //Insert Video
 window.insertVideo = function() {
-    $('#editor-doc').focus();
+    elem = document.getElementById('editor-doc');//This is the element that you want to move the caret to the end of
+    setEndOfContenteditable(elem);
     sVideo = document.getElementById('data-video').value;
     // sVideo = prompt('Link here');
     var check = sVideo.substr(1, 6);
@@ -757,7 +784,8 @@ window.showoff = function(event) {
 //     $('#editor-doc').focus();
 // });
 $(window).on('load', function () {
-    $('#editor-doc').focus();
+    elem = document.getElementById('editor-doc');//This is the element that you want to move the caret to the end of
+    setEndOfContenteditable(elem);
 });
 
 
@@ -1013,7 +1041,8 @@ window.uploadImg = function() {
                 // console.log("success");
                 // console.log(data);
                 var i = document.getElementById("editor-doc");
-                $('#editor-doc').focus();
+                elem = document.getElementById('editor-doc');//This is the element that you want to move the caret to the end of
+                setEndOfContenteditable(elem);
                 var url = "<div><img src=\"" + data + "\" width=100% height=auto></div>";
                 // console.log(url);
                 // console.log(data);
@@ -1027,3 +1056,4 @@ window.uploadImg = function() {
 
 }
 }
+
