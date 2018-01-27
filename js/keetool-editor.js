@@ -409,7 +409,7 @@ window.formatDoc = function(sCmd, sValue) {
 
     } else if (sCmd == 'createLink' || sCmd == 'insertimage') {
         var url = prompt('Enter the link here: ', 'http:\/\/');
-        console.log(url);
+        // console.log(url);
         if (sCmd === 'insertimagea') {
             insertImg(url);
         } else {
@@ -437,7 +437,7 @@ window.formatDoc = function(sCmd, sValue) {
             $('.dropdown-font-size').css('display','none');
             $('.dropdown-align').css('display', 'none');
 
-            console.log(1);
+            // console.log(1);
             document.execCommand(sCmd, false, sValue);
             // console.log('hello22');
             // console.log(document.queryCommandSupported(sCmd));
@@ -458,8 +458,8 @@ window.insertImg = function(img) {
     var widthScreen = document.getElementById('editor-doc').offsetWidth;
     var widthImg;
     getMeta(sImg, widthImg, widthScreen);
-    console.log(widthImg);
-    console.log(widthScreen);
+    // console.log(widthImg);
+    // console.log(widthScreen);
 }
 
 function getMeta(url, widthImg, widthScreen) {
@@ -468,7 +468,7 @@ function getMeta(url, widthImg, widthScreen) {
         // alert(this.width + ' ' + this.height);
             url = "<div><img src=\"" + url + "\" width=100% height=auto></div>";
             idImage++;
-            console.log(url);
+            // console.log(url);
             document.execCommand("insertHTML", false, url);
     };
     img.src = url;
@@ -506,7 +506,7 @@ function changeSize(id) {
 
 //Insert space
 function insertSpace(){
-    console.log(1);
+    // console.log(1);
     $('#editor-doc').focus();
     var value = "a";
     document.execCommand('insertHTML', false, value);
@@ -526,14 +526,26 @@ window.insertVideo = function() {
         document.execCommand("insertHTML", false, sVideo);
     } else {
         var idVideo = sVideo.substr(32, sVideo.length - 1);
-        
         stringVideo = "https://www.youtube.com/embed/" + idVideo;
         sVideo = "<div class=\"embed-container\"><iframe src=\"" + stringVideo + "\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\" __idm_id__=\"189403137\"></iframe></div>"
-        console.log(sVideo);
+        // console.log(sVideo);
         document.execCommand("insertHTML", false, sVideo);
 
     }
 }
+
+//Remove parent div of img
+$(document).ready(function () {
+    $(window).keyup(function (e) { 
+        // console.log(1);
+        var data = $('.embed-container').html();
+        // console.log(data);
+        if(data === '<br>'){
+            console.log(2);
+            $('.embed-container').remove();
+        }
+    });
+});
 
 // https://www.youtube.com/watch?v=ew1TpesH-jw
 // <iframe width="560" height="315" src="https://www.youtube.com/embed/ew1TpesH-jw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -592,15 +604,15 @@ $(document).ready(function () {
 $(document).ready(function () {
     function getSelected() {
         if (window.getSelection) {
-            console.log('selected');
+            // console.log('selected');
             return window.getSelection();
         } else if (document.getSelection) {
-            console.log('selected');
+            // console.log('selected');
             return document.getSelection();
         } else {
             var selection = document.selection && document.selection.createRange();
             if (selection.text) {
-                console.log('selected');
+                // console.log('selected');
                 return selection.text;
             }
             return false;
@@ -680,7 +692,7 @@ function selectingText() {
 
 $('body').mousedown(function (e) {
     if (e.which == 1) {
-        console.log(e.pageX + " / " + e.pageY);
+        // console.log(e.pageX + " / " + e.pageY);
     }
 });
 
@@ -722,7 +734,7 @@ window.showmore = function(event) {
     $('.dropdown-color').css('display', 'none');
     $('.dropdown-font-size').css('display', 'none');
     $('.dropdown-align').css('display', 'none');
-    console.log(1);
+    // console.log(1);
     $("#sub-tools").show();
     $("#show").hide();
     $("#talign").show();
@@ -735,7 +747,7 @@ window.showoff = function(event) {
     $('.dropdown-color').css('display', 'none');
     $('.dropdown-font-size').css('display', 'none');
     $('.dropdown-align').css('display', 'none');
-    console.log(2);
+    // console.log(2);
     $("#sub-tools").hide();
     $("#show").show();
     $("#talign").hide();
@@ -866,7 +878,7 @@ $(document).keyup(function(e) {
 
     $('.k-button-green').click(function (e) { 
         e.preventDefault();
-        console.log(2);
+        // console.log(2);
         modalVid.style.display = "none";
         modalImg.style.display = "none";
         modalLnk.style.display = "none";
@@ -957,7 +969,7 @@ window.buttonBackground = function (){
 //insert <p></p> if content null
 var editable = document.getElementById('editor-doc');
 editable.addEventListener('input', function() {
-    console.log(1);
+    // console.log(1);
     var data = document.getElementById('editor-doc').innerHTML;
     if(data == ""){
         document.getElementById('editor-doc').innerHTML = "<p><br/></p>"
@@ -968,9 +980,9 @@ editable.addEventListener('input', function() {
 window.uploadImg = function() {
     var formData = new FormData();
     var file = document.getElementById('myFile').files[0];
-    console.log("x", file);
+    // console.log("x", file);
     formData.append('image', file);
-        console.log(formData);
+        // console.log(formData);
         $.ajax({
             type: 'POST',
             url: "upload.php",
@@ -998,18 +1010,18 @@ window.uploadImg = function() {
                 modalVid.style.display = "none";
                 modalImg.style.display = "none";
                 modalLnk.style.display = "none";
-                console.log("success");
+                // console.log("success");
                 // console.log(data);
                 var i = document.getElementById("editor-doc");
                 $('#editor-doc').focus();
                 var url = "<div><img src=\"" + data + "\" width=100% height=auto></div>";
-                console.log(url);
-                console.log(data);
+                // console.log(url);
+                // console.log(data);
                 document.execCommand('insertHTML',false,url.trim());
             },
             error: function (data) {
-                console.log("error");
-                console.log(data);
+                // console.log("error");
+                // console.log(data);
             }
         });
 
