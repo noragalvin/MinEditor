@@ -616,7 +616,7 @@ var rel1 = document.createRange();
 rel1.selectNode(document.getElementById('cal1'));
 var rel2 = document.createRange();
 rel2.selectNode(document.getElementById('cal2'));
-window.addEventListener('mouseup', function (event) {
+document.getElementById('editor-doc').addEventListener('mouseup', function (event) {
     event.stopPropagation();
     if (!sel.isCollapsed) {
         //debugger;
