@@ -3,21 +3,23 @@
     // print_r($_POST);
         if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-            if (!file_exists('upload')) {
-                mkdir('upload', 0777, true);
+            if (!is_dir('uploads')) {
+                mkdir('uploads', 0777, true);
+                // echo "create folder";
                 // Upload file
                 $temp = explode(".", $_FILES["image"]["name"]);
                 $newfilename = round(microtime(true)) . '.' . end($temp);
-                move_uploaded_file($_FILES['image']['tmp_name'], './upload/' . $newfilename);
+                move_uploaded_file($_FILES['image']['tmp_name'], './uploads/' . $newfilename);
                 // print_r($_SERVER);
-                echo "upload/" .  $newfilename;
+                echo "uploads/" .  $newfilename;
             }else{
                 // Upload file
+                // echo "folder created";
                 $temp = explode(".", $_FILES["image"]["name"]);
                 $newfilename = round(microtime(true)) . '.' . end($temp);
-                move_uploaded_file($_FILES['image']['tmp_name'], './upload/' . $newfilename);
+                move_uploaded_file($_FILES['image']['tmp_name'], './uploads/' . $newfilename);
                 // print_r($_SERVER);
-                echo "upload/" .  $newfilename;
+                echo "uploads/" .  $newfilename;
             }
         }
 ?>

@@ -1,7 +1,7 @@
 function init(id){
     content = `
 <div style='margin: 0px 0px 0px 10px' onclick='buttonBackground()'>
-
+    
         <div id="heading-editor" class="row">
             <div id="editor-doc" style="overflow:auto;min-height:100px;" contenteditable>
                    <p style="fontsize:20px">Keetool</p>
@@ -346,9 +346,15 @@ function init(id){
             </div>
         </div>
         <div class="k-modal-footer">
+            <div style="display:none;" id="percent" class="form-group">
+                <div style="height:10px;width:100%;margin:0 auto;" class="progress">
+                    <div class="progress-bar progress-bar-success myprogress" role="progressbar" style="width:0%;font-size:8px;line-height:10px;">0%</div>
+                </div>
+            </div>
             <div style="display:flex;flex-direction:row-reverse">
+                <input onchange="uploadImg()" type="file" id="myFile" name="myFile" style="display:none">
                 <button onclick='insertImg()' class="k-modal-button k-button-green">Ok</button>
-                <button class="k-modal-button k-button-gray">Upload</button>
+                <button onclick="document.getElementById('myFile').click()" class="k-modal-button k-button-gray">Upload</button>
             </div>
         </div>
     </div>
@@ -1009,9 +1015,9 @@ editable.addEventListener('input', function() {
 window.uploadImg = function() {
     var formData = new FormData();
     var file = document.getElementById('myFile').files[0];
-    // console.log("x", file);
+    console.log("x", file);
     formData.append('image', file);
-        // console.log(formData);
+    console.log(formData);
         $.ajax({
             type: 'POST',
             url: "upload.php",
@@ -1039,7 +1045,7 @@ window.uploadImg = function() {
                 modalVid.style.display = "none";
                 modalImg.style.display = "none";
                 modalLnk.style.display = "none";
-                // console.log("success");
+                console.log("success");
                 // console.log(data);
                 var i = document.getElementById("editor-doc");
                 elem = document.getElementById('editor-doc');//This is the element that you want to move the caret to the end of
@@ -1050,8 +1056,8 @@ window.uploadImg = function() {
                 document.execCommand('insertHTML',false,url.trim());
             },
             error: function (data) {
-                // console.log("error");
-                // console.log(data);
+                console.log("error");
+                console.log(data);
             }
         });
 

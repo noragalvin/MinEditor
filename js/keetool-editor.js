@@ -346,8 +346,9 @@ function init(id){
         </div>
         <div class="k-modal-footer">
             <div style="display:flex;flex-direction:row-reverse">
+                <input id="myFile" name="myFile" style="" type="file">
                 <button onclick='insertImg()' class="k-modal-button k-button-green">Ok</button>
-                <button class="k-modal-button k-button-gray">Upload</button>
+                <button onclick="document.getElementById("myFile").click()" class="k-modal-button k-button-gray">Upload</button>
             </div>
         </div>
     </div>
