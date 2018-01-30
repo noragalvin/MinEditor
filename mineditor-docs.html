@@ -99,15 +99,18 @@
     }
 
     .re {
-        color: #EE7C6B;
+        color: #ef4665;
     }
 
-    .bl {
-        color: #94AAD6;
+    .yl {
+        color: #e4da73;
     }
 
     .gr {
-        color: #83C75D;
+        color: #7ed92b;
+    }
+    .bl {
+        color: #67d9ef;
     }
     </style>
 </head>
@@ -164,7 +167,7 @@
                 </div>
             </div>
             <div>
-                <h4 style="font-weight: bold;font-size: 35px">USE MINEDITTOR</h4>
+                <h4 style="font-weight: bold;font-size: 35px">USE MINEDITOR</h4>
                 <br>
                 <br>
               	<p style="font-size: 28px;"> Step 1: Include the MINEDITOR</p> 
@@ -174,14 +177,18 @@
             <div>
             	<p>Include this line of code in the <code style ="background-color: #171719;color: #aaa" ><span style="color:yellow">&lt;head&gt;</span></code> of your HTML page:</p>
 				<br>
-                <!--<pre style="background-color: #171719;color: #aaa"><code><br> &emsp;1.&emsp;<span style="color: yellow">&lt;div</span> <span style="color:#83C75D ">id</span>="<span style="color: #EE7C6B">mineditor editorpro</span>"<span style="color: yellow">&gt;</span><br> &emsp;2.&emsp;&emsp;&emsp;<span style="color: yellow">&lt;p&gt;</span>Click on the image below to see the custom image button.<span style="color: yellow">&lt;/p&gt;</span><br> &emsp;3.&emsp;&emsp;&emsp;<span style="color: yellow">&lt;img</span> <span style="color: #83C75D">src</span>=<span style="color: #EE7C6B">"/assets/editor/docs/phto4.jpg"</span> <span style="color: #83C75D"> class</span>=<span style="color: #EE7C6B">"fe-fil"</span> <span style="color: #83C75D"> alt</span>=<span style="color: #EE7C6B">"book"</span> <span style="color: #83C75D"> width</span>=<span style="color: #EE7C6B">"150px"</span><span style="color: yellow">/&gt;</span><br> &emsp;4.&emsp;<span style="color: yellow">&lt;/div&gt;</span>
-            </code></pre>-->
-            <img src="anh8.png">
+                <pre style="background-color: #171719;color: #aaa"><code>
+    &lt<span class="re">link </span><span class="gr">rel</span>=<span class="yl">"stylesheet" </span> <span class="gr">href</span>=<span class="yl">"https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"</span>&gt
+
+    &lt<span class="re">script </span><span class="gr">src</span>=<span class="yl">"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"</span>&gt&lt/<span class="re">script</span>&gt
+                </code></pre>
             <br>
             <br>
             <p>Include this line of code under the <code style ="background-color: #171719;color: #aaa" ><span style="color:yellow">&lt;body&gt;</span></code> of your HTML page:</p>
             <br>
-            <img src="anh7.png">
+            <pre style="background-color: #171719;color: #aaa"><code>
+    &lt<span class="re">script</span> <span class="gr">type</span>=<span class="yl">"text/javascript"</span> <span class="gr">src</span>=<span class="yl">examples/js/keetool-editor.js</span>&gt&lt/<span class="re">script</span>&gt
+            </code></pre>
             </div>
             <br>
             <div>
@@ -191,42 +198,66 @@
             <br>
             <br>
             <div>
-               <!--<pre style="background-color: #171719;color: #aaa"><code>
-   1. <span class="bl">&lt;!-- Include the plugin js file --&gt;</span>
-   2. <span style="color: yellow">&lt;script</span> src=<span class="re">"../js/plugins/image.min.js"</span><span style="color: yellow">&gt;&lt;/script&gt;</span>
-   3.
-   4. <span style="color: yellow">&lt;script&gt;</span>
-   5.   $(<span style="color: yellow">function</span>(){
-   6.     $.<span class="gr">Mineditor.DefineIcon</span>(<span class="re">"imageInto"</span>),{NAME: <span class="re">"into"</span>});
-   7.     $.<span class="gr">Mineditor.RegisterConmand</span>(<span class="re">"ImageInfor"</span>,{
-   8.       title: <span class="re">'Info'</span>,
-   9.       focus: <span style="color: yellow">false</span>,
-  10.       undo: <span style="color: yellow">false</span>,
-  11.       refreshAfterCallback: <span style="color: yellow">false</span>,
-  12.       callback: <span style="color: yellow">function</span>(){
-  13.         <span style="color: yellow">var</span> $img = <span style="color: yellow">this</span>.image.<span style="color: yellow">get</span>();
-  14.       alert($img.attr(<span class="re">'src'</span>));
-  15.       }
-  16.     });
-  17.
-  18.     $(<span class="re">"div#froala-editor"</span>).froalaEditor({
-  19.       <span class="bl">// Set image buttons, icluding the name</span>
-  20.       <span class="bl">// of the buttons defined in customImageButtons</span>
-  21.       imageEditorButtons: [<span class="re">'imageDisplay'</span>, <span class="re">'imageAlign'</span>, <span class="re">'imageInfo'</span>, <span class="re">'imageRemove'</span>]
-  22.     })
-  23.   });
-  24. <span style="color: yellow">&lt;/script&gt;</span>
-    </code></pre>-->
 			<p>	With the script included, initialize MINEDITOR on any element (or elements) in your web page. </p>
 			<br>
 			<p> In this example, let's create <code style ="background-color: #171719;color: #aaa" ><span style="color:yellow">&lt;div <span style="color:red"> id = "mineditor" </span>&gt;</span></code> with a MINEDITOR instance by passing the  <code style ="background-color: #171719;color: #aaa" ><span style="color:yellow">load</span></code> and <code style ="background-color: #171719;color: #aaa" ><span style="color:yellow"> init('mini-editor') </span></code> in Function <code style ="background-color: #171719;color: #aaa" ><span style="color:yellow">window.addEventListener()</span></code> </p> 
-			<img src="anh9.png">
+
+
+            <pre style="background-color: #171719;color: #aaa"><code>
+   1. &lt!<span class="re">DOCTYPE</span> html&gt
+   2. &lt<span class="re">html</span> <span class="gr">lang</span>=<span class="yl">"en"</span>&gt
+   3.
+   4. &lt<span class="re">head</span>&gt
+   5.       &lt<span class="re">meta</span> <span class="gr">charset</span>=<span class="yl">stylesheet"</span>
+   6.     
+   7.       &lt<span class="re">link </span><span class="gr">rel</span>=<span class="yl">"stylesheet" </span> <span class="gr">href</span>=<span class="yl">"https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"</span>&gt
+   8.       
+   9.       &lt<span class="re">script </span><span class="gr">src</span>=<span class="yl">"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"</span>&gt&lt/<span class="re">script</span>&gt
+  10.       
+  11. &lt/<span class="re">head</span>&gt
+  12.       
+  13. &lt<span class="re">body</span>&gt
+  14.       &lt<span class="re">div</span> <span class="gr">id</span>=<span class="yl">"mini-editor</span>&gt
+  15.       
+  16.       &lt/<span class="re">div</span>&gt
+  17. &lt/<span class="re">body</span>&gt
+  18. 
+  19. &lt<span class="re">script</span> <span class="gr">type</span>=<span class="yl">"text/javascript"</span> <span class="gr">src</span>=<span class="yl">examples/js/keetool-editor.js</span>&gt&lt/<span class="re">script</span>&gt
+  20. &lt<span class="re">script</span>&gt<span class="bl"><i>window</i>.addEventListener</span>(<span class="yl">'load'</span>,<span class="bl">init</span>(<span class="yl">'mini-editor'</span>));&lt/<span class="re">script</span>&gt
+  21. &lt/<span class="re">html</span>&gt
+    </code></pre>
             </div>
             <div>
             	<p style="font-size: 28px;"> Multiple Editors</p>
-            	<p> You create <code style ="background-color: #171719;color: #aaa" ><span style="color:yellow">&lt;div <span style="color:red"> id = "name-of-editor" </span>&gt;</span></code> the same stepts when you create one editor but they have diffrent <code style ="background-color: #171719;color: #aaa" > <span style="color:red"> id </span></code>
+            	<p> You create <code style ="background-color: #171719;color: #aaa" ><span style="color:yellow">&lt;div <span style="color:red"> id = "name-of-editor" </span>&gt;</span></code> the same steps when you create one editor but they have diffrent <code style ="background-color: #171719;color: #aaa" > <span style="color:red"> id </span></code>
             	<p> Call function <code style ="background-color: #171719;color: #aaa" ><span style="color:yellow">window.addEventListener()</span></code> for <code style ="background-color: #171719;color: #aaa" ><span style="color:yellow">&lt;div <span style="color:red"> id = "name-of-editor" </span>&gt;</span></code> </p>
-            	<img src="anh10.png">
+            	<pre style="background-color: #171719;color: #aaa"><code>
+   1. &lt!<span class="re">DOCTYPE</span> html&gt
+   2. &lt<span class="re">html</span> <span class="gr">lang</span>=<span class="yl">"en"</span>&gt
+   3.
+   4. &lt<span class="re">head</span>&gt
+   5.       &lt<span class="re">meta</span> <span class="gr">charset</span>=<span class="yl">stylesheet"</span>
+   6.     
+   7.       &lt<span class="re">link </span><span class="gr">rel</span>=<span class="yl">"stylesheet" </span> <span class="gr">href</span>=<span class="yl">"https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"</span>&gt
+   8.       
+   9.       &lt<span class="re">script </span><span class="gr">src</span>=<span class="yl">"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"</span>&gt&lt/<span class="re">script</span>&gt
+  10.       
+  11. &lt/<span class="re">head</span>&gt
+  12.       
+  13. &lt<span class="re">body</span>&gt
+  14.       &lt<span class="re">div</span> <span class="gr">id</span>=<span class="yl">"first-mini-editor</span>&gt
+  15.       
+  16.       &lt/<span class="re">div</span>&gt
+  17.       &lt<span class="re">div</span> <span class="gr">id</span>=<span class="yl">"second-mini-editor</span>&gt
+  18.       
+  19.       &lt/<span class="re">div</span>&gt
+  20. &lt/<span class="re">body</span>&gt
+  21. 
+  22. &lt<span class="re">script</span> <span class="gr">type</span>=<span class="yl">"text/javascript"</span> <span class="gr">src</span>=<span class="yl">examples/js/keetool-editor.js</span>&gt&lt/<span class="re">script</span>&gt
+  23. &lt<span class="re">script</span>&gt<span class="bl"><i>window</i>.addEventListener</span>(<span class="yl">'load'</span>,<span class="bl">init</span>(<span class="yl">'first-mini-editor'</span>));&lt/<span class="re">script</span>&gt
+  24. &lt<span class="re">script</span>&gt<span class="bl"><i>window</i>.addEventListener</span>(<span class="yl">'load'</span>,<span class="bl">init</span>(<span class="yl">'second-mini-editor'</span>));&lt/<span class="re">script</span>&gt
+  25. &lt/<span class="re">html</span>&gt
+    </code></pre>
             </div>
         </div>
     </div>
