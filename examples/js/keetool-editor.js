@@ -1,5 +1,507 @@
-function init(id){
+function init(id) {
     content = `
+    <style>
+    *{
+        margin: 0 !important;
+    }
+    .k-caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px dashed;
+    border-top: 4px solid ;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    }
+
+    #text-color{display: block;}
+    #bg-color{display: none}
+
+
+    #text{width: 116px;
+    height: 40px; border-bottom: none;
+    border-top: 0.7px solid gray;
+    border-left: 0.7px solid gray;
+    border-right: 0.7px solid gray;
+        text-align:center;
+        font-size:13px;
+        display: inline-block;
+        background-color: white;
+        margin-right: -1.7px;
+    color: black;
+    border-radius: 5px 5px 0px 0px;
+    }
+    #background{width:116px;
+    height: 40px;
+    border: none; border-bottom: 0.7px solid gray;
+        text-align:center;
+        font-size:13px;
+        display: inline-block;
+        background-color: white;
+    margin-left: -1.7px;
+    color: gray;
+    border-radius: 5px 5px 0px 0px;
+    }
+    #text:hover{  cursor: pointer;  background-color:  #dce0e8 ; }
+    #background:hover{ cursor: pointer; background-color: #dce0e8  }
+    #text:focus{ outline:none;  }
+    #background:focus{ outline:none;  }
+
+    .tool-icon {
+        width: 38px;
+        height: 38px;
+        display: inline-block;
+        line-height: 38px;
+        /* font-size: 15px; */
+        text-align: center;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        background: #fff;
+        margin: 0;
+    }
+    .tool-icon:hover{background-color:  #eff1f4}
+    .tool-icon:focus{outline: none; background-color: #dce0e8;}
+    .tool-icon:focus i{color: black}
+    .tool-icon i {
+        color: #aaaaaa;
+    }
+
+    .tool-icon:hover i{
+        color: #414141;
+    }
+    .tool-icon button{
+        color: #c9c9c9;
+    }
+
+    .tool-icon button:hover{
+        color: #414141;
+    }
+
+
+    .tools {
+        display: inline-block;
+        border-right: 1px solid #ebebeb;
+        /* padding: 0 5px 0 0; */
+    }
+
+    #editor-doc {
+        min-height: 50px;
+        min-width: 98%;
+        /* border: 1px solid rgb(0, 0, 0); */
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+
+
+
+    /* //////////////// */
+
+    .menubar-item {
+        border-color: transparent;
+        background: transparent;
+        filter: none;
+        display: inline-block;
+        margin: 2px 0 2px 2px;
+        position: relative;
+    }
+
+    .btn-grp {
+        border: 2px solid #efefef;
+        display: inline-block;
+    }
+
+
+
+
+
+    #align a:hover {
+        background: #aeb0b2;
+    }
+
+    .dropbtn {
+        padding: 10px;
+        background-color: transparent;
+        color: black;
+        font-size: 16px;
+        border: 1px solid transparent;
+    }
+
+    .dropdown-cont {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .dropdown-cont a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .abcd {
+        display: none;
+    }
+
+    .dropdown:hover .abcd {
+        display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+        border: 1px solid silver;
+        background-color: white;
+    }
+
+    hr {
+        border-top: 1px solid #000;
+        width: 98%;
+    }
+
+
+
+    #quote-place {
+        position: absolute;
+    }
+
+    #cal1 {
+        position: absolute;
+        height: 0px;
+        width: 0px;
+        top: 100px;
+        left: 100px;
+        overflow: none;
+        z-index: -100;
+    }
+
+    #cal2 {
+        position: absolute;
+        height: 0px;
+        width: 0px;
+        top: 0px;
+        left: 0px;
+        overflow: none;
+        z-index: -100;
+    }
+
+    #Image,
+    #Video,
+    #Table {
+        width: 120px;
+        height: 38px;
+        display: inline-block;
+        line-height: 38px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .menubar-item {
+        border-color: transparent;
+        background: transparent;
+        filter: none;
+        display: inline-block;
+        margin: 2px 0 2px 2px;
+        position: relative;
+    }
+
+    #editor-doc:focus {
+        outline: none;
+    }
+
+
+
+    .color-item {
+        cursor: pointer;
+        height: 18px;
+        width: 18px;
+        color: black;
+        /* padding: 12px 16px; */
+        text-decoration: none;
+        display: block;
+        margin-left: -1px;
+        border-radius: 50%;
+        margin: 5px;
+    }
+
+    .color-item:hover {
+        width: 22px;
+        height: 22px;
+        margin: 1px;
+        cursor: pointer;
+        border: none;
+    }
+
+    .color-box {
+        width: 297px;
+        height: auto;
+    }
+
+    .modal-title {
+        font-weight: 700;
+        font-size: 24px;
+        color: #333;
+    }
+
+    #row-content {
+        width: 100%;
+        margin: 0;
+    }
+
+    #shortTools {
+        /* margin-left: 15px;
+        margin-right: 15px; */
+    }
+
+    div.shortTool.tools {
+        border: none;
+        margin-right: 10px;
+        transition: ease-in-out 1s;
+        /* display: block; */
+        padding: 0;
+    }
+
+    .close-btn {
+        border: none;
+        background-color: #4bf442;
+        color: #fff;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        padding-left: 12px;
+        padding-right: 12px;
+        cursor: pointer;
+    }
+
+    .close-btn:hover,
+    .close-btn:focus {
+        background-color: #4CAF50;
+    }
+
+    .tri-btns {
+        border: none;
+        color: #919191;
+    }
+
+    #demo-btn {
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 7px 0px;
+        background: rgb(255, 255, 255);
+        z-index: 1;
+    }  
+
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1!important; /* Sit on top */
+        padding-top: 100px!important; /* Location of the box */
+        
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0)!important; /* Fallback color */
+        background-color: rgba(0,0,0,0.3)!important; /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .k-modal-content {
+        font-family: 'Montserrat', sans-serif;
+        border-radius:10px;
+        position: relative;
+        background-color: #fefefe;
+        margin: auto;
+        padding: 0;
+        width: 80%;
+        max-width:500px;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+        -webkit-animation-name: animatetop;
+        -webkit-animation-duration: 0.4s;
+        animation-name: animatetop;
+        animation-duration: 0.4s
+    }
+
+    /* Add Animation */
+    @-webkit-keyframes animatetop {
+        from {opacity:0} 
+        to {opacity:1}
+    }
+
+    @keyframes animatetop {
+        from {opacity:0}
+        to {opacity:1}
+    }
+
+    /* The Close Button */
+    .k-close {
+        color: black;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .k-close:hover,
+    .k-close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .k-modal-header {
+        padding: 20px 16px;
+    }
+
+    .k-modal-body {
+        padding: 2px 16px;
+    }
+
+    .k-modal-footer {
+        padding: 2px 16px;
+    }
+    .k-modal-button {
+        padding:10px;
+        margin:10px 0 10px 10px;
+        outline:none;
+        border:none;
+        cursor:pointer;
+        border-radius:5px;
+    }
+
+    .k-button-green {
+        background:#4CAF50;
+        color:white;
+    }
+    .k-button-green:hover {
+        background: #009933;
+    }
+
+    .k-button-gray {
+        background:#888888;
+        color:white;
+    }
+    .k-button-gray:hover {
+        background: #AAAAAA;
+    }
+
+
+
+
+    .embed-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .embed-container iframe, .embed-container object, .embed-container embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .editor-button{
+        padding:10px 20px;
+        border-radius: 5px;
+        margin:0 3px 0 0;
+        border:none;
+        color:#aaaaaa;
+        background: none;
+    }
+    .editor-button:hover{
+        background: #cccccc;
+        color: #666666;
+        cursor: pointer;
+    }
+    .dropdown-font-family a,
+    .dropdown-paragraph-format a {
+        color: black;
+        padding: 5px 12px;
+        text-decoration: none;
+        display: block;
+    }
+
+
+
+    .dropdown-font-size a,
+    .dropdown-align a{
+        color: black;
+        padding: 0px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-font-family a:hover,
+    .dropdown-paragraph-format a:hover,
+    .dropdown-font-size a:hover,
+    .dropdown-align a:hover {
+     background: #ececec;
+    }
+
+
+  .dropdown-font-family ,
+    .dropdown-paragraph-format ,
+      .dropdown-font-size ,
+        .dropdown-align {
+    display: none;
+    border-radius: 0px;
+    position: absolute;
+    padding: 0px;
+    background-color: #f9f9f9;
+    box-shadow:0px 4px 20px 3px rgba(0,0,0,0.15);
+    z-index: 1;
+}
+
+
+
+
+.dropdown-font-family {
+ 
+    top: 48px;
+    left:11px;
+    min-width: 100px;
+}
+
+.dropdown-paragraph-format {
+    top: 48px;
+    left:52.5px;
+    width: 290px;
+}
+
+.dropdown-font-size {
+    top: 48px;
+    left:136.5px;
+    padding: 0px;
+    min-width: 80px;
+}
+
+
+.dropdown-align {
+    top: 48px;
+    left:178.5px;
+    padding: 0px;
+    min-width: 80px;
+}
+
+.dropdown-color {
+    display: none;
+    position: absolute;
+    background: #fff;
+    z-index: 1;
+    top: 48px;
+    left: 95px;
+    box-shadow:0px 2px 20px 3px rgba(0,0,0,0.2);
+}
+    </style>
 <div style='margin: 0px 0px 0px 10px' onclick='buttonBackground()'>
     
         <div id="heading-editor" class="row">
@@ -402,516 +904,514 @@ function init(id){
     <div id="cal1">&nbsp;</div>
     <div id="cal2">&nbsp;</div>
 `;
-var editor = document.getElementById(id);
-editor.innerHTML = content;
+    var editor = document.getElementById(id);
+    editor.innerHTML = content;
 
 
 
-//Set cursor at the end
-function setEndOfContenteditable(contentEditableElement)
-{
-    var range,selection;
-    if(document.createRange)//Firefox, Chrome, Opera, Safari, IE 9+
-    {
-        range = document.createRange();//Create a range (a range is a like the selection but invisible)
-        range.selectNodeContents(contentEditableElement);//Select the entire contents of the element with the range
-        range.collapse(false);//collapse the range to the end point. false means collapse to end rather than the start
-        selection = window.getSelection();//get the selection object (allows you to change selection)
-        selection.removeAllRanges();//remove any selections already made
-        selection.addRange(range);//make the range you have just created the visible selection
-    }
-    else if(document.selection)//IE 8 and lower
-    { 
-        range = document.body.createTextRange();//Create a range (a range is a like the selection but invisible)
-        range.moveToElementText(contentEditableElement);//Select the entire contents of the element with the range
-        range.collapse(false);//collapse the range to the end point. false means collapse to end rather than the start
-        range.select();//Select the range (make it the visible selection
-    }
-}
-
-
-
-//Insert function  
-window.formatDoc = function(sCmd, sValue) {
-    // console.log("1");
-    if (sCmd == 'h1' || sCmd == 'h2' || sCmd == 'h3' || sCmd == 'h4' || sCmd == 'h5' || sCmd == 'h6' || sCmd ==
-        'p') {
-        document.execCommand('formatBlock', false, sCmd);
-
-    } else if (sCmd == 'createLink' || sCmd == 'insertimage') {
-        var url = prompt('Enter the link here: ', 'http:\/\/');
-        // console.log(url);
-        if (sCmd === 'insertimagea') {
-            insertImg(url);
-        } else {
-            document.execCommand(sCmd, false, url);
+    //Set cursor at the end
+    function setEndOfContenteditable(contentEditableElement) {
+        var range, selection;
+        if (document.createRange) //Firefox, Chrome, Opera, Safari, IE 9+
+        {
+            range = document.createRange(); //Create a range (a range is a like the selection but invisible)
+            range.selectNodeContents(contentEditableElement); //Select the entire contents of the element with the range
+            range.collapse(false); //collapse the range to the end point. false means collapse to end rather than the start
+            selection = window.getSelection(); //get the selection object (allows you to change selection)
+            selection.removeAllRanges(); //remove any selections already made
+            selection.addRange(range); //make the range you have just created the visible selection
+        } else if (document.selection) //IE 8 and lower
+        {
+            range = document.body.createTextRange(); //Create a range (a range is a like the selection but invisible)
+            range.moveToElementText(contentEditableElement); //Select the entire contents of the element with the range
+            range.collapse(false); //collapse the range to the end point. false means collapse to end rather than the start
+            range.select(); //Select the range (make it the visible selection
         }
+    }
 
-    } else if (sCmd === 'backcolor' || sCmd === 'forecolor') {
-        // console.log(1);
-        // console.log(sCmd);
-        // console.log(sValue);
-        document.execCommand(sCmd, true, sValue);
-    } else if (sCmd == 'insertHTML') {
-        // <iframe width="auto" height="auto" frameborder="0" allowfullscreen src="https://www.nhaccuatui.com/vh/auto/GbCeos9ACoGf0"></iframe>
-        // if else insert video
-        url = prompt('Enter embed code: ', 'Embed here');
-        document.execCommand(sCmd, false, url);
-    } else {
-        if (document.queryCommandSupported(sCmd) == false) {
-            alert('The command ' + sCmd + ' is not support your browser');
-            // console.log('hello');
-        } else {
-            $('.dropdown-font-family').css('display','none');   
-            $('.dropdown-paragraph-format').css('display','none');
-            $('.dropdown-color').css('display', 'none');
-            $('.dropdown-font-size').css('display','none');
-            $('.dropdown-align').css('display', 'none');
 
+
+    //Insert function  
+    window.formatDoc = function (sCmd, sValue) {
+        // console.log("1");
+        if (sCmd == 'h1' || sCmd == 'h2' || sCmd == 'h3' || sCmd == 'h4' || sCmd == 'h5' || sCmd == 'h6' || sCmd ==
+            'p') {
+            document.execCommand('formatBlock', false, sCmd);
+
+        } else if (sCmd == 'createLink' || sCmd == 'insertimage') {
+            var url = prompt('Enter the link here: ', 'http:\/\/');
+            // console.log(url);
+            if (sCmd === 'insertimagea') {
+                insertImg(url);
+            } else {
+                document.execCommand(sCmd, false, url);
+            }
+
+        } else if (sCmd === 'backcolor' || sCmd === 'forecolor') {
             // console.log(1);
-            document.execCommand(sCmd, false, sValue);
-            // console.log('hello22');
-            // console.log(document.queryCommandSupported(sCmd));
+            // console.log(sCmd);
+            // console.log(sValue);
+            document.execCommand(sCmd, true, sValue);
+        } else if (sCmd == 'insertHTML') {
+            // <iframe width="auto" height="auto" frameborder="0" allowfullscreen src="https://www.nhaccuatui.com/vh/auto/GbCeos9ACoGf0"></iframe>
+            // if else insert video
+            url = prompt('Enter embed code: ', 'Embed here');
+            document.execCommand(sCmd, false, url);
+        } else {
+            if (document.queryCommandSupported(sCmd) == false) {
+                alert('The command ' + sCmd + ' is not support your browser');
+                // console.log('hello');
+            } else {
+                $('.dropdown-font-family').css('display', 'none');
+                $('.dropdown-paragraph-format').css('display', 'none');
+                $('.dropdown-color').css('display', 'none');
+                $('.dropdown-font-size').css('display', 'none');
+                $('.dropdown-align').css('display', 'none');
+
+                // console.log(1);
+                document.execCommand(sCmd, false, sValue);
+                // console.log('hello22');
+                // console.log(document.queryCommandSupported(sCmd));
+            }
         }
+        selectingText();
+
     }
-    selectingText();
-
-}
 
 
-//Insert Images
-var idImage = 0;
+    //Insert Images
+    var idImage = 0;
 
-window.insertImg = function(img) {
-    elem = document.getElementById('editor-doc');//This is the element that you want to move the caret to the end of
-    setEndOfContenteditable(elem);
-    var sImg = document.getElementById('data-img').value;
-    // sImg = prompt('Link here');
-    var widthScreen = document.getElementById('editor-doc').offsetWidth;
-    var widthImg;
-    getMeta(sImg, widthImg, widthScreen);
-    // console.log(widthImg);
-    // console.log(widthScreen);
-}
+    window.insertImg = function (img) {
+        elem = document.getElementById('editor-doc'); //This is the element that you want to move the caret to the end of
+        setEndOfContenteditable(elem);
+        var sImg = document.getElementById('data-img').value;
+        // sImg = prompt('Link here');
+        var widthScreen = document.getElementById('editor-doc').offsetWidth;
+        var widthImg;
+        getMeta(sImg, widthImg, widthScreen);
+        // console.log(widthImg);
+        // console.log(widthScreen);
+    }
 
-function getMeta(url, widthImg, widthScreen) {
-    var img = new Image();
-    img.onload = function () {
-        // alert(this.width + ' ' + this.height);
+    function getMeta(url, widthImg, widthScreen) {
+        var img = new Image();
+        img.onload = function () {
+            // alert(this.width + ' ' + this.height);
             url = "<div><img src=\"" + url + "\" width=100% height=auto></div>";
             idImage++;
             // console.log(url);
             document.execCommand("insertHTML", false, url);
-    };
-    img.src = url;
-}
-
-
-function changeSize(id) {
-    //Zoom in
-    // console.log(id);
-    $('#zoom-in').click(function (e) {
-        e.preventDefault();
-        // console.log(1);
-        var width = $('#' + id).css('width');
-        width = parseInt(width.substr(0, width.length - 2));
-        // console.log(width);
-        // console.log(typeof width);
-        width += 20;
-        // console.log(width);
-        $('#' + id).css('width', width + 'px');
-    });
-    //Zoom out
-    $('#zoom-out').click(function (e) {
-        e.preventDefault();
-        // console.log(1);
-        var width = $('#' + id).css('width');
-        width = parseInt(width.substr(0, width.length - 2));
-        // console.log(width);
-        // console.log(typeof width);
-        width -= 20;
-        // console.log(width);
-        $('#' + id).css('width', width + 'px');
-    });
-}
-
-
-//Insert space
-function insertSpace(){
-    // console.log(1);
-    elem = document.getElementById('editor-doc');//This is the element that you want to move the caret to the end of
-    setEndOfContenteditable(elem);
-    var value = "a";
-    document.execCommand('insertHTML', false, value);
-}
-
-
-
-//Insert Video
-window.insertVideo = function() {
-    elem = document.getElementById('editor-doc');//This is the element that you want to move the caret to the end of
-    setEndOfContenteditable(elem);
-    sVideo = document.getElementById('data-video').value;
-    // sVideo = prompt('Link here');
-    var check = sVideo.substr(1, 6);
-    // console.log(sVideo);
-    // console.log(check);
-    if (check === "iframe") {
-        document.execCommand("insertHTML", false, sVideo);
-    } else {
-        var idVideo = sVideo.substr(32, sVideo.length - 1);
-        stringVideo = "https://www.youtube.com/embed/" + idVideo;
-        sVideo = "<div class=\"embed-container\"><iframe src=\"" + stringVideo + "\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\" __idm_id__=\"189403137\"></iframe></div>"
-        // console.log(sVideo);
-        document.execCommand("insertHTML", false, sVideo);
-
+        };
+        img.src = url;
     }
-}
 
-//Remove parent div of img
-$(document).ready(function () {
-    $(window).keyup(function (e) { 
+
+    function changeSize(id) {
+        //Zoom in
+        // console.log(id);
+        $('#zoom-in').click(function (e) {
+            e.preventDefault();
+            // console.log(1);
+            var width = $('#' + id).css('width');
+            width = parseInt(width.substr(0, width.length - 2));
+            // console.log(width);
+            // console.log(typeof width);
+            width += 20;
+            // console.log(width);
+            $('#' + id).css('width', width + 'px');
+        });
+        //Zoom out
+        $('#zoom-out').click(function (e) {
+            e.preventDefault();
+            // console.log(1);
+            var width = $('#' + id).css('width');
+            width = parseInt(width.substr(0, width.length - 2));
+            // console.log(width);
+            // console.log(typeof width);
+            width -= 20;
+            // console.log(width);
+            $('#' + id).css('width', width + 'px');
+        });
+    }
+
+
+    //Insert space
+    function insertSpace() {
         // console.log(1);
-        var data = $('.embed-container').html();
-        // console.log(data);
-        if(data === '<br>'){
-            console.log(2);
-            $('.embed-container').remove();
+        elem = document.getElementById('editor-doc'); //This is the element that you want to move the caret to the end of
+        setEndOfContenteditable(elem);
+        var value = "a";
+        document.execCommand('insertHTML', false, value);
+    }
+
+
+
+    //Insert Video
+    window.insertVideo = function () {
+        elem = document.getElementById('editor-doc'); //This is the element that you want to move the caret to the end of
+        setEndOfContenteditable(elem);
+        sVideo = document.getElementById('data-video').value;
+        // sVideo = prompt('Link here');
+        var check = sVideo.substr(1, 6);
+        // console.log(sVideo);
+        // console.log(check);
+        if (check === "iframe") {
+            document.execCommand("insertHTML", false, sVideo);
+        } else {
+            var idVideo = sVideo.substr(32, sVideo.length - 1);
+            stringVideo = "https://www.youtube.com/embed/" + idVideo;
+            sVideo = "<div class=\"embed-container\"><iframe src=\"" + stringVideo + "\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\" __idm_id__=\"189403137\"></iframe></div>"
+            // console.log(sVideo);
+            document.execCommand("insertHTML", false, sVideo);
+
+        }
+    }
+
+    //Remove parent div of img
+    $(document).ready(function () {
+        $(window).keyup(function (e) {
+            // console.log(1);
+            var data = $('.embed-container').html();
+            // console.log(data);
+            if (data === '<br>') {
+                console.log(2);
+                $('.embed-container').remove();
+            }
+        });
+    });
+
+    // https://www.youtube.com/watch?v=ew1TpesH-jw
+    // <iframe width="560" height="315" src="https://www.youtube.com/embed/ew1TpesH-jw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    // 56.25
+    // height = 56.25% width
+
+
+    //Paste as plain text
+    window.onload = function () {
+        var ed = document.querySelector("#editor-doc");
+        ed.addEventListener("paste", function (e) {
+            // console.log(1);
+            e.preventDefault();
+            var text = e.clipboardData.getData("text/plain");
+            // console.log(text);
+            document.execCommand("insertHTML", false, text);
+        });
+    }
+
+    //Insert hr tag
+    function insertHr() {
+        document.execCommand("insertHTML", false, "<hr/>");
+    }
+
+    //Select all
+    function selectAll() {
+        function selectElementContents(el) {
+            var range = document.createRange();
+            range.selectNodeContents(el);
+            var sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(range);
+        }
+
+        var el = document.getElementById("editor-doc");
+        selectElementContents(el);
+    }
+
+    //Show code
+    $(document).ready(function () {
+        var flag = 1;
+        var data = document.getElementById('editor-doc');
+        // console.log(data.innerHTML);
+        $('#showCode').click(function (e) {
+            e.preventDefault();
+            if (flag === 1) {
+                document.getElementById('editor-doc').innerText = data.innerHTML.trim();
+                flag = 0;
+            } else {
+                document.getElementById('editor-doc').innerHTML = data.innerText.trim();
+                flag = 1;
+            }
+        });
+    });
+
+    $(document).ready(function () {
+        function getSelected() {
+            if (window.getSelection) {
+                // console.log('selected');
+                return window.getSelection();
+            } else if (document.getSelection) {
+                // console.log('selected');
+                return document.getSelection();
+            } else {
+                var selection = document.selection && document.selection.createRange();
+                if (selection.text) {
+                    // console.log('selected');
+                    return selection.text;
+                }
+                return false;
+            }
+            return false;
         }
     });
-});
 
-// https://www.youtube.com/watch?v=ew1TpesH-jw
-// <iframe width="560" height="315" src="https://www.youtube.com/embed/ew1TpesH-jw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-// 56.25
-// height = 56.25% width
+    //Selection text
+    var ele = document.getElementById('demo-btn');
+    var sel = window.getSelection();
+    var rel1 = document.createRange();
+    rel1.selectNode(document.getElementById('cal1'));
+    var rel2 = document.createRange();
+    rel2.selectNode(document.getElementById('cal2'));
+    document.getElementById('editor-doc').addEventListener('mouseup', function (event) {
+        event.stopPropagation();
+        if (!sel.isCollapsed) {
+            //debugger;
+            var r = sel.getRangeAt(0).getBoundingClientRect();
+            var rb1 = rel1.getBoundingClientRect();
+            var rb2 = rel2.getBoundingClientRect();
+            ele.style.top = (r.bottom - rb2.top) * 100 / (rb1.top - rb2.top) + 'px'; //this will place ele below the selection
+            ele.style.left = ((r.left - rb2.left + 10) * 100 / (rb1.left - rb2.left)) + 'px'; //this will align the right edges together
+            //code to set content
 
-
-//Paste as plain text
-window.onload = function () {
-    var ed = document.querySelector("#editor-doc");
-    ed.addEventListener("paste", function (e) {
-        // console.log(1);
-        e.preventDefault();
-        var text = e.clipboardData.getData("text/plain");
-        // console.log(text);
-        document.execCommand("insertHTML", false, text);
+            ele.style.display = 'block';
+        }
     });
-}
 
-//Insert hr tag
-function insertHr() {
-    document.execCommand("insertHTML", false, "<hr/>");
-}
+    // $('#heading-editor').focusout(function(){
+    //     ele.style.display = 'none';
+    // });
 
-//Select all
-function selectAll() {
-    function selectElementContents(el) {
-        var range = document.createRange();
-        range.selectNodeContents(el);
-        var sel = window.getSelection();
+
+
+    $(document).ready(function () {
+        $(window).resize(function () {
+            ele.style.display = 'none';
+        });
+    });
+
+    $('body').mousedown(function () {
+        $('#demo-btn').hover(function () {
+            // over
+
+        }, function () {
+            $('.dropdown-font-family').hide();
+            $('.dropdown-paragraph-format').hide();
+            $('.dropdown-color').hide();
+            $('.dropdown-font-size').hide();
+            $('.dropdown-align').hide();
+
+            ele.style.display = 'none';
+        });
+    });
+
+
+
+
+
+
+    function selectingText() {
+        if (!sel.isCollapsed) {
+            //debugger;
+            var r = sel.getRangeAt(0).getBoundingClientRect();
+            var rb1 = rel1.getBoundingClientRect();
+            var rb2 = rel2.getBoundingClientRect();
+            ele.style.top = (r.bottom - rb2.top) * 100 / (rb1.top - rb2.top) + 'px'; //this will place ele below the selection
+            ele.style.left = ((r.left - rb2.left + 10) * 100 / (rb1.left - rb2.left)) + 'px'; //this will align the right edges together
+            //code to set content
+
+            ele.style.display = 'block';
+        }
+    }
+
+
+    $('body').mousedown(function (e) {
+        if (e.which == 1) {
+            // console.log(e.pageX + " / " + e.pageY);
+        }
+    });
+
+
+    //Set cursor position
+
+
+
+
+    $.fn.setCursorPosition = function (pos) {
+        this.each(function (index, elem) {
+            if (elem.setSelectionRange) {
+                elem.setSelectionRange(pos, pos);
+            } else if (elem.createTextRange) {
+                var range = elem.createTextRange();
+                range.collapse(true);
+                range.moveEnd('character', pos);
+                range.moveStart('character', pos);
+                range.select();
+            }
+        });
+        return this;
+    };
+
+
+    $('#editor-doc').focusin(function () {
+        $('#menubar-item').slideDown();
+    })
+
+    $(document).ready(function () {
+        $("#sub-tools").hide();
+        $("#talign").hide();
+    });
+
+    window.showmore = function (event) {
+        // event.stopPropagation();
+        $('.dropdown-font-family').css('display', 'none');
+        $('.dropdown-paragraph-format').css('display', 'none');
+        $('.dropdown-color').css('display', 'none');
+        $('.dropdown-font-size').css('display', 'none');
+        $('.dropdown-align').css('display', 'none');
+        // console.log(1);
+        $("#sub-tools").show();
+        $("#show").hide();
+        $("#talign").show();
+    };
+
+    window.showoff = function (event) {
+        // event.stopPropagation();
+        $('.dropdown-font-family').css('display', 'none');
+        $('.dropdown-paragraph-format').css('display', 'none');
+        $('.dropdown-color').css('display', 'none');
+        $('.dropdown-font-size').css('display', 'none');
+        $('.dropdown-align').css('display', 'none');
+        // console.log(2);
+        $("#sub-tools").hide();
+        $("#show").show();
+        $("#talign").hide();
+    };
+
+    // $(document).ready(function () {
+    //     $('#editor-doc').focus();
+    // });
+    $(window).on('load', function () {
+        elem = document.getElementById('editor-doc'); //This is the element that you want to move the caret to the end of
+        setEndOfContenteditable(elem);
+    });
+
+
+
+
+
+
+    //Press tab button
+    // adapted from http://stackoverflow.com/a/25943182/460084
+    function insertTab() {
+        if (!window.getSelection) return;
+        const sel = window.getSelection();
+        if (!sel.rangeCount) return;
+        const range = sel.getRangeAt(0);
+        range.collapse(true);
+        const span = document.createElement('span');
+        span.appendChild(document.createTextNode('\t'));
+        span.style.whiteSpace = 'pre';
+        range.insertNode(span);
+        // Move the k-caret immediately after the inserted span
+        range.setStartAfter(span);
+        range.collapse(true);
         sel.removeAllRanges();
         sel.addRange(range);
     }
 
-    var el = document.getElementById("editor-doc");
-    selectElementContents(el);
-}
+    $(document).on('keydown', '#editor-doc', function (e) {
+        if (e.keyCode == 9) {
+            // alert(1);
+            insertTab();
+            e.preventDefault()
+        }
+    });
 
-//Show code
-$(document).ready(function () {
-    var flag = 1;
-    var data = document.getElementById('editor-doc');
-    // console.log(data.innerHTML);
-    $('#showCode').click(function (e) {
+
+
+
+    $('#text-color a').click(function (e) {
         e.preventDefault();
-        if (flag === 1) {
-            document.getElementById('editor-doc').innerText = data.innerHTML.trim();
-            flag = 0;
-        } else {
-            document.getElementById('editor-doc').innerHTML = data.innerText.trim();
-            flag = 1;
-        }
-    });
-});
-
-$(document).ready(function () {
-    function getSelected() {
-        if (window.getSelection) {
-            // console.log('selected');
-            return window.getSelection();
-        } else if (document.getSelection) {
-            // console.log('selected');
-            return document.getSelection();
-        } else {
-            var selection = document.selection && document.selection.createRange();
-            if (selection.text) {
-                // console.log('selected');
-                return selection.text;
-            }
-            return false;
-        }
-        return false;
-    }
-});
-
-//Selection text
-var ele = document.getElementById('demo-btn');
-var sel = window.getSelection();
-var rel1 = document.createRange();
-rel1.selectNode(document.getElementById('cal1'));
-var rel2 = document.createRange();
-rel2.selectNode(document.getElementById('cal2'));
-document.getElementById('editor-doc').addEventListener('mouseup', function (event) {
-    event.stopPropagation();
-    if (!sel.isCollapsed) {
-        //debugger;
-        var r = sel.getRangeAt(0).getBoundingClientRect();
-        var rb1 = rel1.getBoundingClientRect();
-        var rb2 = rel2.getBoundingClientRect();
-        ele.style.top = (r.bottom - rb2.top) * 100 / (rb1.top - rb2.top) + 'px'; //this will place ele below the selection
-        ele.style.left = ((r.left - rb2.left + 10) * 100 / (rb1.left - rb2.left)) + 'px'; //this will align the right edges together
-        //code to set content
-
-        ele.style.display = 'block';
-    }
-});
-
-// $('#heading-editor').focusout(function(){
-//     ele.style.display = 'none';
-// });
-
-
-
-$(document).ready(function () {
-    $(window).resize(function () {
-        ele.style.display = 'none';
-    });
-});
-
-$('body').mousedown(function () {
-    $('#demo-btn').hover(function () {
-        // over
-
-    }, function () {
-        $('.dropdown-font-family').hide();
-        $('.dropdown-paragraph-format').hide();
         $('.dropdown-color').hide();
-        $('.dropdown-font-size').hide();
-        $('.dropdown-align').hide();
-
-        ele.style.display = 'none';
     });
-});
 
 
 
+    // $(document).bind('keypress', function (e) {
+    //     if(e.which === 85 && event.shiftKey){
+    //         alert(1);
+    //     }
+    // });
 
 
+    // Get the modal
+    var modalImg = document.getElementById('myModalImg');
 
-function selectingText() {
-    if (!sel.isCollapsed) {
-        //debugger;
-        var r = sel.getRangeAt(0).getBoundingClientRect();
-        var rb1 = rel1.getBoundingClientRect();
-        var rb2 = rel2.getBoundingClientRect();
-        ele.style.top = (r.bottom - rb2.top) * 100 / (rb1.top - rb2.top) + 'px'; //this will place ele below the selection
-        ele.style.left = ((r.left - rb2.left + 10) * 100 / (rb1.left - rb2.left)) + 'px'; //this will align the right edges together
-        //code to set content
+    // Get the button that opens the modal
+    var btnImg = document.getElementById("myBtnImg");
 
-        ele.style.display = 'block';
+    // Get the <span> element that closes the modal
+
+    btnImg.onclick = function () {
+        modalImg.style.display = "block";
     }
-}
 
 
-$('body').mousedown(function (e) {
-    if (e.which == 1) {
-        // console.log(e.pageX + " / " + e.pageY);
+
+
+
+    // Get the modal
+    var modalVid = document.getElementById('myModalVid');
+
+    // Get the button that opens the modal
+    var btnVid = document.getElementById("myBtnVid");
+
+    // Get the <span> element that closes the modal
+
+    btnVid.onclick = function () {
+        modalVid.style.display = "block";
     }
-});
 
 
-//Set cursor position
+    // Get the modal
+    var modalLnk = document.getElementById('myModalLnk');
+
+    // Get the button that opens the modal
+    var btnLnk = document.getElementById("myBtnLnk");
+
+    // Get the <span> element that closes the modal
+
+    btnLnk.onclick = function () {
+        modalLnk.style.display = "block";
+    }
 
 
 
 
-$.fn.setCursorPosition = function (pos) {
-    this.each(function (index, elem) {
-        if (elem.setSelectionRange) {
-            elem.setSelectionRange(pos, pos);
-        } else if (elem.createTextRange) {
-            var range = elem.createTextRange();
-            range.collapse(true);
-            range.moveEnd('character', pos);
-            range.moveStart('character', pos);
-            range.select();
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modalImg) {
+            modalImg.style.display = "none";
         }
-    });
-    return this;
-};
-
-
-$('#editor-doc').focusin(function () {
-    $('#menubar-item').slideDown();
-})
-
-$(document).ready(function () {
-    $("#sub-tools").hide();
-    $("#talign").hide();
-});
-
-window.showmore = function(event) {
-    // event.stopPropagation();
-    $('.dropdown-font-family').css('display', 'none');
-    $('.dropdown-paragraph-format').css('display', 'none');
-    $('.dropdown-color').css('display', 'none');
-    $('.dropdown-font-size').css('display', 'none');
-    $('.dropdown-align').css('display', 'none');
-    // console.log(1);
-    $("#sub-tools").show();
-    $("#show").hide();
-    $("#talign").show();
-};
-
-window.showoff = function(event) {
-    // event.stopPropagation();
-    $('.dropdown-font-family').css('display', 'none');
-    $('.dropdown-paragraph-format').css('display', 'none');
-    $('.dropdown-color').css('display', 'none');
-    $('.dropdown-font-size').css('display', 'none');
-    $('.dropdown-align').css('display', 'none');
-    // console.log(2);
-    $("#sub-tools").hide();
-    $("#show").show();
-    $("#talign").hide();
-};
-
-// $(document).ready(function () {
-//     $('#editor-doc').focus();
-// });
-$(window).on('load', function () {
-    elem = document.getElementById('editor-doc');//This is the element that you want to move the caret to the end of
-    setEndOfContenteditable(elem);
-});
-
-
-
-
-
-
-//Press tab button
-// adapted from http://stackoverflow.com/a/25943182/460084
-function insertTab() {
-    if (!window.getSelection) return;
-    const sel = window.getSelection();
-    if (!sel.rangeCount) return;
-    const range = sel.getRangeAt(0);
-    range.collapse(true);
-    const span = document.createElement('span');
-    span.appendChild(document.createTextNode('\t'));
-    span.style.whiteSpace = 'pre';
-    range.insertNode(span);
-    // Move the k-caret immediately after the inserted span
-    range.setStartAfter(span);
-    range.collapse(true);
-    sel.removeAllRanges();
-    sel.addRange(range);
-  }
-  
-  $(document).on('keydown', '#editor-doc', function(e) {
-    if (e.keyCode == 9) {
-        // alert(1);
-      insertTab();
-      e.preventDefault()
+        if (event.target == modalVid) {
+            modalVid.style.display = "none";
+        }
+        if (event.target == modalLnk) {
+            modalLnk.style.display = "none";
+        }
     }
-  });
-
-
-
-
-$('#text-color a').click(function (e) { 
-    e.preventDefault();
-    $('.dropdown-color').hide();
-});
-
-
-
-// $(document).bind('keypress', function (e) {
-//     if(e.which === 85 && event.shiftKey){
-//         alert(1);
-//     }
-// });
-
-
-// Get the modal
-var modalImg = document.getElementById('myModalImg');
-
-// Get the button that opens the modal
-var btnImg = document.getElementById("myBtnImg");
-
-// Get the <span> element that closes the modal
-
-btnImg.onclick = function () {
-    modalImg.style.display = "block";
-}
-
-
-
-
-
-// Get the modal
-var modalVid = document.getElementById('myModalVid');
-
-// Get the button that opens the modal
-var btnVid = document.getElementById("myBtnVid");
-
-// Get the <span> element that closes the modal
-
-btnVid.onclick = function () {
-    modalVid.style.display = "block";
-}
-
-
-// Get the modal
-var modalLnk = document.getElementById('myModalLnk');
-
-// Get the button that opens the modal
-var btnLnk = document.getElementById("myBtnLnk");
-
-// Get the <span> element that closes the modal
-
-btnLnk.onclick = function () {
-    modalLnk.style.display = "block";
-}
-
-
-
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-    if (event.target == modalImg) {
-        modalImg.style.display = "none";
-    }
-    if (event.target == modalVid) {
-        modalVid.style.display = "none";
-    }
-    if (event.target == modalLnk) {
-        modalLnk.style.display = "none";
-    }
-}
-//esc
-$(document).keyup(function(e) {
+    //esc
+    $(document).keyup(function (e) {
 
         if (e.keyCode == 27) {
             modalVid.style.display = "none";
             modalImg.style.display = "none";
             modalLnk.style.display = "none";
-        }   // esc
+        } // esc
     });
 
 
-    $('.k-button-green').click(function (e) { 
+    $('.k-button-green').click(function (e) {
         e.preventDefault();
         // console.log(2);
         modalVid.style.display = "none";
@@ -922,102 +1422,142 @@ $(document).keyup(function(e) {
 
 
 
-window.backgroundColor = function(){
-    $('#text-color').css('display','none');
-    $('#bg-color').slideDown();
-     $('#background').css({'border':'none','border-top':'0.7px solid gray','border-right':'0.7px solid gray','border-left':'0.7px solid gray','color':'black'});
-    $('#text').css({'border':'none','border-bottom':'0.7px solid gray','color':'gray'});
-}
-
-
-window.textColor = function(){
-    $('#text-color').slideDown();
-    $('#bg-color').css('display','none');
-    $('#text').css({'border':'none','border-top':'0.7px solid gray','border-right':'0.7px solid gray','border-left':'0.7px solid gray','color':'black'});
-    $('#background').css({'border':'none','border-bottom':'0.7px solid gray','color':'gray'});
-}
-
-
-
-window.buttonColor = function(){
-   $('#font-family').css('display','none');   
-    $('.paragraph-format').css('display','none');
-
- }
-
-
-$('#button-font-family').click(function () { 
-    $('.dropdown-font-family').toggle();
-        $('.dropdown-paragraph-format').hide();
-        $('.dropdown-color').hide();
-        $('.dropdown-font-size').hide();
-        $('.dropdown-align').hide();
-})
-
-$('#button-paragraph-format').click(function () {
-    $('.dropdown-paragraph-format').toggle();
-        $('.dropdown-font-family').hide();
-        $('.dropdown-color').hide();
-        $('.dropdown-font-size').hide();
-        $('.dropdown-align').hide();
-
-})
-
-$('#button-color').click(function () {
-    $('.dropdown-color').toggle();
-        $('.dropdown-font-family').hide();
-        $('.dropdown-paragraph-format').hide();
-        $('.dropdown-font-size').hide();
-        $('.dropdown-align').hide();
-})
-
-
-$('#button-font-size').click(function () {
-    $('.dropdown-font-size').toggle();
-        $('.dropdown-font-family').hide();
-        $('.dropdown-paragraph-format').hide();
-        $('.dropdown-color').hide();
-        $('.dropdown-align').hide();
-})
-
-$('#button-align').click(function () {
-    $('.dropdown-align').toggle();
-        $('.dropdown-font-family').hide();
-        $('.dropdown-paragraph-format').hide();
-        $('.dropdown-color').hide();
-        $('.dropdown-font-size').hide();
-})
-
-window.buttonBackground = function (){
-        if($('.dropdown-font-family').css('display')=='block'){$('#button-font-family').css('background-color','#dce0e8')}else{$('#button-font-family').css('background-color','transparent')}
-        if($('.dropdown-paragraph-format').css('display')=='block'){$('#button-paragraph-format').css('background-color','#dce0e8')}else{$('#button-paragraph-format').css('background-color','transparent')}
-        if($('.dropdown-color').css('display')=='block'){$('#button-color').css('background-color','#dce0e8')}else{$('#button-color').css('background-color','transparent')}
-        if($('.dropdown-font-size').css('display')=='block'){$('#button-font-size').css('background-color','#dce0e8')}else{$('#button-font-size').css('background-color','transparent')}
-        if($('.dropdown-align').css('display')=='block'){$('#button-align').css('background-color','#dce0e8')}else{$('#button-align').css('background-color','transparent')}
-
-
-}
-
-
-  
-
-//insert <p></p> if content null
-var editable = document.getElementById('editor-doc');
-editable.addEventListener('input', function() {
-    // console.log(1);
-    var data = document.getElementById('editor-doc').innerHTML;
-    if(data == ""){
-        document.getElementById('editor-doc').innerHTML = "<p><br/></p>"
+    window.backgroundColor = function () {
+        $('#text-color').css('display', 'none');
+        $('#bg-color').slideDown();
+        $('#background').css({
+            'border': 'none',
+            'border-top': '0.7px solid gray',
+            'border-right': '0.7px solid gray',
+            'border-left': '0.7px solid gray',
+            'color': 'black'
+        });
+        $('#text').css({
+            'border': 'none',
+            'border-bottom': '0.7px solid gray',
+            'color': 'gray'
+        });
     }
-});
 
-//Upload local img
-window.uploadImg = function() {
-    var formData = new FormData();
-    var file = document.getElementById('myFile').files[0];
-    console.log("x", file);
-    formData.append('image', file);
-    console.log(formData);
+
+    window.textColor = function () {
+        $('#text-color').slideDown();
+        $('#bg-color').css('display', 'none');
+        $('#text').css({
+            'border': 'none',
+            'border-top': '0.7px solid gray',
+            'border-right': '0.7px solid gray',
+            'border-left': '0.7px solid gray',
+            'color': 'black'
+        });
+        $('#background').css({
+            'border': 'none',
+            'border-bottom': '0.7px solid gray',
+            'color': 'gray'
+        });
+    }
+
+
+
+    window.buttonColor = function () {
+        $('#font-family').css('display', 'none');
+        $('.paragraph-format').css('display', 'none');
+
+    }
+
+
+    $('#button-font-family').click(function () {
+        $('.dropdown-font-family').toggle();
+        $('.dropdown-paragraph-format').hide();
+        $('.dropdown-color').hide();
+        $('.dropdown-font-size').hide();
+        $('.dropdown-align').hide();
+    })
+
+    $('#button-paragraph-format').click(function () {
+        $('.dropdown-paragraph-format').toggle();
+        $('.dropdown-font-family').hide();
+        $('.dropdown-color').hide();
+        $('.dropdown-font-size').hide();
+        $('.dropdown-align').hide();
+
+    })
+
+    $('#button-color').click(function () {
+        $('.dropdown-color').toggle();
+        $('.dropdown-font-family').hide();
+        $('.dropdown-paragraph-format').hide();
+        $('.dropdown-font-size').hide();
+        $('.dropdown-align').hide();
+    })
+
+
+    $('#button-font-size').click(function () {
+        $('.dropdown-font-size').toggle();
+        $('.dropdown-font-family').hide();
+        $('.dropdown-paragraph-format').hide();
+        $('.dropdown-color').hide();
+        $('.dropdown-align').hide();
+    })
+
+    $('#button-align').click(function () {
+        $('.dropdown-align').toggle();
+        $('.dropdown-font-family').hide();
+        $('.dropdown-paragraph-format').hide();
+        $('.dropdown-color').hide();
+        $('.dropdown-font-size').hide();
+    })
+
+    window.buttonBackground = function () {
+        if ($('.dropdown-font-family').css('display') == 'block') {
+            $('#button-font-family').css('background-color', '#dce0e8')
+        } else {
+            $('#button-font-family').css('background-color', 'transparent')
+        }
+        if ($('.dropdown-paragraph-format').css('display') == 'block') {
+            $('#button-paragraph-format').css('background-color', '#dce0e8')
+        } else {
+            $('#button-paragraph-format').css('background-color', 'transparent')
+        }
+        if ($('.dropdown-color').css('display') == 'block') {
+            $('#button-color').css('background-color', '#dce0e8')
+        } else {
+            $('#button-color').css('background-color', 'transparent')
+        }
+        if ($('.dropdown-font-size').css('display') == 'block') {
+            $('#button-font-size').css('background-color', '#dce0e8')
+        } else {
+            $('#button-font-size').css('background-color', 'transparent')
+        }
+        if ($('.dropdown-align').css('display') == 'block') {
+            $('#button-align').css('background-color', '#dce0e8')
+        } else {
+            $('#button-align').css('background-color', 'transparent')
+        }
+
+
+    }
+
+
+
+
+    //insert <p></p> if content null
+    var editable = document.getElementById('editor-doc');
+    editable.addEventListener('input', function () {
+        // console.log(1);
+        var data = document.getElementById('editor-doc').innerHTML;
+        if (data == "") {
+            document.getElementById('editor-doc').innerHTML = "<p><br/></p>"
+        }
+    });
+
+    //Upload local img
+    window.uploadImg = function () {
+        var formData = new FormData();
+        var file = document.getElementById('myFile').files[0];
+        console.log("x", file);
+        formData.append('image', file);
+        console.log(formData);
         $.ajax({
             type: 'POST',
             url: "upload.php",
@@ -1048,12 +1588,12 @@ window.uploadImg = function() {
                 console.log("success");
                 // console.log(data);
                 var i = document.getElementById("editor-doc");
-                elem = document.getElementById('editor-doc');//This is the element that you want to move the caret to the end of
+                elem = document.getElementById('editor-doc'); //This is the element that you want to move the caret to the end of
                 setEndOfContenteditable(elem);
                 var url = "<div><img src=\"" + data + "\" width=100% height=auto></div>";
                 // console.log(url);
                 // console.log(data);
-                document.execCommand('insertHTML',false,url.trim());
+                document.execCommand('insertHTML', false, url.trim());
             },
             error: function (data) {
                 console.log("error");
@@ -1061,6 +1601,5 @@ window.uploadImg = function() {
             }
         });
 
+    }
 }
-}
-
