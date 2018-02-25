@@ -505,7 +505,7 @@ function init(id) {
 <div style='margin: 0px 0px 0px 10px' onclick='buttonBackground()'>
     
         <div id="heading-editor" class="row">
-            <div id="editor-doc" style="overflow:auto;min-height:100px;" contenteditable>
+            <div id="editor-doc" style="overflow:auto;min-height:100px;"  onblur="onDivBlur();" onmousedown="return cancelEvent(event);" onclick="return cancelEvent(event);" contentEditable="true" onmouseup="saveSelection();" onkeyup="saveSelection();" onfocus="restoreSelection();" contenteditable>
                    <p style="fontsize:20px">Keetool</p>
             </div>
             <div style="position:absolute;display:none;" id="demo-btn">
@@ -1296,6 +1296,30 @@ function init(id) {
     });
 
 
+// Something else
+    function setCaret(line, col) {
+      var ele = document.getElementById("editable");
+      var rng = document.createRange();
+      var sel = window.getSelection();
+      rng.setStart(ele.childNodes[line], col);
+      rng.collapse(true);
+      sel.removeAllRanges();
+      sel.addRange(range);
+      ele.focus();
+    }
+
+    //https://stackoverflow.com/a/6249440/2813224
+
+    // var line = document.getElementById('ln').value;
+    // var col = document.getElementById('cl').value;
+    // var btn = document.getElementById('btn');
+    // btn.addEventListener('click', function(event) {
+    //   var lineSet = parseInt(line, 10);
+    //   var colSet = parseInt(col, 10);
+    //   setCaret(lineSet, colSet);
+    // }, true);
+
+
 
 
 
@@ -1602,4 +1626,66 @@ function init(id) {
         });
 
     }
+
+    // Return cursor when insert image, video, etc.
+    
+    var savedRange,isInFocus;
+    window.saveSelection = function()
+    {
+        if(window.getSelection)//non IE Browsers
+        {
+            savedRange = window.getSelection().getRangeAt(0);
+        }
+        else if(document.selection)//IE
+        { 
+            savedRange = document.selection.createRange();  
+        } 
+    }
+
+    window.restoreSelection = function()
+    {
+        isInFocus = true;
+        document.getElementById("editor-doc").focus();
+        if (savedRange != null) {
+            if (window.getSelection)//non IE and there is already a selection
+            {
+                var s = window.getSelection();
+                if (s.rangeCount > 0) 
+                    s.removeAllRanges();
+                s.addRange(savedRange);
+            }
+            else if (document.createRange)//non IE and no selection
+            {
+                window.getSelection().addRange(savedRange);
+            }
+            else if (document.selection)//IE
+            {
+                savedRange.select();
+            }
+        }
+    }
+    //this part onwards is only needed if you want to restore selection onclick
+    var isInFocus = false;
+    window.onDivBlur = function()
+    {
+        isInFocus = false;
+    }
+
+    window.cancelEvent = function(e)
+    {
+        if (isInFocus == false && savedRange != null) {
+            if (e && e.preventDefault) {
+                //alert("FF");
+                e.stopPropagation(); // DOM style (return false doesn't always work in FF)
+                e.preventDefault();
+            }
+            else {
+                window.event.cancelBubble = true;//IE stopPropagation
+            }
+            restoreSelection();
+            return false; // false = IE style
+        }
+    }
 }
+
+
