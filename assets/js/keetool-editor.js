@@ -1,5 +1,7 @@
 function init(id) {
     content = `
+<link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <style>
     .k-caret {
         display: inline-block;
@@ -478,54 +480,6 @@ function init(id) {
         left: 95px;
         box-shadow:0px 2px 20px 3px rgba(0,0,0,0.2);
     }
-
-    .footera {
-        background-color: #171719;
-        width: 100%;
-        height: 400px;
-        text-align: center;
-        color: white;
-        line-height: 20px;
-    }
-
-    .footer1 {
-        font-weight: 800;
-        font-size: 45px;
-        padding-top: 100px;
-    }
-
-    .footer2 {
-        font-weight: 700;
-        font-size: 30;
-        padding-top: 20px;
-    }
-
-    .footer3 {
-        padding-top: 20px;
-        padding-bottom: 50px;
-    }
-
-    .footer4 {
-        background-color: #000000;
-        margin-left: -100px;
-        /*width: 1366px;*/
-        height: 50px;
-        color: white;
-    }
-
-    .footer41 {
-        line-height: 40px;
-        float: left;
-        margin-left: 150px;
-        font-size: 9px;
-    }
-
-    .footer42 {
-        line-height: 40px;
-        margin-right: 50px;
-        float: right;
-        font-size: 10px;
-    }
 </style>
 <div style='margin: 0px 0px 0px 10px' onclick='buttonBackground()'>
     
@@ -534,10 +488,8 @@ function init(id) {
                    <p style="fontsize:20px">Keetool</p>
             </div>
             <div style="position:absolute;display:none;" id="kee-tool">
-                   
-
                      <div class="tool-icon" title="Font Family">
-                        <div        >
+                        <div>
                             <button style="outline:none;" class="tool-icon" type="button" id='button-font-family' onfocusout='buttonBackground()' >
 
                                 <i class="fa fa-font" style="fontsize:5px; display: inline"><span class="k-caret"></span></i>

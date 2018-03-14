@@ -1,0 +1,133 @@
+
+.footera {
+    background-color: #171719;
+    width: 100%;
+    height: 400px;
+    text-align: center;
+    color: white;
+    line-height: 20px;
+  }
+  
+  .footer1 {
+    font-weight: 800;
+    font-size: 45px;
+    padding-top: 100px;
+  }
+  
+  .footer2 {
+    font-weight: 700;
+    font-size: 30;
+    padding-top: 20px;
+  }
+  
+  .footer3 {
+    padding-top: 20px;
+    padding-bottom: 50px;
+  }
+  
+  .footer4 {
+    background-color: #000000;
+    margin-left: -100px;
+    /*width: 1366px;*/
+    height: 50px;
+    color: white;
+  }
+  
+  .footer41 {
+    line-height: 40px;
+    float: left;
+    margin-left: 150px;
+    font-size: 9px;
+  }
+  
+  .footer42 {
+    line-height: 40px;
+    margin-right: 50px;
+    float: right;
+    font-size: 10px;
+  }
+  .downa1 {
+    margin-top: 70px;
+    font-size: 40px;
+    color: black;
+    text-align: justify;
+  }
+  
+  .downb {
+    color: black;
+    font-size: 15px;
+    line-height: 30px;
+    margin-bottom: 50px;
+  }
+  
+  .downb1 {
+    display: inline-block;
+    padding-right: 35px;
+    height: 60px;
+    text-align: justify;
+  }
+  
+  .downb11 {
+    font-weight: bold;
+    padding: 10px 25px;
+    color: white;
+    border-radius: 20px;
+    background-color: #c90818;
+  }
+  
+  .downb12 {
+    font-weight: bold;
+    padding: 10px 25px;
+    color: white;
+    border-radius: 20px;
+    background-color: #bfc0c1;
+  }
+  
+  .card-profile {
+    min-height: 300px;
+  }
+  
+  .card.card-plain {
+    height: 100%;
+  }
+  
+  .card .card-description {
+    min-height: 20px;
+  }
+  
+  .docs {
+    margin: 150px 20px 150px 20px;
+    color: black;
+    background: white;
+  }
+  
+  .docs-footer {
+    height: 100px;
+    background-color: black;
+    color: white;
+  }
+  
+  .docs-p {
+    padding-top: 12px;
+    line-height: 36px;
+  }
+  
+  .re {
+    color: #ef4665;
+  }
+  
+  .yl {
+    color: #e4da73;
+  }
+  
+  .gr {
+    color: #7ed92b;
+  }
+  
+  .bl {
+    color: #67d9ef;
+  }
+
+  .article{
+    margin-top: 50px;
+  }
