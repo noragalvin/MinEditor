@@ -1,54 +1,53 @@
 function init(id) {
     content = `
-    <style>
-    *{
-        margin: 0 !important;
-    }
+<style>
     .k-caret {
-    display: inline-block;
-    width: 0;
-    height: 0;
-    margin-left: 2px;
-    vertical-align: middle;
-    border-top: 4px dashed;
-    border-top: 4px solid ;
-    border-right: 4px solid transparent;
-    border-left: 4px solid transparent;
+        display: inline-block;
+        width: 0;
+        height: 0;
+        margin-left: 2px;
+        vertical-align: middle;
+        border-top: 4px dashed;
+        border-top: 4px solid ;
+        border-right: 4px solid transparent;
+        border-left: 4px solid transparent;
     }
-
+    
     #text-color{display: block;}
     #bg-color{display: none}
-
-
-    #text{width: 116px;
-    height: 40px; border-bottom: none;
-    border-top: 0.7px solid gray;
-    border-left: 0.7px solid gray;
-    border-right: 0.7px solid gray;
+    
+    
+    #text{
+        width: 116px;
+        height: 40px; border-bottom: none;
+        border-top: 0.7px solid gray;
+        border-left: 0.7px solid gray;
+        border-right: 0.7px solid gray;
         text-align:center;
         font-size:13px;
         display: inline-block;
         background-color: white;
         margin-right: -1.7px;
-    color: black;
-    border-radius: 5px 5px 0px 0px;
+        color: black;
+        border-radius: 5px 5px 0px 0px;
     }
-    #background{width:116px;
-    height: 40px;
-    border: none; border-bottom: 0.7px solid gray;
+    #background{
+        width:116px;
+        height: 40px;
+        border: none; border-bottom: 0.7px solid gray;
         text-align:center;
         font-size:13px;
         display: inline-block;
         background-color: white;
-    margin-left: -1.7px;
-    color: gray;
-    border-radius: 5px 5px 0px 0px;
+        margin-left: -1.7px;
+        color: gray;
+        border-radius: 5px 5px 0px 0px;
     }
     #text:hover{  cursor: pointer;  background-color:  #dce0e8 ; }
     #background:hover{ cursor: pointer; background-color: #dce0e8  }
     #text:focus{ outline:none;  }
     #background:focus{ outline:none;  }
-
+    
     .tool-icon {
         width: 38px;
         height: 38px;
@@ -68,60 +67,48 @@ function init(id) {
     .tool-icon i {
         color: #aaaaaa;
     }
-
+    
     .tool-icon:hover i{
         color: #414141;
     }
     .tool-icon button{
         color: #c9c9c9;
     }
-
+    
     .tool-icon button:hover{
         color: #414141;
     }
-
-
+    
+    
     .tools {
         display: inline-block;
         border-right: 1px solid #ebebeb;
         /* padding: 0 5px 0 0; */
     }
-
+    
     #editor-doc {
-        min-height: 50px;
-        min-width: 98%;
-        /* border: 1px solid rgb(0, 0, 0); */
         border-radius: 5px;
         padding: 10px;
     }
-
-
-
-
+    
+    
+    
+    
     /* //////////////// */
-
-    .menubar-item {
-        border-color: transparent;
-        background: transparent;
-        filter: none;
-        display: inline-block;
-        margin: 2px 0 2px 2px;
-        position: relative;
-    }
-
+    
     .btn-grp {
         border: 2px solid #efefef;
         display: inline-block;
     }
-
-
-
-
-
+    
+    
+    
+    
+    
     #align a:hover {
         background: #aeb0b2;
     }
-
+    
     .dropbtn {
         padding: 10px;
         background-color: transparent;
@@ -129,7 +116,7 @@ function init(id) {
         font-size: 16px;
         border: 1px solid transparent;
     }
-
+    
     .dropdown-cont {
         display: none;
         position: absolute;
@@ -138,38 +125,38 @@ function init(id) {
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         z-index: 1;
     }
-
+    
     .dropdown-cont a {
         color: black;
         padding: 12px 16px;
         text-decoration: none;
         display: block;
     }
-
+    
     .abcd {
         display: none;
     }
-
+    
     .dropdown:hover .abcd {
         display: block;
     }
-
+    
     .dropdown:hover .dropbtn {
         border: 1px solid silver;
         background-color: white;
     }
-
+    
     hr {
         border-top: 1px solid #000;
         width: 98%;
     }
-
-
-
+    
+    
+    
     #quote-place {
         position: absolute;
     }
-
+    
     #cal1 {
         position: absolute;
         height: 0px;
@@ -179,7 +166,7 @@ function init(id) {
         overflow: none;
         z-index: -100;
     }
-
+    
     #cal2 {
         position: absolute;
         height: 0px;
@@ -189,7 +176,7 @@ function init(id) {
         overflow: none;
         z-index: -100;
     }
-
+    
     #Image,
     #Video,
     #Table {
@@ -200,22 +187,14 @@ function init(id) {
         text-align: center;
         cursor: pointer;
     }
-
-    .menubar-item {
-        border-color: transparent;
-        background: transparent;
-        filter: none;
-        display: inline-block;
-        margin: 2px 0 2px 2px;
-        position: relative;
-    }
-
+    
+    
     #editor-doc:focus {
         outline: none;
     }
-
-
-
+    
+    
+    
     .color-item {
         cursor: pointer;
         height: 18px;
@@ -228,7 +207,7 @@ function init(id) {
         border-radius: 50%;
         margin: 5px;
     }
-
+    
     .color-item:hover {
         width: 22px;
         height: 22px;
@@ -236,28 +215,28 @@ function init(id) {
         cursor: pointer;
         border: none;
     }
-
+    
     .color-box {
         width: 297px;
         height: auto;
     }
-
+    
     .modal-title {
         font-weight: 700;
         font-size: 24px;
         color: #333;
     }
-
+    
     #row-content {
         width: 100%;
         margin: 0;
     }
-
+    
     #shortTools {
         /* margin-left: 15px;
         margin-right: 15px; */
     }
-
+    
     div.shortTool.tools {
         border: none;
         margin-right: 10px;
@@ -265,7 +244,7 @@ function init(id) {
         /* display: block; */
         padding: 0;
     }
-
+    
     .close-btn {
         border: none;
         background-color: #4bf442;
@@ -276,31 +255,30 @@ function init(id) {
         padding-right: 12px;
         cursor: pointer;
     }
-
+    
     .close-btn:hover,
     .close-btn:focus {
         background-color: #4CAF50;
     }
-
+    
     .tri-btns {
         border: none;
         color: #919191;
     }
-
-    #demo-btn {
+    
+    #kee-tool {
         border-radius: 10px;
         padding: 10px;
         box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 7px 0px;
         background: rgb(255, 255, 255);
         z-index: 1;
     }  
-
+    
     .modal {
         display: none; /* Hidden by default */
         position: fixed; /* Stay in place */
         z-index: 1!important; /* Sit on top */
         padding-top: 100px!important; /* Location of the box */
-        
         left: 0;
         top: 0;
         width: 100%; /* Full width */
@@ -309,7 +287,7 @@ function init(id) {
         background-color: rgb(0,0,0)!important; /* Fallback color */
         background-color: rgba(0,0,0,0.3)!important; /* Black w/ opacity */
     }
-
+    
     /* Modal Content */
     .k-modal-content {
         font-family: 'Montserrat', sans-serif;
@@ -326,18 +304,18 @@ function init(id) {
         animation-name: animatetop;
         animation-duration: 0.4s
     }
-
+    
     /* Add Animation */
     @-webkit-keyframes animatetop {
         from {opacity:0} 
         to {opacity:1}
     }
-
+    
     @keyframes animatetop {
         from {opacity:0}
         to {opacity:1}
     }
-
+    
     /* The Close Button */
     .k-close {
         color: black;
@@ -345,22 +323,22 @@ function init(id) {
         font-size: 28px;
         font-weight: bold;
     }
-
+    
     .k-close:hover,
     .k-close:focus {
         color: #000;
         text-decoration: none;
         cursor: pointer;
     }
-
+    
     .k-modal-header {
         padding: 20px 16px;
     }
-
+    
     .k-modal-body {
         padding: 2px 16px;
     }
-
+    
     .k-modal-footer {
         padding: 2px 16px;
     }
@@ -372,7 +350,7 @@ function init(id) {
         cursor:pointer;
         border-radius:5px;
     }
-
+    
     .k-button-green {
         background:#4CAF50;
         color:white;
@@ -380,7 +358,7 @@ function init(id) {
     .k-button-green:hover {
         background: #009933;
     }
-
+    
     .k-button-gray {
         background:#888888;
         color:white;
@@ -388,10 +366,10 @@ function init(id) {
     .k-button-gray:hover {
         background: #AAAAAA;
     }
-
-
-
-
+    
+    
+    
+    
     .embed-container {
         position: relative;
         padding-bottom: 56.25%;
@@ -400,7 +378,7 @@ function init(id) {
         max-width: 100%;
         height: auto;
     }
-
+    
     .embed-container iframe, .embed-container object, .embed-container embed {
         position: absolute;
         top: 0;
@@ -408,7 +386,7 @@ function init(id) {
         width: 100%;
         height: 100%;
     }
-
+    
     .editor-button{
         padding:10px 20px;
         border-radius: 5px;
@@ -429,9 +407,9 @@ function init(id) {
         text-decoration: none;
         display: block;
     }
-
-
-
+    
+    
+    
     .dropdown-font-size a,
     .dropdown-align a{
         color: black;
@@ -439,76 +417,123 @@ function init(id) {
         text-decoration: none;
         display: block;
     }
-
+    
     .dropdown-font-family a:hover,
     .dropdown-paragraph-format a:hover,
     .dropdown-font-size a:hover,
     .dropdown-align a:hover {
-     background: #ececec;
+        background: #ececec;
+    }
+    
+    
+    .dropdown-font-family,
+    .dropdown-paragraph-format,
+    .dropdown-font-size,
+    .dropdown-align {
+        display: none;
+        border-radius: 0px;
+        position: absolute;
+        padding: 0px;
+        background-color: #f9f9f9;
+        box-shadow:0px 4px 20px 3px rgba(0,0,0,0.15);
+        z-index: 1;
+    }
+    
+    
+    
+    
+    .dropdown-font-family {
+        top: 48px;
+        left:11px;
+        min-width: 100px;
+    }
+    
+    .dropdown-paragraph-format {
+        top: 48px;
+        left:52.5px;
+        width: 290px;
+    }
+    
+    .dropdown-font-size {
+        top: 48px;
+        left:136.5px;
+        padding: 0px;
+        min-width: 80px;
+    }
+    
+    
+    .dropdown-align {
+        top: 48px;
+        left:178.5px;
+        padding: 0px;
+        min-width: 80px;
+    }
+    
+    .dropdown-color {
+        display: none;
+        position: absolute;
+        background: #fff;
+        z-index: 1;
+        top: 48px;
+        left: 95px;
+        box-shadow:0px 2px 20px 3px rgba(0,0,0,0.2);
     }
 
+    .footera {
+        background-color: #171719;
+        width: 100%;
+        height: 400px;
+        text-align: center;
+        color: white;
+        line-height: 20px;
+    }
 
-  .dropdown-font-family ,
-    .dropdown-paragraph-format ,
-      .dropdown-font-size ,
-        .dropdown-align {
-    display: none;
-    border-radius: 0px;
-    position: absolute;
-    padding: 0px;
-    background-color: #f9f9f9;
-    box-shadow:0px 4px 20px 3px rgba(0,0,0,0.15);
-    z-index: 1;
-}
+    .footer1 {
+        font-weight: 800;
+        font-size: 45px;
+        padding-top: 100px;
+    }
 
+    .footer2 {
+        font-weight: 700;
+        font-size: 30;
+        padding-top: 20px;
+    }
 
+    .footer3 {
+        padding-top: 20px;
+        padding-bottom: 50px;
+    }
 
+    .footer4 {
+        background-color: #000000;
+        margin-left: -100px;
+        /*width: 1366px;*/
+        height: 50px;
+        color: white;
+    }
 
-.dropdown-font-family {
- 
-    top: 48px;
-    left:11px;
-    min-width: 100px;
-}
+    .footer41 {
+        line-height: 40px;
+        float: left;
+        margin-left: 150px;
+        font-size: 9px;
+    }
 
-.dropdown-paragraph-format {
-    top: 48px;
-    left:52.5px;
-    width: 290px;
-}
-
-.dropdown-font-size {
-    top: 48px;
-    left:136.5px;
-    padding: 0px;
-    min-width: 80px;
-}
-
-
-.dropdown-align {
-    top: 48px;
-    left:178.5px;
-    padding: 0px;
-    min-width: 80px;
-}
-
-.dropdown-color {
-    display: none;
-    position: absolute;
-    background: #fff;
-    z-index: 1;
-    top: 48px;
-    left: 95px;
-    box-shadow:0px 2px 20px 3px rgba(0,0,0,0.2);
-}
-    </style>
+    .footer42 {
+        line-height: 40px;
+        margin-right: 50px;
+        float: right;
+        font-size: 10px;
+    }
+</style>
 <div style='margin: 0px 0px 0px 10px' onclick='buttonBackground()'>
     
         <div id="heading-editor" class="row">
-            <div id="editor-doc" style="overflow:auto;min-height:100px;"  onblur="onDivBlur();" onmousedown="return cancelEvent(event);" onclick="return cancelEvent(event);" contentEditable="true" onmouseup="saveSelection();" onkeyup="saveSelection();" onfocus="restoreSelection();" contenteditable>
+            <div id="editor-doc" onblur="onDivBlur();" onmousedown="return cancelEvent(event);" onclick="return cancelEvent(event);" contentEditable="true" onmouseup="saveSelection();" onkeyup="saveSelection();" onfocus="restoreSelection();">
                    <p style="fontsize:20px">Keetool</p>
             </div>
-            <div style="position:absolute;display:none;" id="demo-btn">
+            <div style="position:absolute;display:none;" id="kee-tool">
                    
 
                      <div class="tool-icon" title="Font Family">
@@ -985,25 +1010,10 @@ function init(id) {
     window.insertImg = function (img) {
         elem = document.getElementById('editor-doc'); //This is the element that you want to move the caret to the end of
         setEndOfContenteditable(elem);
-        var sImg = document.getElementById('data-img').value;
-        // sImg = prompt('Link here');
-        var widthScreen = document.getElementById('editor-doc').offsetWidth;
-        var widthImg;
-        getMeta(sImg, widthImg, widthScreen);
-        // console.log(widthImg);
-        // console.log(widthScreen);
-    }
-
-    function getMeta(url, widthImg, widthScreen) {
-        var img = new Image();
-        img.onload = function () {
-            // alert(this.width + ' ' + this.height);
-            url = "<div><img src=\"" + url + "\" width=100% height=auto></div>";
-            idImage++;
-            // console.log(url);
-            document.execCommand("insertHTML", false, url);
-        };
-        img.src = url;
+        var url = document.getElementById('data-img').value;
+        url = "<div><img src=\"" + url + "\" width=100% height=auto></div>";
+        // console.log(url);
+        document.execCommand("insertHTML", false, url);
     }
 
 
@@ -1076,7 +1086,7 @@ function init(id) {
             // console.log(data);
             if (data === '<br>') {
                 console.log(2);
-                $('.embed-container').remove();
+                $(this).remove();
             }
         });
     });
@@ -1099,24 +1109,24 @@ function init(id) {
         });
     }
 
-    //Insert hr tag
-    function insertHr() {
-        document.execCommand("insertHTML", false, "<hr/>");
-    }
+    // //Insert hr tag
+    // function insertHr() {
+    //     document.execCommand("insertHTML", false, "<hr/>");
+    // }
 
-    //Select all
-    function selectAll() {
-        function selectElementContents(el) {
-            var range = document.createRange();
-            range.selectNodeContents(el);
-            var sel = window.getSelection();
-            sel.removeAllRanges();
-            sel.addRange(range);
-        }
+    // //Select all
+    // function selectAll() {
+    //     function selectElementContents(el) {
+    //         var range = document.createRange();
+    //         range.selectNodeContents(el);
+    //         var sel = window.getSelection();
+    //         sel.removeAllRanges();
+    //         sel.addRange(range);
+    //     }
 
-        var el = document.getElementById("editor-doc");
-        selectElementContents(el);
-    }
+    //     var el = document.getElementById("editor-doc");
+    //     selectElementContents(el);
+    // }
 
     //Show code
     $(document).ready(function () {
@@ -1135,18 +1145,20 @@ function init(id) {
         });
     });
 
+
+
     $(document).ready(function () {
         function getSelected() {
             if (window.getSelection) {
-                // console.log('selected');
+                console.log('selected');
                 return window.getSelection();
             } else if (document.getSelection) {
-                // console.log('selected');
+                console.log('selected');
                 return document.getSelection();
             } else {
                 var selection = document.selection && document.selection.createRange();
                 if (selection.text) {
-                    // console.log('selected');
+                    console.log('selected');
                     return selection.text;
                 }
                 return false;
@@ -1156,7 +1168,7 @@ function init(id) {
     });
 
     //Selection text
-    var ele = document.getElementById('demo-btn');
+    var ele = document.getElementById('kee-tool');
     var sel = window.getSelection();
     var rel1 = document.createRange();
     rel1.selectNode(document.getElementById('cal1'));
@@ -1190,7 +1202,7 @@ function init(id) {
     });
 
     $('body').mousedown(function () {
-        $('#demo-btn').hover(function () {
+        $('#kee-tool').hover(function () {
             // over
 
         }, function () {
@@ -1251,10 +1263,6 @@ function init(id) {
         return this;
     };
 
-
-    $('#editor-doc').focusin(function () {
-        $('#menubar-item').slideDown();
-    })
 
     $(document).ready(function () {
         $("#sub-tools").hide();
@@ -1448,7 +1456,7 @@ function init(id) {
 
     window.backgroundColor = function () {
         $('#text-color').css('display', 'none');
-        $('#bg-color').slideDown();
+        $('#bg-color').show();
         $('#background').css({
             'border': 'none',
             'border-top': '0.7px solid gray',
@@ -1465,7 +1473,7 @@ function init(id) {
 
 
     window.textColor = function () {
-        $('#text-color').slideDown();
+        $('#text-color').show();
         $('#bg-color').css('display', 'none');
         $('#text').css({
             'border': 'none',
