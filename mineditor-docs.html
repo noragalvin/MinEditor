@@ -88,6 +88,13 @@
             </div>
             <br>
             <br>
+            <p>Include this line of code in the <code style ="background-color: #171719;color: #aaa" ><span style="color:yellow">&lt;head&gt;</span></code> of your HTML page:</p>
+ 				<br>
+            <pre style="background-color: #171719;color: #aaa"><code>
+    &lt<span class="re">link </span><span class="gr">rel</span>=<span class="yl">"stylesheet" </span> <span class="gr">href</span>=<span class="yl">"https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"</span>&gt
+                                    </code></pre>
+            <br/>
+            <br/>
             <div>
                 <p>Include this line of code under the
                     <code style="background-color: #171719;color: #aaa">
@@ -95,6 +102,7 @@
                     </code> of your HTML page:</p>
                 <br>
                 <pre style="background-color: #171719;color: #aaa"><code>
+    &lt<span class="re">script </span><span class="gr">src</span>=<span class="yl">"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"</span>&gt&lt/<span class="re">script</span>&gt
     &lt<span class="re">script</span> <span class="gr">type</span>=<span class="yl">"text/javascript"</span> <span class="gr">src</span>=<span class="yl">"js/keetool-editor.js"</span>&gt&lt/<span class="re">script</span>&gt
             </code></pre>
             </div>
@@ -131,18 +139,19 @@
    2. &lt<span class="re">html</span> <span class="gr">lang</span>=<span class="yl">"en"</span>&gt
    3.
    4. &lt<span class="re">head</span>&gt
-   5.
+   5.       &lt<span class="re">link </span><span class="gr">rel</span>=<span class="yl">"stylesheet" </span> <span class="gr">href</span>=<span class="yl">"https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"</span>&gt
    6. &lt/<span class="re">head</span>&gt
    7.       
    8. &lt<span class="re">body</span>&gt
    9.       &lt<span class="re">div</span> <span class="gr">id</span>=<span class="yl">"mini-editor</span>&gt
   10.       
   11.       &lt/<span class="re">div</span>&gt
-  12. &lt/<span class="re">body</span>&gt
-  13. 
-  14. &lt<span class="re">script</span> <span class="gr">type</span>=<span class="yl">"text/javascript"</span> <span class="gr">src</span>=<span class="yl">js/keetool-editor.js</span>&gt&lt/<span class="re">script</span>&gt
-  15. &lt<span class="re">script</span>&gt<span class="bl"><i>window</i>.addEventListener</span>(<span class="yl">'load'</span>,<span class="bl">init</span>(<span class="yl">'mini-editor'</span>));&lt/<span class="re">script</span>&gt
-  16. &lt/<span class="re">html</span>&gt
+  12. &lt/<span class="re">body</span>&gt  14.               
+  13. &lt<span class="re">script </span><span class="gr">src</span>=<span class="yl">"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"</span>&gt&lt/<span class="re">script</span>&gt
+  14.
+  15. &lt<span class="re">script</span> <span class="gr">type</span>=<span class="yl">"text/javascript"</span> <span class="gr">src</span>=<span class="yl">js/keetool-editor.js</span>&gt&lt/<span class="re">script</span>&gt
+  16. &lt<span class="re">script</span>&gt<span class="bl"><i>window</i>.addEventListener</span>(<span class="yl">'load'</span>,<span class="bl">init</span>(<span class="yl">'mini-editor'</span>));&lt/<span class="re">script</span>&gt
+  17. &lt/<span class="re">html</span>&gt
     </code></pre>
             </div>
             <div>
@@ -169,22 +178,25 @@
    2. &lt<span class="re">html</span> <span class="gr">lang</span>=<span class="yl">"en"</span>&gt
    3.
    4. &lt<span class="re">head</span>&gt
-
-   5. &lt/<span class="re">head</span>&gt
-   6.       
-   7. &lt<span class="re">body</span>&gt
-   8.       &lt<span class="re">div</span> <span class="gr">id</span>=<span class="yl">"first-mini-editor</span>&gt
-   8.       
-  10.       &lt/<span class="re">div</span>&gt
-  11.       &lt<span class="re">div</span> <span class="gr">id</span>=<span class="yl">"second-mini-editor</span>&gt
-  12.       
-  13.       &lt/<span class="re">div</span>&gt
-  14. &lt/<span class="re">body</span>&gt
-  15. 
-  16. &lt<span class="re">script</span> <span class="gr">type</span>=<span class="yl">"text/javascript"</span> <span class="gr">src</span>=<span class="yl">js/keetool-editor.js</span>&gt&lt/<span class="re">script</span>&gt
-  17. &lt<span class="re">script</span>&gt<span class="bl"><i>window</i>.addEventListener</span>(<span class="yl">'load'</span>,<span class="bl">init</span>(<span class="yl">'first-mini-editor'</span>));&lt/<span class="re">script</span>&gt
-  18. &lt<span class="re">script</span>&gt<span class="bl"><i>window</i>.addEventListener</span>(<span class="yl">'load'</span>,<span class="bl">init</span>(<span class="yl">'second-mini-editor'</span>));&lt/<span class="re">script</span>&gt
-  19. &lt/<span class="re">html</span>&gt
+   5.       &lt<span class="re">link </span><span class="gr">rel</span>=<span class="yl">"stylesheet" </span> <span class="gr">href</span>=<span class="yl">"https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"</span>&gt
+   6. &lt/<span class="re">head</span>&gt
+   7.       
+   8. &lt<span class="re">body</span>&gt
+   9.       &lt<span class="re">div</span> <span class="gr">id</span>=<span class="yl">"first-mini-editor</span>&gt
+  10.       
+  11.       &lt/<span class="re">div</span>&gt
+  12.       &lt<span class="re">div</span> <span class="gr">id</span>=<span class="yl">"second-mini-editor</span>&gt
+  13.       
+  14.       &lt/<span class="re">div</span>&gt
+  15. &lt/<span class="re">body</span>&gt
+  16. 
+  17.                  
+  18. &lt<span class="re">script </span><span class="gr">src</span>=<span class="yl">"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"</span>&gt&lt/<span class="re">script</span>&gt
+  19.
+  20. &lt<span class="re">script</span> <span class="gr">type</span>=<span class="yl">"text/javascript"</span> <span class="gr">src</span>=<span class="yl">js/keetool-editor.js</span>&gt&lt/<span class="re">script</span>&gt
+  21. &lt<span class="re">script</span>&gt<span class="bl"><i>window</i>.addEventListener</span>(<span class="yl">'load'</span>,<span class="bl">init</span>(<span class="yl">'first-mini-editor'</span>));&lt/<span class="re">script</span>&gt
+  22. &lt<span class="re">script</span>&gt<span class="bl"><i>window</i>.addEventListener</span>(<span class="yl">'load'</span>,<span class="bl">init</span>(<span class="yl">'second-mini-editor'</span>));&lt/<span class="re">script</span>&gt
+  23. &lt/<span class="re">html</span>&gt
     </code></pre>
             </div>
         </div>

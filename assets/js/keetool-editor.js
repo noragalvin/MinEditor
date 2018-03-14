@@ -1408,7 +1408,7 @@ function init(id) {
 
     window.backgroundColor = function () {
         $('#text-color').css('display', 'none');
-        $('#bg-color').show();
+        $('#bg-color').fadeIn();
         $('#background').css({
             'border': 'none',
             'border-top': '0.7px solid gray',
@@ -1425,7 +1425,7 @@ function init(id) {
 
 
     window.textColor = function () {
-        $('#text-color').show();
+        $('#text-color').fadeIn();
         $('#bg-color').css('display', 'none');
         $('#text').css({
             'border': 'none',
