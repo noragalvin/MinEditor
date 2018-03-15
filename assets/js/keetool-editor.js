@@ -369,26 +369,6 @@ function init(id) {
         background: #AAAAAA;
     }
     
-    
-    
-    
-    .embed-container {
-        position: relative;
-        padding-bottom: 56.25%;
-        height: 0;
-        overflow: hidden;
-        max-width: 100%;
-        height: auto;
-    }
-    
-    .embed-container iframe, .embed-container object, .embed-container embed {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-    
     .editor-button{
         padding:10px 20px;
         border-radius: 5px;
@@ -780,7 +760,7 @@ function init(id) {
         <div id="shortTools" class="row">
             <div class="tools shortTool" >
              
-              <button onclick="insertSpace" id="myBtnImg" type="button" class="editor-button" style="display: flex; outline: none;">
+              <button id="myBtnImg" type="button" class="editor-button" style="display: flex; outline: none;">
                 <i class="fa fa-camera"  aria-hidden="true"></i>
     
               </button>
@@ -921,18 +901,13 @@ function init(id) {
             var data = document.getElementById('data-link').value;
             document.execCommand(sCmd, true, data);
             document.getElementById.value = "";
-            $('#kee-tool').css('dislay','none');
+            $('#kee-tool').css('dislay', 'none');
 
         } else if (sCmd === 'backcolor' || sCmd === 'forecolor') {
             // console.log(1);
             // console.log(sCmd);
             // console.log(sValue);
             document.execCommand(sCmd, true, sValue);
-        } else if (sCmd == 'insertHTML') {
-            // <iframe width="auto" height="auto" frameborder="0" allowfullscreen src="https://www.nhaccuatui.com/vh/auto/GbCeos9ACoGf0"></iframe>
-            // if else insert video
-            url = prompt('Enter embed code: ', 'Embed here');
-            document.execCommand(sCmd, false, url);
         } else {
             if (document.queryCommandSupported(sCmd) == false) {
                 alert('The command ' + sCmd + ' is not support your browser');
@@ -955,8 +930,6 @@ function init(id) {
 
 
     //Insert Images
-    var idImage = 0;
-
     window.insertImg = function (img) {
         elem = document.getElementById('editor-doc'); //This is the element that you want to move the caret to the end of
         setEndOfContenteditable(elem);
@@ -965,49 +938,10 @@ function init(id) {
         url = "<div><img src=\"" + inputUrl + "\" width=100% height=auto></div>";
         // url = "<div><img src=\"" + inputUrl + "\"></div>";
         console.log("url:" + inputUrl);
-        if(inputUrl){
+        if (inputUrl) {
             document.execCommand("insertHTML", false, url);
             document.getElementById('data-img').value = "";
         }
-    }
-
-
-    function changeSize(id) {
-        //Zoom in
-        // console.log(id);
-        $('#zoom-in').click(function (e) {
-            e.preventDefault();
-            // console.log(1);
-            var width = $('#' + id).css('width');
-            width = parseInt(width.substr(0, width.length - 2));
-            // console.log(width);
-            // console.log(typeof width);
-            width += 20;
-            // console.log(width);
-            $('#' + id).css('width', width + 'px');
-        });
-        //Zoom out
-        $('#zoom-out').click(function (e) {
-            e.preventDefault();
-            // console.log(1);
-            var width = $('#' + id).css('width');
-            width = parseInt(width.substr(0, width.length - 2));
-            // console.log(width);
-            // console.log(typeof width);
-            width -= 20;
-            // console.log(width);
-            $('#' + id).css('width', width + 'px');
-        });
-    }
-
-
-    //Insert space
-    function insertSpace() {
-        // console.log(1);
-        elem = document.getElementById('editor-doc'); //This is the element that you want to move the caret to the end of
-        setEndOfContenteditable(elem);
-        var value = "a";
-        document.execCommand('insertHTML', false, value);
     }
 
 
@@ -1023,21 +957,21 @@ function init(id) {
         var check = sVideo.substr(1, 6);
         // console.log(sVideo);
         // console.log(check);
-        if(inputVideoURL) {
+        if (inputVideoURL) {
             if (check === "iframe") {
                 document.execCommand("insertHTML", false, sVideo);
                 document.getElementById('data-video').value = "";
-                setEndOfContenteditable(elem);
+                // setEndOfContenteditable(elem);
             } else {
                 var idVideo = sVideo.substr(32, sVideo.length - 1);
                 stringVideo = "https://www.youtube.com/embed/" + idVideo;
                 var widthVideo = document.getElementById('editor-doc').offsetWidth;
-                var heightVideo = 0.5625*widthVideo;
-                sVideo = "<iframe width=" + widthVideo + "\" height=" + heightVideo +  " src=\"" + stringVideo + "\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\" __idm_id__=\"189403137\"></iframe>"
+                var heightVideo = 0.5625 * widthVideo;
+                sVideo = "<iframe width=" + widthVideo + "\" height=" + heightVideo + " src=\"" + stringVideo + "\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\" __idm_id__=\"189403137\"></iframe>"
                 // console.log(sVideo);
                 document.execCommand("insertHTML", false, sVideo);
                 document.getElementById('data-video').value = "";
-                setEndOfContenteditable(elem);
+                // setEndOfContenteditable(elem);
             }
         }
     }
@@ -1153,12 +1087,6 @@ function init(id) {
         }
     });
 
-    // $('#heading-editor').focusout(function(){
-    //     ele.style.display = 'none';
-    // });
-
-
-
     $(document).ready(function () {
         $(window).resize(function () {
             ele.style.display = 'none';
@@ -1263,49 +1191,39 @@ function init(id) {
     //     $('#editor-doc').focus();
     // });
     $(window).on('load', function () {
-        elem = document.getElementById('editor-doc'); //This is the element that you want to move the caret to the end of
+        var elem = document.getElementById('editor-doc'); //This is the element that you want to move the caret to the end of
         setEndOfContenteditable(elem);
     });
 
+
+
     //editor always has cursor if null data
-    $('#editor-doc').keydown(function (e) { 
-        console.log(1);
+    $('#editor-doc').keydown(function (e) {
+        // console.log(1);
+        var elem = document.getElementById('editor-doc');
         var data = document.getElementById('editor-doc').innerText;
-        if(data === "\n"){
-            setEndOfContenteditable(elem);   
+        if (data === "\n") {
+            setEndOfContenteditable(elem);
+            console.log(1);
+            $('#editor-doc').hover(function () {
+                setEndOfContenteditable(elem);
+            });
         }
     });
 
-// Something else
+    // Something else
     function setCaret(line, col) {
-      var ele = document.getElementById("editable");
-      var rng = document.createRange();
-      var sel = window.getSelection();
-      rng.setStart(ele.childNodes[line], col);
-      rng.collapse(true);
-      sel.removeAllRanges();
-      sel.addRange(range);
-      ele.focus();
+        var ele = document.getElementById("editable");
+        var rng = document.createRange();
+        var sel = window.getSelection();
+        rng.setStart(ele.childNodes[line], col);
+        rng.collapse(true);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ele.focus();
     }
 
-    //https://stackoverflow.com/a/6249440/2813224
-
-    // var line = document.getElementById('ln').value;
-    // var col = document.getElementById('cl').value;
-    // var btn = document.getElementById('btn');
-    // btn.addEventListener('click', function(event) {
-    //   var lineSet = parseInt(line, 10);
-    //   var colSet = parseInt(col, 10);
-    //   setCaret(lineSet, colSet);
-    // }, true);
-
-
-
-
-
-
     //Press tab button
-    // adapted from http://stackoverflow.com/a/25943182/460084
     function insertTab() {
         if (!window.getSelection) return;
         const sel = window.getSelection();
@@ -1338,15 +1256,6 @@ function init(id) {
         e.preventDefault();
         $('.dropdown-color').hide();
     });
-
-
-
-    // $(document).bind('keypress', function (e) {
-    //     if(e.which === 85 && event.shiftKey){
-    //         alert(1);
-    //     }
-    // });
-
 
     // Get the modal
     var modalImg = document.getElementById('myModalImg');
@@ -1414,7 +1323,7 @@ function init(id) {
         } // esc
     });
 
-    $('.k-close-modal').click(function (e) { 
+    $('.k-close-modal').click(function (e) {
         e.preventDefault();
         modalVid.style.display = "none";
         modalImg.style.display = "none";
@@ -1615,37 +1524,32 @@ function init(id) {
     }
 
     // Return cursor when insert image, video, etc.
-    
-    var savedRange,isInFocus;
-    window.saveSelection = function()
-    {
-        if(window.getSelection)//non IE Browsers
+
+    var savedRange, isInFocus;
+    window.saveSelection = function () {
+        if (window.getSelection) //non IE Browsers
         {
             savedRange = window.getSelection().getRangeAt(0);
+        } else if (document.selection) //IE
+        {
+            savedRange = document.selection.createRange();
         }
-        else if(document.selection)//IE
-        { 
-            savedRange = document.selection.createRange();  
-        } 
     }
 
-    window.restoreSelection = function()
-    {
+    window.restoreSelection = function () {
         isInFocus = true;
         document.getElementById("editor-doc").focus();
         if (savedRange != null) {
-            if (window.getSelection)//non IE and there is already a selection
+            if (window.getSelection) //non IE and there is already a selection
             {
                 var s = window.getSelection();
-                if (s.rangeCount > 0) 
+                if (s.rangeCount > 0)
                     s.removeAllRanges();
                 s.addRange(savedRange);
-            }
-            else if (document.createRange)//non IE and no selection
+            } else if (document.createRange) //non IE and no selection
             {
                 window.getSelection().addRange(savedRange);
-            }
-            else if (document.selection)//IE
+            } else if (document.selection) //IE
             {
                 savedRange.select();
             }
@@ -1653,26 +1557,21 @@ function init(id) {
     }
     //this part onwards is only needed if you want to restore selection onclick
     var isInFocus = false;
-    window.onDivBlur = function()
-    {
+    window.onDivBlur = function () {
         isInFocus = false;
     }
 
-    window.cancelEvent = function(e)
-    {
+    window.cancelEvent = function (e) {
         if (isInFocus == false && savedRange != null) {
             if (e && e.preventDefault) {
                 //alert("FF");
                 e.stopPropagation(); // DOM style (return false doesn't always work in FF)
                 e.preventDefault();
-            }
-            else {
-                window.event.cancelBubble = true;//IE stopPropagation
+            } else {
+                window.event.cancelBubble = true; //IE stopPropagation
             }
             restoreSelection();
             return false; // false = IE style
         }
     }
 }
-
-
