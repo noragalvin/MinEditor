@@ -1,6 +1,6 @@
 function init(id) {
     content = `
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <style>
     .k-caret {
@@ -90,7 +90,7 @@ function init(id) {
     
     #editor-doc {
         border-radius: 5px;
-        padding: 10px;
+        margin: 10px;
     }
     
     
@@ -481,7 +481,7 @@ function init(id) {
         box-shadow:0px 2px 20px 3px rgba(0,0,0,0.2);
     }
 </style>
-<div style='margin: 0px 0px 0px 10px' onclick='buttonBackground()'>
+<div style='margin: 0px 10px;' onclick='buttonBackground()'>
     
         <div id="heading-editor" class="row">
             <div id="editor-doc" onblur="onDivBlur();" onmousedown="return cancelEvent(event);" onclick="return cancelEvent(event);" contentEditable="true" onmouseup="saveSelection();" onkeyup="saveSelection();" onfocus="restoreSelection();">
@@ -682,7 +682,7 @@ function init(id) {
                 
                  
                     <div class="tool-icon" title="Font Size">
-                        <div     >
+                        <div>
                             <button class=" tool-icon" type="button" id='button-font-size'>
                                 <i class="fa fa-text-height" style='display:inline'><span class="k-caret"></span></i>
                             </button>
@@ -796,10 +796,8 @@ function init(id) {
     
             </div>
             <div class="tools shortTool">
-              <button id="myBtnLnk"  type="button"  class="editor-button" style="display: flex; outline: none;">
+              <button id="myBtnLink"  type="button"  class="editor-button" style="display: flex; outline: none;">
                 <i class="fa fa-link" aria-hidden="true"></i>
-
-    
               </button>
     
             </div>
@@ -817,6 +815,7 @@ function init(id) {
     <div id="myModalImg" class="modal">
     <div class="k-modal-content">
         <div class="k-modal-header">
+            <button type="button" class="close k-close-modal" data-dismiss="modal">&times;</button>
             <h3>Chèn ảnh</h3>
         </div>
         <div class="k-modal-body">
@@ -844,6 +843,7 @@ function init(id) {
 <div id="myModalVid" class="modal">
     <div class="k-modal-content">
         <div class="k-modal-header">
+            <button type="button" class="close k-close-modal" data-dismiss="modal">&times;</button>
             <h3>Chèn Video</h3>
         </div>
         <div class="k-modal-body">
@@ -860,19 +860,20 @@ function init(id) {
 
 </div>
 
-<div id="myModalLnk" class="modal">
+<div id="myModalLink" class="modal">
     <div class="k-modal-content">
         <div class="k-modal-header">
-            <h3>Chèn ảnh</h3>
+            <button type="button" class="close k-close-modal" data-dismiss="modal">&times;</button>
+            <h3>Chèn Link</h3>
         </div>
         <div class="k-modal-body">
             <div style="border:solid 1px #dfdfdf; padding:10px;">
-                <input type="text" placeholder="URL" style=" outline:none; border:none; width:100%"/>
+                <input id="data-link" type="text" placeholder="URL" style=" outline:none; border:none; width:100%"/>
             </div>
         </div>
         <div class="k-modal-footer">
             <div style="display:flex;flex-direction:row-reverse">
-                <button class="k-modal-button k-button-green">ok</button>
+                <button onclick="formatDoc('createLink')" class="k-modal-button k-button-green">Ok</button>
             </div>
         </div>
     </div>
@@ -915,14 +916,12 @@ function init(id) {
             'p') {
             document.execCommand('formatBlock', false, sCmd);
 
-        } else if (sCmd == 'createLink' || sCmd == 'insertimage') {
-            var url = prompt('Enter the link here: ', 'http:\/\/');
-            // console.log(url);
-            if (sCmd === 'insertimagea') {
-                insertImg(url);
-            } else {
-                document.execCommand(sCmd, false, url);
-            }
+        } else if (sCmd == 'createLink') {
+            setEndOfContenteditable(elem);
+            var data = document.getElementById('data-link').value;
+            document.execCommand(sCmd, true, data);
+            document.getElementById.value = "";
+            $('#kee-tool').css('dislay','none');
 
         } else if (sCmd === 'backcolor' || sCmd === 'forecolor') {
             // console.log(1);
@@ -944,7 +943,6 @@ function init(id) {
                 $('.dropdown-color').css('display', 'none');
                 $('.dropdown-font-size').css('display', 'none');
                 $('.dropdown-align').css('display', 'none');
-
                 // console.log(1);
                 document.execCommand(sCmd, false, sValue);
                 // console.log('hello22');
@@ -963,9 +961,14 @@ function init(id) {
         elem = document.getElementById('editor-doc'); //This is the element that you want to move the caret to the end of
         setEndOfContenteditable(elem);
         var url = document.getElementById('data-img').value;
-        url = "<div><img src=\"" + url + "\" width=100% height=auto></div>";
-        // console.log(url);
-        document.execCommand("insertHTML", false, url);
+        var inputUrl = url;
+        url = "<div><img src=\"" + inputUrl + "\" width=100% height=auto></div>";
+        // url = "<div><img src=\"" + inputUrl + "\"></div>";
+        console.log("url:" + inputUrl);
+        if(inputUrl){
+            document.execCommand("insertHTML", false, url);
+            document.getElementById('data-img').value = "";
+        }
     }
 
 
@@ -1014,23 +1017,32 @@ function init(id) {
         elem = document.getElementById('editor-doc'); //This is the element that you want to move the caret to the end of
         setEndOfContenteditable(elem);
         sVideo = document.getElementById('data-video').value;
+        var inputVideoURL = sVideo;
+        console.log("url: " + inputVideoURL);
         // sVideo = prompt('Link here');
         var check = sVideo.substr(1, 6);
         // console.log(sVideo);
         // console.log(check);
-        if (check === "iframe") {
-            document.execCommand("insertHTML", false, sVideo);
-        } else {
-            var idVideo = sVideo.substr(32, sVideo.length - 1);
-            stringVideo = "https://www.youtube.com/embed/" + idVideo;
-            sVideo = "<div class=\"embed-container\"><iframe src=\"" + stringVideo + "\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\" __idm_id__=\"189403137\"></iframe></div>"
-            // console.log(sVideo);
-            document.execCommand("insertHTML", false, sVideo);
-
+        if(inputVideoURL) {
+            if (check === "iframe") {
+                document.execCommand("insertHTML", false, sVideo);
+                document.getElementById('data-video').value = "";
+                setEndOfContenteditable(elem);
+            } else {
+                var idVideo = sVideo.substr(32, sVideo.length - 1);
+                stringVideo = "https://www.youtube.com/embed/" + idVideo;
+                var widthVideo = document.getElementById('editor-doc').offsetWidth;
+                var heightVideo = 0.5625*widthVideo;
+                sVideo = "<iframe width=" + widthVideo + "\" height=" + heightVideo +  " src=\"" + stringVideo + "\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\" __idm_id__=\"189403137\"></iframe>"
+                // console.log(sVideo);
+                document.execCommand("insertHTML", false, sVideo);
+                document.getElementById('data-video').value = "";
+                setEndOfContenteditable(elem);
+            }
         }
     }
 
-    //Remove parent div of img
+    //Remove parent div of video
     $(document).ready(function () {
         $(window).keyup(function (e) {
             // console.log(1);
@@ -1255,6 +1267,14 @@ function init(id) {
         setEndOfContenteditable(elem);
     });
 
+    //editor always has cursor if null data
+    $('#editor-doc').keydown(function (e) { 
+        console.log(1);
+        var data = document.getElementById('editor-doc').innerText;
+        if(data === "\n"){
+            setEndOfContenteditable(elem);   
+        }
+    });
 
 // Something else
     function setCaret(line, col) {
@@ -1358,15 +1378,15 @@ function init(id) {
 
 
     // Get the modal
-    var modalLnk = document.getElementById('myModalLnk');
+    var modalLink = document.getElementById('myModalLink');
 
     // Get the button that opens the modal
-    var btnLnk = document.getElementById("myBtnLnk");
+    var btnLnk = document.getElementById("myBtnLink");
 
     // Get the <span> element that closes the modal
 
     btnLnk.onclick = function () {
-        modalLnk.style.display = "block";
+        modalLink.style.display = "block";
     }
 
 
@@ -1380,8 +1400,8 @@ function init(id) {
         if (event.target == modalVid) {
             modalVid.style.display = "none";
         }
-        if (event.target == modalLnk) {
-            modalLnk.style.display = "none";
+        if (event.target == modalLink) {
+            modalLink.style.display = "none";
         }
     }
     //esc
@@ -1390,8 +1410,15 @@ function init(id) {
         if (e.keyCode == 27) {
             modalVid.style.display = "none";
             modalImg.style.display = "none";
-            modalLnk.style.display = "none";
+            modalLink.style.display = "none";
         } // esc
+    });
+
+    $('.k-close-modal').click(function (e) { 
+        e.preventDefault();
+        modalVid.style.display = "none";
+        modalImg.style.display = "none";
+        modalLink.style.display = "none";
     });
 
 
@@ -1400,7 +1427,7 @@ function init(id) {
         // console.log(2);
         modalVid.style.display = "none";
         modalImg.style.display = "none";
-        modalLnk.style.display = "none";
+        modalLink.style.display = "none";
     });
 
 
@@ -1568,7 +1595,7 @@ function init(id) {
                 $('#percent').hide();
                 modalVid.style.display = "none";
                 modalImg.style.display = "none";
-                modalLnk.style.display = "none";
+                modalLink.style.display = "none";
                 console.log("success");
                 // console.log(data);
                 var i = document.getElementById("editor-doc");
