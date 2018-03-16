@@ -460,6 +460,24 @@ function init(id) {
         left: 95px;
         box-shadow:0px 2px 20px 3px rgba(0,0,0,0.2);
     }
+
+    .ui-resizable-ne,
+    .ui-resizable-se,
+    .ui-resizable-nw,
+    .ui-resizable-sw
+    {
+        background: white;
+        border: 1px solid black;
+        width: 9px !important;
+        height: 9px !important;
+    }
+
+    .ui-resizable-se
+    {
+        background-image: none !important;
+        right: -5px !important;
+        bottom: -5px !important;
+    }
 </style>
 <div style='margin: 0px 10px;' onclick='buttonBackground()'>
     
@@ -935,8 +953,8 @@ function init(id) {
         setEndOfContenteditable(elem);
         var url = document.getElementById('data-img').value;
         var inputUrl = url;
-        url = "<div><img src=\"" + inputUrl + "\" width=100% height=auto></div>";
-        // url = "<div><img src=\"" + inputUrl + "\"></div>";
+        // url = "<img class=\"child\" src=\"" + inputUrl + "\" width=100% height=auto>";
+        url = "<img class=\"child\" src=\"" + inputUrl + "\">";
         console.log("url:" + inputUrl);
         if (inputUrl) {
             document.execCommand("insertHTML", false, url);
@@ -1007,24 +1025,6 @@ function init(id) {
         });
     }
 
-    // //Insert hr tag
-    // function insertHr() {
-    //     document.execCommand("insertHTML", false, "<hr/>");
-    // }
-
-    // //Select all
-    // function selectAll() {
-    //     function selectElementContents(el) {
-    //         var range = document.createRange();
-    //         range.selectNodeContents(el);
-    //         var sel = window.getSelection();
-    //         sel.removeAllRanges();
-    //         sel.addRange(range);
-    //     }
-
-    //     var el = document.getElementById("editor-doc");
-    //     selectElementContents(el);
-    // }
 
     //Show code
     $(document).ready(function () {
@@ -1574,4 +1574,27 @@ function init(id) {
             return false; // false = IE style
         }
     }
+
+    //resize image
+    $(".child").resizable({
+        aspectRatio:true,   
+        minWidth:100,                    
+        maxWidth:$("#editor-doc").width(),                  
+        containment:"editor-doc",
+        handles:"ne,nw,se,sw",
+        resize: function( event, ui ) {
+        var topB = (parseInt($(this).css("top")) > 0)
+            ? parseInt($(this).css("top")) : 3;
+        var leftB = (parseInt($(this).css("left")) > 0)
+            ? parseInt($(this).css("left")) : 3;
+        if (parseInt($(this).css("left"))< 3)
+        {
+            $(this).trigger('mouseup'); 
+            $(this).css({"left":leftB+"px","top":topB+"px"});
+        }
+        if (parseInt($(this).css("top"))< 3)
+        {
+            $(this).trigger('mouseup'); 
+            $(this).css({"left":leftB+"px","top":topB+"px"});}
+        }}).draggable({ containment: "editor-doc" });
 }
