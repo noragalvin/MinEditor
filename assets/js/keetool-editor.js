@@ -1,7 +1,13 @@
+var head = document.getElementsByTagName('head')[0];
+var jq = document.createElement('script');
+// jq.setAttribute('src','https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'); 
+jq.setAttribute('src','./jquery.min.js'); 
+head.appendChild(jq);
+console.log(1);
+
 function init(id) {
+    console.log(2);
     content = `
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <style>
     .k-caret {
         display: inline-block;
@@ -20,7 +26,8 @@ function init(id) {
     
     
     #text{
-        width: 116px;
+        float:left;
+        width:50%;
         height: 40px; border-bottom: none;
         border-top: 0.7px solid gray;
         border-left: 0.7px solid gray;
@@ -29,19 +36,18 @@ function init(id) {
         font-size:13px;
         display: inline-block;
         background-color: white;
-        margin-right: -1.7px;
         color: black;
         border-radius: 5px 5px 0px 0px;
     }
     #background{
-        width:116px;
+        float:right;
+        width:50%;
         height: 40px;
         border: none; border-bottom: 0.7px solid gray;
         text-align:center;
         font-size:13px;
         display: inline-block;
         background-color: white;
-        margin-left: -1.7px;
         color: gray;
         border-radius: 5px 5px 0px 0px;
     }
@@ -419,6 +425,7 @@ function init(id) {
         background-color: #f9f9f9;
         box-shadow:0px 4px 20px 3px rgba(0,0,0,0.15);
         z-index: 1;
+        border-radius: 5px;
     }
     
     
@@ -452,6 +459,7 @@ function init(id) {
     }
     
     .dropdown-color {
+        border-radius: 5px;
         display: none;
         position: absolute;
         background: #fff;
@@ -560,13 +568,13 @@ function init(id) {
                     <div class="tool-icon" title="Color">
                         <button style="outline:none; " class="tool-icon" id="button-color" type="button" onclick='buttonColor()'><i style='display:inline' class="fa fa-tint"><span class="k-caret"></span></i></button>
                         <div class=" dropdown-color">
-                            <div  style='width:234px'>
+                            <div>
                                 <button id='text' onclick='textColor()'> <a><b>Text Color</b></a></button>
                                  <button id='background'  onclick='backgroundColor()' ><a><b>Background</b></a></button>
                             </div>
                 
                         
-                                <div id="text-color" class="       " >
+                                <div id="text-color" class="" >
                                     <table>
                                         <tr>
                                         <td><a href="#" onclick="formatDoc('forecolor','indigo')" class='color-item' style="background-color: indigo" title="indigo"></a></td>
@@ -880,9 +888,18 @@ function init(id) {
     <div id="cal1">&nbsp;</div>
     <div id="cal2">&nbsp;</div>
 `;
-    var editor = document.getElementById(id);
-    editor.innerHTML = content;
+    
 
+    var editor = document.getElementById(id);
+    editor.innerHTML += content;
+
+    // //insert font awesome
+    // var head = document.getElementsByTagName('head')[0];
+    var fa = document.createElement('link');
+    fa.type = "text/css";
+    fa.rel = "stylesheet";
+    fa.setAttribute('src', `https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css`);
+    head.appendChild(fa);
 
 
     //Set cursor at the end
