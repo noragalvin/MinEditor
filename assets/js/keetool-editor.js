@@ -620,7 +620,7 @@ function init(id) {
                                         </tr>
                                     </table>
                                 </div>
-                                <div id="bg-color" class="    ">
+                                <div id="bg-color" class="">
                                     <table>
                                         <tr>
                                         <td><a href="#" onclick="formatDoc('backcolor','indigo')" class='color-item' style="background-color: indigo " title="indigo"></a></td>
