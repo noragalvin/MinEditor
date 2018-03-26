@@ -1,12 +1,4 @@
-var head = document.getElementsByTagName('head')[0];
-var jq = document.createElement('script');
-// jq.setAttribute('src','https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'); 
-jq.setAttribute('src','./jquery.min.js'); 
-head.appendChild(jq);
-console.log(1);
-
 function init(id) {
-    console.log(2);
     content = `
 <style>
     .k-caret {
@@ -893,15 +885,6 @@ function init(id) {
     var editor = document.getElementById(id);
     editor.innerHTML += content;
 
-    // //insert font awesome
-    // var head = document.getElementsByTagName('head')[0];
-    var fa = document.createElement('link');
-    fa.type = "text/css";
-    fa.rel = "stylesheet";
-    fa.setAttribute('src', `https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css`);
-    head.appendChild(fa);
-
-
     //Set cursor at the end
     function setEndOfContenteditable(contentEditableElement) {
         var range, selection;
@@ -1615,3 +1598,19 @@ function init(id) {
             $(this).css({"left":leftB+"px","top":topB+"px"});}
         }}).draggable({ containment: "editor-doc" });
 }
+
+// // console.log(typeof jQuery);
+// if(typeof jQuery === "undefined"){
+//     var head = document.getElementsByTagName('head')[0];
+//     var jq = document.createElement('script');
+//     var fa = document.createElement('link');
+//     fa.setAttribute('href','https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+//     fa.setAttribute('rel','stylesheet');
+//     fa.setAttribute('type','text/css');
+//     jq.setAttribute('src','https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'); 
+//     // jq.setAttribute('src','./jquery.min.js');
+//     head.appendChild(fa); 
+//     head.appendChild(jq);   
+//     console.log(1);
+//     // init('mini-editor');
+// }
