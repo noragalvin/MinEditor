@@ -1,3 +1,13 @@
+// console.log(typeof jQuery);
+if(typeof jQuery === "undefined"){
+    var head = document.getElementsByTagName('head')[0];
+    var fa = document.createElement('link');
+    fa.setAttribute('href','https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+    fa.setAttribute('rel','stylesheet');
+    fa.setAttribute('type','text/css');
+    head.appendChild(fa); 
+}
+
 function init(id) {
     content = `
 <style>
@@ -919,7 +929,8 @@ function init(id) {
             var data = document.getElementById('data-link').value;
             document.execCommand(sCmd, true, data);
             document.getElementById.value = "";
-            $('#kee-tool').css('dislay', 'none');
+            // $('#kee-tool').css('dislay', 'none');
+            document.getElementById('kee-tool').style.display = "none";
 
         } else if (sCmd === 'backcolor' || sCmd === 'forecolor') {
             // console.log(1);
@@ -931,11 +942,11 @@ function init(id) {
                 alert('The command ' + sCmd + ' is not support your browser');
                 // console.log('hello');
             } else {
-                $('.dropdown-font-family').css('display', 'none');
-                $('.dropdown-paragraph-format').css('display', 'none');
-                $('.dropdown-color').css('display', 'none');
-                $('.dropdown-font-size').css('display', 'none');
-                $('.dropdown-align').css('display', 'none');
+                document.getElementsByClassName('dropdown-font-family').style.display = "none";
+                document.getElementsByClassName('dropdown-paragraph-format').style.display = "none";
+                document.getElementsByClassName('dropdown-color').style.display = "none";
+                document.getElementsByClassName('dropdown-font-size').style.display = "none";
+                document.getElementsByClassName('dropdown-align').style.display = "none";
                 // console.log(1);
                 document.execCommand(sCmd, false, sValue);
                 // console.log('hello22');
@@ -1599,18 +1610,3 @@ function init(id) {
         }}).draggable({ containment: "editor-doc" });
 }
 
-// // console.log(typeof jQuery);
-// if(typeof jQuery === "undefined"){
-//     var head = document.getElementsByTagName('head')[0];
-//     var jq = document.createElement('script');
-//     var fa = document.createElement('link');
-//     fa.setAttribute('href','https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-//     fa.setAttribute('rel','stylesheet');
-//     fa.setAttribute('type','text/css');
-//     jq.setAttribute('src','https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'); 
-//     // jq.setAttribute('src','./jquery.min.js');
-//     head.appendChild(fa); 
-//     head.appendChild(jq);   
-//     console.log(1);
-//     // init('mini-editor');
-// }
