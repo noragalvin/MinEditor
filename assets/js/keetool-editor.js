@@ -1007,15 +1007,16 @@ function init(id) {
 
     //Remove parent div of video
     $(document).ready(function () {
-        $(window).keyup(function (e) {
+        window.addEventListener('keyup',function(){
             // console.log(1);
             var data = $('.embed-container').html();
             // console.log(data);
             if (data === '<br>') {
                 console.log(2);
-                $(this).remove();
+                // $(this).remove();
+                this.parentNode.removeChild(this);
             }
-        });
+        })
     });
 
     // https://www.youtube.com/watch?v=ew1TpesH-jw
