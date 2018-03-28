@@ -1006,18 +1006,15 @@ function init(id) {
     }
 
     //Remove parent div of video
-    $(document).ready(function () {
-        window.addEventListener('keyup',function(){
-            // console.log(1);
-            var data = $('.embed-container').html();
-            // console.log(data);
-            if (data === '<br>') {
-                console.log(2);
-                // $(this).remove();
-                this.parentNode.removeChild(this);
-            }
-        })
-    });
+    window.addEventListener('keyup',function(){
+        var data = $('.embed-container').html();
+        // console.log(data);
+        if (data === '<br>') {
+            console.log(2);
+            // $(this).remove();
+            this.parentNode.removeChild(this);
+        }
+    })
 
     // https://www.youtube.com/watch?v=ew1TpesH-jw
     // <iframe width="560" height="315" src="https://www.youtube.com/embed/ew1TpesH-jw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -1039,43 +1036,39 @@ function init(id) {
 
 
     //Show code
-    $(document).ready(function () {
-        var flag = 1;
-        var data = document.getElementById('editor-doc');
-        // console.log(data.innerHTML);
-        $('#showCode').click(function (e) {
-            e.preventDefault();
-            if (flag === 1) {
-                document.getElementById('editor-doc').innerText = data.innerHTML.trim();
-                flag = 0;
-            } else {
-                document.getElementById('editor-doc').innerHTML = data.innerText.trim();
-                flag = 1;
-            }
-        });
+    var flag = 1;
+    var data = document.getElementById('editor-doc');
+    // console.log(data.innerHTML);
+    $('#showCode').click(function (e) {
+        e.preventDefault();
+        if (flag === 1) {
+            document.getElementById('editor-doc').innerText = data.innerHTML.trim();
+            flag = 0;
+        } else {
+            document.getElementById('editor-doc').innerHTML = data.innerText.trim();
+            flag = 1;
+        }
     });
 
 
 
-    $(document).ready(function () {
-        function getSelected() {
-            if (window.getSelection) {
+    function getSelected() {
+        if (window.getSelection) {
+            console.log('selected');
+            return window.getSelection();
+        } else if (document.getSelection) {
+            console.log('selected');
+            return document.getSelection();
+        } else {
+            var selection = document.selection && document.selection.createRange();
+            if (selection.text) {
                 console.log('selected');
-                return window.getSelection();
-            } else if (document.getSelection) {
-                console.log('selected');
-                return document.getSelection();
-            } else {
-                var selection = document.selection && document.selection.createRange();
-                if (selection.text) {
-                    console.log('selected');
-                    return selection.text;
-                }
-                return false;
+                return selection.text;
             }
             return false;
         }
-    });
+        return false;
+    }
 
     //Selection text
     var ele = document.getElementById('kee-tool');
