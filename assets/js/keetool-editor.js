@@ -1,12 +1,9 @@
-// console.log(typeof jQuery);
-if(typeof jQuery === "undefined"){
-    var head = document.getElementsByTagName('head')[0];
-    var fa = document.createElement('link');
-    fa.setAttribute('href','https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-    fa.setAttribute('rel','stylesheet');
-    fa.setAttribute('type','text/css');
-    head.appendChild(fa); 
-}
+var head = document.getElementsByTagName('head')[0];
+var fa = document.createElement('link');
+fa.setAttribute('href','https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+fa.setAttribute('rel','stylesheet');
+fa.setAttribute('type','text/css');
+head.appendChild(fa); 
 
 function init(id) {
     content = `
@@ -1092,11 +1089,13 @@ function init(id) {
         }
     });
 
-    $(document).ready(function () {
-        $(window).resize(function () {
-            ele.style.display = 'none';
-        });
-    });
+    // $(window).resize(function () {
+    //     ele.style.display = 'none';
+    // });
+    window.onresize = function (e) {  
+        ele.style.display = "none";
+    }
+
 
     $('body').mousedown(function () {
         $('#kee-tool').hover(function () {
@@ -1113,6 +1112,24 @@ function init(id) {
         });
     });
 
+
+
+    // document.getElementsByTagName('body').addEventListener('mousedown', function(){
+    //     let kee = document.getElementById('kee-tool');
+    //     kee.addEventListener('mouseover', function(){
+
+    //     });
+
+    //     kee.addEventListener('mouseout', function(){
+    //         document.getElementById('dropdown-font-family').style.display = 'none';
+    //         document.getElementById('dropdown-paragraph-format').style.display = 'none';
+    //         document.getElementById('dropdown-color').style.display = 'none';
+    //         document.getElementById('dropdown-font-size').style.display = 'none';
+    //         document.getElementById('dropdown-align').style.display = 'none';
+
+    //         ele.style.display = 'none';
+    //     })
+    // });
 
 
 
@@ -1142,9 +1159,6 @@ function init(id) {
 
     //Set cursor position
 
-
-
-
     $.fn.setCursorPosition = function (pos) {
         this.each(function (index, elem) {
             if (elem.setSelectionRange) {
@@ -1161,98 +1175,132 @@ function init(id) {
     };
 
 
-    $(document).ready(function () {
-        $("#sub-tools").hide();
-        $("#talign").hide();
-    });
+    // $(document).ready(function () {
+    //     $("#sub-tools").hide();
+    //     $("#talign").hide();
+    // });
+
+    document.getElementById('sub-tools').style.display = 'none';
+    document.getElementById('talign').style.display = 'none';
+
+
 
     window.showmore = function (event) {
-        // event.stopPropagation();
-        $('.dropdown-font-family').css('display', 'none');
-        $('.dropdown-paragraph-format').css('display', 'none');
-        $('.dropdown-color').css('display', 'none');
-        $('.dropdown-font-size').css('display', 'none');
-        $('.dropdown-align').css('display', 'none');
+        event.stopPropagation();
+        document.getElementById('dropdown-font-family').style.display = 'none';
+        document.getElementById('dropdown-paragraph-format').style.display = 'none';
+        document.getElementById('dropdown-color').style.display = 'none';
+        document.getElementById('dropdown-font-size').style.display = 'none';
+        document.getElementById('dropdown-align').style.display = 'none';
+
         // console.log(1);
-        $("#sub-tools").show();
-        $("#show").hide();
-        $("#talign").show();
+        // $("#sub-tools").show();
+        // $("#show").hide();
+        // $("#talign").show();
+        document.getElementById('sub-tools').style.display = "";
+        document.getElementById('talign').style.display = "";
+        document.getElementById('show').style.display = "none";
+
     };
 
     window.showoff = function (event) {
-        // event.stopPropagation();
-        $('.dropdown-font-family').css('display', 'none');
-        $('.dropdown-paragraph-format').css('display', 'none');
-        $('.dropdown-color').css('display', 'none');
-        $('.dropdown-font-size').css('display', 'none');
-        $('.dropdown-align').css('display', 'none');
-        // console.log(2);
-        $("#sub-tools").hide();
-        $("#show").show();
-        $("#talign").hide();
+        event.stopPropagation();
+        document.getElementById('dropdown-font-family').style.display = 'none';
+        document.getElementById('dropdown-paragraph-format').style.display = 'none';
+        document.getElementById('dropdown-color').style.display = 'none';
+        document.getElementById('dropdown-font-size').style.display = 'none';
+        document.getElementById('dropdown-align').style.display = 'none';
+
+        // console.log(1);
+        // $("#sub-tools").show();
+        // $("#show").hide();
+        // $("#talign").show();
+        document.getElementById('sub-tools').style.display = "";
+        document.getElementById('talign').style.display = "";
+        document.getElementById('show').style.display = "none";
     };
 
     // $(document).ready(function () {
     //     $('#editor-doc').focus();
     // });
-    $(window).on('load', function () {
+
+
+    // $(window).on('load', function () {
+    //     var elem = document.getElementById('editor-doc'); //This is the element that you want to move the caret to the end of
+    //     setEndOfContenteditable(elem); 
+    // });
+    window.onload = function(){
         var elem = document.getElementById('editor-doc'); //This is the element that you want to move the caret to the end of
         setEndOfContenteditable(elem);
-    });
+    }
 
 
 
     //editor always has cursor if null data
-    $('#editor-doc').keydown(function (e) {
-        // console.log(1);
+    // $('#editor-doc').keydown(function (e) {
+    //     // console.log(1);
+    //     var elem = document.getElementById('editor-doc');
+    //     var data = document.getElementById('editor-doc').innerText;
+    //     if (data === "\n") {
+    //         setEndOfContenteditable(elem);
+    //         console.log(1);
+    //         $('#editor-doc').hover(function () {
+    //             setEndOfContenteditable(elem);
+    //         });
+    //     }
+    // });
+    document.getElementById('editor-doc').addEventListener('keydown', function(){
         var elem = document.getElementById('editor-doc');
         var data = document.getElementById('editor-doc').innerText;
         if (data === "\n") {
             setEndOfContenteditable(elem);
             console.log(1);
-            $('#editor-doc').hover(function () {
+            document.getElementById('editor-doc').addEventListener('hover', function(){
                 setEndOfContenteditable(elem);
-            });
+            })
+            // $('#editor-doc').hover(function () {
+            //     setEndOfContenteditable(elem);
+            // });
         }
-    });
+    })
 
-    // Something else
-    function setCaret(line, col) {
-        var ele = document.getElementById("editable");
-        var rng = document.createRange();
-        var sel = window.getSelection();
-        rng.setStart(ele.childNodes[line], col);
-        rng.collapse(true);
-        sel.removeAllRanges();
-        sel.addRange(range);
-        ele.focus();
-    }
+    // // Something else
+    // function setCaret(line, col) {
+    //     var ele = document.getElementById("editable");
+    //     var rng = document.createRange();
+    //     var sel = window.getSelection();
+    //     rng.setStart(ele.childNodes[line], col);
+    //     rng.collapse(true);
+    //     sel.removeAllRanges();
+    //     sel.addRange(range);
+    //     ele.focus();
+    // }
 
-    //Press tab button
-    function insertTab() {
-        if (!window.getSelection) return;
-        const sel = window.getSelection();
-        if (!sel.rangeCount) return;
-        const range = sel.getRangeAt(0);
-        range.collapse(true);
-        const span = document.createElement('span');
-        span.appendChild(document.createTextNode('\t'));
-        span.style.whiteSpace = 'pre';
-        range.insertNode(span);
-        // Move the k-caret immediately after the inserted span
-        range.setStartAfter(span);
-        range.collapse(true);
-        sel.removeAllRanges();
-        sel.addRange(range);
-    }
+    // //Press tab button
+    // function insertTab() {
+    //     if (!window.getSelection) return;
+    //     const sel = window.getSelection();
+    //     if (!sel.rangeCount) return;
+    //     const range = sel.getRangeAt(0);
+    //     range.collapse(true);
+    //     const span = document.createElement('span');
+    //     span.appendChild(document.createTextNode('\t'));
+    //     span.style.whiteSpace = 'pre';
+    //     range.insertNode(span);
+    //     // Move the k-caret immediately after the inserted span
+    //     range.setStartAfter(span);
+    //     range.collapse(true);
+    //     sel.removeAllRanges();
+    //     sel.addRange(range);
+    // }
 
-    $(document).on('keydown', '#editor-doc', function (e) {
-        if (e.keyCode == 9) {
-            // alert(1);
-            insertTab();
-            e.preventDefault()
-        }
-    });
+    // $(document).on('keydown', '#editor-doc', function (e) {
+    //     if (e.keyCode == 9) {
+    //         // alert(1);
+    //         insertTab();
+    //         e.preventDefault()
+    //     }
+    // });
 
 
 
@@ -1261,6 +1309,7 @@ function init(id) {
         e.preventDefault();
         $('.dropdown-color').hide();
     });
+    
 
     // Get the modal
     var modalImg = document.getElementById('myModalImg');
@@ -1320,7 +1369,6 @@ function init(id) {
     }
     //esc
     $(document).keyup(function (e) {
-
         if (e.keyCode == 27) {
             modalVid.style.display = "none";
             modalImg.style.display = "none";
