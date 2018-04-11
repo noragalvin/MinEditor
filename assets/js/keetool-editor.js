@@ -92,11 +92,7 @@ function init(id) {
         border-right: 1px solid #ebebeb;
         /* padding: 0 5px 0 0; */
     }
-    
-    #editor-doc {
-        border-radius: 5px;
-        margin: 10px;
-    }
+
     
     
     
@@ -485,17 +481,34 @@ function init(id) {
         right: -5px !important;
         bottom: -5px !important;
     }
+
+    .video-responsive{
+        // overflow:hidden;
+        padding-top: 0; 
+        padding-left: 0; 
+        padding-right: 0;
+        padding-bottom:56.25%;
+        position:relative;
+        // height:0;
+         
+    }
+    .video-responsive iframe{
+        left:0;
+        top:0;
+        height:100%;
+        width:100%;
+        position:absolute;
+    }
 </style>
-<div style='margin: 0px 10px;' onclick='buttonBackground()'>
-    
-        <div id="heading-editor" class="row">
+<div width: 100%; height: auto'>
+        <div id="heading-editor">
             <div id="editor-doc" onblur="onDivBlur();" onmousedown="return cancelEvent(event);" onclick="return cancelEvent(event);" contentEditable="true" onmouseup="saveSelection();" onkeyup="saveSelection();" onfocus="restoreSelection();">
                    <p style="fontsize:20px">Keetool</p>
             </div>
             <div style="position:absolute;display:none;" id="kee-tool">
                      <div class="tool-icon" title="Font Family">
                         <div>
-                            <button style="outline:none;" class="tool-icon" type="button" id='button-font-family' onfocusout='buttonBackground()' >
+                            <button style="outline:none;" class="tool-icon" type="button" id='button-font-family' >
 
                                 <i class="fa fa-font" style="fontsize:5px; display: inline"><span class="k-caret"></span></i>
                             </button>
@@ -565,11 +578,11 @@ function init(id) {
                     </div>
         
                     <div class="tool-icon" title="Color">
-                        <button style="outline:none; " class="tool-icon" id="button-color" type="button" onclick='buttonColor()'><i style='display:inline' class="fa fa-tint"><span class="k-caret"></span></i></button>
+                        <button style="outline:none; " class="tool-icon" id="button-color" type="button"><i style='display:inline' class="fa fa-tint"><span class="k-caret"></span></i></button>
                         <div class=" dropdown-color">
                             <div>
-                                <button id='text' onclick='textColor()'> <a><b>Text Color</b></a></button>
-                                 <button id='background'  onclick='backgroundColor()' ><a><b>Background</b></a></button>
+                                <button id='text' onclick='textColor()'> <b>Text Color</b></button>
+                                 <button id='background'  onclick='backgroundColor()'><b>Background</b></button>
                             </div>
                 
                         
@@ -717,34 +730,34 @@ function init(id) {
                         </div>
                     </div>
                     <div class="tool-icon" title="Align" id="talign">
-                            <div >
-                                <button class="tool-icon" type="button"  id='button-align'>
-                                    <i class="fa fa-align-center" style='display:inline'><span class="k-caret"></span></i>
-                                </button>
-                                <div class="dropdown-align" >
-                                    <div onclick="formatDoc('justifyLeft')">
-                                        <a href="#" title="Align left">
-                                            <i  style='color:black' class="fa fa-align-left"  aria-hidden="true"></i>
-                                        </a>
-                                    </div>
-                                    <div onclick="formatDoc('justifyCenter')">
-                                        <a href="#" title="Align center">
-                                            <i style='color:black' class="fa fa-align-center" aria-hidden="true"></i>
-                                        </a>
-                                    </div>
-                                    <div onclick="formatDoc('justifyRight')">
-                                        <a href="#" title="Align right">
-                                            <i style='color:black' class="fa fa-align-right" aria-hidden="true"></i>
-                                        </a>
-                                    </div>
-                                    <div onclick="formatDoc('justifyFull')">
-                                        <a href="#" title="Align justify">
-                                            <i style='color:black' class="fa fa-align-justify" aria-hidden="true"></i>
-                                        </a>
-                                    </div>
+                        <div>
+                            <button class="tool-icon" type="button"  id='button-align'>
+                                <i class="fa fa-align-center" style='display:inline'><span class="k-caret"></span></i>
+                            </button>
+                            <div class="dropdown-align" >
+                                <div onclick="formatDoc('justifyLeft')">
+                                    <a href="#" title="Align left">
+                                        <i  style='color:black' class="fa fa-align-left"  aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                <div onclick="formatDoc('justifyCenter')">
+                                    <a href="#" title="Align center">
+                                        <i style='color:black' class="fa fa-align-center" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                <div onclick="formatDoc('justifyRight')">
+                                    <a href="#" title="Align right">
+                                        <i style='color:black' class="fa fa-align-right" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                <div onclick="formatDoc('justifyFull')">
+                                    <a href="#" title="Align justify">
+                                        <i style='color:black' class="fa fa-align-justify" aria-hidden="true"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>
+                    </div>
                    
                     <button class="tool-icon" title="Show More" id="show" onclick="showmore()">
                         
@@ -830,8 +843,8 @@ function init(id) {
         </div>
         <div class="k-modal-footer">
             <div style="display:none;" id="percent" class="form-group">
-                <div style="height:10px;width:100%;margin:0 auto;" class="progress">
-                    <div class="progress-bar progress-bar-success myprogress" role="progressbar" style="width:0%;font-size:8px;line-height:10px;">0%</div>
+                <div style="height:20px;width:100%;margin:0 auto;" class="progress">
+                    <div class="progress-bar progress-bar-success myprogress" role="progressbar" style="width:0%;font-size:10px;line-height:20px;background: green">0%</div>
                 </div>
             </div>
             <div style="display:flex;flex-direction:row-reverse">
@@ -939,11 +952,12 @@ function init(id) {
                 alert('The command ' + sCmd + ' is not support your browser');
                 // console.log('hello');
             } else {
-                document.getElementsByClassName('dropdown-font-family').style.display = "none";
-                document.getElementsByClassName('dropdown-paragraph-format').style.display = "none";
-                document.getElementsByClassName('dropdown-color').style.display = "none";
-                document.getElementsByClassName('dropdown-font-size').style.display = "none";
-                document.getElementsByClassName('dropdown-align').style.display = "none";
+                document.getElementsByClassName('dropdown-font-family')[0].style.display = "none";
+                document.getElementsByClassName('dropdown-paragraph-format')[0].style.display = "none";
+                document.getElementsByClassName('dropdown-color')[0].style.display = "none";
+                document.getElementsByClassName('dropdown-font-size')[0].style.display = "none";
+                document.getElementsByClassName('dropdown-align')[0].style.display = "none";
+                ele.style.display = 'none';
                 // console.log(1);
                 document.execCommand(sCmd, false, sValue);
                 // console.log('hello22');
@@ -985,31 +999,37 @@ function init(id) {
         // console.log(check);
         if (inputVideoURL) {
             if (check === "iframe") {
+                sVideo = "<div class=\"video-responsive\">" + sVideo + "</div>";
                 document.execCommand("insertHTML", false, sVideo);
                 document.getElementById('data-video').value = "";
-                // setEndOfContenteditable(elem);
+                setEndOfContenteditable(elem);
+                document.getElementById('editor-doc').appendChild(document.createElement('br'));
             } else {
                 var idVideo = sVideo.substr(32, sVideo.length - 1);
                 stringVideo = "https://www.youtube.com/embed/" + idVideo;
                 var widthVideo = document.getElementById('editor-doc').offsetWidth;
                 var heightVideo = 0.5625 * widthVideo;
-                sVideo = "<iframe width=" + widthVideo + "\" height=" + heightVideo + " src=\"" + stringVideo + "\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\" __idm_id__=\"189403137\"></iframe>"
+                sVideo = "<div class=\"video-responsive\"><iframe width=" + widthVideo + "\" height=" + heightVideo + " src=\"" + stringVideo + "\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\" __idm_id__=\"189403137\"></iframe></div>"
                 // console.log(sVideo);
                 document.execCommand("insertHTML", false, sVideo);
                 document.getElementById('data-video').value = "";
-                // setEndOfContenteditable(elem);
+                setEndOfContenteditable(elem);
+                document.getElementById('editor-doc').appendChild(document.createElement('br'));
             }
         }
     }
 
     //Remove parent div of video
     window.addEventListener('keyup',function(){
-        var data = $('.embed-container').html();
-        // console.log(data);
-        if (data === '<br>') {
-            console.log(2);
-            // $(this).remove();
-            this.parentNode.removeChild(this);
+        // var data = $('.embed-container').html();
+        var data = document.getElementsByClassName('video-responsive');
+        console.log(data);
+        for(let i = 0; i < data.length; i++){
+            if (data[i].innerText === "\n") {
+                console.log(2);
+                // $(this).remove();
+                data[i].parentNode.removeChild(data[i]);
+            }
         }
     })
 
@@ -1036,7 +1056,18 @@ function init(id) {
     var flag = 1;
     var data = document.getElementById('editor-doc');
     // console.log(data.innerHTML);
-    $('#showCode').click(function (e) {
+    // $('#showCode').click(function (e) {
+    //     e.preventDefault();
+    //     if (flag === 1) {
+    //         document.getElementById('editor-doc').innerText = data.innerHTML.trim();
+    //         flag = 0;
+    //     } else {
+    //         document.getElementById('editor-doc').innerHTML = data.innerText.trim();
+    //         flag = 1;
+    //     }
+    // });
+
+    document.getElementById('showCode').addEventListener('click', function(e){
         e.preventDefault();
         if (flag === 1) {
             document.getElementById('editor-doc').innerText = data.innerHTML.trim();
@@ -1045,9 +1076,7 @@ function init(id) {
             document.getElementById('editor-doc').innerHTML = data.innerText.trim();
             flag = 1;
         }
-    });
-
-
+    })
 
     function getSelected() {
         if (window.getSelection) {
@@ -1097,42 +1126,51 @@ function init(id) {
     }
 
 
-    $('body').mousedown(function () {
-        $('#kee-tool').hover(function () {
-            // over
+    // $('body').mousedown(function () {
+    //     $('#kee-tool').hover(function () {
+    //         // over
 
-        }, function () {
-            $('.dropdown-font-family').hide();
-            $('.dropdown-paragraph-format').hide();
-            $('.dropdown-color').hide();
-            $('.dropdown-font-size').hide();
-            $('.dropdown-align').hide();
-
-            ele.style.display = 'none';
-        });
-    });
-
-
-
-    // document.getElementsByTagName('body').addEventListener('mousedown', function(){
-    //     let kee = document.getElementById('kee-tool');
-    //     kee.addEventListener('mouseover', function(){
-
-    //     });
-
-    //     kee.addEventListener('mouseout', function(){
-    //         document.getElementById('dropdown-font-family').style.display = 'none';
-    //         document.getElementById('dropdown-paragraph-format').style.display = 'none';
-    //         document.getElementById('dropdown-color').style.display = 'none';
-    //         document.getElementById('dropdown-font-size').style.display = 'none';
-    //         document.getElementById('dropdown-align').style.display = 'none';
+    //     }, function () {
+    //         $('.dropdown-font-family').hide();
+    //         $('.dropdown-paragraph-format').hide();
+    //         $('.dropdown-color').hide();
+    //         $('.dropdown-font-size').hide();
+    //         $('.dropdown-align').hide();
 
     //         ele.style.display = 'none';
-    //     })
+    //     });
     // });
 
-
-
+    if(window.addEventListener) {
+        document.getElementsByTagName('body')[0].addEventListener('click',function(e){
+            e.preventDefault;
+            document.getElementById('kee-tool').addEventListener('mouseleave', function(e){
+                
+                // e.preventDefault;
+                document.getElementsByClassName('dropdown-font-family')[0].style.display = "none";
+                document.getElementsByClassName('dropdown-paragraph-format')[0].style.display = "none";
+                document.getElementsByClassName('dropdown-color')[0].style.display = "none";
+                document.getElementsByClassName('dropdown-font-size')[0].style.display = "none";
+                document.getElementsByClassName('dropdown-align')[0].style.display = "none";
+                // console.log(1);
+                ele.style.display = 'none';
+            })            
+        })
+    }
+    else if(window.attachEvent) {
+        document.getElementsByTagName('body').attachEvent('onclick',function(e){
+            e.preventDefault;
+            document.getElementById('kee-tool').addEventListener('onmouseleave', function(){
+                document.getElementsByClassName('dropdown-font-family')[0].style.display = "none";
+                document.getElementsByClassName('dropdown-paragraph-format')[0].style.display = "none";
+                document.getElementsByClassName('dropdown-color')[0].style.display = "none";
+                document.getElementsByClassName('dropdown-font-size')[0].style.display = "none";
+                document.getElementsByClassName('dropdown-align')[0].style.display = "none";
+                // console.log(1);
+                ele.style.display = 'none';
+            })            
+        })
+    }
 
 
     function selectingText() {
@@ -1150,29 +1188,34 @@ function init(id) {
     }
 
 
-    $('body').mousedown(function (e) {
+    // $('body').mousedown(function (e) {
+    //     if (e.which == 1) {
+    //         console.log(e.pageX + " / " + e.pageY);
+    //     }
+    // });
+
+    document.getElementsByTagName('body')[0].addEventListener('mousedown', function (e) {
         if (e.which == 1) {
-            // console.log(e.pageX + " / " + e.pageY);
+            console.log(e.pageX + " / " + e.pageY);
         }
-    });
+    })
 
 
-    //Set cursor position
-
-    $.fn.setCursorPosition = function (pos) {
-        this.each(function (index, elem) {
-            if (elem.setSelectionRange) {
-                elem.setSelectionRange(pos, pos);
-            } else if (elem.createTextRange) {
-                var range = elem.createTextRange();
-                range.collapse(true);
-                range.moveEnd('character', pos);
-                range.moveStart('character', pos);
-                range.select();
-            }
-        });
-        return this;
-    };
+    // //Set cursor position
+    // $.fn.setCursorPosition = function (pos) {
+    //     this.each(function (index, elem) {
+    //         if (elem.setSelectionRange) {
+    //             elem.setSelectionRange(pos, pos);
+    //         } else if (elem.createTextRange) {
+    //             var range = elem.createTextRange();
+    //             range.collapse(true);
+    //             range.moveEnd('character', pos);
+    //             range.moveStart('character', pos);
+    //             range.select();
+    //         }
+    //     });
+    //     return this;
+    // };
 
 
     // $(document).ready(function () {
@@ -1186,38 +1229,37 @@ function init(id) {
 
 
     window.showmore = function (event) {
-        event.stopPropagation();
-        document.getElementById('dropdown-font-family').style.display = 'none';
-        document.getElementById('dropdown-paragraph-format').style.display = 'none';
-        document.getElementById('dropdown-color').style.display = 'none';
-        document.getElementById('dropdown-font-size').style.display = 'none';
-        document.getElementById('dropdown-align').style.display = 'none';
+        document.getElementsByClassName('dropdown-font-family')[0].style.display = "none";
+        document.getElementsByClassName('dropdown-paragraph-format')[0].style.display = "none";
+        document.getElementsByClassName('dropdown-color')[0].style.display = "none";
+        document.getElementsByClassName('dropdown-font-size')[0].style.display = "none";
+        document.getElementsByClassName('dropdown-align')[0].style.display = "none";
+        
 
         // console.log(1);
         // $("#sub-tools").show();
         // $("#show").hide();
         // $("#talign").show();
-        document.getElementById('sub-tools').style.display = "";
-        document.getElementById('talign').style.display = "";
+        document.getElementById('sub-tools').style.display = "block";
+        document.getElementById('talign').style.display = "inline-block";
         document.getElementById('show').style.display = "none";
 
     };
 
     window.showoff = function (event) {
-        event.stopPropagation();
-        document.getElementById('dropdown-font-family').style.display = 'none';
-        document.getElementById('dropdown-paragraph-format').style.display = 'none';
-        document.getElementById('dropdown-color').style.display = 'none';
-        document.getElementById('dropdown-font-size').style.display = 'none';
-        document.getElementById('dropdown-align').style.display = 'none';
+        document.getElementsByClassName('dropdown-font-family')[0].style.display = "none";
+        document.getElementsByClassName('dropdown-paragraph-format')[0].style.display = "none";
+        document.getElementsByClassName('dropdown-color')[0].style.display = "none";
+        document.getElementsByClassName('dropdown-font-size')[0].style.display = "none";
+        document.getElementsByClassName('dropdown-align')[0].style.display = "none";
 
         // console.log(1);
         // $("#sub-tools").show();
         // $("#show").hide();
         // $("#talign").show();
-        document.getElementById('sub-tools').style.display = "";
-        document.getElementById('talign').style.display = "";
-        document.getElementById('show').style.display = "none";
+        document.getElementById('sub-tools').style.display = "none";
+        document.getElementById('talign').style.display = "block";
+        document.getElementById('show').style.display = "block";
     };
 
     // $(document).ready(function () {
@@ -1229,10 +1271,12 @@ function init(id) {
     //     var elem = document.getElementById('editor-doc'); //This is the element that you want to move the caret to the end of
     //     setEndOfContenteditable(elem); 
     // });
-    window.onload = function(){
-        var elem = document.getElementById('editor-doc'); //This is the element that you want to move the caret to the end of
-        setEndOfContenteditable(elem);
-    }
+
+
+    // window.onload = function(){
+    //     var elem = document.getElementById('editor-doc'); //This is the element that you want to move the caret to the end of
+    //     setEndOfContenteditable(elem);
+    // }
 
 
 
@@ -1255,7 +1299,7 @@ function init(id) {
         if (data === "\n") {
             setEndOfContenteditable(elem);
             console.log(1);
-            document.getElementById('editor-doc').addEventListener('hover', function(){
+            document.getElementById('editor-doc').addEventListener('mouseover', function(){
                 setEndOfContenteditable(elem);
             })
             // $('#editor-doc').hover(function () {
@@ -1263,7 +1307,6 @@ function init(id) {
             // });
         }
     })
-
     // // Something else
     // function setCaret(line, col) {
     //     var ele = document.getElementById("editable");
@@ -1305,12 +1348,21 @@ function init(id) {
 
 
 
-    $('#text-color a').click(function (e) {
-        e.preventDefault();
-        $('.dropdown-color').hide();
-    });
+    // $('#text-color a').click(function (e) {
+    //     e.preventDefault();
+    //     $('.dropdown-color').hide();
+    // });
+    var eleColor = document.getElementsByClassName("dropdown-color")[0].querySelectorAll("a");
+    for(let i = 0; i < eleColor.length; i++){
+        eleColor[i].addEventListener('click', function(e){
+            e.preventDefault();
+            // $('.dropdown-color').hide();
+            document.getElementsByClassName('dropdown-color')[0].style.display = "";
+            ele.style.display = 'none';
+        })
+    }
     
-
+    
     // Get the modal
     var modalImg = document.getElementById('myModalImg');
 
@@ -1368,148 +1420,192 @@ function init(id) {
         }
     }
     //esc
-    $(document).keyup(function (e) {
+
+    document.addEventListener('keyup', function (e) {
         if (e.keyCode == 27) {
             modalVid.style.display = "none";
             modalImg.style.display = "none";
             modalLink.style.display = "none";
         } // esc
-    });
+    })
 
-    $('.k-close-modal').click(function (e) {
-        e.preventDefault();
-        modalVid.style.display = "none";
-        modalImg.style.display = "none";
-        modalLink.style.display = "none";
-    });
+    // $(document).keyup(function (e) {
+    //     if (e.keyCode == 27) {
+    //         modalVid.style.display = "none";
+    //         modalImg.style.display = "none";
+    //         modalLink.style.display = "none";
+    //     } // esc
+    // });
 
+    var close = document.getElementsByClassName('k-close-modal');
+    var accept = document.getElementsByClassName('k-button-green');
 
-    $('.k-button-green').click(function (e) {
-        e.preventDefault();
-        // console.log(2);
-        modalVid.style.display = "none";
-        modalImg.style.display = "none";
-        modalLink.style.display = "none";
-    });
+    for(let i = 0; i < close.length; i++){
+        close[i].addEventListener('click', function(e){
+            e.preventDefault();
+            modalVid.style.display = "none";
+            modalImg.style.display = "none";
+            modalLink.style.display = "none";
+        })
+    }
 
+    for(let i = 0; i < accept.length; i++){
+        accept[i].addEventListener('click', function (e) {
+            e.preventDefault();
+            modalVid.style.display = "none";
+            modalImg.style.display = "none";
+            modalLink.style.display = "none";
+        })
+    }
 
-
+    function fadeIn(el) {
+        el.style.opacity = 0;
+        
+        var last = +new Date();
+        var tick = function() {
+            el.style.opacity = +el.style.opacity + (new Date() - last) / 400;
+            last = +new Date();
+        
+            if (+el.style.opacity < 1) {
+            (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
+            }
+        };
+        
+        tick();
+    }
+      
 
     window.backgroundColor = function () {
-        $('#text-color').css('display', 'none');
-        $('#bg-color').fadeIn();
-        $('#background').css({
-            'border': 'none',
-            'border-top': '0.7px solid gray',
-            'border-right': '0.7px solid gray',
-            'border-left': '0.7px solid gray',
-            'color': 'black'
-        });
-        $('#text').css({
-            'border': 'none',
-            'border-bottom': '0.7px solid gray',
-            'color': 'gray'
-        });
+        // $('#text-color').css('display', 'none');
+        document.getElementById('text-color').style.display = "";
+        fadeIn(document.getElementById('bg-color'));
+        // $('#bg-color').fadeIn();
+        document.getElementById('background').style.border = "none";
+        document.getElementById('background').style.borderTop = "0.7px solid gray";
+        document.getElementById('background').style.borderRight = "0.7px solid gray";
+        document.getElementById('background').style.borderLeft = "0.7px solid gray";
+        document.getElementById('background').style.color = "black";
+        // $('#background').css({
+        //     'border': 'none',
+        //     'border-top': '0.7px solid gray',
+        //     'border-right': '0.7px solid gray',
+        //     'border-left': '0.7px solid gray',
+        //     'color': 'black'
+        // });
+
+        document.getElementById('text').style.border = "none";
+        document.getElementById('text').style.borderBottom = "0.7px solid gray";
+        document.getElementById('text').style.color = "gray";
+        // $('#text').css({
+        //     'border': 'none',
+        //     'border-bottom': '0.7px solid gray',
+        //     'color': 'gray'
+        // });
     }
 
 
     window.textColor = function () {
-        $('#text-color').fadeIn();
-        $('#bg-color').css('display', 'none');
-        $('#text').css({
-            'border': 'none',
-            'border-top': '0.7px solid gray',
-            'border-right': '0.7px solid gray',
-            'border-left': '0.7px solid gray',
-            'color': 'black'
-        });
-        $('#background').css({
-            'border': 'none',
-            'border-bottom': '0.7px solid gray',
-            'color': 'gray'
-        });
+        // $('#text-color').fadeIn();
+        // $('#bg-color').css('display', 'none');
+        // $('#text').css({
+        //     'border': 'none',
+        //     'border-top': '0.7px solid gray',
+        //     'border-right': '0.7px solid gray',
+        //     'border-left': '0.7px solid gray',
+        //     'color': 'black'
+        // });
+        // $('#background').css({
+        //     'border': 'none',
+        //     'border-bottom': '0.7px solid gray',
+        //     'color': 'gray'
+        // });
+        document.getElementById('background').style.display = "";
+        fadeIn(document.getElementById('text-color'));
+        // $('#bg-color').fadeIn();
+        document.getElementById('background').style.border = "none";
+        document.getElementById('background').style.borderBottom = "0.7px solid gray";
+        document.getElementById('background').style.color = "black";
+
+        document.getElementById('text').style.border = "none";
+        document.getElementById('text').style.borderTop = "0.7px solid gray";
+        document.getElementById('text').style.borderRight = "0.7px solid gray";
+        document.getElementById('text').style.borderLeft = "0.7px solid gray";
+        document.getElementById('text').style.color = "gray";
     }
 
 
 
-    window.buttonColor = function () {
-        $('#font-family').css('display', 'none');
-        $('.paragraph-format').css('display', 'none');
-
-    }
-
-
-    $('#button-font-family').click(function () {
-        $('.dropdown-font-family').toggle();
-        $('.dropdown-paragraph-format').hide();
-        $('.dropdown-color').hide();
-        $('.dropdown-font-size').hide();
-        $('.dropdown-align').hide();
-    })
-
-    $('#button-paragraph-format').click(function () {
-        $('.dropdown-paragraph-format').toggle();
-        $('.dropdown-font-family').hide();
-        $('.dropdown-color').hide();
-        $('.dropdown-font-size').hide();
-        $('.dropdown-align').hide();
-
-    })
-
-    $('#button-color').click(function () {
-        $('.dropdown-color').toggle();
-        $('.dropdown-font-family').hide();
-        $('.dropdown-paragraph-format').hide();
-        $('.dropdown-font-size').hide();
-        $('.dropdown-align').hide();
-    })
+    // window.buttonColor = function () {
+    //     $('#font-family').css('display', 'none');
+    //     $('.paragraph-format').css('display', 'none');
+    // }
 
 
-    $('#button-font-size').click(function () {
-        $('.dropdown-font-size').toggle();
-        $('.dropdown-font-family').hide();
-        $('.dropdown-paragraph-format').hide();
-        $('.dropdown-color').hide();
-        $('.dropdown-align').hide();
-    })
-
-    $('#button-align').click(function () {
-        $('.dropdown-align').toggle();
-        $('.dropdown-font-family').hide();
-        $('.dropdown-paragraph-format').hide();
-        $('.dropdown-color').hide();
-        $('.dropdown-font-size').hide();
-    })
-
-    window.buttonBackground = function () {
-        if ($('.dropdown-font-family').css('display') == 'block') {
-            $('#button-font-family').css('background-color', '#dce0e8')
-        } else {
-            $('#button-font-family').css('background-color', 'transparent')
+    document.getElementById('button-font-family').addEventListener('click', function () {
+        console.log(1);
+        if(getComputedStyle(document.getElementsByClassName('dropdown-font-family')[0])["display"] == "none"){
+            document.getElementsByClassName('dropdown-font-family')[0].style.display = "block";
+        }else{
+            document.getElementsByClassName('dropdown-font-family')[0].style.display = "none";
         }
-        if ($('.dropdown-paragraph-format').css('display') == 'block') {
-            $('#button-paragraph-format').css('background-color', '#dce0e8')
-        } else {
-            $('#button-paragraph-format').css('background-color', 'transparent')
-        }
-        if ($('.dropdown-color').css('display') == 'block') {
-            $('#button-color').css('background-color', '#dce0e8')
-        } else {
-            $('#button-color').css('background-color', 'transparent')
-        }
-        if ($('.dropdown-font-size').css('display') == 'block') {
-            $('#button-font-size').css('background-color', '#dce0e8')
-        } else {
-            $('#button-font-size').css('background-color', 'transparent')
-        }
-        if ($('.dropdown-align').css('display') == 'block') {
-            $('#button-align').css('background-color', '#dce0e8')
-        } else {
-            $('#button-align').css('background-color', 'transparent')
-        }
+        document.getElementsByClassName('dropdown-paragraph-format')[0].style.display = "none";
+        document.getElementsByClassName('dropdown-color')[0].style.display = "none";
+        document.getElementsByClassName('dropdown-font-size')[0].style.display = "none";
+        document.getElementsByClassName('dropdown-align')[0].style.display = "none";
+    });
 
 
-    }
+    document.getElementById('button-paragraph-format').addEventListener('click', function () {
+        document.getElementsByClassName('dropdown-font-family')[0].style.display = "none";
+        if(getComputedStyle(document.getElementsByClassName('dropdown-paragraph-format')[0])["display"] == "none"){
+            document.getElementsByClassName('dropdown-paragraph-format')[0].style.display = "block";
+        }else{
+            document.getElementsByClassName('dropdown-paragraph-format')[0].style.display = "none";
+        }
+        document.getElementsByClassName('dropdown-color')[0].style.display = "none";
+        document.getElementsByClassName('dropdown-font-size')[0].style.display = "none";
+        document.getElementsByClassName('dropdown-align')[0].style.display = "none";
+    });
+
+
+    document.getElementById('button-color').addEventListener('click', function () {
+        document.getElementsByClassName('dropdown-font-family')[0].style.display = "none";
+        document.getElementsByClassName('dropdown-paragraph-format')[0].style.display = "none";
+        if(getComputedStyle(document.getElementsByClassName('dropdown-color')[0])["display"] == "none"){
+            document.getElementsByClassName('dropdown-color')[0].style.display = "block";
+        }else{
+            document.getElementsByClassName('dropdown-color')[0].style.display = "none";
+        }
+        document.getElementsByClassName('dropdown-font-size')[0].style.display = "none";
+        document.getElementsByClassName('dropdown-align')[0].style.display = "none";
+    });
+
+    document.getElementById('button-font-size').addEventListener('click', function () {
+        document.getElementsByClassName('dropdown-font-family')[0].style.display = "none";
+        document.getElementsByClassName('dropdown-paragraph-format')[0].style.display = "none";
+        document.getElementsByClassName('dropdown-color')[0].style.display = "none";
+        if(getComputedStyle(document.getElementsByClassName('dropdown-font-size')[0])["display"] == "none"){
+            document.getElementsByClassName('dropdown-font-size')[0].style.display = "block";
+        }else{
+            document.getElementsByClassName('dropdown-font-size')[0].style.display = "none";
+        }
+        document.getElementsByClassName('dropdown-align')[0].style.display = "none";
+    });
+
+
+    document.getElementById('button-align').addEventListener('click', function () {
+        document.getElementsByClassName('dropdown-font-family')[0].style.display = "none";
+        document.getElementsByClassName('dropdown-paragraph-format')[0].style.display = "none";
+        document.getElementsByClassName('dropdown-color')[0].style.display = "none";
+        document.getElementsByClassName('dropdown-font-size')[0].style.display = "none";
+        if(getComputedStyle(document.getElementsByClassName('dropdown-align')[0])["display"] == "none"){
+            document.getElementsByClassName('dropdown-align')[0].style.display = "block";
+        }else{
+            document.getElementsByClassName('dropdown-align')[0].style.display = "none";
+        }
+    });
+
+
 
 
 
@@ -1526,53 +1622,94 @@ function init(id) {
 
     //Upload local img
     window.uploadImg = function () {
-        var formData = new FormData();
+        var image = new FormData();
         var file = document.getElementById('myFile').files[0];
         console.log("x", file);
-        formData.append('image', file);
-        console.log(formData);
-        $.ajax({
-            type: 'POST',
-            url: "upload.php",
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false,
-            dataType: "text",
-            //progress bar
-            xhr: function () {
-                $('#percent').show();
-                var xhr = new window.XMLHttpRequest();
-                xhr.upload.addEventListener("progress", function (evt) {
-                    if (evt.lengthComputable) {
-                        var percentComplete = evt.loaded / evt.total;
-                        percentComplete = parseInt(percentComplete * 100);
-                        $('.myprogress').text(percentComplete + '%');
-                        $('.myprogress').css('width', percentComplete + '%');
-                    }
-                }, false);
-                return xhr;
-            },
-            success: function (data) {
-                $('#percent').hide();
+        image.append('image', file);
+        console.log(image);
+
+        var request = new XMLHttpRequest();
+        request.open('POST', 'http://keetool.xyz/api/v3/upload-image-public', true);
+
+        request.upload.onprogress = function(e) {
+            // $('#percent').show();
+            document.getElementById('percent').style.display = "block";
+            if (e.lengthComputable) {
+                var percentComplete = e.loaded / e.total;
+                percentComplete = parseInt(percentComplete * 100);
+                // console.log(document.getElementsByClassName("myprogress")[0].textContent);
+                document.getElementsByClassName("myprogress")[0].textContent = percentComplete + "%";
+                // $('.myprogress').text(percentComplete + '%');
+                document.getElementsByClassName("myprogress")[0].style.width = percentComplete + "%";
+                // $('.myprogress').css('width', percentComplete + '%');
+                // console.log(document.getElementsByClassName("myprogress")[0].style.width);
+            }
+        };
+        
+        request.onload = function() {
+            if (this.status == 200) {
+                var data = JSON.parse(this.response);
+                console.log('Server got:', data.link);
+                // $('#percent').hide();
+                document.getElementById('percent').style.display = "none";
                 modalVid.style.display = "none";
                 modalImg.style.display = "none";
                 modalLink.style.display = "none";
-                console.log("success");
                 // console.log(data);
-                var i = document.getElementById("editor-doc");
                 elem = document.getElementById('editor-doc'); //This is the element that you want to move the caret to the end of
                 setEndOfContenteditable(elem);
-                var url = "<div><img src=\"" + data + "\" width=100% height=auto></div>";
+                var url = "<div><img src=\"" + data.link + "\" width=100% height=auto></div>";
                 // console.log(url);
-                // console.log(data);
+                // console.log(data.link);
                 document.execCommand('insertHTML', false, url.trim());
-            },
-            error: function (data) {
-                console.log("error");
-                console.log(data);
-            }
-        });
+            };
+        };
+        request.send(image);
+
+
+
+        // $.ajax({
+        //     type: 'POST',
+        //     url: "http://keetool.xyz/api/v3/upload-image-public",
+        //     data: image,
+        //     cache: false,
+        //     contentType: false,
+        //     processData: false,
+        //     dataType: "json",
+        //     //progress bar
+        //     xhr: function () {
+        //         $('#percent').show();
+        //         var xhr = new window.XMLHttpRequest();
+        //         xhr.upload.addEventListener("progress", function (evt) {
+        //             if (evt.lengthComputable) {
+        //                 var percentComplete = evt.loaded / evt.total;
+        //                 percentComplete = parseInt(percentComplete * 100);
+        //                 $('.myprogress').text(percentComplete + '%');
+        //                 $('.myprogress').css('width', percentComplete + '%');
+        //             }
+        //         }, false);
+        //         return xhr;
+        //     },
+        //     success: function (data) {
+        //         $('#percent').hide();
+        //         modalVid.style.display = "none";
+        //         modalImg.style.display = "none";
+        //         modalLink.style.display = "none";
+        //         console.log("success");
+        //         // console.log(data);
+        //         var i = document.getElementById("editor-doc");
+        //         elem = document.getElementById('editor-doc'); //This is the element that you want to move the caret to the end of
+        //         setEndOfContenteditable(elem);
+        //         var url = "<div><img src=\"" + data.link + "\" width=100% height=auto></div>";
+        //         // console.log(url);
+        //         // console.log(data.link);
+        //         document.execCommand('insertHTML', false, url.trim());
+        //     },
+        //     error: function (data) {
+        //         console.log("error");
+        //         console.log(data);
+        //     }
+        // });
 
     }
 
@@ -1628,27 +1765,6 @@ function init(id) {
         }
     }
 
-    //resize image
-    $(".child").resizable({
-        aspectRatio:true,   
-        minWidth:100,                    
-        maxWidth:$("#editor-doc").width(),                  
-        containment:"editor-doc",
-        handles:"ne,nw,se,sw",
-        resize: function( event, ui ) {
-        var topB = (parseInt($(this).css("top")) > 0)
-            ? parseInt($(this).css("top")) : 3;
-        var leftB = (parseInt($(this).css("left")) > 0)
-            ? parseInt($(this).css("left")) : 3;
-        if (parseInt($(this).css("left"))< 3)
-        {
-            $(this).trigger('mouseup'); 
-            $(this).css({"left":leftB+"px","top":topB+"px"});
-        }
-        if (parseInt($(this).css("top"))< 3)
-        {
-            $(this).trigger('mouseup'); 
-            $(this).css({"left":leftB+"px","top":topB+"px"});}
-        }}).draggable({ containment: "editor-doc" });
+
 }
 
