@@ -1040,16 +1040,15 @@ function init(id) {
 
 
     //Paste as plain text
-    window.onload = function () {
-        var ed = document.querySelector("#editor-doc");
-        ed.addEventListener("paste", function (e) {
-            // console.log(1);
-            e.preventDefault();
-            var text = e.clipboardData.getData("text/plain");
-            // console.log(text);
-            document.execCommand("insertHTML", false, text);
-        });
-    }
+    var ed = document.querySelector("#editor-doc");
+    // console.log(ed);
+    ed.addEventListener("paste", function (e) {
+        // console.log(1);
+        e.preventDefault();
+        var text = e.clipboardData.getData("text/plain");
+        // console.log(text);
+        document.execCommand("insertHTML", false, text);
+    });
 
 
     //Show code
