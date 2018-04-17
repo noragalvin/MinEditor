@@ -511,7 +511,7 @@ var MinEditor = {
         <div style="width: 100%; height: auto">
                 <div id="heading-editor">
                     <div id="editor-doc" onblur="onDivBlur();" onmousedown="return cancelEvent(event);" onclick="return cancelEvent(event);" contentEditable="true" onmouseup="saveSelection();" onkeyup="saveSelection();" onfocus="restoreSelection();">
-                           <p>Keetool</p>
+                           <p>MinEditor from KEETOOL</p>
                     </div>
                     <div style="position:absolute;display:none;" id="kee-tool">
                              <div class="tool-icon" title="Font Family">
