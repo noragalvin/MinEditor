@@ -7,7 +7,7 @@ head.appendChild(fa);
 
 function init(id) {
     content = `
-<style>
+    <style>
     .k-caret {
         display: inline-block;
         width: 0;
@@ -435,7 +435,7 @@ function init(id) {
     .dropdown-paragraph-format {
         top: 48px;
         left:52.5px;
-        width: 290px;
+        min-width: 200px;
     }
     
     .dropdown-font-size {
@@ -483,14 +483,11 @@ function init(id) {
     }
 
     .video-responsive{
-        // overflow:hidden;
         padding-top: 0; 
         padding-left: 0; 
         padding-right: 0;
         padding-bottom:56.25%;
         position:relative;
-        // height:0;
-         
     }
     .video-responsive iframe{
         left:0;
@@ -499,11 +496,20 @@ function init(id) {
         width:100%;
         position:absolute;
     }
+    .min-reset-button{
+        background: none;
+        color: black !important;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+    }
 </style>
-<div width: 100%; height: auto'>
+<div style="width: 100%; height: auto">
         <div id="heading-editor">
             <div id="editor-doc" onblur="onDivBlur();" onmousedown="return cancelEvent(event);" onclick="return cancelEvent(event);" contentEditable="true" onmouseup="saveSelection();" onkeyup="saveSelection();" onfocus="restoreSelection();">
-                   <p style="fontsize:20px">Keetool</p>
+                   <p>Keetool</p>
             </div>
             <div style="position:absolute;display:none;" id="kee-tool">
                      <div class="tool-icon" title="Font Family">
@@ -515,16 +521,16 @@ function init(id) {
 
                             <div class="dropdown-font-family">
                                 <div onclick="formatDoc('fontname','Arial')">
-                                    <a href="#" style="font-family: Arial">Arial</a>
+                                    <button class="min-reset-button" style="font-family: Arial">Arial</button>
                                 </div>  
                                 <div onclick="formatDoc('fontname','Arial Black')">
-                                    <a href="#" style="font-family: Georgia">Arial Black</a>
+                                    <button class="min-reset-button" style="font-family: Georgia">Arial Black</button>
                                 </div> 
                                 <div onclick="formatDoc('fontname','Courier New')">
-                                    <a href="#" style="font-family: Courier New">Courier New</a>
+                                    <button class="min-reset-button" style="font-family: Courier New">Courier New</button>
                                 </div>
                                 <div onclick="formatDoc('fontname','Time New Roman')">
-                                    <a href="#" style="font-family: Time New Roman">Time New Roman</a>
+                                    <button class="min-reset-button" style="font-family: Time New Roman">Time New Roman</button>
                                 </div>
                             </div>
                         </div>
@@ -533,45 +539,45 @@ function init(id) {
 
 
                     <div class="tool-icon" title="Paragraph Format">
-                        <div          >
-                            <button class=" tool-icon" type="button" id='button-paragraph-format'>
+                        <div>
+                            <button class="tool-icon" type="button" id='button-paragraph-format'>
                                 <i class="fa fa-paragraph" style='display:inline'><span class="k-caret"></span></i>
                             </button>
                             <div class="dropdown-paragraph-format" >
                                 <div onclick="formatDoc('p')">
-                                    <a href="#" title="Paragraph">
+                                    <button class="min-reset-button" title="Paragraph">
                                         <p>Normal</p>
-                                    </a>
+                                    </button>
                                 </div>
                                 <div onclick="formatDoc('h1')">
-                                    <a href="#" title="Heading 1">
+                                    <button class="min-reset-button" title="Heading 1">
                                         <h1>Heading 1</h1>
-                                    </a>
+                                    </button>
                                 </div>
                                 <div onclick="formatDoc('h2')">
-                                    <a href="#" title="Heading 2">
+                                    <button class="min-reset-button" title="Heading 2">
                                         <h2>Heading 2</h2>
-                                    </a>
+                                    </button>
                                 </div>
                                 <div onclick="formatDoc('h3')">
-                                    <a href="#" title="Heading 3">
+                                    <button class="min-reset-button" title="Heading 3">
                                         <h3>Heading 3</h3>
-                                    </a>
+                                    </button>
                                 </div>
                                 <div onclick="formatDoc('h4')">
-                                    <a href="#" title="Heading 4">
+                                    <button class="min-reset-button" title="Heading 4">
                                         <h4>Heading 4</h4>
-                                    </a>
+                                    </button>
                                 </div>
                                 <div onclick="formatDoc('h5')">
-                                    <a href="#" title="Heading 5">
+                                    <button class="min-reset-button" title="Heading 5">
                                         <h5>Heading 5</h5>
-                                    </a>
+                                    </button>
                                 </div>
                                 <div onclick="formatDoc('h6')">
-                                    <a href="#" title="Heading 6">
+                                    <button class="min-reset-button" title="Heading 6">
                                         <h6>Heading 6</h6>
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -589,108 +595,108 @@ function init(id) {
                                 <div id="text-color" class="" >
                                     <table>
                                         <tr>
-                                        <td><a href="#" onclick="formatDoc('forecolor','indigo')" class='color-item' style="background-color: indigo" title="indigo"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','firebrick')" class="color-item" style="background-color:firebrick" title="firebrick"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','maroon')" class='color-item' style="background-color: maroon" title="maroon"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','darkslategray')" class='color-item' style="background-color:darkslategray" title="darkslategray"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','darkgreen')" class='color-item' style="background-color: darkgreen" title="darkgreen"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','mediumblue')" class='color-item' style="background-color: mediumblue" title="mediumblue"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','navy')" class='color-item' style="background-color: navy" title="navy"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','black')" class='color-item' style="background-color: black" title="black"></a></td>
+                                        <td><button onclick="formatDoc('forecolor','indigo')" class='color-item' style="background-color: indigo" title="indigo"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','firebrick')" class="color-item" style="background-color:firebrick" title="firebrick"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','maroon')" class='color-item' style="background-color: maroon" title="maroon"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','darkslategray')" class='color-item' style="background-color:darkslategray" title="darkslategray"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','darkgreen')" class='color-item' style="background-color: darkgreen" title="darkgreen"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','mediumblue')" class='color-item' style="background-color: mediumblue" title="mediumblue"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','navy')" class='color-item' style="background-color: navy" title="navy"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','black')" class='color-item' style="background-color: black" title="black"></button></td>
                                         </tr>
                                         <tr>
-                                        <td><a href="#" onclick="formatDoc('forecolor','rebeccapurple')" class='color-item' style="background-color: rebeccapurple" title=" rebeccapurple"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','red')" class='color-item' style="background-color: red" title="red"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','chocolate')" class='color-item' style="background-color: chocolate" title="chocolate"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','olive')" class='color-item' style="background-color: olive" title="olive"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','green')" class='color-item' style="background-color: green" title="green"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','teal')" class='color-item' style="background-color: teal" title="teal"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','blue')" class='color-item' style="background-color: blue" title="blue"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','gray')" class='color-item' style="background-color: gray" title="gray"></a></td>
+                                        <td><button onclick="formatDoc('forecolor','rebeccapurple')" class='color-item' style="background-color: rebeccapurple" title=" rebeccapurple"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','red')" class='color-item' style="background-color: red" title="red"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','chocolate')" class='color-item' style="background-color: chocolate" title="chocolate"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','olive')" class='color-item' style="background-color: olive" title="olive"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','green')" class='color-item' style="background-color: green" title="green"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','teal')" class='color-item' style="background-color: teal" title="teal"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','blue')" class='color-item' style="background-color: blue" title="blue"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','gray')" class='color-item' style="background-color: gray" title="gray"></button></td>
                                         </tr>
                                         <tr>
-                                        <td><a href="#" onclick="formatDoc('forecolor','mediumorchid')" class='color-item' style="background-color: mediumorchid" title="mediumorchid"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','deeppink')" class='color-item' style="background-color: deeppink" title="deeppink"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','darkorange')" class='color-item' style="background-color: darkorange" title=" darkorange"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','greenyellow')" class='color-item' style="background-color: greenyellow" title="greenyellow"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','mediumseagreen')" class='color-item' style="background-color: mediumseagreen" title="mediumseagreen"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','mediumturquoise')" class='color-item' style="background-color: mediumturquoise" title="mediumturquoise"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','royalblue')" class='color-item' style="background-color: royalblue" title="royalblue"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','lightslategrey')" class='color-item' style="background-color: lightslategrey" title="lightslategrey"></a></td>
+                                        <td><button onclick="formatDoc('forecolor','mediumorchid')" class='color-item' style="background-color: mediumorchid" title="mediumorchid"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','deeppink')" class='color-item' style="background-color: deeppink" title="deeppink"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','darkorange')" class='color-item' style="background-color: darkorange" title=" darkorange"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','greenyellow')" class='color-item' style="background-color: greenyellow" title="greenyellow"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','mediumseagreen')" class='color-item' style="background-color: mediumseagreen" title="mediumseagreen"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','mediumturquoise')" class='color-item' style="background-color: mediumturquoise" title="mediumturquoise"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','royalblue')" class='color-item' style="background-color: royalblue" title="royalblue"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','lightslategrey')" class='color-item' style="background-color: lightslategrey" title="lightslategrey"></button></td>
                                         </tr>
                                         <tr>
-                                        <td><a href="#" onclick="formatDoc('forecolor','violet')" class='color-item' style="background-color: violet" title="violet"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','orchid')" class='color-item' style="background-color: orchid" title="orchid"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','gold')" class='color-item' style="background-color: gold" title="gold"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','yellow')" class='color-item' style="background-color: yellow" title="yellow"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','lime')" class='color-item' style="background-color: lime" title="lime"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','aqua')" class='color-item' style="background-color: aqua" title="aqua"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','skyblue')" class='color-item' style="background-color: skyblue " title="skyblue"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','lightgray')" class='color-item' style="background-color: lightgray" title="lightgray"></a></td>
+                                        <td><button onclick="formatDoc('forecolor','violet')" class='color-item' style="background-color: violet" title="violet"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','orchid')" class='color-item' style="background-color: orchid" title="orchid"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','gold')" class='color-item' style="background-color: gold" title="gold"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','yellow')" class='color-item' style="background-color: yellow" title="yellow"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','lime')" class='color-item' style="background-color: lime" title="lime"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','aqua')" class='color-item' style="background-color: aqua" title="aqua"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','skyblue')" class='color-item' style="background-color: skyblue " title="skyblue"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','lightgray')" class='color-item' style="background-color: lightgray" title="lightgray"></button></td>
                                         </tr>
                                         <tr>
-                                        <td><a href="#" onclick="formatDoc('forecolor','plum')" class='color-item' style="background-color: plum" title="plum"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','pink')" class='color-item' style="background-color: pink" title="pink"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','peachpuff')" class='color-item' style="background-color: peachpuff" title="peachpuff"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','khaki')" class='color-item' style="background-color: khaki" title="khaki"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','palegreen')" class='color-item' style="background-color: palegreen" title="palegreen"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','paleturquoise')" class='color-item' style="background-color: paleturquoise" title="paleturquoise"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','powderblue')" class='color-item' style="background-color: powderblue" title="powderblue"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','white')" class='color-item' style="background-color: #f4f8ff" title="white"></a></td>
+                                        <td><button onclick="formatDoc('forecolor','plum')" class='color-item' style="background-color: plum" title="plum"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','pink')" class='color-item' style="background-color: pink" title="pink"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','peachpuff')" class='color-item' style="background-color: peachpuff" title="peachpuff"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','khaki')" class='color-item' style="background-color: khaki" title="khaki"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','palegreen')" class='color-item' style="background-color: palegreen" title="palegreen"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','paleturquoise')" class='color-item' style="background-color: paleturquoise" title="paleturquoise"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','powderblue')" class='color-item' style="background-color: powderblue" title="powderblue"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','white')" class='color-item' style="background-color: #f4f8ff" title="white"></button></td>
                                         </tr>
                                     </table>
                                 </div>
                                 <div id="bg-color" class="">
                                     <table>
                                         <tr>
-                                        <td><a href="#" onclick="formatDoc('backcolor','indigo')" class='color-item' style="background-color: indigo " title="indigo"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','firebrick')" class="color-item" style="background-color:firebrick" title="firebrick"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','maroon')" class='color-item' style="background-color: maroon" title="maroon"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','darkslategray')" class='color-item' style="background-color:darkslategray" title="darkslategray"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','darkgreen')" class='color-item' style="background-color: darkgreen" title="darkgreen"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','mediumblue')" class='color-item' style="background-color: mediumblue" title="mediumblue"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','navy')" class='color-item' style="background-color: navy" title="navy"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','black')" class='color-item' style="background-color: black" title="black"></a></td>
+                                        <td><button onclick="formatDoc('backcolor','indigo')" class='color-item' style="background-color: indigo " title="indigo"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','firebrick')" class="color-item" style="background-color:firebrick" title="firebrick"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','maroon')" class='color-item' style="background-color: maroon" title="maroon"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','darkslategray')" class='color-item' style="background-color:darkslategray" title="darkslategray"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','darkgreen')" class='color-item' style="background-color: darkgreen" title="darkgreen"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','mediumblue')" class='color-item' style="background-color: mediumblue" title="mediumblue"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','navy')" class='color-item' style="background-color: navy" title="navy"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','black')" class='color-item' style="background-color: black" title="black"></button></td>
                                         </tr>
                                         <tr>
-                                        <td><a href="#" onclick="formatDoc('backcolor','rebeccapurple')" class='color-item' style="background-color: rebeccapurple" title=" rebeccapurple"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','red')" class='color-item' style="background-color: red" title="red"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','chocolate')" class='color-item' style="background-color: chocolate" title="chocolate"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','olive')" class='color-item' style="background-color: olive" title="olive"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','green')" class='color-item' style="background-color: green" title="green"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','teal')" class='color-item' style="background-color: teal" title="teal"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','blue')" class='color-item' style="background-color: blue" title="blue"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','gray')" class='color-item' style="background-color: gray" title="gray"></a></td>
+                                        <td><button onclick="formatDoc('backcolor','rebeccapurple')" class='color-item' style="background-color: rebeccapurple" title=" rebeccapurple"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','red')" class='color-item' style="background-color: red" title="red"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','chocolate')" class='color-item' style="background-color: chocolate" title="chocolate"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','olive')" class='color-item' style="background-color: olive" title="olive"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','green')" class='color-item' style="background-color: green" title="green"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','teal')" class='color-item' style="background-color: teal" title="teal"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','blue')" class='color-item' style="background-color: blue" title="blue"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','gray')" class='color-item' style="background-color: gray" title="gray"></button></td>
                                         </tr>
                                         <tr>
-                                        <td><a href="#" onclick="formatDoc('backcolor','mediumorchid')" class='color-item' style="background-color: mediumorchid" title="mediumorchid"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','deeppink')" class='color-item' style="background-color: deeppink" title="deeppink"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','darkorange')" class='color-item' style="background-color: darkorange" title=" darkorange"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','greenyellow')" class='color-item' style="background-color: greenyellow" title="greenyellow"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','mediumseagreen')" class='color-item' style="background-color: mediumseagreen" title="mediumseagreen"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','mediumturquoise')" class='color-item' style="background-color: mediumturquoise" title="mediumturquoise"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','royalblue')" class='color-item' style="background-color: royalblue" title="royalblue"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','lightslategrey')" class='color-item' style="background-color: lightslategrey" title="lightslategrey"></a></td>
+                                        <td><button onclick="formatDoc('backcolor','mediumorchid')" class='color-item' style="background-color: mediumorchid" title="mediumorchid"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','deeppink')" class='color-item' style="background-color: deeppink" title="deeppink"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','darkorange')" class='color-item' style="background-color: darkorange" title=" darkorange"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','greenyellow')" class='color-item' style="background-color: greenyellow" title="greenyellow"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','mediumseagreen')" class='color-item' style="background-color: mediumseagreen" title="mediumseagreen"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','mediumturquoise')" class='color-item' style="background-color: mediumturquoise" title="mediumturquoise"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','royalblue')" class='color-item' style="background-color: royalblue" title="royalblue"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','lightslategrey')" class='color-item' style="background-color: lightslategrey" title="lightslategrey"></button></td>
                                         </tr>
                                         <tr>
-                                        <td><a href="#" onclick="formatDoc('backcolor','violet')" class='color-item' style="background-color: violet" title="violet"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','orchid')" class='color-item' style="background-color: orchid" title="orchid"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','gold')" class='color-item' style="background-color: gold" title="gold"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','yellow')" class='color-item' style="background-color: yellow" title="yellow"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','lime')" class='color-item' style="background-color: lime" title="lime"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','aqua')" class='color-item' style="background-color: aqua" title="aqua"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','skyblue')" class='color-item' style="background-color: skyblue " title="skyblue"></a></td>
-                                        <td><a href="#" onclick="formatDoc('forecolor','lightgray')" class='color-item' style="background-color: lightgray" title="lightgray"></a></td>
+                                        <td><button onclick="formatDoc('backcolor','violet')" class='color-item' style="background-color: violet" title="violet"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','orchid')" class='color-item' style="background-color: orchid" title="orchid"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','gold')" class='color-item' style="background-color: gold" title="gold"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','yellow')" class='color-item' style="background-color: yellow" title="yellow"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','lime')" class='color-item' style="background-color: lime" title="lime"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','aqua')" class='color-item' style="background-color: aqua" title="aqua"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','skyblue')" class='color-item' style="background-color: skyblue " title="skyblue"></button></td>
+                                        <td><button onclick="formatDoc('forecolor','lightgray')" class='color-item' style="background-color: lightgray" title="lightgray"></button></td>
                                         </tr>
                                         <tr>
-                                        <td><a href="#" onclick="formatDoc('backcolor','plum')" class='color-item' style="background-color: plum" title="plum"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','pink')" class='color-item' style="background-color: pink" title="pink"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','peachpuff')" class='color-item' style="background-color: peachpuff" title="peachpuff"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','khaki')" class='color-item' style="background-color: khaki" title="khaki"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','palegreen')" class='color-item' style="background-color: palegreen" title="palegreen"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','paleturquoise')" class='color-item' style="background-color: paleturquoise" title="paleturquoise"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','powderblue')" class='color-item' style="background-color: powderblue" title="powderblue"></a></td>
-                                        <td><a href="#" onclick="formatDoc('backcolor','white')" class='color-item' style="background-color: #f4f8ff" title="white"></a></td>
+                                        <td><button onclick="formatDoc('backcolor','plum')" class='color-item' style="background-color: plum" title="plum"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','pink')" class='color-item' style="background-color: pink" title="pink"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','peachpuff')" class='color-item' style="background-color: peachpuff" title="peachpuff"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','khaki')" class='color-item' style="background-color: khaki" title="khaki"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','palegreen')" class='color-item' style="background-color: palegreen" title="palegreen"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','paleturquoise')" class='color-item' style="background-color: paleturquoise" title="paleturquoise"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','powderblue')" class='color-item' style="background-color: powderblue" title="powderblue"></button></td>
+                                        <td><button onclick="formatDoc('backcolor','white')" class='color-item' style="background-color: #f4f8ff" title="white"></button></td>
                                         </tr>
                                     </table>
                                 </div>
@@ -706,25 +712,25 @@ function init(id) {
                             </button>
                             <div class="dropdown-font-size" style="overflow-y: auto; height:200px;">
                                 <div onclick="formatDoc('fontsize','1')">
-                                    <a href="#">1</a>
+                                    <button class="min-reset-button">1</button>
                                 </div>
                                 <div onclick="formatDoc('fontsize','2')">
-                                    <a href="#">2</a>
+                                    <button class="min-reset-button">2</button>
                                 </div>
                                 <div onclick="formatDoc('fontsize','3')">
-                                    <a href="#">3</a>
+                                    <button class="min-reset-button">3</button>
                                 </div>
                                 <div onclick="formatDoc('fontsize','4')">
-                                    <a href="#">4</a>
+                                    <button class="min-reset-button">4</button>
                                 </div>
                                 <div onclick="formatDoc('fontsize','5')">
-                                    <a href="#">5</a>
+                                    <button class="min-reset-button">5</button>
                                 </div>
                                 <div onclick="formatDoc('fontsize','6')">
-                                    <a href="#">6</a>
+                                    <button class="min-reset-button">6</button>
                                 </div>
                                 <div onclick="formatDoc('fontsize','7')">
-                                    <a href="#">7</a>
+                                    <button class="min-reset-button">7</button>
                                 </div>
                             </div>
                         </div>
@@ -736,24 +742,24 @@ function init(id) {
                             </button>
                             <div class="dropdown-align" >
                                 <div onclick="formatDoc('justifyLeft')">
-                                    <a href="#" title="Align left">
+                                    <button class="min-reset-button"  title="Align left">
                                         <i  style='color:black' class="fa fa-align-left"  aria-hidden="true"></i>
-                                    </a>
+                                    </button>
                                 </div>
                                 <div onclick="formatDoc('justifyCenter')">
-                                    <a href="#" title="Align center">
+                                    <button class="min-reset-button"  title="Align center">
                                         <i style='color:black' class="fa fa-align-center" aria-hidden="true"></i>
-                                    </a>
+                                    </button>
                                 </div>
                                 <div onclick="formatDoc('justifyRight')">
-                                    <a href="#" title="Align right">
+                                    <button class="min-reset-button"  title="Align right">
                                         <i style='color:black' class="fa fa-align-right" aria-hidden="true"></i>
-                                    </a>
+                                    </button>
                                 </div>
                                 <div onclick="formatDoc('justifyFull')">
-                                    <a href="#" title="Align justify">
+                                    <button class="min-reset-button"  title="Align justify">
                                         <i style='color:black' class="fa fa-align-justify" aria-hidden="true"></i>
-                                    </a>
+                                    </>
                                 </div>
                             </div>
                         </div>
