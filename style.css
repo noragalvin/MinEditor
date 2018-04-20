@@ -1,0 +1,534 @@
+.k-caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px dashed;
+    border-top: 4px solid;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
+
+#text-color {
+    display: block;
+}
+
+#bg-color {
+    display: none
+}
+
+#text {
+    float: left;
+    width: 50%;
+    height: 40px;
+    border-bottom: none;
+    border-top: 0.7px solid gray;
+    border-left: 0.7px solid gray;
+    border-right: 0.7px solid gray;
+    text-align: center;
+    font-size: 13px;
+    display: inline-block;
+    background-color: white;
+    color: black;
+    border-radius: 5px 5px 0px 0px;
+}
+
+#background {
+    float: right;
+    width: 50%;
+    height: 40px;
+    border: none;
+    border-bottom: 0.7px solid gray;
+    text-align: center;
+    font-size: 13px;
+    display: inline-block;
+    background-color: white;
+    color: gray;
+    border-radius: 5px 5px 0px 0px;
+}
+
+#text:hover {
+    cursor: pointer;
+    background-color: #dce0e8;
+}
+
+#background:hover {
+    cursor: pointer;
+    background-color: #dce0e8
+}
+
+#text:focus {
+    outline: none;
+}
+
+#background:focus {
+    outline: none;
+}
+
+.tool-icon {
+    width: 38px;
+    height: 38px;
+    display: inline-block;
+    line-height: 38px;
+    /* font-size: 15px; */
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background: #fff;
+    margin: 0;
+}
+
+.tool-icon:hover {
+    background-color: #eff1f4
+}
+
+.tool-icon:focus {
+    outline: none;
+    background-color: #dce0e8;
+}
+
+.tool-icon:focus i {
+    color: black
+}
+
+.tool-icon i {
+    color: #aaaaaa;
+}
+
+.tool-icon:hover i {
+    color: #414141;
+}
+
+.tool-icon button {
+    color: #c9c9c9;
+}
+
+.tool-icon button:hover {
+    color: #414141;
+}
+
+.tools {
+    display: inline-block;
+    border-right: 1px solid #ebebeb;
+    /* padding: 0 5px 0 0; */
+}
+
+/* //////////////// */
+
+.btn-grp {
+    border: 2px solid #efefef;
+    display: inline-block;
+}
+
+#align a:hover {
+    background: #aeb0b2;
+}
+
+.dropbtn {
+    padding: 10px;
+    background-color: transparent;
+    color: black;
+    font-size: 16px;
+    border: 1px solid transparent;
+}
+
+.dropdown-cont {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-cont a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.abcd {
+    display: none;
+}
+
+.dropdown:hover .abcd {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    border: 1px solid silver;
+    background-color: white;
+}
+
+hr {
+    border-top: 1px solid #000;
+    width: 98%;
+}
+
+#quote-place {
+    position: absolute;
+}
+
+#cal1 {
+    position: absolute;
+    height: 0px;
+    width: 0px;
+    top: 100px;
+    left: 100px;
+    overflow: none;
+    z-index: -100;
+}
+
+#cal2 {
+    position: absolute;
+    height: 0px;
+    width: 0px;
+    top: 0px;
+    left: 0px;
+    overflow: none;
+    z-index: -100;
+}
+
+#Image,
+#Video,
+#Table {
+    width: 120px;
+    height: 38px;
+    display: inline-block;
+    line-height: 38px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#editor-doc:focus {
+    outline: none;
+}
+
+.color-item {
+    cursor: pointer;
+    height: 18px;
+    width: 18px;
+    color: black;
+    /* padding: 12px 16px; */
+    text-decoration: none;
+    display: block;
+    margin-left: -1px;
+    border-radius: 50%;
+    margin: 5px;
+}
+
+.color-item:hover {
+    width: 22px;
+    height: 22px;
+    margin: 1px;
+    cursor: pointer;
+    border: none;
+}
+
+.color-box {
+    width: 297px;
+    height: auto;
+}
+
+.modal-title {
+    font-weight: 700;
+    font-size: 24px;
+    color: #333;
+}
+
+#row-content {
+    width: 100%;
+    margin: 0;
+}
+
+#shortTools {
+    /* margin-left: 15px;
+    margin-right: 15px; */
+}
+
+div.shortTool.tools {
+    border: none;
+    margin-right: 10px;
+    transition: ease-in-out 1s;
+    /* display: block; */
+    padding: 0;
+}
+
+.close-btn {
+    border: none;
+    background-color: #4bf442;
+    color: #fff;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    background-color: #4CAF50;
+}
+
+.tri-btns {
+    border: none;
+    color: #919191;
+}
+
+#kee-tool {
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 7px 0px;
+    background: rgb(255, 255, 255);
+    z-index: 1;
+}
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1 !important;
+    /* Sit on top */
+    padding-top: 100px !important;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0) !important;
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    /* Black w/ opacity */
+}
+
+/* Modal Content */
+
+.k-modal-content {
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 10px;
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+
+@-webkit-keyframes animatetop {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+/* The Close Button */
+
+.k-close {
+    color: black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.k-close:hover,
+.k-close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.k-modal-header {
+    padding: 20px 16px;
+}
+
+.k-modal-body {
+    padding: 2px 16px;
+}
+
+.k-modal-footer {
+    padding: 2px 16px;
+}
+
+.k-modal-button {
+    padding: 10px;
+    margin: 10px 0 10px 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.k-button-green {
+    background: #4CAF50;
+    color: white;
+}
+
+.k-button-green:hover {
+    background: #009933;
+}
+
+.k-button-gray {
+    background: #888888;
+    color: white;
+}
+
+.k-button-gray:hover {
+    background: #AAAAAA;
+}
+
+.editor-button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 0 3px 0 0;
+    border: none;
+    color: #aaaaaa;
+    background: none;
+}
+
+.editor-button:hover {
+    background: #cccccc;
+    color: #666666;
+    cursor: pointer;
+}
+
+.dropdown-font-family a,
+.dropdown-paragraph-format a {
+    color: black;
+    padding: 5px 12px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-font-size a,
+.dropdown-align a {
+    color: black;
+    padding: 0px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-font-family a:hover,
+.dropdown-paragraph-format a:hover,
+.dropdown-font-size a:hover,
+.dropdown-align a:hover {
+    background: #ececec;
+}
+
+.dropdown-font-family,
+.dropdown-paragraph-format,
+.dropdown-font-size,
+.dropdown-align {
+    display: none;
+    border-radius: 0px;
+    position: absolute;
+    padding: 0px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 20px 3px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown-font-family {
+    top: 48px;
+    left: 11px;
+    min-width: 100px;
+}
+
+.dropdown-paragraph-format {
+    top: 48px;
+    left: 52.5px;
+    min-width: 200px;
+}
+
+.dropdown-font-size {
+    top: 48px;
+    left: 136.5px;
+    padding: 0px;
+    min-width: 80px;
+}
+
+.dropdown-align {
+    top: 48px;
+    left: 178.5px;
+    padding: 0px;
+    min-width: 80px;
+}
+
+.dropdown-color {
+    border-radius: 5px;
+    display: none;
+    position: absolute;
+    background: #fff;
+    z-index: 1;
+    top: 48px;
+    left: 95px;
+    box-shadow: 0px 2px 20px 3px rgba(0, 0, 0, 0.2);
+}
+
+.ui-resizable-ne,
+.ui-resizable-se,
+.ui-resizable-nw,
+.ui-resizable-sw {
+    background: white;
+    border: 1px solid black;
+    width: 9px !important;
+    height: 9px !important;
+}
+
+.ui-resizable-se {
+    background-image: none !important;
+    right: -5px !important;
+    bottom: -5px !important;
+}
+
+.video-responsive {
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 56.25%;
+    position: relative;
+}
+
+.video-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.min-reset-button {
+    background: none;
+    color: black !important;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
