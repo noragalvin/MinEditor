@@ -1269,7 +1269,7 @@ var MinEditor = {
 
         //Show code
         var flag = 1;
-        var data = document.getElementById('editor-doc');
+        var data = document.getElementById('editor-doc'); 
         // console.log(data.innerHTML);
         // $('#showCode').click(function (e) {
         //     e.preventDefault();
