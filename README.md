@@ -1,12 +1,13 @@
 # MinEditor
  WYSIWYG Editor from KEETOOL
 # How to use?
-  ##**Firstly:** Create a div has id <br/>
-    **Eg:**
+  **Firstly:** Create a div has id <br/>
+    Eg:
     ```
       <div id="new-editor"></div>
     ```
-  ##**Secondly:** Link mineditor to your html <br/>
+    <br/>
+  **Secondly:** Link mineditor to your html <br/>
     ```
     <script type="text/javascript">
           Mineditor.init('new-editor');
