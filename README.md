@@ -7,10 +7,11 @@
       <div id="new-editor"></div>
     ```
     <br/>
+    <br/>
   **Secondly:** Link mineditor to your html <br/>
     ```
-    <script type="text/javascript">
-          Mineditor.init('new-editor');
+    <script type="text/javascript"> <br/>
+          Mineditor.init('new-editor'); <br/>
     </script>
     ```
 
