@@ -1,20 +1,21 @@
 # MinEditor
  WYSIWYG Editor from KEETOOL
 # How to use?
- Firstly: Create a div has id
-    **Eg:** \n
-    {::nomarkdown}
+  ##**Firstly:** Create a div has id <br/>
+    **Eg:**
+    ```
       <div id="new-editor"></div>
-    {:/}
-    **Secondly:** Link mineditor to your html \n
-    {::nomarkdown}
-       <script type="text/javascript">
-            Mineditor.init('new-editor');
-      </script>
-    {:/}
+    ```
+  ##**Secondly:** Link mineditor to your html <br/>
+    ```
+    <script type="text/javascript">
+          Mineditor.init('new-editor');
+    </script>
+    ```
 
 # How to get data?
-  **Use below function:**  Mineditor.getContent();
+  **Use below function:** <br/>
+    Mineditor.getContent();
 
 # About us
-  [KEETOOL](https://keetool.com/)
+  Contact us: [KEETOOL](https://keetool.com/)
