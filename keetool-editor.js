@@ -9,7 +9,7 @@ var MinEditor = {
     init: function (id) {
         content = `
 <style>
-    .k-caret {
+    .min-k-caret {
         display: inline-block;
         width: 0;
         height: 0;
@@ -21,15 +21,15 @@ var MinEditor = {
         border-left: 4px solid transparent;
     }
 
-    #text-color {
+    #min-text-color {
         display: block;
     }
 
-    #bg-color {
+    #min-bg-color {
         display: none
     }
 
-    #text {
+    #min-text {
         float: left;
         width: 50%;
         height: 40px;
@@ -45,7 +45,7 @@ var MinEditor = {
         border-radius: 5px 5px 0px 0px;
     }
 
-    #background {
+    #min-background {
         float: right;
         width: 50%;
         height: 40px;
@@ -59,25 +59,25 @@ var MinEditor = {
         border-radius: 5px 5px 0px 0px;
     }
 
-    #text:hover {
+    #min-text:hover {
         cursor: pointer;
         background-color: #dce0e8;
     }
 
-    #background:hover {
+    #min-background:hover {
         cursor: pointer;
         background-color: #dce0e8
     }
 
-    #text:focus {
+    #min-text:focus {
         outline: none;
     }
 
-    #background:focus {
+    #min-background:focus {
         outline: none;
     }
 
-    .tool-icon {
+    .min-tool-icon {
         width: 38px;
         height: 38px;
         display: inline-block;
@@ -91,36 +91,36 @@ var MinEditor = {
         margin: 0;
     }
 
-    .tool-icon:hover {
+    .min-tool-icon:hover {
         background-color: #eff1f4
     }
 
-    .tool-icon:focus {
+    .min-tool-icon:focus {
         outline: none;
         background-color: #dce0e8;
     }
 
-    .tool-icon:focus i {
+    .min-tool-icon:focus i {
         color: black
     }
 
-    .tool-icon i {
+    .min-tool-icon i {
         color: #aaaaaa;
     }
 
-    .tool-icon:hover i {
+    .min-tool-icon:hover i {
         color: #414141;
     }
 
-    .tool-icon button {
+    .min-tool-icon button {
         color: #c9c9c9;
     }
 
-    .tool-icon button:hover {
+    .min-tool-icon button:hover {
         color: #414141;
     }
 
-    .tools {
+    .min-tools {
         display: inline-block;
         border-right: 1px solid #ebebeb;
         /* padding: 0 5px 0 0; */
@@ -128,62 +128,7 @@ var MinEditor = {
 
     /* //////////////// */
 
-    .btn-grp {
-        border: 2px solid #efefef;
-        display: inline-block;
-    }
-
-    #align a:hover {
-        background: #aeb0b2;
-    }
-
-    .dropbtn {
-        padding: 10px;
-        background-color: transparent;
-        color: black;
-        font-size: 16px;
-        border: 1px solid transparent;
-    }
-
-    .dropdown-cont {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-    }
-
-    .dropdown-cont a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-    }
-
-    .abcd {
-        display: none;
-    }
-
-    .dropdown:hover .abcd {
-        display: block;
-    }
-
-    .dropdown:hover .dropbtn {
-        border: 1px solid silver;
-        background-color: white;
-    }
-
-    hr {
-        border-top: 1px solid #000;
-        width: 98%;
-    }
-
-    #quote-place {
-        position: absolute;
-    }
-
-    #cal1 {
+    #min-cal1 {
         position: absolute;
         height: 0px;
         width: 0px;
@@ -193,7 +138,7 @@ var MinEditor = {
         z-index: -100;
     }
 
-    #cal2 {
+    #min-cal2 {
         position: absolute;
         height: 0px;
         width: 0px;
@@ -203,22 +148,11 @@ var MinEditor = {
         z-index: -100;
     }
 
-    #Image,
-    #Video,
-    #Table {
-        width: 120px;
-        height: 38px;
-        display: inline-block;
-        line-height: 38px;
-        text-align: center;
-        cursor: pointer;
-    }
-
-    #editor-doc:focus {
+    #min-editor:focus {
         outline: none;
     }
 
-    .color-item {
+    .min-color-item {
         cursor: pointer;
         height: 18px;
         width: 18px;
@@ -231,7 +165,7 @@ var MinEditor = {
         margin: 5px;
     }
 
-    .color-item:hover {
+    .min-color-item:hover {
         width: 22px;
         height: 22px;
         margin: 1px;
@@ -239,28 +173,12 @@ var MinEditor = {
         border: none;
     }
 
-    .color-box {
-        width: 297px;
-        height: auto;
-    }
-
-    .modal-title {
-        font-weight: 700;
-        font-size: 24px;
-        color: #333;
-    }
-
-    #row-content {
-        width: 100%;
-        margin: 0;
-    }
-
-    #shortTools {
+    #min-shortTools {
         /* margin-left: 15px;
         margin-right: 15px; */
     }
 
-    div.shortTool.tools {
+    div.min-shortTool.min-tools {
         border: none;
         margin-right: 10px;
         transition: ease-in-out 1s;
@@ -268,28 +186,8 @@ var MinEditor = {
         padding: 0;
     }
 
-    .close-btn {
-        border: none;
-        background-color: #4bf442;
-        color: #fff;
-        padding-top: 12px;
-        padding-bottom: 12px;
-        padding-left: 12px;
-        padding-right: 12px;
-        cursor: pointer;
-    }
 
-    .close-btn:hover,
-    .close-btn:focus {
-        background-color: #4CAF50;
-    }
-
-    .tri-btns {
-        border: none;
-        color: #919191;
-    }
-
-    #kee-tool {
+    #min-kee-tool {
         border-radius: 10px;
         padding: 10px;
         box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 7px 0px;
@@ -297,7 +195,7 @@ var MinEditor = {
         z-index: 1;
     }
 
-    .modal {
+    .min-modal {
         display: none;
         /* Hidden by default */
         position: fixed;
@@ -322,7 +220,7 @@ var MinEditor = {
 
     /* Modal Content */
 
-    .k-modal-content {
+    .min-k-modal-content {
         font-family: 'Montserrat', sans-serif;
         border-radius: 10px;
         position: relative;
@@ -332,15 +230,15 @@ var MinEditor = {
         width: 80%;
         max-width: 500px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        -webkit-animation-name: animatetop;
+        -webkit-animation-name: min-animatetop;
         -webkit-animation-duration: 0.4s;
-        animation-name: animatetop;
+        animation-name: min-animatetop;
         animation-duration: 0.4s
     }
 
     /* Add Animation */
 
-    @-webkit-keyframes animatetop {
+    @-webkit-keyframes min-animatetop {
         from {
             opacity: 0
         }
@@ -349,7 +247,7 @@ var MinEditor = {
         }
     }
 
-    @keyframes animatetop {
+    @keyframes min-animatetop {
         from {
             opacity: 0
         }
@@ -360,33 +258,19 @@ var MinEditor = {
 
     /* The Close Button */
 
-    .k-close {
-        color: black;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
-
-    .k-close:hover,
-    .k-close:focus {
-        color: #000;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-    .k-modal-header {
+    .min-k-modal-header {
         padding: 20px 16px;
     }
 
-    .k-modal-body {
+    .min-k-modal-body {
         padding: 2px 16px;
     }
 
-    .k-modal-footer {
+    .min-k-modal-footer {
         padding: 2px 16px;
     }
 
-    .k-modal-button {
+    .min-k-modal-button {
         padding: 10px;
         margin: 10px 0 10px 10px;
         outline: none;
@@ -395,25 +279,25 @@ var MinEditor = {
         border-radius: 5px;
     }
 
-    .k-button-green {
+    .min-k-button-green {
         background: #4CAF50;
         color: white;
     }
 
-    .k-button-green:hover {
+    .min-k-button-green:hover {
         background: #009933;
     }
 
-    .k-button-gray {
+    .min-k-button-gray {
         background: #888888;
         color: white;
     }
 
-    .k-button-gray:hover {
+    .min-k-button-gray:hover {
         background: #AAAAAA;
     }
 
-    .editor-button {
+    .min-editor-button {
         padding: 10px 20px;
         border-radius: 5px;
         margin: 0 3px 0 0;
@@ -422,39 +306,39 @@ var MinEditor = {
         background: none;
     }
 
-    .editor-button:hover {
+    .min-editor-button:hover {
         background: #cccccc;
         color: #666666;
         cursor: pointer;
     }
 
-    .dropdown-font-family a,
-    .dropdown-paragraph-format a {
+    .min-dropdown-font-family a,
+    .min-dropdown-paragraph-format a {
         color: black;
         padding: 5px 12px;
         text-decoration: none;
         display: block;
     }
 
-    .dropdown-font-size a,
-    .dropdown-align a {
+    .min-dropdown-font-size a,
+    .min-dropdown-align a {
         color: black;
         padding: 0px;
         text-decoration: none;
         display: block;
     }
 
-    .dropdown-font-family a:hover,
-    .dropdown-paragraph-format a:hover,
-    .dropdown-font-size a:hover,
-    .dropdown-align a:hover {
+    .min-dropdown-font-family a:hover,
+    .min-dropdown-paragraph-format a:hover,
+    .min-dropdown-font-size a:hover,
+    .min-dropdown-align a:hover {
         background: #ececec;
     }
 
-    .dropdown-font-family,
-    .dropdown-paragraph-format,
-    .dropdown-font-size,
-    .dropdown-align {
+    .min-dropdown-font-family,
+    .min-dropdown-paragraph-format,
+    .min-dropdown-font-size,
+    .min-dropdown-align {
         display: none;
         border-radius: 0px;
         position: absolute;
@@ -465,33 +349,33 @@ var MinEditor = {
         border-radius: 5px;
     }
 
-    .dropdown-font-family {
+    .min-dropdown-font-family {
         top: 48px;
         left: 11px;
         min-width: 100px;
     }
 
-    .dropdown-paragraph-format {
+    .min-dropdown-paragraph-format {
         top: 48px;
         left: 52.5px;
         min-width: 200px;
     }
 
-    .dropdown-font-size {
+    .min-dropdown-font-size {
         top: 48px;
         left: 136.5px;
         padding: 0px;
         min-width: 80px;
     }
 
-    .dropdown-align {
+    .min-dropdown-align {
         top: 48px;
         left: 178.5px;
         padding: 0px;
         min-width: 80px;
     }
 
-    .dropdown-color {
+    .min-dropdown-color {
         border-radius: 5px;
         display: none;
         position: absolute;
@@ -502,23 +386,7 @@ var MinEditor = {
         box-shadow: 0px 2px 20px 3px rgba(0, 0, 0, 0.2);
     }
 
-    .ui-resizable-ne,
-    .ui-resizable-se,
-    .ui-resizable-nw,
-    .ui-resizable-sw {
-        background: white;
-        border: 1px solid black;
-        width: 9px !important;
-        height: 9px !important;
-    }
-
-    .ui-resizable-se {
-        background-image: none !important;
-        right: -5px !important;
-        bottom: -5px !important;
-    }
-
-    .video-responsive {
+    .min-video-responsive {
         padding-top: 0;
         padding-left: 0;
         padding-right: 0;
@@ -526,7 +394,7 @@ var MinEditor = {
         position: relative;
     }
 
-    .video-responsive iframe {
+    .min-video-responsive iframe {
         left: 0;
         top: 0;
         height: 100%;
@@ -549,21 +417,21 @@ var MinEditor = {
     }
 </style>
 <div id="MinEditor" style="width: 100%; height: auto">
-    <div id="editor-doc" onblur="onDivBlur();" onmousedown="return cancelEvent(event);" onclick="return cancelEvent(event);"
+    <div id="min-editor" onblur="onDivBlur();" onmousedown="return cancelEvent(event);" onclick="return cancelEvent(event);"
         contentEditable="true" onmouseup="saveSelection();" onkeyup="saveSelection();" onfocus="restoreSelection();">
         <p>MinEditor from KEETOOL</p>
     </div>
-    <div style="position:absolute;display:none;" id="kee-tool">
-        <div class="tool-icon" title="Font Family">
+    <div style="position:absolute;display:none;" id="min-kee-tool">
+        <div class="min-tool-icon" title="Font Family">
             <div>
-                <button style="outline:none;" class="tool-icon" type="button" id='button-font-family'>
+                <button style="outline:none;" class="min-tool-icon" type="button" id='button-font-family'>
 
                     <i class="fa fa-font" style="fontsize:5px; display: inline">
-                        <span class="k-caret"></span>
+                        <span class="min-k-caret"></span>
                     </i>
                 </button>
 
-                <div class="dropdown-font-family">
+                <div class="min-dropdown-font-family">
                     <div onclick="formatDoc('fontname','Arial')">
                         <button class="min-reset-button" style="font-family: Arial">Arial</button>
                     </div>
@@ -580,14 +448,14 @@ var MinEditor = {
             </div>
         </div>
 
-        <div class="tool-icon" title="Paragraph Format">
+        <div class="min-tool-icon" title="Paragraph Format">
             <div>
-                <button class="tool-icon" type="button" id='button-paragraph-format'>
+                <button class="min-tool-icon" type="button" id='button-paragraph-format'>
                     <i class="fa fa-paragraph" style='display:inline'>
-                        <span class="k-caret"></span>
+                        <span class="min-k-caret"></span>
                     </i>
                 </button>
-                <div class="dropdown-paragraph-format">
+                <div class="min-dropdown-paragraph-format">
                     <div onclick="formatDoc('p')">
                         <button class="min-reset-button" title="Paragraph">
                             <p>Normal</p>
@@ -627,287 +495,287 @@ var MinEditor = {
             </div>
         </div>
 
-        <div class="tool-icon" title="Color">
-            <button style="outline:none; " class="tool-icon" id="button-color" type="button">
+        <div class="min-tool-icon" title="Color">
+            <button style="outline:none; " class="min-tool-icon" id="button-color" type="button">
                 <i style='display:inline' class="fa fa-tint">
-                    <span class="k-caret"></span>
+                    <span class="min-k-caret"></span>
                 </i>
             </button>
-            <div class=" dropdown-color">
+            <div class=" min-dropdown-color">
                 <div>
-                    <button id='text' onclick='textColor()'>
+                    <button id='min-text' onclick='textColor()'>
                         <b>Text Color</b>
                     </button>
-                    <button id='background' onclick='backgroundColor()'>
+                    <button id='min-background' onclick='backgroundColor()'>
                         <b>Background</b>
                     </button>
                 </div>
 
 
-                <div id="text-color" class="">
+                <div id="min-text-color" class="">
                     <table>
                         <tr>
                             <td>
-                                <button onclick="formatDoc('forecolor','indigo')" class='color-item' style="background-color: indigo" title="indigo"></button>
+                                <button onclick="formatDoc('forecolor','indigo')" class='min-color-item' style="background-color: indigo" title="indigo"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('forecolor','firebrick')" class="color-item" style="background-color:firebrick" title="firebrick"></button>
+                                <button onclick="formatDoc('forecolor','firebrick')" class="min-color-item" style="background-color:firebrick" title="firebrick"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('forecolor','maroon')" class='color-item' style="background-color: maroon" title="maroon"></button>
+                                <button onclick="formatDoc('forecolor','maroon')" class='min-color-item' style="background-color: maroon" title="maroon"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('forecolor','darkslategray')" class='color-item' style="background-color:darkslategray" title="darkslategray"></button>
+                                <button onclick="formatDoc('forecolor','darkslategray')" class='min-color-item' style="background-color:darkslategray" title="darkslategray"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('forecolor','darkgreen')" class='color-item' style="background-color: darkgreen" title="darkgreen"></button>
+                                <button onclick="formatDoc('forecolor','darkgreen')" class='min-color-item' style="background-color: darkgreen" title="darkgreen"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('forecolor','mediumblue')" class='color-item' style="background-color: mediumblue" title="mediumblue"></button>
+                                <button onclick="formatDoc('forecolor','mediumblue')" class='min-color-item' style="background-color: mediumblue" title="mediumblue"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('forecolor','navy')" class='color-item' style="background-color: navy" title="navy"></button>
+                                <button onclick="formatDoc('forecolor','navy')" class='min-color-item' style="background-color: navy" title="navy"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('forecolor','black')" class='color-item' style="background-color: black" title="black"></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <button onclick="formatDoc('forecolor','rebeccapurple')" class='color-item' style="background-color: rebeccapurple" title=" rebeccapurple"></button>
-                            </td>
-                            <td>
-                                <button onclick="formatDoc('forecolor','red')" class='color-item' style="background-color: red" title="red"></button>
-                            </td>
-                            <td>
-                                <button onclick="formatDoc('forecolor','chocolate')" class='color-item' style="background-color: chocolate" title="chocolate"></button>
-                            </td>
-                            <td>
-                                <button onclick="formatDoc('forecolor','olive')" class='color-item' style="background-color: olive" title="olive"></button>
-                            </td>
-                            <td>
-                                <button onclick="formatDoc('forecolor','green')" class='color-item' style="background-color: green" title="green"></button>
-                            </td>
-                            <td>
-                                <button onclick="formatDoc('forecolor','teal')" class='color-item' style="background-color: teal" title="teal"></button>
-                            </td>
-                            <td>
-                                <button onclick="formatDoc('forecolor','blue')" class='color-item' style="background-color: blue" title="blue"></button>
-                            </td>
-                            <td>
-                                <button onclick="formatDoc('forecolor','gray')" class='color-item' style="background-color: gray" title="gray"></button>
+                                <button onclick="formatDoc('forecolor','black')" class='min-color-item' style="background-color: black" title="black"></button>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <button onclick="formatDoc('forecolor','mediumorchid')" class='color-item' style="background-color: mediumorchid" title="mediumorchid"></button>
+                                <button onclick="formatDoc('forecolor','rebeccapurple')" class='min-color-item' style="background-color: rebeccapurple" title=" rebeccapurple"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('forecolor','deeppink')" class='color-item' style="background-color: deeppink" title="deeppink"></button>
+                                <button onclick="formatDoc('forecolor','red')" class='min-color-item' style="background-color: red" title="red"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('forecolor','darkorange')" class='color-item' style="background-color: darkorange" title=" darkorange"></button>
+                                <button onclick="formatDoc('forecolor','chocolate')" class='min-color-item' style="background-color: chocolate" title="chocolate"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('forecolor','greenyellow')" class='color-item' style="background-color: greenyellow" title="greenyellow"></button>
+                                <button onclick="formatDoc('forecolor','olive')" class='min-color-item' style="background-color: olive" title="olive"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('forecolor','mediumseagreen')" class='color-item' style="background-color: mediumseagreen" title="mediumseagreen"></button>
+                                <button onclick="formatDoc('forecolor','green')" class='min-color-item' style="background-color: green" title="green"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('forecolor','mediumturquoise')" class='color-item' style="background-color: mediumturquoise" title="mediumturquoise"></button>
+                                <button onclick="formatDoc('forecolor','teal')" class='min-color-item' style="background-color: teal" title="teal"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('forecolor','royalblue')" class='color-item' style="background-color: royalblue" title="royalblue"></button>
+                                <button onclick="formatDoc('forecolor','blue')" class='min-color-item' style="background-color: blue" title="blue"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('forecolor','lightslategrey')" class='color-item' style="background-color: lightslategrey" title="lightslategrey"></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <button onclick="formatDoc('forecolor','violet')" class='color-item' style="background-color: violet" title="violet"></button>
-                            </td>
-                            <td>
-                                <button onclick="formatDoc('forecolor','orchid')" class='color-item' style="background-color: orchid" title="orchid"></button>
-                            </td>
-                            <td>
-                                <button onclick="formatDoc('forecolor','gold')" class='color-item' style="background-color: gold" title="gold"></button>
-                            </td>
-                            <td>
-                                <button onclick="formatDoc('forecolor','yellow')" class='color-item' style="background-color: yellow" title="yellow"></button>
-                            </td>
-                            <td>
-                                <button onclick="formatDoc('forecolor','lime')" class='color-item' style="background-color: lime" title="lime"></button>
-                            </td>
-                            <td>
-                                <button onclick="formatDoc('forecolor','aqua')" class='color-item' style="background-color: aqua" title="aqua"></button>
-                            </td>
-                            <td>
-                                <button onclick="formatDoc('forecolor','skyblue')" class='color-item' style="background-color: skyblue " title="skyblue"></button>
-                            </td>
-                            <td>
-                                <button onclick="formatDoc('forecolor','lightgray')" class='color-item' style="background-color: lightgray" title="lightgray"></button>
+                                <button onclick="formatDoc('forecolor','gray')" class='min-color-item' style="background-color: gray" title="gray"></button>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <button onclick="formatDoc('forecolor','plum')" class='color-item' style="background-color: plum" title="plum"></button>
+                                <button onclick="formatDoc('forecolor','mediumorchid')" class='min-color-item' style="background-color: mediumorchid" title="mediumorchid"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('forecolor','pink')" class='color-item' style="background-color: pink" title="pink"></button>
+                                <button onclick="formatDoc('forecolor','deeppink')" class='min-color-item' style="background-color: deeppink" title="deeppink"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('forecolor','peachpuff')" class='color-item' style="background-color: peachpuff" title="peachpuff"></button>
+                                <button onclick="formatDoc('forecolor','darkorange')" class='min-color-item' style="background-color: darkorange" title=" darkorange"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('forecolor','khaki')" class='color-item' style="background-color: khaki" title="khaki"></button>
+                                <button onclick="formatDoc('forecolor','greenyellow')" class='min-color-item' style="background-color: greenyellow" title="greenyellow"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('forecolor','palegreen')" class='color-item' style="background-color: palegreen" title="palegreen"></button>
+                                <button onclick="formatDoc('forecolor','mediumseagreen')" class='min-color-item' style="background-color: mediumseagreen" title="mediumseagreen"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('forecolor','paleturquoise')" class='color-item' style="background-color: paleturquoise" title="paleturquoise"></button>
+                                <button onclick="formatDoc('forecolor','mediumturquoise')" class='min-color-item' style="background-color: mediumturquoise" title="mediumturquoise"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('forecolor','powderblue')" class='color-item' style="background-color: powderblue" title="powderblue"></button>
+                                <button onclick="formatDoc('forecolor','royalblue')" class='min-color-item' style="background-color: royalblue" title="royalblue"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('forecolor','white')" class='color-item' style="background-color: #f4f8ff" title="white"></button>
+                                <button onclick="formatDoc('forecolor','lightslategrey')" class='min-color-item' style="background-color: lightslategrey" title="lightslategrey"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button onclick="formatDoc('forecolor','violet')" class='min-color-item' style="background-color: violet" title="violet"></button>
+                            </td>
+                            <td>
+                                <button onclick="formatDoc('forecolor','orchid')" class='min-color-item' style="background-color: orchid" title="orchid"></button>
+                            </td>
+                            <td>
+                                <button onclick="formatDoc('forecolor','gold')" class='min-color-item' style="background-color: gold" title="gold"></button>
+                            </td>
+                            <td>
+                                <button onclick="formatDoc('forecolor','yellow')" class='min-color-item' style="background-color: yellow" title="yellow"></button>
+                            </td>
+                            <td>
+                                <button onclick="formatDoc('forecolor','lime')" class='min-color-item' style="background-color: lime" title="lime"></button>
+                            </td>
+                            <td>
+                                <button onclick="formatDoc('forecolor','aqua')" class='min-color-item' style="background-color: aqua" title="aqua"></button>
+                            </td>
+                            <td>
+                                <button onclick="formatDoc('forecolor','skyblue')" class='min-color-item' style="background-color: skyblue " title="skyblue"></button>
+                            </td>
+                            <td>
+                                <button onclick="formatDoc('forecolor','lightgray')" class='min-color-item' style="background-color: lightgray" title="lightgray"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button onclick="formatDoc('forecolor','plum')" class='min-color-item' style="background-color: plum" title="plum"></button>
+                            </td>
+                            <td>
+                                <button onclick="formatDoc('forecolor','pink')" class='min-color-item' style="background-color: pink" title="pink"></button>
+                            </td>
+                            <td>
+                                <button onclick="formatDoc('forecolor','peachpuff')" class='min-color-item' style="background-color: peachpuff" title="peachpuff"></button>
+                            </td>
+                            <td>
+                                <button onclick="formatDoc('forecolor','khaki')" class='min-color-item' style="background-color: khaki" title="khaki"></button>
+                            </td>
+                            <td>
+                                <button onclick="formatDoc('forecolor','palegreen')" class='min-color-item' style="background-color: palegreen" title="palegreen"></button>
+                            </td>
+                            <td>
+                                <button onclick="formatDoc('forecolor','paleturquoise')" class='min-color-item' style="background-color: paleturquoise" title="paleturquoise"></button>
+                            </td>
+                            <td>
+                                <button onclick="formatDoc('forecolor','powderblue')" class='min-color-item' style="background-color: powderblue" title="powderblue"></button>
+                            </td>
+                            <td>
+                                <button onclick="formatDoc('forecolor','white')" class='min-color-item' style="background-color: #f4f8ff" title="white"></button>
                             </td>
                         </tr>
                     </table>
                 </div>
-                <div id="bg-color" class="">
+                <div id="min-bg-color" class="">
                     <table>
                         <tr>
                             <td>
-                                <button onclick="formatDoc('backcolor','indigo')" class='color-item' style="background-color: indigo " title="indigo"></button>
+                                <button onclick="formatDoc('backcolor','indigo')" class='min-color-item' style="background-color: indigo " title="indigo"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('backcolor','firebrick')" class="color-item" style="background-color:firebrick" title="firebrick"></button>
+                                <button onclick="formatDoc('backcolor','firebrick')" class="min-color-item" style="background-color:firebrick" title="firebrick"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('backcolor','maroon')" class='color-item' style="background-color: maroon" title="maroon"></button>
+                                <button onclick="formatDoc('backcolor','maroon')" class='min-color-item' style="background-color: maroon" title="maroon"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('backcolor','darkslategray')" class='color-item' style="background-color:darkslategray" title="darkslategray"></button>
+                                <button onclick="formatDoc('backcolor','darkslategray')" class='min-color-item' style="background-color:darkslategray" title="darkslategray"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('backcolor','darkgreen')" class='color-item' style="background-color: darkgreen" title="darkgreen"></button>
+                                <button onclick="formatDoc('backcolor','darkgreen')" class='min-color-item' style="background-color: darkgreen" title="darkgreen"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('backcolor','mediumblue')" class='color-item' style="background-color: mediumblue" title="mediumblue"></button>
+                                <button onclick="formatDoc('backcolor','mediumblue')" class='min-color-item' style="background-color: mediumblue" title="mediumblue"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('backcolor','navy')" class='color-item' style="background-color: navy" title="navy"></button>
+                                <button onclick="formatDoc('backcolor','navy')" class='min-color-item' style="background-color: navy" title="navy"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('backcolor','black')" class='color-item' style="background-color: black" title="black"></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <button onclick="formatDoc('backcolor','rebeccapurple')" class='color-item' style="background-color: rebeccapurple" title=" rebeccapurple"></button>
-                            </td>
-                            <td>
-                                <button onclick="formatDoc('backcolor','red')" class='color-item' style="background-color: red" title="red"></button>
-                            </td>
-                            <td>
-                                <button onclick="formatDoc('backcolor','chocolate')" class='color-item' style="background-color: chocolate" title="chocolate"></button>
-                            </td>
-                            <td>
-                                <button onclick="formatDoc('backcolor','olive')" class='color-item' style="background-color: olive" title="olive"></button>
-                            </td>
-                            <td>
-                                <button onclick="formatDoc('backcolor','green')" class='color-item' style="background-color: green" title="green"></button>
-                            </td>
-                            <td>
-                                <button onclick="formatDoc('backcolor','teal')" class='color-item' style="background-color: teal" title="teal"></button>
-                            </td>
-                            <td>
-                                <button onclick="formatDoc('backcolor','blue')" class='color-item' style="background-color: blue" title="blue"></button>
-                            </td>
-                            <td>
-                                <button onclick="formatDoc('backcolor','gray')" class='color-item' style="background-color: gray" title="gray"></button>
+                                <button onclick="formatDoc('backcolor','black')" class='min-color-item' style="background-color: black" title="black"></button>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <button onclick="formatDoc('backcolor','mediumorchid')" class='color-item' style="background-color: mediumorchid" title="mediumorchid"></button>
+                                <button onclick="formatDoc('backcolor','rebeccapurple')" class='min-color-item' style="background-color: rebeccapurple" title=" rebeccapurple"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('backcolor','deeppink')" class='color-item' style="background-color: deeppink" title="deeppink"></button>
+                                <button onclick="formatDoc('backcolor','red')" class='min-color-item' style="background-color: red" title="red"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('backcolor','darkorange')" class='color-item' style="background-color: darkorange" title=" darkorange"></button>
+                                <button onclick="formatDoc('backcolor','chocolate')" class='min-color-item' style="background-color: chocolate" title="chocolate"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('backcolor','greenyellow')" class='color-item' style="background-color: greenyellow" title="greenyellow"></button>
+                                <button onclick="formatDoc('backcolor','olive')" class='min-color-item' style="background-color: olive" title="olive"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('backcolor','mediumseagreen')" class='color-item' style="background-color: mediumseagreen" title="mediumseagreen"></button>
+                                <button onclick="formatDoc('backcolor','green')" class='min-color-item' style="background-color: green" title="green"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('backcolor','mediumturquoise')" class='color-item' style="background-color: mediumturquoise" title="mediumturquoise"></button>
+                                <button onclick="formatDoc('backcolor','teal')" class='min-color-item' style="background-color: teal" title="teal"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('backcolor','royalblue')" class='color-item' style="background-color: royalblue" title="royalblue"></button>
+                                <button onclick="formatDoc('backcolor','blue')" class='min-color-item' style="background-color: blue" title="blue"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('backcolor','lightslategrey')" class='color-item' style="background-color: lightslategrey" title="lightslategrey"></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <button onclick="formatDoc('backcolor','violet')" class='color-item' style="background-color: violet" title="violet"></button>
-                            </td>
-                            <td>
-                                <button onclick="formatDoc('backcolor','orchid')" class='color-item' style="background-color: orchid" title="orchid"></button>
-                            </td>
-                            <td>
-                                <button onclick="formatDoc('backcolor','gold')" class='color-item' style="background-color: gold" title="gold"></button>
-                            </td>
-                            <td>
-                                <button onclick="formatDoc('backcolor','yellow')" class='color-item' style="background-color: yellow" title="yellow"></button>
-                            </td>
-                            <td>
-                                <button onclick="formatDoc('backcolor','lime')" class='color-item' style="background-color: lime" title="lime"></button>
-                            </td>
-                            <td>
-                                <button onclick="formatDoc('backcolor','aqua')" class='color-item' style="background-color: aqua" title="aqua"></button>
-                            </td>
-                            <td>
-                                <button onclick="formatDoc('backcolor','skyblue')" class='color-item' style="background-color: skyblue " title="skyblue"></button>
-                            </td>
-                            <td>
-                                <button onclick="formatDoc('forecolor','lightgray')" class='color-item' style="background-color: lightgray" title="lightgray"></button>
+                                <button onclick="formatDoc('backcolor','gray')" class='min-color-item' style="background-color: gray" title="gray"></button>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <button onclick="formatDoc('backcolor','plum')" class='color-item' style="background-color: plum" title="plum"></button>
+                                <button onclick="formatDoc('backcolor','mediumorchid')" class='min-color-item' style="background-color: mediumorchid" title="mediumorchid"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('backcolor','pink')" class='color-item' style="background-color: pink" title="pink"></button>
+                                <button onclick="formatDoc('backcolor','deeppink')" class='min-color-item' style="background-color: deeppink" title="deeppink"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('backcolor','peachpuff')" class='color-item' style="background-color: peachpuff" title="peachpuff"></button>
+                                <button onclick="formatDoc('backcolor','darkorange')" class='min-color-item' style="background-color: darkorange" title=" darkorange"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('backcolor','khaki')" class='color-item' style="background-color: khaki" title="khaki"></button>
+                                <button onclick="formatDoc('backcolor','greenyellow')" class='min-color-item' style="background-color: greenyellow" title="greenyellow"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('backcolor','palegreen')" class='color-item' style="background-color: palegreen" title="palegreen"></button>
+                                <button onclick="formatDoc('backcolor','mediumseagreen')" class='min-color-item' style="background-color: mediumseagreen" title="mediumseagreen"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('backcolor','paleturquoise')" class='color-item' style="background-color: paleturquoise" title="paleturquoise"></button>
+                                <button onclick="formatDoc('backcolor','mediumturquoise')" class='min-color-item' style="background-color: mediumturquoise" title="mediumturquoise"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('backcolor','powderblue')" class='color-item' style="background-color: powderblue" title="powderblue"></button>
+                                <button onclick="formatDoc('backcolor','royalblue')" class='min-color-item' style="background-color: royalblue" title="royalblue"></button>
                             </td>
                             <td>
-                                <button onclick="formatDoc('backcolor','white')" class='color-item' style="background-color: #f4f8ff" title="white"></button>
+                                <button onclick="formatDoc('backcolor','lightslategrey')" class='min-color-item' style="background-color: lightslategrey" title="lightslategrey"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button onclick="formatDoc('backcolor','violet')" class='min-color-item' style="background-color: violet" title="violet"></button>
+                            </td>
+                            <td>
+                                <button onclick="formatDoc('backcolor','orchid')" class='min-color-item' style="background-color: orchid" title="orchid"></button>
+                            </td>
+                            <td>
+                                <button onclick="formatDoc('backcolor','gold')" class='min-color-item' style="background-color: gold" title="gold"></button>
+                            </td>
+                            <td>
+                                <button onclick="formatDoc('backcolor','yellow')" class='min-color-item' style="background-color: yellow" title="yellow"></button>
+                            </td>
+                            <td>
+                                <button onclick="formatDoc('backcolor','lime')" class='min-color-item' style="background-color: lime" title="lime"></button>
+                            </td>
+                            <td>
+                                <button onclick="formatDoc('backcolor','aqua')" class='min-color-item' style="background-color: aqua" title="aqua"></button>
+                            </td>
+                            <td>
+                                <button onclick="formatDoc('backcolor','skyblue')" class='min-color-item' style="background-color: skyblue " title="skyblue"></button>
+                            </td>
+                            <td>
+                                <button onclick="formatDoc('forecolor','lightgray')" class='min-color-item' style="background-color: lightgray" title="lightgray"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button onclick="formatDoc('backcolor','plum')" class='min-color-item' style="background-color: plum" title="plum"></button>
+                            </td>
+                            <td>
+                                <button onclick="formatDoc('backcolor','pink')" class='min-color-item' style="background-color: pink" title="pink"></button>
+                            </td>
+                            <td>
+                                <button onclick="formatDoc('backcolor','peachpuff')" class='min-color-item' style="background-color: peachpuff" title="peachpuff"></button>
+                            </td>
+                            <td>
+                                <button onclick="formatDoc('backcolor','khaki')" class='min-color-item' style="background-color: khaki" title="khaki"></button>
+                            </td>
+                            <td>
+                                <button onclick="formatDoc('backcolor','palegreen')" class='min-color-item' style="background-color: palegreen" title="palegreen"></button>
+                            </td>
+                            <td>
+                                <button onclick="formatDoc('backcolor','paleturquoise')" class='min-color-item' style="background-color: paleturquoise" title="paleturquoise"></button>
+                            </td>
+                            <td>
+                                <button onclick="formatDoc('backcolor','powderblue')" class='min-color-item' style="background-color: powderblue" title="powderblue"></button>
+                            </td>
+                            <td>
+                                <button onclick="formatDoc('backcolor','white')" class='min-color-item' style="background-color: #f4f8ff" title="white"></button>
                             </td>
                         </tr>
                     </table>
@@ -915,14 +783,14 @@ var MinEditor = {
             </div>
         </div>
 
-        <div class="tool-icon" title="Font Size">
+        <div class="min-tool-icon" title="Font Size">
             <div>
-                <button class=" tool-icon" type="button" id='button-font-size'>
+                <button class=" min-tool-icon" type="button" id='button-font-size'>
                     <i class="fa fa-text-height" style='display:inline'>
-                        <span class="k-caret"></span>
+                        <span class="min-k-caret"></span>
                     </i>
                 </button>
-                <div class="dropdown-font-size" style="overflow-y: auto; height:200px;">
+                <div class="min-dropdown-font-size" style="overflow-y: auto; height:200px;">
                     <div onclick="formatDoc('fontsize','1')">
                         <button class="min-reset-button">1</button>
                     </div>
@@ -947,14 +815,14 @@ var MinEditor = {
                 </div>
             </div>
         </div>
-        <div class="tool-icon" title="Align" id="talign">
+        <div class="min-tool-icon" title="Align" id="min-talign">
             <div>
-                <button class="tool-icon" type="button" id='button-align'>
+                <button class="min-tool-icon" type="button" id='button-align'>
                     <i class="fa fa-align-center" style='display:inline'>
-                        <span class="k-caret"></span>
+                        <span class="min-k-caret"></span>
                     </i>
                 </button>
-                <div class="dropdown-align">
+                <div class="min-dropdown-align">
                     <div onclick="formatDoc('justifyLeft')">
                         <button class="min-reset-button" title="Align left">
                             <i style='color:black' class="fa fa-align-left" aria-hidden="true"></i>
@@ -979,7 +847,7 @@ var MinEditor = {
             </div>
         </div>
 
-        <button class="tool-icon" title="Show More" id="show" onclick="showmore()">
+        <button class="min-tool-icon" title="Show More" id="show" onclick="showmore()">
 
             <i class="fa fa-plus" aria-hidden="true"></i>
 
@@ -987,59 +855,59 @@ var MinEditor = {
 
         <div id="sub-tools">
 
-            <button class="tool-icon" title="Ordered List" onclick="formatDoc('insertUnorderedList')">
+            <button class="min-tool-icon" title="Ordered List" onclick="formatDoc('insertUnorderedList')">
 
                 <i class='fa fa-list-ul'></i>
 
             </button>
-            <button class="tool-icon" title="Unordered List" onclick="formatDoc('insertOrderedList')">
+            <button class="min-tool-icon" title="Unordered List" onclick="formatDoc('insertOrderedList')">
 
                 <i class='fa fa-list-ol'></i>
 
             </button>
-            <button class="tool-icon" title="Decrease Indent (Ctrl+Z)" onclick="formatDoc('outdent')">
+            <button class="min-tool-icon" title="Decrease Indent (Ctrl+Z)" onclick="formatDoc('outdent')">
 
                 <i class='fa fa-outdent'></i>
 
             </button>
-            <button class="tool-icon" title="Increase Indent (Tab)" onclick="formatDoc('indent')">
+            <button class="min-tool-icon" title="Increase Indent (Tab)" onclick="formatDoc('indent')">
 
                 <i class='fa fa-indent'></i>
 
             </button>
-            <button class="tool-icon" title="Hide" onclick="showoff()">
+            <button class="min-tool-icon" title="Hide" onclick="showoff()">
 
                 <i class="fa fa-minus" aria-hidden="true"></i>
 
             </button>
         </div>
     </div>
-    <div id="shortTools" class="row">
-        <div class="tools shortTool">
+    <div id="min-shortTools" class="row">
+        <div class="min-tools min-shortTool">
 
-            <button id="myBtnImg" type="button" class="editor-button" style="display: flex; outline: none;">
+            <button id="myBtnImg" type="button" class="min-editor-button" style="display: flex; outline: none;">
                 <i class="fa fa-camera" aria-hidden="true"></i>
 
             </button>
 
         </div>
-        <div class="tools shortTool">
+        <div class="min-tools min-shortTool">
 
-            <button id="myBtnVid" type="button" class="editor-button" style="display: flex; outline: none; ">
+            <button id="myBtnVid" type="button" class="min-editor-button" style="display: flex; outline: none; ">
                 <i class="fa fa-video-camera" aria-hidden="true"></i>
 
 
             </button>
 
         </div>
-        <div class="tools shortTool">
-            <button id="myBtnLink" type="button" class="editor-button" style="display: flex; outline: none;">
+        <div class="min-tools min-shortTool">
+            <button id="myBtnLink" type="button" class="min-editor-button" style="display: flex; outline: none;">
                 <i class="fa fa-link" aria-hidden="true"></i>
             </button>
 
         </div>
-        <div class="tools shortTool">
-            <button id="showCode" type="button" class="editor-button" data-toggle="modal" style="display: flex; outline: none;">
+        <div class="min-tools min-shortTool">
+            <button id="showCode" type="button" class="min-editor-button" data-toggle="modal" style="display: flex; outline: none;">
                 <i class="fa fa-code" aria-hidden="true"></i>
 
 
@@ -1047,18 +915,18 @@ var MinEditor = {
             </button>
         </div>
     </div>
-    <div id="myModalImg" class="modal">
-        <div class="k-modal-content">
-            <div class="k-modal-header">
+    <div id="myModalImg" class="min-modal">
+        <div class="min-k-modal-content">
+            <div class="min-k-modal-header">
                 <button type="button" class="close k-close-modal" data-dismiss="modal">&times;</button>
                 <h3>Chèn ảnh</h3>
             </div>
-            <div class="k-modal-body">
+            <div class="min-k-modal-body">
                 <div style="border:solid 1px #dfdfdf; padding:10px;">
                     <input id="data-img" type="text" placeholder="URL" style=" outline:none; border:none; width:100%" />
                 </div>
             </div>
-            <div class="k-modal-footer">
+            <div class="min-k-modal-footer">
                 <div style="display:none;" id="percent" class="form-group">
                     <div style="height:20px;width:100%;margin:0 auto;" class="progress">
                         <div class="progress-bar progress-bar-success myprogress" role="progressbar" style="width:0%;font-size:10px;line-height:20px;background: green">0%</div>
@@ -1066,55 +934,55 @@ var MinEditor = {
                 </div>
                 <div style="display:flex;flex-direction:row-reverse">
                     <input onchange="uploadImg()" type="file" id="myFile" name="myFile" style="display:none">
-                    <button onclick='insertImg()' class="k-modal-button k-button-green">Ok</button>
-                    <button onclick="document.getElementById('myFile').click()" class="k-modal-button k-button-gray">Upload</button>
+                    <button onclick='insertImg()' class="min-k-modal-button min-k-button-green">Ok</button>
+                    <button onclick="document.getElementById('myFile').click()" class="min-k-modal-button min-k-button-gray">Upload</button>
                 </div>
             </div>
         </div>
     </div>
 
 
-    <div id="myModalVid" class="modal">
-        <div class="k-modal-content">
-            <div class="k-modal-header">
+    <div id="myModalVid" class="min-modal">
+        <div class="min-k-modal-content">
+            <div class="min-k-modal-header">
                 <button type="button" class="close k-close-modal" data-dismiss="modal">&times;</button>
                 <h3>Chèn Video</h3>
             </div>
-            <div class="k-modal-body">
+            <div class="min-k-modal-body">
                 <div style="border:solid 1px #dfdfdf; padding:10px;">
                     <input id="data-video" type="text" placeholder="URL" style=" outline:none; border:none; width:100%" />
                 </div>
             </div>
-            <div class="k-modal-footer">
+            <div class="min-k-modal-footer">
                 <div style="display:flex;flex-direction:row-reverse">
-                    <button onclick="insertVideo()" class="k-modal-button k-button-green">Ok</button>
+                    <button onclick="insertVideo()" class="min-k-modal-button min-k-button-green">Ok</button>
                 </div>
             </div>
         </div>
 
     </div>
 
-    <div id="myModalLink" class="modal">
-        <div class="k-modal-content">
-            <div class="k-modal-header">
+    <div id="myModalLink" class="min-modal">
+        <div class="min-k-modal-content">
+            <div class="min-k-modal-header">
                 <button type="button" class="close k-close-modal" data-dismiss="modal">&times;</button>
                 <h3>Chèn Link</h3>
             </div>
-            <div class="k-modal-body">
+            <div class="min-k-modal-body">
                 <div style="border:solid 1px #dfdfdf; padding:10px;">
                     <input id="data-link" type="text" placeholder="URL" style=" outline:none; border:none; width:100%" />
                 </div>
             </div>
-            <div class="k-modal-footer">
+            <div class="min-k-modal-footer">
                 <div style="display:flex;flex-direction:row-reverse">
-                    <button onclick="formatDoc('createLink')" class="k-modal-button k-button-green">Ok</button>
+                    <button onclick="formatDoc('createLink')" class="min-k-modal-button min-k-button-green">Ok</button>
                 </div>
             </div>
         </div>
 
     </div>
-    <div id="cal1">&nbsp;</div>
-    <div id="cal2">&nbsp;</div>
+    <div id="min-cal1">&nbsp;</div>
+    <div id="min-cal2">&nbsp;</div>
 </div>`;
 
 
@@ -1155,8 +1023,8 @@ var MinEditor = {
                 var data = document.getElementById('data-link').value;
                 document.execCommand(sCmd, true, data);
                 document.getElementById.value = "";
-                // $('#kee-tool').css('dislay', 'none');
-                document.getElementById('kee-tool').style.display = "none";
+                // $('#min-kee-tool').css('dislay', 'none');
+                document.getElementById('min-kee-tool').style.display = "none";
 
             } else if (sCmd === 'backcolor' || sCmd === 'forecolor') {
                 // console.log(1);
@@ -1168,11 +1036,11 @@ var MinEditor = {
                     alert('The command ' + sCmd + ' is not support your browser');
                     // console.log('hello');
                 } else {
-                    document.getElementsByClassName('dropdown-font-family')[0].style.display = "none";
-                    document.getElementsByClassName('dropdown-paragraph-format')[0].style.display = "none";
-                    document.getElementsByClassName('dropdown-color')[0].style.display = "none";
-                    document.getElementsByClassName('dropdown-font-size')[0].style.display = "none";
-                    document.getElementsByClassName('dropdown-align')[0].style.display = "none";
+                    document.getElementsByClassName('min-dropdown-font-family')[0].style.display = "none";
+                    document.getElementsByClassName('min-dropdown-paragraph-format')[0].style.display = "none";
+                    document.getElementsByClassName('min-dropdown-color')[0].style.display = "none";
+                    document.getElementsByClassName('min-dropdown-font-size')[0].style.display = "none";
+                    document.getElementsByClassName('min-dropdown-align')[0].style.display = "none";
                     ele.style.display = 'none';
                     // console.log(1);
                     document.execCommand(sCmd, false, sValue);
@@ -1187,7 +1055,7 @@ var MinEditor = {
 
         //Insert Images
         window.insertImg = function (img) {
-            elem = document.getElementById('editor-doc'); //This is the element that you want to move the caret to the end of
+            elem = document.getElementById('min-editor'); //This is the element that you want to move the caret to the end of
             setEndOfContenteditable(elem);
             var url = document.getElementById('data-img').value;
             var inputUrl = url;
@@ -1204,7 +1072,7 @@ var MinEditor = {
 
         //Insert Video
         window.insertVideo = function () {
-            elem = document.getElementById('editor-doc'); //This is the element that you want to move the caret to the end of
+            elem = document.getElementById('min-editor'); //This is the element that you want to move the caret to the end of
             setEndOfContenteditable(elem);
             sVideo = document.getElementById('data-video').value;
             var inputVideoURL = sVideo;
@@ -1215,22 +1083,22 @@ var MinEditor = {
             // console.log(check);
             if (inputVideoURL) {
                 if (check === "iframe") {
-                    sVideo = "<div class=\"video-responsive\">" + sVideo + "</div>";
+                    sVideo = "<div class=\"min-video-responsive\">" + sVideo + "</div>";
                     document.execCommand("insertHTML", false, sVideo);
                     document.getElementById('data-video').value = "";
                     setEndOfContenteditable(elem);
-                    document.getElementById('editor-doc').appendChild(document.createElement('br'));
+                    document.getElementById('min-editor').appendChild(document.createElement('br'));
                 } else {
                     var idVideo = sVideo.substr(32, sVideo.length - 1);
                     stringVideo = "https://www.youtube.com/embed/" + idVideo;
-                    var widthVideo = document.getElementById('editor-doc').offsetWidth;
+                    var widthVideo = document.getElementById('min-editor').offsetWidth;
                     var heightVideo = 0.5625 * widthVideo;
-                    sVideo = "<div class=\"video-responsive\"><iframe width=" + widthVideo + "\" height=" + heightVideo + " src=\"" + stringVideo + "\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\" __idm_id__=\"189403137\"></iframe></div>"
+                    sVideo = "<div class=\"min-video-responsive\"><iframe width=" + widthVideo + "\" height=" + heightVideo + " src=\"" + stringVideo + "\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\" __idm_id__=\"189403137\"></iframe></div>"
                     // console.log(sVideo);
                     document.execCommand("insertHTML", false, sVideo);
                     document.getElementById('data-video').value = "";
                     setEndOfContenteditable(elem);
-                    document.getElementById('editor-doc').appendChild(document.createElement('br'));
+                    document.getElementById('min-editor').appendChild(document.createElement('br'));
                 }
             }
         }
@@ -1238,7 +1106,7 @@ var MinEditor = {
         //Remove parent div of video
         window.addEventListener('keyup', function () {
             // var data = $('.embed-container').html();
-            var data = document.getElementsByClassName('video-responsive');
+            var data = document.getElementsByClassName('min-video-responsive');
             // console.log(data);
             for (let i = 0; i < data.length; i++) {
                 if (data[i].innerText === "\n") {
@@ -1256,7 +1124,7 @@ var MinEditor = {
 
 
         //Paste as plain text
-        var ed = document.querySelector("#editor-doc");
+        var ed = document.querySelector("#min-editor");
         // console.log(ed);
         ed.addEventListener("paste", function (e) {
             // console.log(1);
@@ -1269,15 +1137,15 @@ var MinEditor = {
 
         //Show code
         var flag = 1;
-        var data = document.getElementById('editor-doc'); 
+        var data = document.getElementById('min-editor'); 
         // console.log(data.innerHTML);
         // $('#showCode').click(function (e) {
         //     e.preventDefault();
         //     if (flag === 1) {
-        //         document.getElementById('editor-doc').innerText = data.innerHTML.trim();
+        //         document.getElementById('min-editor').innerText = data.innerHTML.trim();
         //         flag = 0;
         //     } else {
-        //         document.getElementById('editor-doc').innerHTML = data.innerText.trim();
+        //         document.getElementById('min-editor').innerHTML = data.innerText.trim();
         //         flag = 1;
         //     }
         // });
@@ -1285,10 +1153,10 @@ var MinEditor = {
         document.getElementById('showCode').addEventListener('click', function (e) {
             e.preventDefault();
             if (flag === 1) {
-                document.getElementById('editor-doc').innerText = data.innerHTML.trim();
+                document.getElementById('min-editor').innerText = data.innerHTML.trim();
                 flag = 0;
             } else {
-                document.getElementById('editor-doc').innerHTML = data.innerText.trim();
+                document.getElementById('min-editor').innerHTML = data.innerText.trim();
                 flag = 1;
             }
         })
@@ -1312,13 +1180,13 @@ var MinEditor = {
         }
 
         //Selection text
-        var ele = document.getElementById('kee-tool');
+        var ele = document.getElementById('min-kee-tool');
         var sel = window.getSelection();
         var rel1 = document.createRange();
-        rel1.selectNode(document.getElementById('cal1'));
+        rel1.selectNode(document.getElementById('min-cal1'));
         var rel2 = document.createRange();
-        rel2.selectNode(document.getElementById('cal2'));
-        document.getElementById('editor-doc').addEventListener('mouseup', function (event) {
+        rel2.selectNode(document.getElementById('min-cal2'));
+        document.getElementById('min-editor').addEventListener('mouseup', function (event) {
             event.stopPropagation();
             if (!sel.isCollapsed) {
                 //debugger;
@@ -1342,15 +1210,15 @@ var MinEditor = {
 
 
         // $('body').mousedown(function () {
-        //     $('#kee-tool').hover(function () {
+        //     $('#min-kee-tool').hover(function () {
         //         // over
 
         //     }, function () {
-        //         $('.dropdown-font-family').hide();
-        //         $('.dropdown-paragraph-format').hide();
-        //         $('.dropdown-color').hide();
-        //         $('.dropdown-font-size').hide();
-        //         $('.dropdown-align').hide();
+        //         $('.min-dropdown-font-family').hide();
+        //         $('.min-dropdown-paragraph-format').hide();
+        //         $('.min-dropdown-color').hide();
+        //         $('.min-dropdown-font-size').hide();
+        //         $('.min-dropdown-align').hide();
 
         //         ele.style.display = 'none';
         //     });
@@ -1359,14 +1227,14 @@ var MinEditor = {
         if (window.addEventListener) {
             document.getElementsByTagName('body')[0].addEventListener('click', function (e) {
                 e.preventDefault;
-                document.getElementById('kee-tool').addEventListener('mouseleave', function (e) {
+                document.getElementById('min-kee-tool').addEventListener('mouseleave', function (e) {
 
                     // e.preventDefault;
-                    document.getElementsByClassName('dropdown-font-family')[0].style.display = "none";
-                    document.getElementsByClassName('dropdown-paragraph-format')[0].style.display = "none";
-                    document.getElementsByClassName('dropdown-color')[0].style.display = "none";
-                    document.getElementsByClassName('dropdown-font-size')[0].style.display = "none";
-                    document.getElementsByClassName('dropdown-align')[0].style.display = "none";
+                    document.getElementsByClassName('min-dropdown-font-family')[0].style.display = "none";
+                    document.getElementsByClassName('min-dropdown-paragraph-format')[0].style.display = "none";
+                    document.getElementsByClassName('min-dropdown-color')[0].style.display = "none";
+                    document.getElementsByClassName('min-dropdown-font-size')[0].style.display = "none";
+                    document.getElementsByClassName('min-dropdown-align')[0].style.display = "none";
                     // console.log(1);
                     ele.style.display = 'none';
                 })
@@ -1374,12 +1242,12 @@ var MinEditor = {
         } else if (window.attachEvent) {
             document.getElementsByTagName('body').attachEvent('onclick', function (e) {
                 e.preventDefault;
-                document.getElementById('kee-tool').addEventListener('onmouseleave', function () {
-                    document.getElementsByClassName('dropdown-font-family')[0].style.display = "none";
-                    document.getElementsByClassName('dropdown-paragraph-format')[0].style.display = "none";
-                    document.getElementsByClassName('dropdown-color')[0].style.display = "none";
-                    document.getElementsByClassName('dropdown-font-size')[0].style.display = "none";
-                    document.getElementsByClassName('dropdown-align')[0].style.display = "none";
+                document.getElementById('min-kee-tool').addEventListener('onmouseleave', function () {
+                    document.getElementsByClassName('min-dropdown-font-family')[0].style.display = "none";
+                    document.getElementsByClassName('min-dropdown-paragraph-format')[0].style.display = "none";
+                    document.getElementsByClassName('min-dropdown-color')[0].style.display = "none";
+                    document.getElementsByClassName('min-dropdown-font-size')[0].style.display = "none";
+                    document.getElementsByClassName('min-dropdown-align')[0].style.display = "none";
                     // console.log(1);
                     ele.style.display = 'none';
                 })
@@ -1434,89 +1302,89 @@ var MinEditor = {
 
         // $(document).ready(function () {
         //     $("#sub-tools").hide();
-        //     $("#talign").hide();
+        //     $("#min-talign").hide();
         // });
 
         document.getElementById('sub-tools').style.display = 'none';
-        document.getElementById('talign').style.display = 'none';
+        document.getElementById('min-talign').style.display = 'none';
 
 
 
         window.showmore = function (event) {
-            document.getElementsByClassName('dropdown-font-family')[0].style.display = "none";
-            document.getElementsByClassName('dropdown-paragraph-format')[0].style.display = "none";
-            document.getElementsByClassName('dropdown-color')[0].style.display = "none";
-            document.getElementsByClassName('dropdown-font-size')[0].style.display = "none";
-            document.getElementsByClassName('dropdown-align')[0].style.display = "none";
+            document.getElementsByClassName('min-dropdown-font-family')[0].style.display = "none";
+            document.getElementsByClassName('min-dropdown-paragraph-format')[0].style.display = "none";
+            document.getElementsByClassName('min-dropdown-color')[0].style.display = "none";
+            document.getElementsByClassName('min-dropdown-font-size')[0].style.display = "none";
+            document.getElementsByClassName('min-dropdown-align')[0].style.display = "none";
 
 
             // console.log(1);
             // $("#sub-tools").show();
             // $("#show").hide();
-            // $("#talign").show();
+            // $("#min-talign").show();
             document.getElementById('sub-tools').style.display = "block";
-            document.getElementById('talign').style.display = "inline-block";
+            document.getElementById('min-talign').style.display = "inline-block";
             document.getElementById('show').style.display = "none";
 
         };
 
         window.showoff = function (event) {
-            document.getElementsByClassName('dropdown-font-family')[0].style.display = "none";
-            document.getElementsByClassName('dropdown-paragraph-format')[0].style.display = "none";
-            document.getElementsByClassName('dropdown-color')[0].style.display = "none";
-            document.getElementsByClassName('dropdown-font-size')[0].style.display = "none";
-            document.getElementsByClassName('dropdown-align')[0].style.display = "none";
+            document.getElementsByClassName('min-dropdown-font-family')[0].style.display = "none";
+            document.getElementsByClassName('min-dropdown-paragraph-format')[0].style.display = "none";
+            document.getElementsByClassName('min-dropdown-color')[0].style.display = "none";
+            document.getElementsByClassName('min-dropdown-font-size')[0].style.display = "none";
+            document.getElementsByClassName('min-dropdown-align')[0].style.display = "none";
 
             // console.log(1);
             // $("#sub-tools").show();
             // $("#show").hide();
-            // $("#talign").show();
+            // $("#min-talign").show();
             document.getElementById('sub-tools').style.display = "none";
-            document.getElementById('talign').style.display = "block";
+            document.getElementById('min-talign').style.display = "block";
             document.getElementById('show').style.display = "block";
         };
 
         // $(document).ready(function () {
-        //     $('#editor-doc').focus();
+        //     $('#min-editor').focus();
         // });
 
 
         // $(window).on('load', function () {
-        //     var elem = document.getElementById('editor-doc'); //This is the element that you want to move the caret to the end of
+        //     var elem = document.getElementById('min-editor'); //This is the element that you want to move the caret to the end of
         //     setEndOfContenteditable(elem); 
         // });
 
 
         // window.onload = function(){
-        //     var elem = document.getElementById('editor-doc'); //This is the element that you want to move the caret to the end of
+        //     var elem = document.getElementById('min-editor'); //This is the element that you want to move the caret to the end of
         //     setEndOfContenteditable(elem);
         // }
 
 
 
         //editor always has cursor if null data
-        // $('#editor-doc').keydown(function (e) {
+        // $('#min-editor').keydown(function (e) {
         //     // console.log(1);
-        //     var elem = document.getElementById('editor-doc');
-        //     var data = document.getElementById('editor-doc').innerText;
+        //     var elem = document.getElementById('min-editor');
+        //     var data = document.getElementById('min-editor').innerText;
         //     if (data === "\n") {
         //         setEndOfContenteditable(elem);
         //         console.log(1);
-        //         $('#editor-doc').hover(function () {
+        //         $('#min-editor').hover(function () {
         //             setEndOfContenteditable(elem);
         //         });
         //     }
         // });
-        document.getElementById('editor-doc').addEventListener('keydown', function () {
-            var elem = document.getElementById('editor-doc');
-            var data = document.getElementById('editor-doc').innerText;
+        document.getElementById('min-editor').addEventListener('keydown', function () {
+            var elem = document.getElementById('min-editor');
+            var data = document.getElementById('min-editor').innerText;
             if (data === "\n") {
                 setEndOfContenteditable(elem);
                 // console.log(1);
-                document.getElementById('editor-doc').addEventListener('mouseover', function () {
+                document.getElementById('min-editor').addEventListener('mouseover', function () {
                     setEndOfContenteditable(elem);
                 })
-                // $('#editor-doc').hover(function () {
+                // $('#min-editor').hover(function () {
                 //     setEndOfContenteditable(elem);
                 // });
             }
@@ -1544,14 +1412,14 @@ var MinEditor = {
         //     span.appendChild(document.createTextNode('\t'));
         //     span.style.whiteSpace = 'pre';
         //     range.insertNode(span);
-        //     // Move the k-caret immediately after the inserted span
+        //     // Move the min-k-caret immediately after the inserted span
         //     range.setStartAfter(span);
         //     range.collapse(true);
         //     sel.removeAllRanges();
         //     sel.addRange(range);
         // }
 
-        // $(document).on('keydown', '#editor-doc', function (e) {
+        // $(document).on('keydown', '#min-editor', function (e) {
         //     if (e.keyCode == 9) {
         //         // alert(1);
         //         insertTab();
@@ -1562,16 +1430,16 @@ var MinEditor = {
 
 
 
-        // $('#text-color a').click(function (e) {
+        // $('#min-text-color a').click(function (e) {
         //     e.preventDefault();
-        //     $('.dropdown-color').hide();
+        //     $('.min-dropdown-color').hide();
         // });
-        var eleColor = document.getElementsByClassName("dropdown-color")[0].querySelectorAll("a");
+        var eleColor = document.getElementsByClassName("min-dropdown-color")[0].querySelectorAll("a");
         for (let i = 0; i < eleColor.length; i++) {
             eleColor[i].addEventListener('click', function (e) {
                 e.preventDefault();
-                // $('.dropdown-color').hide();
-                document.getElementsByClassName('dropdown-color')[0].style.display = "";
+                // $('.min-dropdown-color').hide();
+                document.getElementsByClassName('min-dropdown-color')[0].style.display = "";
                 ele.style.display = 'none';
             })
         }
@@ -1652,7 +1520,7 @@ var MinEditor = {
         // });
 
         var close = document.getElementsByClassName('k-close-modal');
-        var accept = document.getElementsByClassName('k-button-green');
+        var accept = document.getElementsByClassName('min-k-button-green');
 
         for (let i = 0; i < close.length; i++) {
             close[i].addEventListener('click', function (e) {
@@ -1690,38 +1558,38 @@ var MinEditor = {
 
 
         window.backgroundColor = function () {
-            document.getElementById('text-color').style.display = "none";
-            document.getElementById('bg-color').style.display = "block";
+            document.getElementById('min-text-color').style.display = "none";
+            document.getElementById('min-bg-color').style.display = "block";
             
-            fadeIn(document.getElementById('bg-color'));
+            fadeIn(document.getElementById('min-bg-color'));
 
-            document.getElementById('text').style.border = "none";
-            document.getElementById('text').style.borderBottom = "0.7px solid gray";
-            document.getElementById('text').style.color = "gray";
+            document.getElementById('min-text').style.border = "none";
+            document.getElementById('min-text').style.borderBottom = "0.7px solid gray";
+            document.getElementById('min-text').style.color = "gray";
 
-            document.getElementById('background').style.border = "none";
-            document.getElementById('background').style.borderTop = "0.7px solid gray";
-            document.getElementById('background').style.borderRight = "0.7px solid gray";
-            document.getElementById('background').style.borderLeft = "0.7px solid gray";
-            document.getElementById('background').style.color = "black";
+            document.getElementById('min-background').style.border = "none";
+            document.getElementById('min-background').style.borderTop = "0.7px solid gray";
+            document.getElementById('min-background').style.borderRight = "0.7px solid gray";
+            document.getElementById('min-background').style.borderLeft = "0.7px solid gray";
+            document.getElementById('min-background').style.color = "black";
         }
 
 
         window.textColor = function () {
-            document.getElementById('bg-color').style.display = "none";
-            document.getElementById('text-color').style.display = "block";
+            document.getElementById('min-bg-color').style.display = "none";
+            document.getElementById('min-text-color').style.display = "block";
             
-            fadeIn(document.getElementById('text-color'));
+            fadeIn(document.getElementById('min-text-color'));
 
-            document.getElementById('background').style.border = "none";
-            document.getElementById('background').style.borderBottom = "0.7px solid gray";
-            document.getElementById('background').style.color = "black";
+            document.getElementById('min-background').style.border = "none";
+            document.getElementById('min-background').style.borderBottom = "0.7px solid gray";
+            document.getElementById('min-background').style.color = "black";
 
-            document.getElementById('text').style.border = "none";
-            document.getElementById('text').style.borderTop = "0.7px solid gray";
-            document.getElementById('text').style.borderRight = "0.7px solid gray";
-            document.getElementById('text').style.borderLeft = "0.7px solid gray";
-            document.getElementById('text').style.color = "gray";
+            document.getElementById('min-text').style.border = "none";
+            document.getElementById('min-text').style.borderTop = "0.7px solid gray";
+            document.getElementById('min-text').style.borderRight = "0.7px solid gray";
+            document.getElementById('min-text').style.borderLeft = "0.7px solid gray";
+            document.getElementById('min-text').style.color = "gray";
         }
 
 
@@ -1734,65 +1602,65 @@ var MinEditor = {
 
         document.getElementById('button-font-family').addEventListener('click', function () {
             // console.log(1);
-            if (getComputedStyle(document.getElementsByClassName('dropdown-font-family')[0])["display"] == "none") {
-                document.getElementsByClassName('dropdown-font-family')[0].style.display = "block";
+            if (getComputedStyle(document.getElementsByClassName('min-dropdown-font-family')[0])["display"] == "none") {
+                document.getElementsByClassName('min-dropdown-font-family')[0].style.display = "block";
             } else {
-                document.getElementsByClassName('dropdown-font-family')[0].style.display = "none";
+                document.getElementsByClassName('min-dropdown-font-family')[0].style.display = "none";
             }
-            document.getElementsByClassName('dropdown-paragraph-format')[0].style.display = "none";
-            document.getElementsByClassName('dropdown-color')[0].style.display = "none";
-            document.getElementsByClassName('dropdown-font-size')[0].style.display = "none";
-            document.getElementsByClassName('dropdown-align')[0].style.display = "none";
+            document.getElementsByClassName('min-dropdown-paragraph-format')[0].style.display = "none";
+            document.getElementsByClassName('min-dropdown-color')[0].style.display = "none";
+            document.getElementsByClassName('min-dropdown-font-size')[0].style.display = "none";
+            document.getElementsByClassName('min-dropdown-align')[0].style.display = "none";
         });
 
 
         document.getElementById('button-paragraph-format').addEventListener('click', function () {
-            document.getElementsByClassName('dropdown-font-family')[0].style.display = "none";
-            if (getComputedStyle(document.getElementsByClassName('dropdown-paragraph-format')[0])["display"] == "none") {
-                document.getElementsByClassName('dropdown-paragraph-format')[0].style.display = "block";
+            document.getElementsByClassName('min-dropdown-font-family')[0].style.display = "none";
+            if (getComputedStyle(document.getElementsByClassName('min-dropdown-paragraph-format')[0])["display"] == "none") {
+                document.getElementsByClassName('min-dropdown-paragraph-format')[0].style.display = "block";
             } else {
-                document.getElementsByClassName('dropdown-paragraph-format')[0].style.display = "none";
+                document.getElementsByClassName('min-dropdown-paragraph-format')[0].style.display = "none";
             }
-            document.getElementsByClassName('dropdown-color')[0].style.display = "none";
-            document.getElementsByClassName('dropdown-font-size')[0].style.display = "none";
-            document.getElementsByClassName('dropdown-align')[0].style.display = "none";
+            document.getElementsByClassName('min-dropdown-color')[0].style.display = "none";
+            document.getElementsByClassName('min-dropdown-font-size')[0].style.display = "none";
+            document.getElementsByClassName('min-dropdown-align')[0].style.display = "none";
         });
 
 
         document.getElementById('button-color').addEventListener('click', function () {
-            document.getElementsByClassName('dropdown-font-family')[0].style.display = "none";
-            document.getElementsByClassName('dropdown-paragraph-format')[0].style.display = "none";
-            if (getComputedStyle(document.getElementsByClassName('dropdown-color')[0])["display"] == "none") {
-                document.getElementsByClassName('dropdown-color')[0].style.display = "block";
+            document.getElementsByClassName('min-dropdown-font-family')[0].style.display = "none";
+            document.getElementsByClassName('min-dropdown-paragraph-format')[0].style.display = "none";
+            if (getComputedStyle(document.getElementsByClassName('min-dropdown-color')[0])["display"] == "none") {
+                document.getElementsByClassName('min-dropdown-color')[0].style.display = "block";
             } else {
-                document.getElementsByClassName('dropdown-color')[0].style.display = "none";
+                document.getElementsByClassName('min-dropdown-color')[0].style.display = "none";
             }
-            document.getElementsByClassName('dropdown-font-size')[0].style.display = "none";
-            document.getElementsByClassName('dropdown-align')[0].style.display = "none";
+            document.getElementsByClassName('min-dropdown-font-size')[0].style.display = "none";
+            document.getElementsByClassName('min-dropdown-align')[0].style.display = "none";
         });
 
         document.getElementById('button-font-size').addEventListener('click', function () {
-            document.getElementsByClassName('dropdown-font-family')[0].style.display = "none";
-            document.getElementsByClassName('dropdown-paragraph-format')[0].style.display = "none";
-            document.getElementsByClassName('dropdown-color')[0].style.display = "none";
-            if (getComputedStyle(document.getElementsByClassName('dropdown-font-size')[0])["display"] == "none") {
-                document.getElementsByClassName('dropdown-font-size')[0].style.display = "block";
+            document.getElementsByClassName('min-dropdown-font-family')[0].style.display = "none";
+            document.getElementsByClassName('min-dropdown-paragraph-format')[0].style.display = "none";
+            document.getElementsByClassName('min-dropdown-color')[0].style.display = "none";
+            if (getComputedStyle(document.getElementsByClassName('min-dropdown-font-size')[0])["display"] == "none") {
+                document.getElementsByClassName('min-dropdown-font-size')[0].style.display = "block";
             } else {
-                document.getElementsByClassName('dropdown-font-size')[0].style.display = "none";
+                document.getElementsByClassName('min-dropdown-font-size')[0].style.display = "none";
             }
-            document.getElementsByClassName('dropdown-align')[0].style.display = "none";
+            document.getElementsByClassName('min-dropdown-align')[0].style.display = "none";
         });
 
 
         document.getElementById('button-align').addEventListener('click', function () {
-            document.getElementsByClassName('dropdown-font-family')[0].style.display = "none";
-            document.getElementsByClassName('dropdown-paragraph-format')[0].style.display = "none";
-            document.getElementsByClassName('dropdown-color')[0].style.display = "none";
-            document.getElementsByClassName('dropdown-font-size')[0].style.display = "none";
-            if (getComputedStyle(document.getElementsByClassName('dropdown-align')[0])["display"] == "none") {
-                document.getElementsByClassName('dropdown-align')[0].style.display = "block";
+            document.getElementsByClassName('min-dropdown-font-family')[0].style.display = "none";
+            document.getElementsByClassName('min-dropdown-paragraph-format')[0].style.display = "none";
+            document.getElementsByClassName('min-dropdown-color')[0].style.display = "none";
+            document.getElementsByClassName('min-dropdown-font-size')[0].style.display = "none";
+            if (getComputedStyle(document.getElementsByClassName('min-dropdown-align')[0])["display"] == "none") {
+                document.getElementsByClassName('min-dropdown-align')[0].style.display = "block";
             } else {
-                document.getElementsByClassName('dropdown-align')[0].style.display = "none";
+                document.getElementsByClassName('min-dropdown-align')[0].style.display = "none";
             }
         });
 
@@ -1802,12 +1670,12 @@ var MinEditor = {
 
 
         //insert <p></p> if content null
-        var editable = document.getElementById('editor-doc');
+        var editable = document.getElementById('min-editor');
         editable.addEventListener('input', function () {
             // console.log(1);
-            var data = document.getElementById('editor-doc').innerHTML;
+            var data = document.getElementById('min-editor').innerHTML;
             if (data == "") {
-                document.getElementById('editor-doc').innerHTML = "<p><br/></p>"
+                document.getElementById('min-editor').innerHTML = "<p><br/></p>"
             }
         });
 
@@ -1847,7 +1715,7 @@ var MinEditor = {
                     modalImg.style.display = "none";
                     modalLink.style.display = "none";
                     // console.log(data);
-                    elem = document.getElementById('editor-doc'); //This is the element that you want to move the caret to the end of
+                    elem = document.getElementById('min-editor'); //This is the element that you want to move the caret to the end of
                     setEndOfContenteditable(elem);
                     var url = "<div><img src=\"" + data.link + "\" width=100% height=auto></div>";
                     // console.log(url);
@@ -1888,8 +1756,8 @@ var MinEditor = {
             //         modalLink.style.display = "none";
             //         console.log("success");
             //         // console.log(data);
-            //         var i = document.getElementById("editor-doc");
-            //         elem = document.getElementById('editor-doc'); //This is the element that you want to move the caret to the end of
+            //         var i = document.getElementById("min-editor");
+            //         elem = document.getElementById('min-editor'); //This is the element that you want to move the caret to the end of
             //         setEndOfContenteditable(elem);
             //         var url = "<div><img src=\"" + data.link + "\" width=100% height=auto></div>";
             //         // console.log(url);
@@ -1918,7 +1786,7 @@ var MinEditor = {
 
         window.restoreSelection = function () {
             isInFocus = true;
-            document.getElementById("editor-doc").focus();
+            document.getElementById("min-editor").focus();
             if (savedRange != null) {
                 if (window.getSelection) //non IE and there is already a selection
                 {
@@ -1955,7 +1823,7 @@ var MinEditor = {
             }
         }
 
-        var editable = document.getElementById('editor-doc');
+        var editable = document.getElementById('min-editor');
         var that = this;
         // console.log(this.getContent());
         // this.data = editable.innerHTML;
