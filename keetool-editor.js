@@ -1055,7 +1055,7 @@ var MinEditor = {
 
         //Insert Images
         window.insertImg = function (img) {
-            elem = document.getElementById('min-editor'); //This is the element that you want to move the caret to the end of
+            var elem = document.getElementById('min-editor'); //This is the element that you want to move the caret to the end of
             setEndOfContenteditable(elem);
             var url = document.getElementById('data-img').value;
             var inputUrl = url;
@@ -1072,7 +1072,7 @@ var MinEditor = {
 
         //Insert Video
         window.insertVideo = function () {
-            elem = document.getElementById('min-editor'); //This is the element that you want to move the caret to the end of
+            var elem = document.getElementById('min-editor'); //This is the element that you want to move the caret to the end of
             setEndOfContenteditable(elem);
             sVideo = document.getElementById('data-video').value;
             var inputVideoURL = sVideo;
@@ -1715,7 +1715,7 @@ var MinEditor = {
                     modalImg.style.display = "none";
                     modalLink.style.display = "none";
                     // console.log(data);
-                    elem = document.getElementById('min-editor'); //This is the element that you want to move the caret to the end of
+                    var elem = document.getElementById('min-editor'); //This is the element that you want to move the caret to the end of
                     setEndOfContenteditable(elem);
                     var url = "<div><img src=\"" + data.link + "\" width=100% height=auto></div>";
                     // console.log(url);
